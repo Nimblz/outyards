@@ -1,0 +1,79 @@
+{
+  "name": "outyards",
+  "tree": {
+    "$className": "DataModel",
+    "HttpService": {
+      "$className": "HttpService",
+      "$properties": {
+        "HttpEnabled": true
+      }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": {
+        "Technology": "Voxel",
+        "Ambient": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "GlobalShadows": true,
+        "Outlines": false,
+        "Brightness": 2.0
+      }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "server": {
+        "$path": "src/server"
+      }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "common": {
+        "$path": "src/common"
+      }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "client": {
+          "$path": "src/client"
+        }
+      }
+    },
+    "SoundService": {
+      "$className": "SoundService",
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": {
+        "FilteringEnabled": true
+      },
+      "Baseplate": {
+        "$className": "Part",
+        "$properties": {
+          "Anchored": true,
+          "Color": [
+            0.156, 0.498, 0.278
+          ],
+          "Position": [
+            0.0,
+            -10.0,
+            0.0
+          ],
+          "Locked": true,
+          "Size": [
+            512.0,
+            20.0,
+            512.0
+          ]
+        }
+      }
+    }
+  }
+}
