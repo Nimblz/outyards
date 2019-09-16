@@ -54,25 +54,8 @@
       "$properties": {
         "FilteringEnabled": true
       },
-      "Baseplate": {
-        "$className": "Part",
-        "$properties": {
-          "Anchored": true,
-          "Color": [
-            0.156, 0.498, 0.278
-          ],
-          "Position": [
-            0.0,
-            -10.0,
-            0.0
-          ],
-          "Locked": true,
-          "Size": [
-            512.0,
-            20.0,
-            512.0
-          ]
-        }
+      "world": {
+        "$path": "model/world.rbxmx"
       }
     }
   }
