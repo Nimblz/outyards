@@ -32,6 +32,26 @@
       "$className": "ReplicatedStorage",
       "common": {
         "$path": "src/common"
+      },
+      "lib": {
+        "Roact": {
+          "$path": "lib/roact/lib"
+        },
+        "Rodux": {
+          "$path": "lib/rodux/lib"
+        },
+        "RoactRodux": {
+          "$path": "lib/RoactRodux/lib"
+        },
+        "Signal": {
+          "$path": "lib/Signal/lib"
+        },
+        "RECS": {
+          "$path": "lib/recs/lib"
+        },
+        "PizzaAlpaca": {
+          "$path": "lib/pizzaalpaca/lib"
+        }
       }
     },
     "StarterPlayer": {
