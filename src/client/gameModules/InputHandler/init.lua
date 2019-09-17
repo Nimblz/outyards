@@ -10,6 +10,11 @@ local InputHandler = PizzaAlpaca.GameModule:extend("InputHandler")
 
 local createInputSpec = require(script:WaitForChild("createInputSpec"))
 
+local errors = {
+    invalidActionError = "Action [%s] does not exist.",
+    multipleSignalError = "Cannot create multiple signals for action [%s]. Did you accidentally define two?",
+}
+
 function InputHandler:create()
     self.actionSignals = {}
     self.actionBindings = {}
@@ -81,8 +86,7 @@ function InputHandler:createBindings(actionSpec)
 end
 
 function InputHandler:createActionSignal(name)
-    assert(not self.actionSignals[name],
-        "Cannot create multiple signals for action ["..name.."]. Did you accidentally define two?")
+    assert(not self.actionSignals[name], errors.multipleSignalError:format(name))
 
     local newSignal = Signal.new()
 
@@ -93,17 +97,24 @@ end
 function InputHandler:getActionSignal(name)
     local signal = self.actionSignals[name]
 
-    if not signal then warn("No signal for action: "..name) end
+    if not signal then warn(errors.invalidActionError:format(name)) end
     return signal
 end
 
 function InputHandler:fireActionSignal(name, input)
     local signal = self.actionSignals[name]
 
-    assert(signal, "No signal for action: "..name)
+    assert(signal, errors.invalidActionError:format(name))
 
     if self.core._debugPrints then
-        self.logger:log(("Action %s fired!"):format(name))
+        self.logger:log(("Action [%s] fired!"):format(name))
+        self.logger:log(
+            "Action payload:\n"..
+            "---- Position: "..tostring(input.Position).."\n"..
+            "---- Delta: "..tostring(input.Delta).."\n"..
+            "---- KeyCode: "..tostring(input.KeyCode).."\n"..
+            "---- Type-State: "..tostring(input.UserInputType).."-"..tostring(input.UserInputState).."\n"
+        )
     end
     signal:fire(input)
 end
