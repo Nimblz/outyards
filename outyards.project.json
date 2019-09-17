@@ -50,6 +50,9 @@
         "RECS": {
           "$path": "lib/recs/src"
         },
+        "t": {
+          "$path": "lib/t/lib"
+        },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
         }
