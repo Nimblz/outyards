@@ -12,14 +12,14 @@ local commonModules = common:WaitForChild("gameModules")
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 -- create PizzaAlpaca core instance
-local clientCore = PizzaAlpaca.GameCore.new()
-clientCore._debugPrints = true
+local core = PizzaAlpaca.GameCore.new()
+core._debugPrints = true
 
 -- load sided and common modules
-clientCore:registerChildrenAsModules(commonModules)
-clientCore:registerChildrenAsModules(sidedModules)
+core:registerChildrenAsModules(commonModules)
+core:registerChildrenAsModules(sidedModules)
 
 -- start the core
-clientCore:load()
+core:load()
 
 print("Loading complete! Thanks for playing outyards!~")
