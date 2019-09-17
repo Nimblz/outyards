@@ -1,3 +1,5 @@
+-- TODO: Genericize this module and replace with a common RECSContainer
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
@@ -13,12 +15,12 @@ local Steppers = require(script.Steppers)
 
 local createInjectorPlugin = require(recsPlugins:WaitForChild("createInjectorPlugin"))
 
-local RecsContainer = PizzaAlpaca.GameModule:extend("RecsContainer")
+local ServerRecsContainer = PizzaAlpaca.GameModule:extend("ServerRecsContainer")
 
-function RecsContainer:preInit()
+function ServerRecsContainer:preInit()
 end
 
-function RecsContainer:init()
+function ServerRecsContainer:init()
     self.recsCore = RECS.Core.new({
         RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
@@ -38,8 +40,8 @@ function RecsContainer:init()
     self.recsCore:start()
 end
 
-function RecsContainer:postInit()
+function ServerRecsContainer:postInit()
 end
 
 
-return RecsContainer
+return ServerRecsContainer
