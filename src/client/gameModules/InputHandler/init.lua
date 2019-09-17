@@ -15,6 +15,8 @@ local errors = {
     multipleSignalError = "Cannot create multiple signals for action [%s]. Did you accidentally define two?",
 }
 
+local INPUT_DEBUG_PRINTS = false
+
 function InputHandler:create()
     self.actionSignals = {}
     self.actionBindings = {}
@@ -106,7 +108,7 @@ function InputHandler:fireActionSignal(name, input)
 
     assert(signal, errors.invalidActionError:format(name))
 
-    if self.core._debugPrints then
+    if INPUT_DEBUG_PRINTS then
         self.logger:log(("Action [%s] fired!"):format(name))
         self.logger:log(
             "Action payload:\n"..
