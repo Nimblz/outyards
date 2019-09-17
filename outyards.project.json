@@ -47,7 +47,7 @@
           "$path": "lib/Signal/lib"
         },
         "RECS": {
-          "$path": "lib/recs/lib"
+          "$path": "lib/recs/src"
         },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
