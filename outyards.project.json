@@ -78,6 +78,12 @@
       "world": {
         "$path": "model/world.rbxmx"
       }
+    },
+    "ServerStorage": {
+      "$className": "ServerStorage",
+      "spawnZones": {
+        "$path": "model/spawnZones.rbxmx"
+      }
     }
   }
 }
