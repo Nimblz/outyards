@@ -54,10 +54,11 @@ function PrototypeAttack:onAttack()
     attackVis.Transparency = 0.75
     attackVis.Size = Vector3.new(1,1,1) * self.attackRadius*2
     attackVis.CFrame = targetCFrame
+    attackVis.Shape = Enum.PartType.Ball
 
     attackVis.Parent = workspace
 
-    delay(1,function()
+    delay(3/20,function()
         attackVis:Destroy()
     end)
 end
