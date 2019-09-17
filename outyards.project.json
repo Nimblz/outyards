@@ -34,8 +34,9 @@
         "$path": "src/common"
       },
       "lib": {
+        "$className": "Folder",
         "Roact": {
-          "$path": "lib/roact/lib"
+          "$path": "lib/roact/src"
         },
         "Rodux": {
           "$path": "lib/rodux/lib"
