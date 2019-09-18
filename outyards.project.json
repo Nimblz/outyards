@@ -55,6 +55,9 @@
         },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
+        },
+        "StateMachine": {
+          "$path": "lib/statemachine/statemachine.lua"
         }
       }
     },
@@ -86,6 +89,9 @@
       "$className": "ServerStorage",
       "spawnZones": {
         "$path": "model/spawnZones.rbxmx"
+      },
+      "TagList": {
+        "$path": "model/taglist.rbxmx"
       }
     }
   }
