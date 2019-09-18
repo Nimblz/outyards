@@ -16,3 +16,6 @@
 [submodule "lib/t"]
 	path = lib/t
 	url = https://github.com/osyrisrblx/t
+[submodule "lib/statemachine"]
+	path = lib/statemachine
+	url = https://github.com/kyleconroy/lua-state-machine.git
