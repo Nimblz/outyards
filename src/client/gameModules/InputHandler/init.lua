@@ -15,6 +15,12 @@ local errors = {
     multipleSignalError = "Cannot create multiple signals for action [%s]. Did you accidentally define two?",
 }
 
+local stateMap = {
+    [Enum.UserInputState.Begin] = "began",
+    [Enum.UserInputState.Change] = "changed",
+    [Enum.UserInputState.Cancel] = "canceled",
+}
+
 local INPUT_DEBUG_PRINTS = false
 
 function InputHandler:create()
@@ -53,20 +59,16 @@ function InputHandler:onInput(input, robloxProcessed)
 
     if robloxProcessed then return end
 
-    local inputState = input.UserInputState
     local inputType = input.UserInputType
     local keyCode = input.KeyCode
 
     for _, binding in pairs(self.actionBindings) do
         local inputDescription = binding.inputDescription
         local actionName = binding.actionName
-
-        local stateValid = inputState == inputDescription.state
         local typeValid = inputType == inputDescription.type
         local keyCodeValid = keyCode == inputDescription.keyCode or inputDescription.keyCode == nil
 
         if
-            stateValid and
             typeValid and
             keyCodeValid
         then
@@ -90,9 +92,15 @@ end
 function InputHandler:createActionSignal(name)
     assert(not self.actionSignals[name], errors.multipleSignalError:format(name))
 
-    local newSignal = Signal.new()
+    local beganSignal = Signal.new()
+    local changedSignal = Signal.new()
+    local endedSignal = Signal.new()
 
-    self.actionSignals[name] = newSignal
+    self.actionSignals[name] = {
+        began = beganSignal,
+        changed = changedSignal,
+        canceled = endedSignal,
+    }
 end
 
 -- Returns a signal object for the action name, returns nil and warns you if action does not exist
@@ -104,8 +112,9 @@ function InputHandler:getActionSignal(name)
 end
 
 function InputHandler:fireActionSignal(name, input)
-    local signal = self.actionSignals[name]
-
+    local signalRoot = self.actionSignals[name]
+    assert(signalRoot, errors.invalidActionError:format(name))
+    local signal = signalRoot[stateMap[input.UserInputState]]
     assert(signal, errors.invalidActionError:format(name))
 
     if INPUT_DEBUG_PRINTS then
@@ -115,7 +124,7 @@ function InputHandler:fireActionSignal(name, input)
             "---- Position: "..tostring(input.Position).."\n"..
             "---- Delta: "..tostring(input.Delta).."\n"..
             "---- KeyCode: "..tostring(input.KeyCode).."\n"..
-            "---- Type-State: "..tostring(input.UserInputType).."-"..tostring(input.UserInputState).."\n"
+            "---- Type - State: "..tostring(input.UserInputType).." - "..tostring(input.UserInputState).."\n"
         )
     end
     signal:fire(input)
