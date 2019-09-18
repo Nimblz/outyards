@@ -62,6 +62,9 @@
       },
       "template": {
         "$path": "model/templateGui.rbxmx"
+      },
+      "event": {
+        "$path": "model/event.rbxmx"
       }
     },
     "StarterPlayer": {
