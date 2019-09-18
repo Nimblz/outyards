@@ -14,6 +14,7 @@ local Systems = require(script.Systems)
 local Steppers = require(script.Steppers)
 
 local createInjectorPlugin = require(recsPlugins:WaitForChild("createInjectorPlugin"))
+local createComponentPropsOverridePlugin = require(recsPlugins:WaitForChild("createComponentPropsOverridePlugin"))
 
 local ServerRecsContainer = PizzaAlpaca.GameModule:extend("ServerRecsContainer")
 
@@ -24,6 +25,7 @@ function ServerRecsContainer:init()
     self.recsCore = RECS.Core.new({
         RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
+        createComponentPropsOverridePlugin(),
         createInjectorPlugin("getClientModule", function(_, name)
             return self.core:getModule(name)
         end),
