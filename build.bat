@@ -1,2 +1,2 @@
-IF NOT EXIST build (mkdir build)
-rojo build outyards.project.json -o build/outyards.rbxlx
+IF NOT EXIST bin (mkdir bin)
+rojo build outyards.project.json -o bin/outyards.rbxlx
