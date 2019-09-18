@@ -59,6 +59,9 @@
         "StateMachine": {
           "$path": "lib/statemachine/statemachine.lua"
         }
+      },
+      "template": {
+        "$path": "model/templateGui.rbxmx"
       }
     },
     "StarterPlayer": {
