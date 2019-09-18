@@ -2,17 +2,17 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="202">
+	<Item class="Folder" referent="215">
 		<Properties>
 			<string name="Name">world</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="204">
+		<Item class="Folder" referent="216">
 			<Properties>
 				<string name="Name">walls</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="205">
+			<Item class="Part" referent="217">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -86,8 +86,45 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
+				<Item class="Snap" referent="RBXD90E472ADC7A4670AF1F65F4A3F3A6CA">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>-64</Z>
+							<R00>0</R00>
+							<R01>1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">217</Ref>
+						<Ref name="Part1">218</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
 			</Item>
-			<Item class="Part" referent="206">
+			<Item class="Part" referent="218">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -161,15 +198,15 @@
 						<Z>240</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXA4A250082A0D45AC8EFFBA95B37D83F3">
+				<Item class="Snap" referent="219">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>24</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -193,12 +230,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">206</Ref>
-						<Ref name="Part1">205</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX6F7ECF11CEC344D0ACD3BCA46F48C512">
+				<Item class="Snap" referent="222">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>56</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXD25634BB3FD74974B3B435974A0189D0">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -230,13 +304,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">206</Ref>
-						<Ref name="Part1">232</Ref>
+						<Ref name="Part0">218</Ref>
+						<Ref name="Part1">301</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="207">
+			<Item class="Part" referent="224">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -310,15 +384,15 @@
 						<Z>240</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX53F3E06C1B32454397F01E1E4A39C243">
+				<Item class="Snap" referent="225">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>24</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -342,12 +416,86 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">207</Ref>
-						<Ref name="Part1">208</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX07E719D87B3B43BE9D2527FF37B152E7">
+				<Item class="Snap" referent="228">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>64</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="230">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>112</X>
+							<Y>-2</Y>
+							<Z>40</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX3EF7B28DF39F46B881CEE1D4A7691E10">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -379,12 +527,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">207</Ref>
-						<Ref name="Part1">235</Ref>
+						<Ref name="Part0">224</Ref>
+						<Ref name="Part1">304</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXEC6FA874AB514CBAAB27853EC88ED699">
+				<Item class="Snap" referent="RBX5C4D42FE51004EF2AB5492E4D0E61782">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>-0</R01>
+							<R02>-0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-48</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">224</Ref>
+						<Ref name="Part1">232</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX6ED95E24E09E43579D3E170B9689335E">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -416,13 +601,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">207</Ref>
-						<Ref name="Part1">234</Ref>
+						<Ref name="Part0">224</Ref>
+						<Ref name="Part1">303</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="208">
+			<Item class="Part" referent="232">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -497,7 +682,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="209">
+			<Item class="Part" referent="233">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -571,8 +756,45 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
+				<Item class="Snap" referent="RBX18958D2C0FB74AB79D4F89230C8CDE5C">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>-40</Z>
+							<R00>0</R00>
+							<R01>1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">233</Ref>
+						<Ref name="Part1">234</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
 			</Item>
-			<Item class="Part" referent="210">
+			<Item class="Part" referent="234">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -646,7 +868,81 @@
 						<Z>240</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXAA4B3BB4DFC743E69D378839B0541D92">
+				<Item class="Snap" referent="235">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>-88</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="237">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-40</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX2CA21DD665F24BFEAED30BFCBAF028E5">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -678,50 +974,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">210</Ref>
-						<Ref name="Part1">234</Ref>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="Snap" referent="RBXBEF973EF68304E598664E438C07CE508">
-					<Properties>
-						<CoordinateFrame name="C0">
-							<X>0</X>
-							<Y>24</Y>
-							<Z>0</Z>
-							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
-							<R10>0</R10>
-							<R11>0</R11>
-							<R12>1</R12>
-							<R20>0</R20>
-							<R21>1</R21>
-							<R22>0</R22>
-						</CoordinateFrame>
-						<CoordinateFrame name="C1">
-							<X>-40</X>
-							<Y>-2</Y>
-							<Z>0</Z>
-							<R00>0</R00>
-							<R01>-1</R01>
-							<R02>0</R02>
-							<R10>0</R10>
-							<R11>0</R11>
-							<R12>1</R12>
-							<R20>-1</R20>
-							<R21>0</R21>
-							<R22>0</R22>
-						</CoordinateFrame>
-						<bool name="IsAutoJoint">true</bool>
-						<string name="Name">Snap</string>
-						<Ref name="Part0">210</Ref>
-						<Ref name="Part1">209</Ref>
+						<Ref name="Part0">234</Ref>
+						<Ref name="Part1">303</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="211">
+			<Item class="Part" referent="239">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -795,15 +1054,15 @@
 						<Z>240</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX079ED41A066B4C1DA44B5EB27D54AA0B">
+				<Item class="Snap" referent="240">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>24</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -827,12 +1086,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">211</Ref>
-						<Ref name="Part1">212</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX168FC5F6CDD745BE995E65D992A9FBAE">
+				<Item class="Snap" referent="243">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-72</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX3958560198DB412DA2432F9E76E027FD">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -864,13 +1160,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">211</Ref>
-						<Ref name="Part1">231</Ref>
+						<Ref name="Part0">239</Ref>
+						<Ref name="Part1">300</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXCAFD054617EE44AF8A5F621F91279C7A">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>24</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>-0</R01>
+							<R02>-0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>48</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>0</R00>
+							<R01>-1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">239</Ref>
+						<Ref name="Part1">245</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="212">
+			<Item class="Part" referent="245">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -945,7 +1278,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="213">
+			<Item class="Part" referent="246">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1019,7 +1352,81 @@
 						<Z>80</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXB8FCF4FF527E4A9280F0FC2C81D99939">
+				<Item class="Snap" referent="247">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-32</X>
+							<Y>10</Y>
+							<Z>-32</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="250">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXEFF536DD1DBC4B45A39D276570D55F82">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1051,12 +1458,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">213</Ref>
-						<Ref name="Part1">240</Ref>
+						<Ref name="Part0">246</Ref>
+						<Ref name="Part1">557</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX9342EACBE0494958BC3E75C05E3FB479">
+				<Item class="Snap" referent="RBXA628EB4F88DD49A680E47758AAED5004">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-32</X>
+							<Y>10</Y>
+							<Z>12</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">246</Ref>
+						<Ref name="Part1">535</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXD9FB0C094F3345E18E90321EB7EFF6F2">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1088,13 +1532,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">213</Ref>
-						<Ref name="Part1">221</Ref>
+						<Ref name="Part0">246</Ref>
+						<Ref name="Part1">285</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX5BC0A7C0AE274D399B936D4EF634FB6E">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>44</X>
+							<Y>10</Y>
+							<Z>-4</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">246</Ref>
+						<Ref name="Part1">541</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="214">
+			<Item class="Part" referent="252">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1168,7 +1649,118 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXA7888ED3CB6B40609A5EC5BB9D30E1E0">
+				<Item class="Snap" referent="253">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-48</X>
+							<Y>10</Y>
+							<Z>16</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="255">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX908B9B1A6DC448F889AF42239BB9CB1B">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-4</X>
+							<Y>10</Y>
+							<Z>-68</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">252</Ref>
+						<Ref name="Part1">546</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX1C4DC7CBCB0D434EA125118FA9A5FC94">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1200,12 +1792,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">214</Ref>
-						<Ref name="Part1">240</Ref>
+						<Ref name="Part0">252</Ref>
+						<Ref name="Part1">557</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXCED6AA80A6E846B7B34368C4E0BDDE73">
+				<Item class="Snap" referent="RBX7443B646AE164BF9A32A8223E0A8C189">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>28</X>
+							<Y>10</Y>
+							<Z>44</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">252</Ref>
+						<Ref name="Part1">541</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXDD6DC0AD6081407EAA410D2ED93C0752">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1237,13 +1866,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">214</Ref>
-						<Ref name="Part1">228</Ref>
+						<Ref name="Part0">252</Ref>
+						<Ref name="Part1">296</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="215">
+			<Item class="Part" referent="257">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1317,7 +1946,81 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX80D165746C174A31B3A0D16D2D4AEC38">
+				<Item class="Snap" referent="258">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>16</X>
+							<Y>-2</Y>
+							<Z>-24</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="261">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-16</X>
+							<Y>10</Y>
+							<Z>-16</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX16ABCC59D5CE4FF98A7FF567A8DA5F91">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1349,12 +2052,12 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">215</Ref>
-						<Ref name="Part1">222</Ref>
+						<Ref name="Part0">257</Ref>
+						<Ref name="Part1">286</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXD0C7FA8C70D84B29AF3CECCDC2597068">
+				<Item class="Snap" referent="RBXA5F614E63C694A23A5E596B20D60BEBA">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1386,13 +2089,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">215</Ref>
-						<Ref name="Part1">240</Ref>
+						<Ref name="Part0">257</Ref>
+						<Ref name="Part1">557</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX88AE8CC7A58B4CB3A0ECC0D40D0641E1">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-16</X>
+							<Y>10</Y>
+							<Z>28</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">257</Ref>
+						<Ref name="Part1">535</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="216">
+			<Item class="Part" referent="262">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1466,7 +2206,118 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX03E1C411563E48828F892E15EA1CD565">
+				<Item class="Snap" referent="263">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXD472C6A668334FE0BFA9E8F335A5C574">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-60</X>
+							<Y>10</Y>
+							<Z>-68</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">262</Ref>
+						<Ref name="Part1">546</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXA2A92F66161749118A2054837A83E894">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-28</X>
+							<Y>10</Y>
+							<Z>44</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">262</Ref>
+						<Ref name="Part1">541</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXF35E03E4AA85439DB4BFE0CC27781F48">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1498,13 +2349,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">216</Ref>
-						<Ref name="Part1">227</Ref>
+						<Ref name="Part0">262</Ref>
+						<Ref name="Part1">295</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="217">
+			<Item class="Part" referent="266">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1578,7 +2429,192 @@
 						<Z>48</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX3B3B2EBDA0E94B969B5EA03A93704E75">
+				<Item class="Snap" referent="267">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>8</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="270">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>-16</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXA68C0CEBC0564C1FB10316A4265D1166">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>76</X>
+							<Y>10</Y>
+							<Z>-4</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">266</Ref>
+						<Ref name="Part1">546</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX00F001FACC3F481C8AA2AA7EC221E2CE">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-36</X>
+							<Y>10</Y>
+							<Z>76</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">266</Ref>
+						<Ref name="Part1">552</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXAF38C9F66B7E4289AF6198A4F00E97C5">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-36</X>
+							<Y>10</Y>
+							<Z>-36</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">266</Ref>
+						<Ref name="Part1">558</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX75774875927C4E138A3C7F63EDA394F3">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1610,12 +2646,12 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">217</Ref>
-						<Ref name="Part1">224</Ref>
+						<Ref name="Part0">266</Ref>
+						<Ref name="Part1">292</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXC6C0FC0DF4AF497898BA1991E36050A9">
+				<Item class="Snap" referent="RBX2457FF727C5F49658C95FFC4CA061400">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1647,13 +2683,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">217</Ref>
-						<Ref name="Part1">233</Ref>
+						<Ref name="Part0">266</Ref>
+						<Ref name="Part1">302</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="218">
+			<Item class="Part" referent="272">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1727,7 +2763,118 @@
 						<Z>64</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXA6AFC168CC664C519001784942FE677A">
+				<Item class="Snap" referent="273">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="276">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>32</X>
+							<Y>10</Y>
+							<Z>-40</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX482E85346E39464D83AA9193717F3812">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-36</X>
+							<Y>10</Y>
+							<Z>-44</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">272</Ref>
+						<Ref name="Part1">552</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX9FE5094F5F414577ADECC260072BA963">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1759,12 +2906,12 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">218</Ref>
-						<Ref name="Part1">223</Ref>
+						<Ref name="Part0">272</Ref>
+						<Ref name="Part1">291</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXA0158666644B4C81B20F8AD172811C7E">
+				<Item class="Snap" referent="RBX57B1AF03C1EF4743981478BDC87BC626">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1796,13 +2943,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">218</Ref>
-						<Ref name="Part1">240</Ref>
+						<Ref name="Part0">272</Ref>
+						<Ref name="Part1">557</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX29994A45638B43B8BCAF105FE7981FFE">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>32</X>
+							<Y>10</Y>
+							<Z>4</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">272</Ref>
+						<Ref name="Part1">535</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="219">
+			<Item class="Part" referent="277">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1876,7 +3060,44 @@
 						<Z>64</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXF57B1D45DAB24A9EB806806FF3A2B476">
+				<Item class="Snap" referent="278">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXA05F2464FE9148D689F85F51DCEC3C1E">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -1908,13 +3129,87 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">219</Ref>
-						<Ref name="Part1">225</Ref>
+						<Ref name="Part0">277</Ref>
+						<Ref name="Part1">293</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX60D7B088D33848E1861667F9046DB76F">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>4</X>
+							<Y>10</Y>
+							<Z>76</Z>
+							<R00>0</R00>
+							<R01>1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">277</Ref>
+						<Ref name="Part1">552</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX8DD93D6EA3644B7599EDF27CD655CC15">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>4</X>
+							<Y>10</Y>
+							<Z>-36</Z>
+							<R00>0</R00>
+							<R01>1</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>-1</R20>
+							<R21>0</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">277</Ref>
+						<Ref name="Part1">558</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="220">
+			<Item class="Part" referent="281">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -1988,7 +3283,118 @@
 						<Z>32</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX5ABFF33F8F5B4C7C8924FC3D5CCEA8EE">
+				<Item class="Snap" referent="282">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>14</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX07919F6A169944AABFBE3A862916DEBA">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>76</X>
+							<Y>10</Y>
+							<Z>52</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">281</Ref>
+						<Ref name="Part1">546</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX5C9AC3AF0CE9455394CF5C2F5929FB9D">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>-36</X>
+							<Y>10</Y>
+							<Z>20</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">281</Ref>
+						<Ref name="Part1">558</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX403D44A24B0D4B2BA2FF0E3163004D1F">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2020,13 +3426,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">220</Ref>
-						<Ref name="Part1">226</Ref>
+						<Ref name="Part0">281</Ref>
+						<Ref name="Part1">294</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="221">
+			<Item class="Part" referent="285">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2101,7 +3507,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="222">
+			<Item class="Part" referent="286">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2175,7 +3581,7 @@
 						<Z>64</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX690ACFA9784D4F5D813130686B7252C2">
+				<Item class="Snap" referent="287">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2184,8 +3590,8 @@
 							<R00>1</R00>
 							<R01>0</R01>
 							<R02>0</R02>
-							<R10>-0</R10>
-							<R11>-0</R11>
+							<R10>0</R10>
+							<R11>0</R11>
 							<R12>-1</R12>
 							<R20>0</R20>
 							<R21>1</R21>
@@ -2207,12 +3613,49 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">222</Ref>
-						<Ref name="Part1">230</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXAFB172B06FEB4DCA9C761DB28319171F">
+				<Item class="Snap" referent="289">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>16</X>
+							<Y>14</Y>
+							<Z>24</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXC9B8CABD98AC4FBD8542B16654B6C5F8">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2244,13 +3687,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">222</Ref>
-						<Ref name="Part1">229</Ref>
+						<Ref name="Part0">286</Ref>
+						<Ref name="Part1">297</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXB89401ECD726427E8008FB47A6E9A580">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-2</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>0</X>
+							<Y>6</Y>
+							<Z>24</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">286</Ref>
+						<Ref name="Part1">299</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="223">
+			<Item class="Part" referent="291">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2325,7 +3805,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="224">
+			<Item class="Part" referent="292">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2400,7 +3880,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="225">
+			<Item class="Part" referent="293">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2475,7 +3955,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="226">
+			<Item class="Part" referent="294">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2550,7 +4030,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="227">
+			<Item class="Part" referent="295">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2625,7 +4105,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="228">
+			<Item class="Part" referent="296">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2700,7 +4180,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="229">
+			<Item class="Part" referent="297">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2774,7 +4254,44 @@
 						<Z>16</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXC4A0E5CA6E7E4685812DB0D751B63762">
+				<Item class="Snap" referent="298">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>16</X>
+							<Y>10</Y>
+							<Z>-16</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBX869B0785CE624271807E344179F1F9ED">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
@@ -2806,13 +4323,50 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">229</Ref>
-						<Ref name="Part1">240</Ref>
+						<Ref name="Part0">297</Ref>
+						<Ref name="Part1">557</Ref>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="Snap" referent="RBXB6582E31853342E681F1A2DBB541AFC3">
+					<Properties>
+						<CoordinateFrame name="C0">
+							<X>0</X>
+							<Y>-14</Y>
+							<Z>0</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>-0</R10>
+							<R11>-0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<CoordinateFrame name="C1">
+							<X>16</X>
+							<Y>10</Y>
+							<Z>28</Z>
+							<R00>-1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>0</R11>
+							<R12>-1</R12>
+							<R20>0</R20>
+							<R21>-1</R21>
+							<R22>0</R22>
+						</CoordinateFrame>
+						<bool name="IsAutoJoint">true</bool>
+						<string name="Name">Snap</string>
+						<Ref name="Part0">297</Ref>
+						<Ref name="Part1">535</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="230">
+			<Item class="Part" referent="299">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2887,7 +4441,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="231">
+			<Item class="Part" referent="300">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -2962,7 +4516,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="232">
+			<Item class="Part" referent="301">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -3037,7 +4591,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="233">
+			<Item class="Part" referent="302">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -3112,7 +4666,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="234">
+			<Item class="Part" referent="303">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -3187,7 +4741,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="235">
+			<Item class="Part" referent="304">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -3263,12 +4817,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX95C41A2ED15A4B9C84F54342F2BFD425">
+		<Item class="Folder" referent="305">
 			<Properties>
 				<string name="Name">cactuses</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBX9B1FF66FF14543E0AE354337C70627F3">
+			<Item class="Model" referent="306">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -3288,9 +4842,9 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX73DC64A124344FA3988707C50D2A656B">
+				<Item class="Part" referent="307">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3363,9 +4917,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXFA739E1FFDDA447E97668BB1EAC2F369">
+				<Item class="Part" referent="308">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3438,9 +4992,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXF37151FE0ACB4A7D8358C38238B7BD2F">
+				<Item class="Part" referent="309">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3513,9 +5067,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXD6B034F22A33466CBFADF4D852AC265E">
+				<Item class="Part" referent="310">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3588,9 +5142,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX7CEC2EA658C34CB3AB9A57C13CD3C92E">
+				<Item class="Part" referent="311">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3664,7 +5218,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX32B40A53C9634EB9BA28AF2E3EC66723">
+			<Item class="Model" referent="312">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -3684,9 +5238,9 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBXF62E9446BD8E45869CC76AD3EB4FEE60">
+				<Item class="Part" referent="313">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3759,9 +5313,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXF780286D3CBC48F3871272F76A88861C">
+				<Item class="Part" referent="314">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3834,9 +5388,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX2A6E820662D7435D8D945B1577B2B793">
+				<Item class="Part" referent="315">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3909,9 +5463,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX02945ECD86AD4FBAA17E0EBDC2199E9A">
+				<Item class="Part" referent="316">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -3984,9 +5538,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX11E8E780B3284E69976A9E02107406E6">
+				<Item class="Part" referent="317">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4060,7 +5614,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX4BA5C2C22D804C0F8D0C77E96AD993E8">
+			<Item class="Model" referent="318">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -4080,9 +5634,9 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBXE6C2A2AECC98409A811A6707AF7F73B0">
+				<Item class="Part" referent="319">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4155,9 +5709,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX6D6CC7C7D16847929E1CDBE8B9B2E26C">
+				<Item class="Part" referent="320">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4230,9 +5784,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX341D6730577E455985839B1710BC0143">
+				<Item class="Part" referent="321">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4305,9 +5859,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXC90415386775424C95594B5BE1BC65CD">
+				<Item class="Part" referent="322">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4380,9 +5934,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBXEDD7256B12564E57915E20FF72E210B1">
+				<Item class="Part" referent="323">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4456,7 +6010,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX96C786F1D22043D487C3BC7F525D9058">
+			<Item class="Model" referent="324">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -4476,9 +6030,9 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX27B74078F6974E95844771888296C535">
+				<Item class="Part" referent="325">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4551,9 +6105,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX7E52231A4FA04D008CFB234D95B9513F">
+				<Item class="Part" referent="326">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4626,9 +6180,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX5BCE8B9A0063498AB8D5A43CF43C5244">
+				<Item class="Part" referent="327">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4701,9 +6255,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX1A0E9F4DA4474C9F93C95D1A110A41B4">
+				<Item class="Part" referent="328">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4776,9 +6330,9 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="Part" referent="RBX55E57BB261094069A0BB9FB4B13284E6">
+				<Item class="Part" referent="329">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -4853,12 +6407,12 @@
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX1BB6DBA45F454BD2A7DA95E208A54E5E">
+		<Item class="Folder" referent="330">
 			<Properties>
 				<string name="Name">trees</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBX0B2C3240B2344A82AC059ADA8F58B06C">
+			<Item class="Model" referent="331">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -4878,7 +6432,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXC9D1EB79ACC9455EBE2F6BDF221A49CE">
+				<Item class="Model" referent="332">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -4898,9 +6452,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXB4DC19DA59E44C9D90AEECE0120198C4">
+					<Item class="CornerWedgePart" referent="333">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -4971,9 +6525,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX0A2F72B5BA2146C89BEFA48655FF7AB6">
+					<Item class="CornerWedgePart" referent="334">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5044,9 +6598,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB4426B95EBAE4BB7B48459756136A2AD">
+					<Item class="CornerWedgePart" referent="335">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5117,9 +6671,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXE94BF753F90A403E827CBB8D5D9A9F28">
+					<Item class="CornerWedgePart" referent="336">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5191,9 +6745,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXB63BA749428D40659F294CFB6F21AC85">
+				<Item class="Part" referent="337">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -5267,7 +6821,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXBE7211AC8EA24E30B1B1991B9DC16FE5">
+			<Item class="Model" referent="338">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -5287,7 +6841,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX8DDDCFA195094495A00B39E204A09F88">
+				<Item class="Model" referent="339">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -5307,9 +6861,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX1C8C026102C34E1899C59EBEAF153DF2">
+					<Item class="CornerWedgePart" referent="340">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5380,9 +6934,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX905094C85611432A9AFDB22E57E52CEB">
+					<Item class="CornerWedgePart" referent="341">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5453,9 +7007,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXC1EA3BA97E6C49EC91EB9903B497B3CB">
+					<Item class="CornerWedgePart" referent="342">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5526,9 +7080,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXE2C5A1DEFBBE48CBBEB867FEBFE9ADA8">
+					<Item class="CornerWedgePart" referent="343">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5600,9 +7154,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXC4116145944846A1AF6C74155BC0222A">
+				<Item class="Part" referent="344">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -5676,7 +7230,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXC3D01E363B2B4DDF8F936BFE048B68A2">
+			<Item class="Model" referent="345">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -5696,7 +7250,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXA017130BBA5E445BA9B5E5811E33CE69">
+				<Item class="Model" referent="346">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -5716,9 +7270,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXC54187D9384D49CEA3112E661BEC6E5F">
+					<Item class="CornerWedgePart" referent="347">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5789,9 +7343,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX98B3791A5F694F958341486C3AEBABD0">
+					<Item class="CornerWedgePart" referent="348">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5862,9 +7416,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX435B58F8DB264ACCB2F7B1CDD8E627E2">
+					<Item class="CornerWedgePart" referent="349">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -5935,9 +7489,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX10F8C202ACCD457C96A2D80F99E2E163">
+					<Item class="CornerWedgePart" referent="350">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6009,9 +7563,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXAB107ACF997A498FA7356D0BB53D192D">
+				<Item class="Part" referent="351">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -6085,7 +7639,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX73289BB320A14D28BB88A36C8FF1A0BB">
+			<Item class="Model" referent="352">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -6105,7 +7659,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX3EE736439620489FAD7773A9FA8FAA97">
+				<Item class="Model" referent="353">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -6125,9 +7679,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXEE48FA8AF87A4C80ADD07160BF91414F">
+					<Item class="CornerWedgePart" referent="354">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6198,9 +7752,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX13085622196C428DBD667E2AFB563AC1">
+					<Item class="CornerWedgePart" referent="355">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6271,9 +7825,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXA192C958F85749EE85DF54094CC66AA8">
+					<Item class="CornerWedgePart" referent="356">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6344,9 +7898,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXC04F4D2A01C84EC6920B8A6786C163B9">
+					<Item class="CornerWedgePart" referent="357">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6418,9 +7972,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX7505003BAF7D4C54BE76ECCE5A8270BD">
+				<Item class="Part" referent="358">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -6494,7 +8048,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX949E048212E14740B75907AE4945D3EF">
+			<Item class="Model" referent="359">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -6514,7 +8068,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX03970B0BF2984573B7C17C004800B92F">
+				<Item class="Model" referent="360">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -6534,9 +8088,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX9CC7AE1125A04ABE9BE7DBE1F2F2A571">
+					<Item class="CornerWedgePart" referent="361">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6607,9 +8161,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX41614289C7C1451792738ABCB7A23F13">
+					<Item class="CornerWedgePart" referent="362">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6680,9 +8234,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX3070E26FB0514C0389E43C05AF3684B4">
+					<Item class="CornerWedgePart" referent="363">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6753,9 +8307,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX6D1EE2F9E8F041B39C2C47490B294F45">
+					<Item class="CornerWedgePart" referent="364">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -6827,9 +8381,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXDD4B7D8E2DB841A7B844B05E96C216A5">
+				<Item class="Part" referent="365">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -6903,7 +8457,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX9A7A5D524EE9492D913A3B72333E4A46">
+			<Item class="Model" referent="366">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -6923,7 +8477,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX465B872ACFC54C539542F82DE83A26B7">
+				<Item class="Model" referent="367">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -6943,9 +8497,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX48639B0B830C4444A939C779D49199F1">
+					<Item class="CornerWedgePart" referent="368">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7016,9 +8570,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX5BC9180964C7464388296DE4A50CF008">
+					<Item class="CornerWedgePart" referent="369">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7089,9 +8643,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX9EFF7609CB5B4FE0B1AD7CCFD0692FAA">
+					<Item class="CornerWedgePart" referent="370">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7162,9 +8716,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXEE028D4D01CB4451AE0403305ABBF131">
+					<Item class="CornerWedgePart" referent="371">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7236,9 +8790,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXC2C5C72F1FF64DFFB6387AE189D031A9">
+				<Item class="Part" referent="372">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -7312,7 +8866,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXBABEC749B37E49CCB48F3CE19EB23E96">
+			<Item class="Model" referent="373">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -7332,7 +8886,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX4737305FF43444A2A9F3728B5A318052">
+				<Item class="Model" referent="374">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -7352,9 +8906,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX3200B77846B94E4AA4D2931457AF9938">
+					<Item class="CornerWedgePart" referent="375">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7425,9 +8979,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX69BDBED6F7E94400BB4FFEC40B0D2C87">
+					<Item class="CornerWedgePart" referent="376">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7498,9 +9052,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX1DD11D676A8A4B00B8293171FC975835">
+					<Item class="CornerWedgePart" referent="377">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7571,9 +9125,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXFE3DB58B19404376A27BA384D68F4A20">
+					<Item class="CornerWedgePart" referent="378">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7645,9 +9199,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX9B93A236937B4CCDA503DB95267AD114">
+				<Item class="Part" referent="379">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -7721,7 +9275,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX31BB0124CBE24E4883AC0EDCD4A1D695">
+			<Item class="Model" referent="380">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -7741,7 +9295,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX4F80040A7FD84B588F6A5DF888110F0F">
+				<Item class="Model" referent="381">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -7761,9 +9315,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX65B97D42602A455882BE567CB7736320">
+					<Item class="CornerWedgePart" referent="382">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7834,9 +9388,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX431D8D68EBEF4E5B98BF7D2047DCB357">
+					<Item class="CornerWedgePart" referent="383">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7907,9 +9461,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX00927D75761E47A8A378526C15CB3A13">
+					<Item class="CornerWedgePart" referent="384">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -7980,9 +9534,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX35F6CB1275F94427A72CC63F0B8FFE24">
+					<Item class="CornerWedgePart" referent="385">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8054,9 +9608,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX22B1C881B3F74940BCAD9F45E0806131">
+				<Item class="Part" referent="386">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -8130,7 +9684,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX96A1ACFFEFC347719964426DF9999A5F">
+			<Item class="Model" referent="387">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -8150,7 +9704,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX2952FC4D6084413A99F09A36165624C4">
+				<Item class="Model" referent="388">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -8170,9 +9724,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXD9E9FECB67C84A9B803B93855DBE1CC7">
+					<Item class="CornerWedgePart" referent="389">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8243,9 +9797,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX7D0E407CDBA949CC80B78FDB15078680">
+					<Item class="CornerWedgePart" referent="390">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8316,9 +9870,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB4E1E58A7BF44F8586E75A864793AD59">
+					<Item class="CornerWedgePart" referent="391">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8389,9 +9943,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB2D84BA7B2EC4AABB783E6D6D373B2D1">
+					<Item class="CornerWedgePart" referent="392">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8463,9 +10017,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXD08A9B9F09E3494787AB130A10639569">
+				<Item class="Part" referent="393">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -8539,7 +10093,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXA2877FFE1A9F45AABFAF686CB41E7EA1">
+			<Item class="Model" referent="394">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -8559,7 +10113,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX1AB19F64AE4C40709B74621720F0D901">
+				<Item class="Model" referent="395">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -8579,9 +10133,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXF7CD900B29B84C6792E1015F132C020B">
+					<Item class="CornerWedgePart" referent="396">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8652,9 +10206,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX63B63773745341B59EAA585C18C26FBD">
+					<Item class="CornerWedgePart" referent="397">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8725,9 +10279,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX103AD30A31644D9EBEDDD1752D82812F">
+					<Item class="CornerWedgePart" referent="398">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8798,9 +10352,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD7164991D0854C71B97DB489D52C105D">
+					<Item class="CornerWedgePart" referent="399">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -8872,9 +10426,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXB1E84267D7704EAB8DA9B8A946793DA2">
+				<Item class="Part" referent="400">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -8948,7 +10502,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX6B4A232165A648859EAE2BE8D2D470A2">
+			<Item class="Model" referent="401">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -8968,7 +10522,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX1CDA457E120F47B1B180E1EE0D90CFAD">
+				<Item class="Model" referent="402">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -8988,9 +10542,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX0E139C3D8FAC4B2F9F3B02295045B02B">
+					<Item class="CornerWedgePart" referent="403">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9061,9 +10615,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX9E2D95AFF7FF4D39B27F15697A47038E">
+					<Item class="CornerWedgePart" referent="404">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9134,9 +10688,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXF7CF74C708CA40B780009A80ADB78C4D">
+					<Item class="CornerWedgePart" referent="405">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9207,9 +10761,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX89144C03CFD34E56BA31D9883AECA2C7">
+					<Item class="CornerWedgePart" referent="406">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9281,9 +10835,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXCD98B745A5C24C82B21D9044036E4C72">
+				<Item class="Part" referent="407">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -9357,7 +10911,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX0453ECA61BFA4AB193265264B543DF3B">
+			<Item class="Model" referent="408">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -9377,7 +10931,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXC2EDD3980DE84531857EA3394B4F4664">
+				<Item class="Model" referent="409">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -9397,9 +10951,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXD86371061DAB4B2E8CAD5DA49E52F278">
+					<Item class="CornerWedgePart" referent="410">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9470,9 +11024,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX9561CC0ABB2045FC811CFE5A04FBC008">
+					<Item class="CornerWedgePart" referent="411">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9543,9 +11097,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXEDCD4766E31C48FABD3EC9D34E6D0BE1">
+					<Item class="CornerWedgePart" referent="412">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9616,9 +11170,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB40015F969754FF6BBBFC22C74371CB8">
+					<Item class="CornerWedgePart" referent="413">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9690,9 +11244,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXA83FF20F86484E8C9E7156BBFB18B6B3">
+				<Item class="Part" referent="414">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -9766,7 +11320,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXE1F77FAB96AF4BAFAE84FDF2311593FE">
+			<Item class="Model" referent="415">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -9786,7 +11340,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXB71AD73E83EF4BB98AB0E2B9F3C4F987">
+				<Item class="Model" referent="416">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -9806,9 +11360,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX5713D6C399A94DC597A2FE53C389ABE1">
+					<Item class="CornerWedgePart" referent="417">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9879,9 +11433,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXF1E551D3AA4E416D8DAF5C4CE4F89704">
+					<Item class="CornerWedgePart" referent="418">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -9952,9 +11506,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX86526C9DEC214A4C900EE76BCA1273EB">
+					<Item class="CornerWedgePart" referent="419">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10025,9 +11579,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX33C046186869465E84B106D012904FDC">
+					<Item class="CornerWedgePart" referent="420">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10099,9 +11653,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX90E66A0E007A4908979E596D1C21E1AE">
+				<Item class="Part" referent="421">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -10175,7 +11729,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX55675B53D13C4F6EB7ED8B752180D81A">
+			<Item class="Model" referent="422">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -10195,7 +11749,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX5E404C978C6D4F73B57A1851AE00FAD4">
+				<Item class="Model" referent="423">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -10215,9 +11769,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX88716F3A6A7A4CDFBE1D2B484A505509">
+					<Item class="CornerWedgePart" referent="424">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10288,9 +11842,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX6EB923C182644337BD13FE0BA86CF037">
+					<Item class="CornerWedgePart" referent="425">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10361,9 +11915,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXBC540311F3E643D2B068BCA32DC4FE18">
+					<Item class="CornerWedgePart" referent="426">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10434,9 +11988,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX5CEBEB32C92644FFA276C5FBE40D862B">
+					<Item class="CornerWedgePart" referent="427">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10508,9 +12062,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX26D7C4E624E14D6BAAD2B9289D698ACC">
+				<Item class="Part" referent="428">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -10584,7 +12138,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX16928F5F440D4DAC987068A30F12CB3B">
+			<Item class="Model" referent="429">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -10604,7 +12158,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXBEC66A7C9C154FD5BCECC3FDBBDFFD7C">
+				<Item class="Model" referent="430">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -10624,9 +12178,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX18743C7B8E8F4B4B9CEE5CD3C75028E9">
+					<Item class="CornerWedgePart" referent="431">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10697,9 +12251,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX458EBE6283FD4175BCADD21E752E0ED9">
+					<Item class="CornerWedgePart" referent="432">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10770,9 +12324,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD91BE896123A4CEC85910D12355F93E6">
+					<Item class="CornerWedgePart" referent="433">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10843,9 +12397,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX9073ED884F4E406DA3107B9CDBD36400">
+					<Item class="CornerWedgePart" referent="434">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -10917,9 +12471,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXD4A7E5D679FD4DAF8269E6DEACDF2D4D">
+				<Item class="Part" referent="435">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -10993,7 +12547,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX2786EB4802DB4165B63EB384B618615F">
+			<Item class="Model" referent="436">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -11013,7 +12567,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXCE4CC95EEBD94D6ABA8E800E8451B797">
+				<Item class="Model" referent="437">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -11033,9 +12587,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX86D5362700B447D597B48B4EDD709D0D">
+					<Item class="CornerWedgePart" referent="438">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11106,9 +12660,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX7AB90C905A6B43A4A1575190A080C882">
+					<Item class="CornerWedgePart" referent="439">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11179,9 +12733,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX794271BC7B224D6297019BCC9D32899B">
+					<Item class="CornerWedgePart" referent="440">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11252,9 +12806,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXCF10079A6F37480BA2A3F98A1F253E8C">
+					<Item class="CornerWedgePart" referent="441">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11326,9 +12880,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX89998AF770B14A558931B61942399831">
+				<Item class="Part" referent="442">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -11402,7 +12956,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXCAE44E6ACCD54A9DB15A50162E063E2F">
+			<Item class="Model" referent="443">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -11422,7 +12976,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX19E29B66077944CB91DB900402AF3F89">
+				<Item class="Model" referent="444">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -11442,9 +12996,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX5478471797234A7F9F144EDDE2957446">
+					<Item class="CornerWedgePart" referent="445">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11515,9 +13069,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX743DC4A44EC44B2FB5938C80A9BFE5F0">
+					<Item class="CornerWedgePart" referent="446">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11588,9 +13142,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX61C0E06804BD4ACE95F8AD169133B541">
+					<Item class="CornerWedgePart" referent="447">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11661,9 +13215,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX61F1748035D749AF800B03BDFE049CEF">
+					<Item class="CornerWedgePart" referent="448">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11735,9 +13289,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX5D6924ED01344C13B3BD5FB24B5924F2">
+				<Item class="Part" referent="449">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -11811,7 +13365,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX42EEA4DCD059406C96015535EE647DFE">
+			<Item class="Model" referent="450">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -11831,7 +13385,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX1ACBA7738BA047769C898A7FBBEFAE79">
+				<Item class="Model" referent="451">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -11851,9 +13405,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXCF1BEDBCA30F4B8C873A27DA4DA9E839">
+					<Item class="CornerWedgePart" referent="452">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11924,9 +13478,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX6C6E1D4F952A4BD98E6CA1766ECFF64B">
+					<Item class="CornerWedgePart" referent="453">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -11997,9 +13551,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXCB897C66B668438E86EB1052C3C10346">
+					<Item class="CornerWedgePart" referent="454">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12070,9 +13624,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD01CE8E26C0F4E309032FF6644836269">
+					<Item class="CornerWedgePart" referent="455">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12144,9 +13698,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXD0D4E9C379D449809C99CFBFDFB85D72">
+				<Item class="Part" referent="456">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -12220,7 +13774,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXDE6A8D8762A545769C080F0D77F44223">
+			<Item class="Model" referent="457">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -12240,7 +13794,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX387C061DDB3B4AA0B7A5B2B9D8E4D66E">
+				<Item class="Model" referent="458">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -12260,9 +13814,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX5A49354F55B74FCABF3491E7C6A78A86">
+					<Item class="CornerWedgePart" referent="459">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12333,9 +13887,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXE6F0CBDAB9154D2F9379635C3C1F7498">
+					<Item class="CornerWedgePart" referent="460">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12406,9 +13960,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX60263053DBF94730AAEFE4C43C7745C0">
+					<Item class="CornerWedgePart" referent="461">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12479,9 +14033,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXCC27ECEB4A04454584B5D541D5A42953">
+					<Item class="CornerWedgePart" referent="462">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12553,9 +14107,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXC4C1B8895C824D5084139DF637048105">
+				<Item class="Part" referent="463">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -12629,7 +14183,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX418B68B5CC2249F891180003C60B1A23">
+			<Item class="Model" referent="464">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -12649,7 +14203,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXD4FDBA4435484F1395010C2095FF2ABE">
+				<Item class="Model" referent="465">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -12669,9 +14223,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXE2E04E24A77E48E797E21400D13E94B2">
+					<Item class="CornerWedgePart" referent="466">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12742,9 +14296,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXA603ABC5F7C145B394244BD80ED1EE19">
+					<Item class="CornerWedgePart" referent="467">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12815,9 +14369,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX50DE54CCF3B742629A448648C0EB0F8E">
+					<Item class="CornerWedgePart" referent="468">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12888,9 +14442,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX1D6BAFDF87A043F88FAAB78B3ADB368D">
+					<Item class="CornerWedgePart" referent="469">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -12962,9 +14516,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX8AEC4A19C3F042CA9E81704BAEC749A0">
+				<Item class="Part" referent="470">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -13038,7 +14592,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX6DFA940BD148404EA46976E4532E00CB">
+			<Item class="Model" referent="471">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -13058,7 +14612,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX3A5E197201584CFD8E829F709037ABAB">
+				<Item class="Model" referent="472">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -13078,9 +14632,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXAF24337C5F95494B94D94978C6935CC2">
+					<Item class="CornerWedgePart" referent="473">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13151,9 +14705,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXC16B8B42E706413E8940AF93952687E9">
+					<Item class="CornerWedgePart" referent="474">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13224,9 +14778,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD713D6B0F8434AD7BDF24A850C499F72">
+					<Item class="CornerWedgePart" referent="475">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13297,9 +14851,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB5C526E9C1CF4171BDA30A7FC3438E3D">
+					<Item class="CornerWedgePart" referent="476">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13371,9 +14925,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXC5887D3F880B456886EEB96109A8C9FA">
+				<Item class="Part" referent="477">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -13447,7 +15001,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXED507AC79C4A4F7BA3A6080123888B94">
+			<Item class="Model" referent="478">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -13467,7 +15021,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX2C88715644E24E258ED515DA8B3A0BD3">
+				<Item class="Model" referent="479">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -13487,9 +15041,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX90B22304DCC54BDE86CC7764797BC823">
+					<Item class="CornerWedgePart" referent="480">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13560,9 +15114,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX31EB4B95DB4E49C38E066C0808CA1D50">
+					<Item class="CornerWedgePart" referent="481">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13633,9 +15187,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX44CA887E76C94247B0E287B42ADE8236">
+					<Item class="CornerWedgePart" referent="482">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13706,9 +15260,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXE7E336873CD94657AC80038989AC2482">
+					<Item class="CornerWedgePart" referent="483">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13780,9 +15334,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX0B04D7E5F0874E428B1E3ECD43A12726">
+				<Item class="Part" referent="484">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -13856,7 +15410,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX72AECEA6116B462FB085C87A7C98A8E6">
+			<Item class="Model" referent="485">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -13876,7 +15430,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXCEA1B60621E045FEB44DA7FAA2574A30">
+				<Item class="Model" referent="486">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -13896,9 +15450,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXDAAC873553054A4DB37EFC4253784180">
+					<Item class="CornerWedgePart" referent="487">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -13969,9 +15523,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD499E16D3A6D4C2298C061FAB12FE106">
+					<Item class="CornerWedgePart" referent="488">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14042,9 +15596,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXA41428B4228A44589D77B03F46B922A2">
+					<Item class="CornerWedgePart" referent="489">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14115,9 +15669,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX3F7D6B3912314A23B415CBFF08DED42A">
+					<Item class="CornerWedgePart" referent="490">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14189,9 +15743,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX0B94AAD909864A6898C960CE02FB2786">
+				<Item class="Part" referent="491">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -14265,7 +15819,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX750149DF041041888B21F4DD7872DFA6">
+			<Item class="Model" referent="492">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -14285,7 +15839,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX53708221357F448BB590E4CBCCED0924">
+				<Item class="Model" referent="493">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -14305,9 +15859,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX2D3ADFC2BBE446C7A72A65617C4E3508">
+					<Item class="CornerWedgePart" referent="494">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14378,9 +15932,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD9FA59E4860844C3BBD7E6438F33FEDB">
+					<Item class="CornerWedgePart" referent="495">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14451,9 +16005,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXBEEAF2C0BB5345BEA8FB13B556BBC06F">
+					<Item class="CornerWedgePart" referent="496">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14524,9 +16078,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX07B1F5BDD248485B88307C8046453BE6">
+					<Item class="CornerWedgePart" referent="497">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14598,9 +16152,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXD2E9A77809B8450D8F75C05E0A75F0F0">
+				<Item class="Part" referent="498">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -14674,7 +16228,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX88159FBBB25145FAA084097684AB3A78">
+			<Item class="Model" referent="499">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -14694,7 +16248,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXE98AF96E456D413397275979977E6AC7">
+				<Item class="Model" referent="500">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -14714,9 +16268,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBXD2C09EA2E82641688265834E7A7AC65B">
+					<Item class="CornerWedgePart" referent="501">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14787,9 +16341,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX1BAC8D4624284712BA9DDA47FBA325EF">
+					<Item class="CornerWedgePart" referent="502">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14860,9 +16414,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX0620CC4A3A904D2DA0F41F60E34CE69F">
+					<Item class="CornerWedgePart" referent="503">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -14933,9 +16487,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXCB66F71F56C44416B2007BCE998B9B58">
+					<Item class="CornerWedgePart" referent="504">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15007,9 +16561,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXACC78686493740E9BF8998C408E8BA95">
+				<Item class="Part" referent="505">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -15083,7 +16637,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXCE35A34B4EC14D7DAF26D3006AF8459C">
+			<Item class="Model" referent="506">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -15103,7 +16657,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBXFAF5672D65C344CEA280C378120572D4">
+				<Item class="Model" referent="507">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -15123,9 +16677,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX2FC62AFDA80647E0A5D179498F321618">
+					<Item class="CornerWedgePart" referent="508">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15196,9 +16750,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX441274A9740C48FCB69D9C585680CDAB">
+					<Item class="CornerWedgePart" referent="509">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15269,9 +16823,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD3287DE645FA43C99CCBB220557E73FA">
+					<Item class="CornerWedgePart" referent="510">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15342,9 +16896,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXB8F51ECE960C467DAFFD090A12F8D6BD">
+					<Item class="CornerWedgePart" referent="511">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15416,9 +16970,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXABD83C599AF7416B8346FB3E19A03EEF">
+				<Item class="Part" referent="512">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -15492,7 +17046,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX563A841534DC4717881778C9E9F258D8">
+			<Item class="Model" referent="513">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -15512,7 +17066,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX5654E819DCBA4529B66323F02F390C25">
+				<Item class="Model" referent="514">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -15532,9 +17086,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX6CF71818D1664814A060FC0B2A93C7FA">
+					<Item class="CornerWedgePart" referent="515">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15605,9 +17159,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX124AFCCD559E4AE7A5A513B16930FF9C">
+					<Item class="CornerWedgePart" referent="516">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15678,9 +17232,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX8A62C23C169D4FE2BE31822BAE28A7F0">
+					<Item class="CornerWedgePart" referent="517">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15751,9 +17305,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX3B8EE01D65F144CF8A01BF4B5D64B9F2">
+					<Item class="CornerWedgePart" referent="518">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -15825,9 +17379,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXA76F7B68A2D74D16AFC67CD7A78458C4">
+				<Item class="Part" referent="519">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -15901,7 +17455,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX78A7382B0CCC49AD9F1E0218850BBE84">
+			<Item class="Model" referent="520">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -15921,7 +17475,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX173A188A4FAB47669B2029B721D2FF22">
+				<Item class="Model" referent="521">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -15941,9 +17495,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX56645A52432B4E1FBC57154377ADBB41">
+					<Item class="CornerWedgePart" referent="522">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16014,9 +17568,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX7A1C3127CF9D4EF2B05ABBED0B373CC8">
+					<Item class="CornerWedgePart" referent="523">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16087,9 +17641,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXD7EDCEC1787A4D96B73DB25D6ACFB4D8">
+					<Item class="CornerWedgePart" referent="524">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16160,9 +17714,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXF924F03A66D64F2DBD603B9EBF3565CA">
+					<Item class="CornerWedgePart" referent="525">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16234,9 +17788,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBX6CA263AB64C04959B30A59FFE86E9093">
+				<Item class="Part" referent="526">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -16310,7 +17864,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX2DE3C5D6876144D9A95262701A5B3573">
+			<Item class="Model" referent="527">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -16330,7 +17884,7 @@
 					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Model" referent="RBX631B873258594B7199C2953E0AF7D481">
+				<Item class="Model" referent="528">
 					<Properties>
 						<CoordinateFrame name="ModelInPrimary">
 							<X>0</X>
@@ -16350,9 +17904,9 @@
 						<Ref name="PrimaryPart">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
-					<Item class="CornerWedgePart" referent="RBX6AB35C2D942C47DAA03C56734B6326D4">
+					<Item class="CornerWedgePart" referent="529">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16423,9 +17977,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX3CAF9B429AE04F82B0ED3D7FA90A96F1">
+					<Item class="CornerWedgePart" referent="530">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16496,9 +18050,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBXA7E01A58CEED4820AA3D30BE238513B9">
+					<Item class="CornerWedgePart" referent="531">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16569,9 +18123,9 @@
 							</Vector3>
 						</Properties>
 					</Item>
-					<Item class="CornerWedgePart" referent="RBX7A81B12BD80D491D8D40A099D36985FD">
+					<Item class="CornerWedgePart" referent="532">
 						<Properties>
-							<bool name="Anchored">false</bool>
+							<bool name="Anchored">true</bool>
 							<float name="BackParamA">-0.5</float>
 							<float name="BackParamB">0.5</float>
 							<token name="BackSurface">0</token>
@@ -16643,9 +18197,9 @@
 						</Properties>
 					</Item>
 				</Item>
-				<Item class="Part" referent="RBXA28C56239F8D482B8E45B96544CDC98F">
+				<Item class="Part" referent="533">
 					<Properties>
-						<bool name="Anchored">false</bool>
+						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
 						<float name="BackParamB">0.5</float>
 						<token name="BackSurface">0</token>
@@ -16720,12 +18274,12 @@
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBXD1218BB8649E4E3D8C149E92BA2FEFED">
+		<Item class="Folder" referent="534">
 			<Properties>
 				<string name="Name">baseplates</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="237">
+			<Item class="Part" referent="535">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -16799,15 +18353,15 @@
 						<Z>56</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX1E823AF771A74D248BF10685D4247712">
+				<Item class="Snap" referent="536">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -16831,20 +18385,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">237</Ref>
-						<Ref name="Part1">218</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX2946D4561051431DA589995875CFC064">
+				<Item class="Snap" referent="538">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -16868,20 +18422,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">237</Ref>
-						<Ref name="Part1">213</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX3F786DFCD8514AE789E75C3460371793">
+				<Item class="Snap" referent="539">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -16905,20 +18459,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">237</Ref>
-						<Ref name="Part1">229</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX5ABBCCB93FD7427AB7E6AA73BC933B5D">
+				<Item class="Snap" referent="540">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -16942,13 +18496,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">237</Ref>
-						<Ref name="Part1">215</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="236">
+			<Item class="Part" referent="541">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -17022,15 +18576,15 @@
 						<Z>88</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX4A5B50E823314655AA7EE8C83B865E7A">
+				<Item class="Snap" referent="542">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17054,20 +18608,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">236</Ref>
-						<Ref name="Part1">214</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX079C0F47CFAE45A6BC48705F5C24FB17">
+				<Item class="Snap" referent="544">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17091,20 +18645,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">236</Ref>
-						<Ref name="Part1">216</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX7464629731484B6A9F2292E9C9534DCB">
+				<Item class="Snap" referent="545">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17128,13 +18682,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">236</Ref>
-						<Ref name="Part1">213</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="203">
+			<Item class="Part" referent="546">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -17208,15 +18762,15 @@
 						<Z>136</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBXE062510AD28D4EDFB43291E32DD891FC">
+				<Item class="Snap" referent="547">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17240,20 +18794,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">203</Ref>
-						<Ref name="Part1">220</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX6CA523DB9777480D8D9C4538556CF340">
+				<Item class="Snap" referent="549">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17277,20 +18831,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">203</Ref>
-						<Ref name="Part1">217</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX2925D8EE0F934E288B6081FF948F5033">
+				<Item class="Snap" referent="550">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17314,20 +18868,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">203</Ref>
-						<Ref name="Part1">214</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXB1D540667D714CD38A5C1EF6D79CA3BD">
+				<Item class="Snap" referent="551">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17351,13 +18905,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">203</Ref>
-						<Ref name="Part1">216</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="239">
+			<Item class="Part" referent="552">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -17431,15 +18985,15 @@
 						<Z>152</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX084AF8B61AB9431B8F3BCFC26A44E421">
+				<Item class="Snap" referent="553">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17463,20 +19017,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">239</Ref>
-						<Ref name="Part1">217</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXCE4F6A221CE64D49A354AC5AAE39F6D3">
+				<Item class="Snap" referent="555">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17500,20 +19054,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">239</Ref>
-						<Ref name="Part1">218</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX801DCC644FCB472AA55CE1FE9B8D6841">
+				<Item class="Snap" referent="556">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17537,13 +19091,13 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">239</Ref>
-						<Ref name="Part1">219</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Part" referent="240">
+			<Item class="Part" referent="557">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -17618,7 +19172,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="238">
+			<Item class="Part" referent="558">
 				<Properties>
 					<bool name="Anchored">true</bool>
 					<float name="BackParamA">-0.5</float>
@@ -17692,15 +19246,15 @@
 						<Z>72</Z>
 					</Vector3>
 				</Properties>
-				<Item class="Snap" referent="RBX667CBE56B39F4BE18C51C7D0A5E35610">
+				<Item class="Snap" referent="559">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17724,20 +19278,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">238</Ref>
-						<Ref name="Part1">220</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBX57261C5DFD574664B96E7194FB8E37BF">
+				<Item class="Snap" referent="561">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17761,20 +19315,20 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">238</Ref>
-						<Ref name="Part1">219</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
-				<Item class="Snap" referent="RBXD4B09C3DF5864C88BAAEB62677C71C09">
+				<Item class="Snap" referent="562">
 					<Properties>
 						<CoordinateFrame name="C0">
 							<X>0</X>
 							<Y>10</Y>
 							<Z>0</Z>
 							<R00>-1</R00>
-							<R01>-0</R01>
-							<R02>-0</R02>
+							<R01>0</R01>
+							<R02>0</R02>
 							<R10>0</R10>
 							<R11>0</R11>
 							<R12>1</R12>
@@ -17798,8 +19352,8 @@
 						</CoordinateFrame>
 						<bool name="IsAutoJoint">true</bool>
 						<string name="Name">Snap</string>
-						<Ref name="Part0">238</Ref>
-						<Ref name="Part1">217</Ref>
+						<Ref name="Part0">null</Ref>
+						<Ref name="Part1">null</Ref>
 						<BinaryString name="Tags"></BinaryString>
 					</Properties>
 				</Item>
