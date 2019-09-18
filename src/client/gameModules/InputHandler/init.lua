@@ -18,6 +18,7 @@ local errors = {
 local stateMap = {
     [Enum.UserInputState.Begin] = "began",
     [Enum.UserInputState.Change] = "changed",
+    [Enum.UserInputState.End] = "ended",
     [Enum.UserInputState.Cancel] = "canceled",
 }
 
@@ -95,11 +96,13 @@ function InputHandler:createActionSignal(name)
     local beganSignal = Signal.new()
     local changedSignal = Signal.new()
     local endedSignal = Signal.new()
+    local canceledSignal = Signal.new()
 
     self.actionSignals[name] = {
         began = beganSignal,
         changed = changedSignal,
-        canceled = endedSignal,
+        ended = endedSignal,
+        canceled = canceledSignal,
     }
 end
 
