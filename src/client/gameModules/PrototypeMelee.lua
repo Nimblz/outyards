@@ -3,34 +3,60 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage:WaitForChild("common")
+local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
-local PrototypeAttack = PizzaAlpaca.GameModule:extend("PrototypeAttack")
+local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 
-function PrototypeAttack:create()
-    self.attackRadius = 8
+local debouncer = require(util:WaitForChild("debouncer"))
+
+function PrototypeMelee:create()
+    self.attackRadius = 12
     self.attackRate = 1
     self.autoAttack = false
 end
 
-function PrototypeAttack:preInit()
+function PrototypeMelee:preInit()
 end
 
-function PrototypeAttack:init()
+function PrototypeMelee:init()
     local InputHandler = self.core:getModule("InputHandler")
     local attack = InputHandler:getActionSignal("attack")
 
+    local currentAttack = nil
+
     attack.began:connect(function(input)
-        self:onAttack()
+        if currentAttack then return currentAttack:resume() end
+        currentAttack = {}
+
+        local attacking = true
+        currentAttack.cancel = function()
+            attacking = false
+        end
+        currentAttack.resume = function()
+            attacking = true
+        end
+
+        repeat
+            self:onAttack()
+            wait(1/self.attackRate)
+        until not attacking or not self.autoAttack
+
+        currentAttack = nil
+    end)
+
+    attack.ended:connect(function(input)
+        if not currentAttack then return end
+        currentAttack:cancel()
     end)
 end
 
-function PrototypeAttack:postInit()
+function PrototypeMelee:postInit()
 end
 
-function PrototypeAttack:canAttack()
+function PrototypeMelee:canAttack()
     local character = LocalPlayer.character
     if not character then return false end
     if not character.PrimaryPart then return false end
@@ -41,7 +67,7 @@ function PrototypeAttack:canAttack()
     return true
 end
 
-function PrototypeAttack:onAttack()
+function PrototypeMelee:onAttack()
     if not self:canAttack() then return end
 
     local character = LocalPlayer.Character
@@ -65,4 +91,4 @@ function PrototypeAttack:onAttack()
     end)
 end
 
-return PrototypeAttack
+return PrototypeMelee
