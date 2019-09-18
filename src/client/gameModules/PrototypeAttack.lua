@@ -11,6 +11,8 @@ local PrototypeAttack = PizzaAlpaca.GameModule:extend("PrototypeAttack")
 
 function PrototypeAttack:create()
     self.attackRadius = 8
+    self.attackRate = 1
+    self.autoAttack = false
 end
 
 function PrototypeAttack:preInit()
@@ -18,9 +20,9 @@ end
 
 function PrototypeAttack:init()
     local InputHandler = self.core:getModule("InputHandler")
-    local attacked = InputHandler:getActionSignal("attack")
+    local attack = InputHandler:getActionSignal("attack")
 
-    attacked:connect(function(input)
+    attack.began:connect(function(input)
         self:onAttack()
     end)
 end
