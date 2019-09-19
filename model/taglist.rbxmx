@@ -2,17 +2,17 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="RBX00C73F78AEB74C46BDBE78656594C7F8">
+	<Item class="Folder" referent="192">
 		<Properties>
 			<string name="Name">TagList</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="RBX4CE284E114DB403EA94344B5BF7C4643">
+		<Item class="Folder" referent="193">
 			<Properties>
 				<string name="Name">AI</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBX18752571FAF24C55A2F98B3110D44E16">
+			<Item class="Color3Value" referent="194">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -24,12 +24,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX6E8A12E18B654C73BFA73B012D25412C">
+		<Item class="Folder" referent="195">
 			<Properties>
 				<string name="Name">NPCDriver</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBXF9006D5ED71B4ABBBB4B18EC8D4EDD6B">
+			<Item class="Color3Value" referent="196">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -41,12 +41,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBXF801F90546FC41D1B958C76E3E9B948F">
+		<Item class="Folder" referent="197">
 			<Properties>
 				<string name="Name">ActorStats</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBX689E99572F8B429489F7D7E8A592AC37">
+			<Item class="Color3Value" referent="198">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -58,12 +58,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX68B1BA301F1F430A9ECBDA835D105ECC">
+		<Item class="Folder" referent="199">
 			<Properties>
 				<string name="Name">ItemDrops</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBXFC221735784B4AA3A5BA869561165DC1">
+			<Item class="Color3Value" referent="200">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -75,12 +75,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBXECF376D34F3C4355A81F39AB11D9A5A8">
+		<Item class="Folder" referent="201">
 			<Properties>
 				<string name="Name">HealthBar</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBX2730CEC06D724EB39D9FD9ED023BE89A">
+			<Item class="Color3Value" referent="202">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>

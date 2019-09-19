@@ -2,15 +2,15 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+--local common = ReplicatedStorage:WaitForChild("common")
+--local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 
-local debouncer = require(util:WaitForChild("debouncer"))
+--local debouncer = require(util:WaitForChild("debouncer"))
 
 function PrototypeMelee:create()
     self.attackRadius = 12
@@ -77,6 +77,7 @@ function PrototypeMelee:onAttack()
     local attackVis = Instance.new("Part")
     attackVis.Anchored = true
     attackVis.CanCollide = false
+    attackVis.CastShadow = false
     attackVis.Material = Enum.Material.Neon
     attackVis.BrickColor = BrickColor.new("Bright red")
     attackVis.Transparency = 0.75
