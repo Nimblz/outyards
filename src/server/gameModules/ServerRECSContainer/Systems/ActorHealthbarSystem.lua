@@ -19,6 +19,7 @@ local ActorHealthbarSystem = RECS.System:extend("ActorHealthbarSystem")
 
 function ActorHealthbarSystem:onComponentChange(instance, component)
     local healthbar = instance:FindFirstChild("Healthbar")
+    if not healthbar then return end
     local redFrame = healthbar:WaitForChild("redFrame")
     local greenFrame = redFrame:WaitForChild("greenFrame")
 
