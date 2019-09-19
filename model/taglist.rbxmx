@@ -1,0 +1,96 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<Meta name="ExplicitAutoJoints">true</Meta>
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Folder" referent="192">
+		<Properties>
+			<string name="Name">TagList</string>
+			<BinaryString name="Tags"></BinaryString>
+		</Properties>
+		<Item class="Folder" referent="193">
+			<Properties>
+				<string name="Name">AI</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="194">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>-0.00191422261</R>
+						<G>0.991764724</G>
+						<B>0.79302752</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="195">
+			<Properties>
+				<string name="Name">NPCDriver</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="196">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.319215685</R>
+						<G>0.273193598</G>
+						<B>0.129546896</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="197">
+			<Properties>
+				<string name="Name">ActorStats</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="198">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.835294127</R>
+						<G>0.758506536</G>
+						<B>0.31321609</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="199">
+			<Properties>
+				<string name="Name">ItemDrops</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="200">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.659607828</R>
+						<G>0.524664581</G>
+						<B>0.133846417</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="201">
+			<Properties>
+				<string name="Name">HealthBar</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="202">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.374682605</R>
+						<G>0.607956648</G>
+						<B>0.788627446</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+	</Item>
+</roblox>
