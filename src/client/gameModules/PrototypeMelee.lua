@@ -1,10 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
+local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 --local common = ReplicatedStorage:WaitForChild("common")
 --local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
+local event = ReplicatedStorage:WaitForChild("event")
+
+local eAttackActor = event:WaitForChild("eAttackActor")
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
@@ -13,8 +18,8 @@ local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 --local debouncer = require(util:WaitForChild("debouncer"))
 
 function PrototypeMelee:create()
-    self.attackRadius = 12
-    self.attackRate = 1
+    self.attackRadius = 8
+    self.attackRate = 2
     self.autoAttack = false
 end
 
@@ -72,6 +77,7 @@ function PrototypeMelee:onAttack()
 
     local character = LocalPlayer.Character
     local rootPart = character.PrimaryPart
+    local rootPos = rootPart.Position
     local targetCFrame = CFrame.new(rootPart.Position)
 
     local attackVis = Instance.new("Part")
@@ -86,6 +92,18 @@ function PrototypeMelee:onAttack()
     attackVis.Shape = Enum.PartType.Ball
 
     attackVis.Parent = workspace
+
+    -- find npcs
+    local cornerOffset = Vector3.new(1,1,1)*self.attackRadius
+    local topCorner = rootPos + cornerOffset
+    local bottomCorner = rootPos - cornerOffset
+    local testRegion = Region3.new(bottomCorner,topCorner)
+
+    local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
+
+    for _,v in pairs(parts) do
+        eAttackActor:FireServer(v)
+    end
 
     delay(3/20,function()
         attackVis:Destroy()
