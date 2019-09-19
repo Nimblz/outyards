@@ -2,12 +2,12 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="RBX0D67A24E876B4BF9B8A7F0D0919D281C">
+	<Item class="Folder" referent="230">
 		<Properties>
 			<string name="Name">interactables</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Model" referent="RBX2A4A9B4B29C947858B4654BD1A022CE4">
+		<Item class="Model" referent="231">
 			<Properties>
 				<CoordinateFrame name="ModelInPrimary">
 					<X>0</X>
@@ -27,7 +27,7 @@
 				<Ref name="PrimaryPart">null</Ref>
 				<BinaryString name="Tags">SXRlbURvb3I=</BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBXD881BC1AE9384758863F46C5B3568447">
+			<Item class="Model" referent="232">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -44,10 +44,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">RightDoor</string>
-					<Ref name="PrimaryPart">RBX42D85AA1E00B4A6F931B78999E1BBEC3</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX42D85AA1E00B4A6F931B78999E1BBEC3">
+				<Item class="Part" referent="234">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -60,7 +60,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>4</X>
-							<Y>8.00000381</Y>
+							<Y>38.0000038</Y>
 							<Z>-47</Z>
 							<R00>-1</R00>
 							<R01>0</R01>
@@ -122,7 +122,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBX9A02940C996740A7B3E748B351BD5257">
+				<Item class="WedgePart" referent="235">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -135,7 +135,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>4</X>
-							<Y>18.0000038</Y>
+							<Y>48.0000038</Y>
 							<Z>-47</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -197,7 +197,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXBB5C52D9DE724315BFEE8E4D7901F0E5">
+			<Item class="Model" referent="236">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -214,10 +214,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">LeftDoor</string>
-					<Ref name="PrimaryPart">RBX771C2B8EC3414949A7DF48E7C83DA3BF</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX771C2B8EC3414949A7DF48E7C83DA3BF">
+				<Item class="Part" referent="238">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -230,7 +230,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>12</X>
-							<Y>8.00000381</Y>
+							<Y>38.0000038</Y>
 							<Z>-47</Z>
 							<R00>-1</R00>
 							<R01>0</R01>
@@ -292,7 +292,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBXD031EFD12BC044289ECAC89188ACB04F">
+				<Item class="WedgePart" referent="239">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -305,7 +305,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>12</X>
-							<Y>18.0000038</Y>
+							<Y>48.0000038</Y>
 							<Z>-47</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -368,7 +368,7 @@
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBXD62A3FD287EA4E438772A2DA027DBD5C">
+		<Item class="Model" referent="240">
 			<Properties>
 				<CoordinateFrame name="ModelInPrimary">
 					<X>0</X>
@@ -388,7 +388,7 @@
 				<Ref name="PrimaryPart">null</Ref>
 				<BinaryString name="Tags">SXRlbURvb3I=</BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBXD9B01933AD964F4487BF381252F7793F">
+			<Item class="Model" referent="241">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -405,10 +405,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">RightDoor</string>
-					<Ref name="PrimaryPart">RBX444A5BDB52DB45B1A00F7D39A8C2CF66</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX444A5BDB52DB45B1A00F7D39A8C2CF66">
+				<Item class="Part" referent="243">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -421,7 +421,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>-68</X>
-							<Y>8</Y>
+							<Y>38</Y>
 							<Z>-24</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -483,7 +483,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBX808CC2A9D0204E4F99D8F86E3AD5A85F">
+				<Item class="WedgePart" referent="244">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -496,7 +496,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>-68</X>
-							<Y>18</Y>
+							<Y>48</Y>
 							<Z>-24</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -558,7 +558,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBX5B1ADF6074F94E48912498E0BE6520D3">
+			<Item class="Model" referent="245">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -575,10 +575,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">LeftDoor</string>
-					<Ref name="PrimaryPart">RBXF5975632B8D54758A9EBCAD08684F86C</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBXF5975632B8D54758A9EBCAD08684F86C">
+				<Item class="Part" referent="247">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -591,7 +591,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>-76</X>
-							<Y>8</Y>
+							<Y>38</Y>
 							<Z>-24</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -653,7 +653,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBX5B2DFDCC1AAC451686DD92113CA9E365">
+				<Item class="WedgePart" referent="248">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -666,7 +666,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>-76</X>
-							<Y>18</Y>
+							<Y>48</Y>
 							<Z>-24</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -729,7 +729,7 @@
 				</Item>
 			</Item>
 		</Item>
-		<Item class="Model" referent="RBX323DE52BE7D64BCBAF005DA98744A256">
+		<Item class="Model" referent="249">
 			<Properties>
 				<CoordinateFrame name="ModelInPrimary">
 					<X>0</X>
@@ -749,7 +749,7 @@
 				<Ref name="PrimaryPart">null</Ref>
 				<BinaryString name="Tags">SXRlbURvb3I=</BinaryString>
 			</Properties>
-			<Item class="Model" referent="RBX75956D64EE744EFA9861C8BA47D041C6">
+			<Item class="Model" referent="250">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -766,10 +766,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">RightDoor</string>
-					<Ref name="PrimaryPart">RBX080270240C124E48AC54122B67361DD4</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBX080270240C124E48AC54122B67361DD4">
+				<Item class="Part" referent="252">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -782,7 +782,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>40</X>
-							<Y>7.99999809</Y>
+							<Y>38</Y>
 							<Z>68</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -844,7 +844,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBXECB5F853A21849CA95701AB7A68D619E">
+				<Item class="WedgePart" referent="253">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -857,7 +857,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>40</X>
-							<Y>17.9999981</Y>
+							<Y>48</Y>
 							<Z>68</Z>
 							<R00>1</R00>
 							<R01>0</R01>
@@ -919,7 +919,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Model" referent="RBXAEC1185F625D4A1995BCE87DB2DBE36A">
+			<Item class="Model" referent="254">
 				<Properties>
 					<CoordinateFrame name="ModelInPrimary">
 						<X>0</X>
@@ -936,10 +936,10 @@
 						<R22>1</R22>
 					</CoordinateFrame>
 					<string name="Name">LeftDoor</string>
-					<Ref name="PrimaryPart">RBXF801F30EFEC14A2A9283AFC7B01E39C2</Ref>
+					<Ref name="PrimaryPart">null</Ref>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
-				<Item class="Part" referent="RBXF801F30EFEC14A2A9283AFC7B01E39C2">
+				<Item class="Part" referent="256">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -952,7 +952,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>40</X>
-							<Y>7.99999809</Y>
+							<Y>38</Y>
 							<Z>76</Z>
 							<R00>0</R00>
 							<R01>0</R01>
@@ -1014,7 +1014,7 @@
 						</Vector3>
 					</Properties>
 				</Item>
-				<Item class="WedgePart" referent="RBX4666275634534200BA8A46541BCFD66E">
+				<Item class="WedgePart" referent="257">
 					<Properties>
 						<bool name="Anchored">true</bool>
 						<float name="BackParamA">-0.5</float>
@@ -1027,7 +1027,7 @@
 						<token name="BottomSurfaceInput">0</token>
 						<CoordinateFrame name="CFrame">
 							<X>40</X>
-							<Y>17.9999981</Y>
+							<Y>48</Y>
 							<Z>76</Z>
 							<R00>-1</R00>
 							<R01>0</R01>
