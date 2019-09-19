@@ -29,10 +29,10 @@
 					<Z>0</Z>
 				</Vector3>
 				<float name="LightInfluence">1</float>
-				<float name="MaxDistance">32</float>
+				<float name="MaxDistance">64</float>
 				<string name="Name">Healthbar</string>
 				<Ref name="PlayerToHideFrom">null</Ref>
-				<bool name="ResetOnSpawn">true</bool>
+				<bool name="ResetOnSpawn">false</bool>
 				<Ref name="RootLocalizationTable">null</Ref>
 				<UDim2 name="Size">
 					<XS>0</XS>
