@@ -2,9 +2,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 
-local common = ReplicatedStorage:WaitForChild("common")
+--local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+--local event = ReplicatedStorage:WaitForChild("event")
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
@@ -28,7 +28,7 @@ function CollisionGroups:preInit()
         end)
     end)
 
-    for k,p in pairs(Players:GetPlayers()) do
+    for _,p in pairs(Players:GetPlayers()) do
         p.CharacterAdded:connect(function(char)
             wait(1)
             for _,v in pairs(char:GetDescendants()) do
