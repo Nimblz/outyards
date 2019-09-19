@@ -12,7 +12,7 @@ return RECS.defineComponent({
             maxHealth = 30,
             defense = 0, -- percent of dmg blocked
             moveSpeed = 20,
-            baseDamage = 1, -- is modified by buffs and attack types
+            baseDamage = 3, -- is modified by buffs and attack types
             attackRate = 1, -- per sec
             aggroRadius = 32,
             attackRange = 12,
