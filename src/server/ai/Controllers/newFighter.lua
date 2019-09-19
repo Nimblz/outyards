@@ -1,4 +1,6 @@
 local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local CollectionService = game:GetService("CollectionService")
 
 local function pointsCloserThan(p1,p2,dist)
     local delta = p1-p2
@@ -59,7 +61,7 @@ return function(entity, recs, pz)
 
                 if closeEnoughToAttack then
                     driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
-                    --return "attack", target
+                    return "attack", target
                 else
                     driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
                     driver:updateProperty("targetVelocity", targetMoveDir * actorStats.moveSpeed)
@@ -72,9 +74,70 @@ return function(entity, recs, pz)
         attack = {
             enter = function(target)
                 driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
+                props.target = target
+
+                local debounce = false
+
+                local function attack()
+                    if debounce then return end
+                    debounce = true
+
+                    local target = props.target
+                    local targetRoot = target.PrimaryPart
+                    local selfPos = entity.Position
+                    local lookVec = entity.CFrame.lookVector
+
+                    local attackRay = Ray.new(selfPos,lookVec*actorStats.attackRange)
+
+                    local hit = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("NPCDriver"))
+                    if hit then
+                        local humanoid = hit.Parent:FindFirstChild("Humanoid")
+                        if humanoid then
+                            humanoid:TakeDamage(actorStats.baseDamage)
+                        end
+                    end
+
+                    -- debug vis
+
+                    local vis = Instance.new("Part")
+                    vis.Anchored = true
+                    vis.CanCollide = false
+                    vis.CastShadow = false
+                    vis.Material = Enum.Material.Neon
+                    vis.BrickColor = BrickColor.new("Bright red")
+                    vis.Transparency = 0.75
+                    vis.Size = Vector3.new(1,1/3,actorStats.attackRange)
+                    vis.CFrame = CFrame.new(selfPos,selfPos+lookVec) * CFrame.new(0,0,-actorStats.attackRange/2)
+                    vis.Parent = workspace
+
+                    delay(1/10, function() vis:Destroy() end)
+
+                    wait(1/actorStats.attackRate)
+                    debounce = false
+                end
+
+                props.attack = attack
             end,
             step = function()
+                if props.attack then
+                    coroutine.wrap(props.attack)()
+                end
+
+                local target = props.target
+                local targetRoot = target.PrimaryPart
+                local selfPosXZ = entity.Position * Vector3.new(1,0,1)
+                local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
+                local targetMoveDir = (targetPosXZ-selfPosXZ).unit
+                local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
+
+                driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
+                if not closeEnoughToAttack then
+                    return "chase", target
+                end
             end,
+            leaving = function()
+                props.target = nil
+            end
         },
         goHome = {
             enter = function()
