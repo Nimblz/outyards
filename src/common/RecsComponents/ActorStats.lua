@@ -14,8 +14,8 @@ return RECS.defineComponent({
             moveSpeed = 20,
             baseDamage = 1, -- is modified by buffs and attack types
             attackRate = 1, -- per sec
-            aggroRadius = 24,
-            attackRange = 6,
+            aggroRadius = 32,
+            attackRange = 12,
         }
     end,
 })
