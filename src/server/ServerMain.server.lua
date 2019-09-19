@@ -1,12 +1,12 @@
-print("Starting outyards client.")
+print("Starting outyards server.")
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
-local client = script.Parent
+local server = script.Parent
 
-local sidedModules = client:WaitForChild("gameModules")
+local sidedModules = server:WaitForChild("gameModules")
 local commonModules = common:WaitForChild("gameModules")
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
@@ -21,5 +21,3 @@ core:registerChildrenAsModules(sidedModules)
 
 -- start the core
 core:load()
-
-print("Loading complete! Thanks for playing outyards!~")
