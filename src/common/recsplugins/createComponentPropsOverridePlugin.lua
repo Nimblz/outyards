@@ -5,9 +5,8 @@ local errors = {
 local function createComponentPropsOverridePlugin()
     local componentPropsOverridePlugin = {}
 
-    function componentPropsOverridePlugin:componentAdded(core, entity,component)
+    function componentPropsOverridePlugin:componentAdded(core, entity, component)
         if not typeof(entity) == "Instance" then return end -- entity is not an instance, not interested.
-
         local componentPropsModule = entity:FindFirstChild("ComponentProps")
         if not componentPropsModule then return end -- doesnt exist, not interested
         if not componentPropsModule:IsA("ModuleScript") then return end -- not a module script, not interested.
@@ -20,7 +19,7 @@ local function createComponentPropsOverridePlugin()
 
         -- create the new override table
         local componentPropsOverride = componentPropsOverrideFunc()
-        local thisComponentOverride = componentPropsOverride[component.name]
+        local thisComponentOverride = componentPropsOverride[component.className]
         if not thisComponentOverride then return end
 
         -- assign each key,value of the new override to the component
