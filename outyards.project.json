@@ -55,9 +55,6 @@
         },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
-        },
-        "StateMachine": {
-          "$path": "lib/statemachine/statemachine.lua"
         }
       },
       "template": {
