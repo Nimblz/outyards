@@ -2,12 +2,12 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="166">
+	<Item class="Folder" referent="170">
 		<Properties>
 			<string name="Name">template</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="BillboardGui" referent="167">
+		<Item class="BillboardGui" referent="171">
 			<Properties>
 				<bool name="Active">true</bool>
 				<Ref name="Adornee">null</Ref>
@@ -29,7 +29,7 @@
 					<Z>0</Z>
 				</Vector3>
 				<float name="LightInfluence">1</float>
-				<float name="MaxDistance">64</float>
+				<float name="MaxDistance">32</float>
 				<string name="Name">Healthbar</string>
 				<Ref name="PlayerToHideFrom">null</Ref>
 				<bool name="ResetOnSpawn">true</bool>
@@ -57,7 +57,7 @@
 				<BinaryString name="Tags"></BinaryString>
 				<token name="ZIndexBehavior">1</token>
 			</Properties>
-			<Item class="Frame" referent="168">
+			<Item class="Frame" referent="172">
 				<Properties>
 					<bool name="Active">false</bool>
 					<Vector2 name="AnchorPoint">
@@ -108,7 +108,7 @@
 					<bool name="Visible">true</bool>
 					<int name="ZIndex">1</int>
 				</Properties>
-				<Item class="Frame" referent="169">
+				<Item class="Frame" referent="173">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
@@ -161,7 +161,7 @@
 					</Properties>
 				</Item>
 			</Item>
-			<Item class="Frame" referent="170">
+			<Item class="Frame" referent="174">
 				<Properties>
 					<bool name="Active">false</bool>
 					<Vector2 name="AnchorPoint">
@@ -212,7 +212,7 @@
 					<bool name="Visible">true</bool>
 					<int name="ZIndex">1</int>
 				</Properties>
-				<Item class="Frame" referent="171">
+				<Item class="Frame" referent="175">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
@@ -264,7 +264,7 @@
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
-				<Item class="Frame" referent="172">
+				<Item class="Frame" referent="176">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
@@ -316,7 +316,7 @@
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
-				<Item class="Frame" referent="173">
+				<Item class="Frame" referent="177">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
@@ -368,7 +368,7 @@
 						<int name="ZIndex">1</int>
 					</Properties>
 				</Item>
-				<Item class="Frame" referent="174">
+				<Item class="Frame" referent="178">
 					<Properties>
 						<bool name="Active">false</bool>
 						<Vector2 name="AnchorPoint">
