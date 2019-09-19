@@ -55,7 +55,7 @@ return function(entity, recs, pz)
                 local selfPosXZ = entity.Position * Vector3.new(1,0,1)
                 local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
                 local targetMoveDir = (targetPosXZ-selfPosXZ).unit
-                local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, 6)
+                local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
 
                 if closeEnoughToAttack then
                     driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
