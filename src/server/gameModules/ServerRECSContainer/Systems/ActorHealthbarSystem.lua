@@ -23,7 +23,16 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
     local redFrame = healthbar:WaitForChild("redFrame")
     local greenFrame = redFrame:WaitForChild("greenFrame")
 
-    greenFrame.Size = UDim2.new(component.health/component.maxHealth,0,1,0)
+    local health = component.health
+    local maxHealth = component.maxHealth
+
+    if health/maxHealth >= 1 then
+        healthbar.Enabled = false
+        return
+    else
+        healthbar.Enabled = true
+        greenFrame.Size = UDim2.new(component.health/component.maxHealth,0,1,0)
+    end
 end
 
 function ActorHealthbarSystem:onComponentAdded(instance, component)
