@@ -8,7 +8,7 @@ return RECS.defineComponent({
     name = "AI",
     generator = function()
         return {
-            type = "Fighter"
+            aiType = "Fighter"
         }
     end,
 })
