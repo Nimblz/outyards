@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
 local LocalPlayer = Players.LocalPlayer
+local PhysicsService = game:GetService("PhysicsService")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
@@ -41,6 +42,9 @@ function NPCDriverSystem:onComponentAdded(instance, component)
     bodyVelocity.Parent = instance
     bodyForce.Parent = instance
     bodyGyro.Parent = instance
+
+    print("setting group")
+    PhysicsService:SetPartCollisionGroup(instance,"monsters")
 
     self:onComponentChange(instance,component)
 end
