@@ -1,12 +1,12 @@
-local Players = game:GetService("Players")
+-- local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local Workspace = game:GetService("Workspace")
-local LocalPlayer = Players.LocalPlayer
+-- local Workspace = game:GetService("Workspace")
+-- local LocalPlayer = Players.LocalPlayer
 
 local src = script:FindFirstAncestor("server")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+-- local util = common:WaitForChild("util")
 
 local AI = require(src.ai:WaitForChild("AI"))
 local RECS = require(lib:WaitForChild("RECS"))
