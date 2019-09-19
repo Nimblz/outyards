@@ -19,8 +19,8 @@ local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 
 function PrototypeMelee:create()
     self.attackRadius = 8
-    self.attackRate = 2
-    self.autoAttack = false
+    self.attackRate = 4
+    self.autoAttack = true
 end
 
 function PrototypeMelee:preInit()
@@ -78,7 +78,7 @@ function PrototypeMelee:onAttack()
     local character = LocalPlayer.Character
     local rootPart = character.PrimaryPart
     local rootPos = rootPart.Position
-    local targetCFrame = CFrame.new(rootPart.Position)
+    local targetCFrame = rootPart.CFrame * CFrame.new(0,0,-self.attackRadius*0.75)
 
     local attackVis = Instance.new("Part")
     attackVis.Anchored = true
@@ -95,8 +95,8 @@ function PrototypeMelee:onAttack()
 
     -- find npcs
     local cornerOffset = Vector3.new(1,1,1)*self.attackRadius
-    local topCorner = rootPos + cornerOffset
-    local bottomCorner = rootPos - cornerOffset
+    local topCorner = targetCFrame.p + cornerOffset
+    local bottomCorner = targetCFrame.p - cornerOffset
     local testRegion = Region3.new(bottomCorner,topCorner)
 
     local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
