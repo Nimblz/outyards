@@ -17,6 +17,19 @@ local AISystem = RECS.System:extend("AISystem")
 function AISystem:onComponentAdded(instance,aiComponent)
     local newAI = AI.new(instance,self.core,self.pzCore, aiComponent.aiType)
     self.AIs[aiComponent] = newAI
+
+    local actorStats = self.core:getComponent(instance,RecsComponents.ActorStats)
+    local changedConnection
+    changedConnection = actorStats.changed:connect(function(key,new,old)
+        if key == "health" then
+            if new <= 0 then
+                changedConnection:disconnect()
+                self.AIs[aiComponent]:kill()
+                self.AIs[aiComponent] = nil
+                instance:Destroy()
+            end
+        end
+    end)
 end
 
 function AISystem:onComponentRemoving(instance,component)
@@ -39,6 +52,9 @@ function AISystem:init()
 end
 
 function AISystem:step()
+    for _,ai in pairs(self.AIs) do
+        ai:step()
+    end
 end
 
 return AISystem
