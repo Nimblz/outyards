@@ -1,7 +1,7 @@
-local baseDamage = require(script.Parent:WaitForChild("baseDamage"))
-local attackRate = require(script.Parent:WaitForChild("attackRate"))
-local attackRange = require(script.Parent:WaitForChild("attackRange"))
-local cash = require(script.Parent:WaitForChild("cash"))
+local baseDamage = require(script:WaitForChild("baseDamage"))
+local attackRate = require(script:WaitForChild("attackRate"))
+local attackRange = require(script:WaitForChild("attackRange"))
+local cash = require(script:WaitForChild("cash"))
 
 return (function(state,action)
     state = state or {}
