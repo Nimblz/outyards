@@ -55,13 +55,13 @@ function StoreContainer:getStore()
 end
 
 function StoreContainer:createStore(initialState)
-    self.logger:log("Server store initialized.")
     self.store = Rodux.Store.new(reducer,initialState, {
 		Rodux.thunkMiddleware,
 		Rodux.loggerMiddleware,
         networkMiddleware(replicate),
     })
     self.storeCreated:fire()
+    self.logger:log("Server store initialized.")
 end
 
 function StoreContainer:preInit()
