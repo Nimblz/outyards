@@ -8,7 +8,7 @@ return function(state,action)
         for id,quantity in pairs(state) do
             newState[id] = quantity
         end
-        local itemQuantity = state[action.itemId]
+        local itemQuantity = state[action.itemId] or 0
         newState[action.id] = itemQuantity + action.quantity
         return newState
     end
