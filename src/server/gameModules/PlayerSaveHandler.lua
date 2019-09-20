@@ -28,8 +28,13 @@ function PlayerSaveHandler:init()
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
 
-            delay(5,function()
+            delay(2,function()
                 store:dispatch(Actions.CASH_ADD(player,500))
+                store:dispatch(Actions.ITEM_ADD(player,"wood", 30))
+                store:dispatch(Actions.ITEM_ADD(player,"stone", 55))
+                store:dispatch(Actions.ITEM_ADD(player,"iron", 10))
+                store:dispatch(Actions.ITEM_ADD(player,"copper", 15))
+                store:dispatch(Actions.ITEM_ADD(player,"soul powder", 3))
             end)
         end
 
