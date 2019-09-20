@@ -57,7 +57,7 @@ end
 function StoreContainer:createStore(initialState)
     self.store = Rodux.Store.new(reducer,initialState, {
 		Rodux.thunkMiddleware,
-		Rodux.loggerMiddleware,
+		--Rodux.loggerMiddleware,
         networkMiddleware(replicate),
     })
     self.storeCreated:fire()
