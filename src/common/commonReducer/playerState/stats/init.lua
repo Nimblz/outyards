@@ -3,13 +3,13 @@ local attackRate = require(script:WaitForChild("attackRate"))
 local attackRange = require(script:WaitForChild("attackRange"))
 local cash = require(script:WaitForChild("cash"))
 
-return (function(state,action)
+return function(state,action)
     state = state or {}
 
-    state.baseDamage = baseDamage(state.baseDamage, action)
-    state.attackRate = attackRate(state.attackRate, action)
-    state.attackRange = attackRange(state.attackRange, action)
-    state.cash = cash(state.cash, action)
-
-    return state
-end)
+    return {
+        baseDamage = baseDamage(state.baseDamage, action),
+        attackRate = attackRate(state.attackRate, action),
+        attackRange = attackRange(state.attackRange, action),
+        cash = cash(state.cash, action),
+    }
+end
