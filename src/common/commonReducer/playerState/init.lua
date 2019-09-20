@@ -1,5 +1,5 @@
-local inventory = require(script.Parent:WaitForChild("inventory"))
-local equipped = require(script.Parent:WaitForChild("equipped"))
+local inventory = require(script:WaitForChild("inventory"))
+local equipped = require(script:WaitForChild("equipped"))
 
 return (function(state,action)
     state = state or {}
