@@ -55,6 +55,9 @@
         },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
+        },
+        "Promise": {
+          "$path": "lib/roblox-lua-promise/lib"
         }
       },
       "template": {
