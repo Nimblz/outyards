@@ -36,7 +36,6 @@ function InputHandler:preInit()
     self.logger = self.core:getModule("Logger"):createLogger(self)
 
     for name, actionSpec in pairs(self.inputSpec) do
-        print("Binding for action:",name)
         actionSpec.name = name
         self:createBindings(actionSpec)
         self:createActionSignal(name)
