@@ -32,6 +32,7 @@ return function(entity, recs, pz)
     return {
         awake = {
             enter = function()
+                props.homePos = entity.Position
                 return "idle"
             end,
             step = function()
@@ -39,10 +40,14 @@ return function(entity, recs, pz)
         },
         idle = {
             enter = function()
+                driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
             end,
             step = function()
                 local character = findCharacterNear(entity, actorStats.aggroRadius)
                 if character then
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    if not humanoid then return end
+                    if humanoid.Health <= 0 then return end
                     return "chase", character
                 end
             end,
@@ -89,15 +94,19 @@ return function(entity, recs, pz)
 
                     local attackRay = Ray.new(selfPos,lookVec*actorStats.attackRange)
 
-                    local hit = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("NPCDriver"))
+                    local hit, hitpos = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("AI"))
                     if hit then
-                        local humanoid = hit.Parent:FindFirstChild("Humanoid")
+                        local humanoid =
+                            hit.Parent:FindFirstChild("Humanoid") or
+                            hit.Parent.Parent:FindFirstChild("Humanoid")
+
                         if humanoid then
                             humanoid:TakeDamage(actorStats.baseDamage)
                         end
                     end
 
                     -- debug vis
+                    local hitRange = (selfPos-hitpos).Magnitude
 
                     local vis = Instance.new("Part")
                     vis.Anchored = true
@@ -106,8 +115,8 @@ return function(entity, recs, pz)
                     vis.Material = Enum.Material.Neon
                     vis.BrickColor = BrickColor.new("Bright red")
                     vis.Transparency = 0.75
-                    vis.Size = Vector3.new(1,1/3,actorStats.attackRange)
-                    vis.CFrame = CFrame.new(selfPos,selfPos+lookVec) * CFrame.new(0,0,-actorStats.attackRange/2)
+                    vis.Size = Vector3.new(1,1/3,hitRange)
+                    vis.CFrame = CFrame.new(selfPos,selfPos+lookVec) * CFrame.new(0,0,-hitRange/2)
                     vis.Parent = workspace
 
                     delay(1/10, function() vis:Destroy() end)
@@ -123,11 +132,16 @@ return function(entity, recs, pz)
                     coroutine.wrap(props.attack)()
                 end
 
-                local target = props.target
+                local target = findCharacterNear(entity, actorStats.aggroRadius)
+                if not target then return "goHome" end
                 local targetRoot = target.PrimaryPart
+                if not targetRoot then return "goHome" end
+                local humanoid = target:FindFirstChild("Humanoid")
+                if not humanoid then return "goHome" end
+                if humanoid.Health <= 0 then return "goHome" end
+
                 local selfPosXZ = entity.Position * Vector3.new(1,0,1)
                 local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
-                local targetMoveDir = (targetPosXZ-selfPosXZ).unit
                 local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
 
                 driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
@@ -143,6 +157,25 @@ return function(entity, recs, pz)
             enter = function()
             end,
             step = function()
+                local selfPosXZ = entity.Position * Vector3.new(1,0,1)
+                local homePosXZ = props.homePos * Vector3.new(1,0,1)
+                local isCloseEnough = pointsCloserThan(selfPosXZ,homePosXZ,1)
+                local targetMoveDir = (homePosXZ-selfPosXZ).unit
+
+                driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,homePosXZ).lookVector)
+                driver:updateProperty("targetVelocity", targetMoveDir * actorStats.moveSpeed)
+
+                if isCloseEnough then
+                    return "idle"
+                end
+
+                local character = findCharacterNear(entity, actorStats.aggroRadius)
+                if character then
+                    local humanoid = character:FindFirstChild("Humanoid")
+                    if not humanoid then return end
+                    if humanoid.Health <= 0 then return end
+                    return "chase", character
+                end
             end,
         },
         dead = { -- entered when health reaches zero. will yield until previous state's enter is finished
