@@ -11,15 +11,16 @@
     "Lighting": {
       "$className": "Lighting",
       "$properties": {
-        "Technology": "Voxel",
+        "Technology": "ShadowMap",
         "Ambient": [
-          0.0,
-          0.0,
-          0.0
+          0.240,
+          0.250,
+          0.300
         ],
         "GlobalShadows": true,
         "Outlines": false,
-        "Brightness": 2.0
+        "Brightness": 2.0,
+        "ShadowSoftness": 1
       }
     },
     "ServerScriptService": {
@@ -55,6 +56,9 @@
         },
         "PizzaAlpaca": {
           "$path": "lib/pizzaalpaca/lib"
+        },
+        "Promise": {
+          "$path": "lib/roblox-lua-promise/lib"
         }
       },
       "template": {
