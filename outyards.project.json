@@ -20,7 +20,7 @@
         "GlobalShadows": true,
         "Outlines": false,
         "Brightness": 2.0,
-        "Shadow Softness": 1
+        "ShadowSoftness": 1
       }
     },
     "ServerScriptService": {
