@@ -10,6 +10,15 @@ local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local CollisionGroups = PizzaAlpaca.GameModule:extend("CollisionGroups")
 
+local function noCollideCharacter(char)
+    wait(1)
+    for _,v in pairs(char:GetDescendants()) do
+        if v:IsA("BasePart") then
+            PhysicsService:SetPartCollisionGroup(v,"players")
+        end
+    end
+end
+
 function CollisionGroups:preInit()
     PhysicsService:CreateCollisionGroup("players")
     PhysicsService:CreateCollisionGroup("monsters")
@@ -18,27 +27,11 @@ function CollisionGroups:preInit()
     PhysicsService:CollisionGroupSetCollidable("players","players",false)
 
     Players.PlayerAdded:connect(function(player)
-        player.CharacterAdded:connect(function(char)
-            wait(1)
-            for _,v in pairs(char:GetDescendants()) do
-                if v:IsA("BasePart") then
-                    print("nocolliding")
-                    PhysicsService:SetPartCollisionGroup(v,"players")
-                end
-            end
-        end)
+        player.CharacterAdded:connect(noCollideCharacter)
     end)
 
     for _,p in pairs(Players:GetPlayers()) do
-        p.CharacterAdded:connect(function(char)
-            wait(1)
-            for _,v in pairs(char:GetDescendants()) do
-                if v:IsA("BasePart") then
-                    print("nocolliding")
-                    PhysicsService:SetPartCollisionGroup(v,"players")
-                end
-            end
-        end)
+        p.CharacterAdded:connect(noCollideCharacter)
     end
 end
 
