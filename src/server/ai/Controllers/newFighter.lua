@@ -96,7 +96,10 @@ return function(entity, recs, pz)
 
                     local hit, hitpos = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("AI"))
                     if hit then
-                        local humanoid = hit.Parent:FindFirstChild("Humanoid")
+                        local humanoid =
+                            hit.Parent:FindFirstChild("Humanoid") or
+                            hit.Parent.Parent:FindFirstChild("Humanoid")
+
                         if humanoid then
                             humanoid:TakeDamage(actorStats.baseDamage)
                         end
