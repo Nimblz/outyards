@@ -13,6 +13,7 @@ local CollisionGroups = PizzaAlpaca.GameModule:extend("CollisionGroups")
 function CollisionGroups:preInit()
     PhysicsService:CreateCollisionGroup("players")
     PhysicsService:CreateCollisionGroup("monsters")
+    PhysicsService:CollisionGroupSetCollidable("monsters","monsters",false)
     PhysicsService:CollisionGroupSetCollidable("players","monsters",false)
     PhysicsService:CollisionGroupSetCollidable("players","players",false)
 
