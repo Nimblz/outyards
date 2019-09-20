@@ -8,9 +8,9 @@ return (function(state,action)
         local newPlayerState = {}
         for _,player in pairs(Players:GetPlayers()) do
             local playerKey = "player_"..player.UserId
-            if player == action.player then
+            if player == action.player then -- we need to rebuild this player state
                 newPlayerState[playerKey] = playerState(state[playerKey], action)
-            else
+            else -- this state is untouched
                 newPlayerState[playerKey] = state[playerKey]
             end
         end
