@@ -13,13 +13,14 @@
       "$properties": {
         "Technology": "ShadowMap",
         "Ambient": [
-          0.25,
-          0.25,
-          0.25
+          0.240,
+          0.250,
+          0.300
         ],
         "GlobalShadows": true,
         "Outlines": false,
-        "Brightness": 2.0
+        "Brightness": 2.0,
+        "Shadow Softness": 1
       }
     },
     "ServerScriptService": {
