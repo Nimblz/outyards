@@ -3,6 +3,7 @@ local CollectionService = game:GetService("CollectionService")
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local PlayerMouse = LocalPlayer:GetMouse()
 
 --local common = ReplicatedStorage:WaitForChild("common")
 --local util = common:WaitForChild("util")
@@ -78,7 +79,11 @@ function PrototypeMelee:onAttack()
     local character = LocalPlayer.Character
     local rootPart = character.PrimaryPart
     local rootPos = rootPart.Position
-    local targetCFrame = rootPart.CFrame * CFrame.new(0,0,-self.attackRadius*0.75)
+    local rootPosXZ = rootPos * Vector3.new(1,0,1)
+    local mousePosXZ = PlayerMouse.hit.p * Vector3.new(1,0,1)
+    local faceFec = (mousePosXZ-rootPosXZ).unit
+    local targetCFrame = CFrame.new(Vector3.new(0,0,0), faceFec) * CFrame.new(0,0,-self.attackRadius*0.75)
+    targetCFrame = targetCFrame + rootPos
 
     local attackVis = Instance.new("Part")
     attackVis.Anchored = true

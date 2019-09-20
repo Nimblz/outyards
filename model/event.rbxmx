@@ -2,14 +2,26 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="RBX384754780BD54D0BAAB94930E504391C">
+	<Item class="Folder" referent="27">
 		<Properties>
 			<string name="Name">event</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="RemoteEvent" referent="RBX06B251DC7EB049ABA13004611215B7B7">
+		<Item class="RemoteEvent" referent="28">
 			<Properties>
 				<string name="Name">eAttackActor</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBX9C6370AF5456447C9B1BDCF0C375D42C">
+			<Properties>
+				<string name="Name">eInitialState</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+		</Item>
+		<Item class="RemoteEvent" referent="RBX126B22D8C58A43BA92F5F3B645D2C554">
+			<Properties>
+				<string name="Name">eReplicateAction</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
 		</Item>
