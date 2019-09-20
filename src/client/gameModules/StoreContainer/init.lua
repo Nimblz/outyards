@@ -24,14 +24,18 @@ end
 
 function StoreContainer:getStore()
     return Promise.async(function(resolve, reject)
-        resolve(self.store or self.storeCreated:wait())
+        if not self.store then
+            self.logger:log("getStore() called.. Waiting for store to be created..")
+            self.storeCreated:wait()
+        end
+        resolve(self.store)
     end)
 end
 
 function StoreContainer:createStore(initialState)
     local store = Rodux.Store.new(reducer,initialState, {
 		Rodux.thunkMiddleware,
-		Rodux.loggerMiddleware,
+		--Rodux.loggerMiddleware,
     })
 
     eReplicateAction.OnClientEvent:connect(function(replicatedAction)
@@ -45,9 +49,6 @@ function StoreContainer:createStore(initialState)
 end
 
 function StoreContainer:preInit()
-end
-
-function StoreContainer:init()
     self.logger = self.core:getModule("Logger"):createLogger(self)
 
     local initalStateConnection
@@ -55,6 +56,9 @@ function StoreContainer:init()
         initalStateConnection:disconnect()
         self:createStore(initialState)
     end)
+end
+
+function StoreContainer:init()
 end
 
 function StoreContainer:postInit()
