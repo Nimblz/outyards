@@ -25,7 +25,9 @@ function NPCDriverSystem:onComponentChange(instance, component)
     bodyVelocity.MaxForce = component.maxMoveForce
     bodyVelocity.Velocity = component.targetVelocity
     bodyForce.Force = Vector3.new(0, instance:GetMass() * workspace.Gravity * (1-component.gravityWeight), 0)
-    bodyGyro.MaxTorque = Vector3.new(10000,10000,10000)
+    bodyGyro.MaxTorque = Vector3.new(20000,20000,20000)
+    bodyGyro.P = 5000
+    bodyGyro.D = 500
     bodyGyro.CFrame = CFrame.new(Vector3.new(0,0,0),component.targetDirection)
 end
 
