@@ -13,6 +13,8 @@ local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local PlayerSaveHandler = PizzaAlpaca.GameModule:extend("PlayerSaveHandler")
 
+local eInitialState = event:WaitForChild("eInitialState")
+
 function PlayerSaveHandler:preInit()
 end
 
@@ -21,10 +23,21 @@ function PlayerSaveHandler:init()
 
     storeContainer:getStore():andThen(function(store)
 
-        Players.PlayerAdded:connect(function(player)
+        local function playerAdded(player)
             store:dispatch(Actions.PLAYER_ADD(player,{}))
-        end)
+            local newState = store:getState()
+            eInitialState:FireClient(player,newState)
 
+            delay(5,function()
+                store:dispatch(Actions.CASH_ADD(player,500))
+            end)
+        end
+
+        Players.PlayerAdded:connect(playerAdded)
+
+        for _, player in pairs(Players:GetPlayers()) do
+            playerAdded(player)
+        end
     end)
 end
 
