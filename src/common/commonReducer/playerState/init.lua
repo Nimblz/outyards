@@ -1,5 +1,6 @@
 local inventory = require(script:WaitForChild("inventory"))
 local equipped = require(script:WaitForChild("equipped"))
+local stats = require(script:WaitForChild("stats"))
 
 return (function(state,action)
     state = state or {}
@@ -16,5 +17,6 @@ return (function(state,action)
     return {
         inventory = inventory(state.inventory, action),
         equipped = equipped(state.equipped, action),
+        stats = equipped(state.stats, action),
     }
 end)
