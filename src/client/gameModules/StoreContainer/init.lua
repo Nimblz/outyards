@@ -14,6 +14,7 @@ local Promise = require(lib:WaitForChild("Promise"))
 local reducer = require(src:WaitForChild("clientReducer"))
 
 local eReplicateAction = event:WaitForChild("eReplicateAction")
+local eInitialState = event:WaitForChild("eInitialState")
 
 local StoreContainer = PizzaAlpaca.GameModule:extend("StoreContainer")
 
@@ -30,6 +31,7 @@ end
 function StoreContainer:createStore(initialState)
     local store = Rodux.Store.new(reducer,initialState, {
 		Rodux.thunkMiddleware,
+		Rodux.loggerMiddleware,
     })
 
     eReplicateAction.OnClientEvent:connect(function(replicatedAction)
@@ -47,7 +49,12 @@ end
 
 function StoreContainer:init()
     self.logger = self.core:getModule("Logger"):createLogger(self)
-    self:createStore()
+
+    local initalStateConnection
+    initalStateConnection = eInitialState.OnClientEvent:connect(function(initialState)
+        initalStateConnection:disconnect()
+        self:createStore(initialState)
+    end)
 end
 
 function StoreContainer:postInit()
