@@ -19,7 +19,7 @@ local catagories = {
         id = "feet",
     },
     {
-        id = "weapon",
+        id = "trinket",
     },
 }
 
