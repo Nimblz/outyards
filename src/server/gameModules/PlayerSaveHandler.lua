@@ -34,7 +34,7 @@ function PlayerSaveHandler:init()
                 store:dispatch(Actions.ITEM_ADD(player,"stone", 55))
                 store:dispatch(Actions.ITEM_ADD(player,"iron", 10))
                 store:dispatch(Actions.ITEM_ADD(player,"copper", 15))
-                store:dispatch(Actions.ITEM_ADD(player,"soul powder", 3))
+                store:dispatch(Actions.ITEM_ADD(player,"soulPowder", 3))
             end)
         end
 
