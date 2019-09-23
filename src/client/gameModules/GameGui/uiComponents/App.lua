@@ -12,7 +12,7 @@ local App = Roact.Component:extend("App")
 local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
 --local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 --local Navbar = require(uiComponents:WaitForChild("Navbar"))
---local Inventory = require(uiComponents:WaitForChild("Inventory"))
+local Inventory = require(uiComponents:WaitForChild("PrototypeInventory"))
 --local Crafting = require(uiComponents:WaitForChild("Crafting"))
 --local Equipment = require(uiComponents:WaitForChild("Equipment"))
 --local WeaponBar = require(uiComponents:WaitForChild("WeaponBar"))
@@ -27,6 +27,7 @@ function App:render()
 
     local elements = {
         cashLabel = Roact.createElement(CashLabel),
+        inventory = Roact.createElement(Inventory),
     }
 
     return Roact.createElement("ScreenGui",{
