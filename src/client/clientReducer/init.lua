@@ -7,7 +7,7 @@ local Dictionary = require(util:WaitForChild("Dictionary"))
 
 local commonReducer = require(common:WaitForChild("commonReducer"))
 
-local screenSize = require(script.Parent:WaitForChild("screenSize"))
+local screenSize = require(script:WaitForChild("screenSize"))
 
 return function(state, action)
     state = state or {}
