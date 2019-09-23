@@ -9,7 +9,7 @@ local uiComponents = script.Parent
 local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
---local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
+local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
 --local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 --local Navbar = require(uiComponents:WaitForChild("Navbar"))
 --local Inventory = require(uiComponents:WaitForChild("Inventory"))
@@ -26,6 +26,7 @@ end
 function App:render()
 
     local elements = {
+        cashLabel = Roact.createElement(CashLabel),
     }
 
     return Roact.createElement("ScreenGui",{
