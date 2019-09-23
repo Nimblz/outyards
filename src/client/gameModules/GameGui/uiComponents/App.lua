@@ -9,7 +9,13 @@ local uiComponents = script.Parent
 local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
---local CoinCounter = require(uiComponents:WaitForChild("CoinCounter"))
+--local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
+--local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
+--local Navbar = require(uiComponents:WaitForChild("Navbar"))
+--local Inventory = require(uiComponents:WaitForChild("Inventory"))
+--local Crafting = require(uiComponents:WaitForChild("Crafting"))
+--local Equipment = require(uiComponents:WaitForChild("Equipment"))
+--local WeaponBar = require(uiComponents:WaitForChild("WeaponBar"))
 
 function App:init()
 end
@@ -20,17 +26,6 @@ end
 function App:render()
 
     local elements = {
-        --coinCointer = Roact.createElement(CoinCounter),
-        logo = Roact.createElement("Frame", {
-            AnchorPoint = Vector2.new(0,1),
-            Position = UDim2.new(0,8,1,-8),
-            Size = UDim2.new(0,256,0,256),
-            BackgroundTransparency = 1,
-        }, {
-            scaler = Roact.createElement("UIScale", {
-                Scale = 64/256,
-            })
-        }),
     }
 
     return Roact.createElement("ScreenGui",{
