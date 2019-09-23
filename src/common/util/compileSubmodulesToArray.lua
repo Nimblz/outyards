@@ -1,8 +1,8 @@
 local util = script.Parent
-local requireSubmodules = require(util:WaitForChild("requireSubmodules"))
+local compileSubmodules = require(util:WaitForChild("compileSubmodules"))
 
 return function(parent, recursive)
-    local unordered = requireSubmodules(parent,recursive)
+    local unordered = compileSubmodules(parent,recursive)
     local compiled = {}
 
     for _, module in pairs(unordered) do
