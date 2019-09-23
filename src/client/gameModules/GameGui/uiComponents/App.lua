@@ -10,7 +10,6 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
 --local CoinCounter = require(uiComponents:WaitForChild("CoinCounter"))
-local CodeLabLogo = require(uiComponents:WaitForChild("CodeLabLogo"))
 
 function App:init()
 end
@@ -28,7 +27,6 @@ function App:render()
             Size = UDim2.new(0,256,0,256),
             BackgroundTransparency = 1,
         }, {
-            logo = Roact.createElement(CodeLabLogo),
             scaler = Roact.createElement("UIScale", {
                 Scale = 64/256,
             })
