@@ -6,7 +6,7 @@ return {
     equipmentType = "armor",
     tier = 1,
     recipe = {
-        stone = 50,
-        leather = 20,
+        brick = 30,
+        leather = 50,
     }
 }
