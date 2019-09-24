@@ -27,15 +27,6 @@ function PlayerSaveHandler:init()
             store:dispatch(Actions.PLAYER_ADD(player,{}))
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
-
-            delay(2,function()
-                store:dispatch(Actions.CASH_ADD(player,500))
-                store:dispatch(Actions.ITEM_ADD(player,"wood", 30))
-                store:dispatch(Actions.ITEM_ADD(player,"stone", 55))
-                store:dispatch(Actions.ITEM_ADD(player,"iron", 10))
-                store:dispatch(Actions.ITEM_ADD(player,"copper", 15))
-                store:dispatch(Actions.ITEM_ADD(player,"soulPowder", 3))
-            end)
         end
 
         Players.PlayerAdded:connect(playerAdded)
