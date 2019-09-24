@@ -8,8 +8,8 @@ return function(state,action)
         for id,quantity in pairs(state) do
             newState[id] = quantity
         end
-        local itemQuantity = state[action.itemId]
-        newState[action.id] = itemQuantity + action.quantity
+        local itemQuantity = state[action.itemId] or 0
+        newState[action.itemId] = itemQuantity + action.quantity
         return newState
     end
 
@@ -18,7 +18,7 @@ return function(state,action)
             newState[id] = quantity
         end
         local itemQuantity = state[action.itemId]
-        newState[action.id] = math.max(itemQuantity - action.quantity, 0)
+        newState[action.itemId] = math.max(itemQuantity - action.quantity, 0)
         return newState
     end
 

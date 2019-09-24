@@ -36,7 +36,6 @@ function InputHandler:preInit()
     self.logger = self.core:getModule("Logger"):createLogger(self)
 
     for name, actionSpec in pairs(self.inputSpec) do
-        print("Binding for action:",name)
         actionSpec.name = name
         self:createBindings(actionSpec)
         self:createActionSignal(name)
@@ -48,9 +47,9 @@ function InputHandler:init()
 end
 
 function InputHandler:postInit()
-    UserInputService.InputBegan:connect(function(input) self:onInput(input) end)
-    UserInputService.InputChanged:connect(function(input) self:onInput(input) end)
-    UserInputService.InputEnded:connect(function(input) self:onInput(input) end)
+    UserInputService.InputBegan:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
+    UserInputService.InputChanged:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
+    UserInputService.InputEnded:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
 end
 
 function InputHandler:onInput(input, robloxProcessed)
