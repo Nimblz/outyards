@@ -2,6 +2,7 @@
 
 return {
     id = "powerGauntlet",
+    name = "Power Gauntlet",
     equipmentType = "trinket",
     tier = 2,
     recipe = {
