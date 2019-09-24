@@ -2,6 +2,7 @@
 
 return {
     id = "stoneArmor",
+    name = "Stone Armor",
     equipmentType = "armor",
     tier = 1,
     recipe = {
