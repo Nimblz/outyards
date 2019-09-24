@@ -27,10 +27,6 @@ function PlayerSaveHandler:init()
             store:dispatch(Actions.PLAYER_ADD(player,{}))
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
-
-            delay(5,function()
-                store:dispatch(Actions.CASH_ADD(player,500))
-            end)
         end
 
         Players.PlayerAdded:connect(playerAdded)
