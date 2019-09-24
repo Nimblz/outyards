@@ -47,9 +47,9 @@ function InputHandler:init()
 end
 
 function InputHandler:postInit()
-    UserInputService.InputBegan:connect(function(input) self:onInput(input) end)
-    UserInputService.InputChanged:connect(function(input) self:onInput(input) end)
-    UserInputService.InputEnded:connect(function(input) self:onInput(input) end)
+    UserInputService.InputBegan:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
+    UserInputService.InputChanged:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
+    UserInputService.InputEnded:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
 end
 
 function InputHandler:onInput(input, robloxProcessed)
