@@ -8,11 +8,23 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
 -- local util = common:WaitForChild("util")
 
+local Items = require(common:WaitForChild("Items"))
+local Actions = require(common:WaitForChild("Actions"))
+
 local AI = require(src.ai:WaitForChild("AI"))
 local RECS = require(lib:WaitForChild("RECS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
+local errors = {
+    invalidItemId = "Invalid drop item id [%s]!"
+}
+
 local AISystem = RECS.System:extend("AISystem")
+
+local function randomRange(min,max)
+    local diff = max-min
+    return min + (math.random()*diff)
+end
 
 function AISystem:onComponentAdded(instance,aiComponent)
     local newAI = AI.new(instance,self.core,self.pzCore, aiComponent.aiType)
@@ -26,6 +38,29 @@ function AISystem:onComponentAdded(instance,aiComponent)
                 changedConnection:disconnect()
                 self.AIs[aiComponent]:kill()
                 self.AIs[aiComponent] = nil
+
+                local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
+                local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
+                if not dropsComponent then return end
+                for _,dropDescription in pairs(dropsComponent.items) do
+                    -- {itemId = "matWood", dropRange = {min = 4, max = 10}, dropRate = 1.00}
+
+                    local itemId = dropDescription.itemId
+                    local dropRange = dropDescription.dropRange
+                    local dropRate = dropDescription.dropRate
+
+                    assert(Items.byId[itemId], errors.invalidItemId:format(itemId))
+
+                    local dropAmmt = math.floor(randomRange(dropRange.min,dropRange.max)+0.5)
+
+                    if math.random() <= dropRate then
+                        -- award the drop to everyone in this npcs damagedby component
+                        for player,_ in pairs(damagedByComponent.players) do
+                            self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                        end
+                    end
+                end
+
                 instance:Destroy()
             end
         end
@@ -33,7 +68,6 @@ function AISystem:onComponentAdded(instance,aiComponent)
 end
 
 function AISystem:onComponentRemoving(instance,component)
-
 end
 
 function AISystem:init()
