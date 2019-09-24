@@ -1,9 +1,9 @@
-return function(player, itemId, quanitity)
+return function(player, itemId, quantity)
     return {
         type = script.Name,
         player = player,
         itemId = itemId,
-        quanitity = quanitity,
+        quantity = quantity,
 
         replicateTo = player,
     }
