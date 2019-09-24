@@ -55,8 +55,8 @@ function CashLabel:render()
 
     return Roact.createElement("Frame", {
         Size = UDim2.new(0,HORIZONTAL_SIZE,0,VERTICAL_SIZE),
-        Position = UDim2.new(0,PADDING,0.5,0),
-        AnchorPoint = Vector2.new(0,0.5),
+        Position = UDim2.new(0,PADDING,1,-PADDING),
+        AnchorPoint = Vector2.new(0,1),
 
         BackgroundTransparency = 1,
         BorderSizePixel = 0,
@@ -65,7 +65,9 @@ end
 
 local function mapStateToProps(state,props)
     local cash = Selectors.getCash(state,LocalPlayer)
-    props.cashValue = cash
+    return {
+        cashValue = cash
+    }
 end
 
 CashLabel = RoactRodux.connect(mapStateToProps)(CashLabel)
