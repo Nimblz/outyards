@@ -11,7 +11,7 @@ return RECS.defineComponent({
             items = {
                 -- {itemId = "matWood", dropRange = {min = 4, max = 10}, dropRate = 1.00}
             },
-            cash = 10,
+            cash = 1,
         }
     end,
 })
