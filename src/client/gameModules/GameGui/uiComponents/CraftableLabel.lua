@@ -42,8 +42,8 @@ function CraftableLabel:render()
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Top,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            Padding = UDim.new(0,2),
-            FillDirection = Enum.FillDirection.Vertical,
+            Padding = UDim.new(0,8),
+            FillDirection = Enum.FillDirection.Horizontal,
         }),
         margin = Roact.createElement("UIPadding", {
             PaddingBottom = UDim.new(0,4),
@@ -59,17 +59,17 @@ function CraftableLabel:render()
             itemId = id,
             quantity = quantity,
             isGray = Selectors.getItem(self.props.state, LocalPlayer, id) < quantity,
-            layoutOrder = ingredientItem.tier
+            layoutOrder = ingredientItem.sortOrder
         })
     end
 
     local children = {
         listLayout = Roact.createElement("UIListLayout", {
             SortOrder = Enum.SortOrder.LayoutOrder,
-            VerticalAlignment = Enum.VerticalAlignment.Top,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            Padding = UDim.new(0,16),
-            FillDirection = Enum.FillDirection.Vertical,
+            Padding = UDim.new(0,4),
+            FillDirection = Enum.FillDirection.Horizontal,
         }),
         margin = Roact.createElement("UIPadding", {
             PaddingBottom = UDim.new(0,4),
@@ -79,27 +79,22 @@ function CraftableLabel:render()
         }),
         craftableItem = Roact.createElement(ItemLabel, {
             itemId = itemId,
-            quantity = isCraftable and "CRAFTABLE" or "UNCRAFTABLE",
             layoutOrder = 1,
         }),
-        ingredientList = Roact.createElement("ScrollingFrame", {
-            Size = UDim2.new(1,0,1,-55),
-            LayoutOrder = 2,
-
+        arrowLabel = Roact.createElement(ItemLabel, {
+            itemId = "leftNavArrow",
+            layoutOrder = 2,
+        }),
+        ingredientList = Roact.createElement("Frame", {
+            Size = UDim2.new(1,-105,1,0),
+            LayoutOrder = 3,
             BorderSizePixel = 0,
             BackgroundColor3 = Color3.new(0.8,0.8,0.8),
-
-            ScrollBarThickness = 8,
-            TopImage = "rbxassetid://1539341292",
-            MidImage = "rbxassetid://1539341292",
-            BottomImage = "rbxassetid://1539341292",
-            CanvasSize = UDim2.new(0,0,0,0),
-            VerticalScrollBarInset = Enum.ScrollBarInset.Always,
         }, ingredientElements)
     }
 
     return Roact.createElement("ImageButton", {
-        Size = UDim2.new(1,0,2/3,0),
+        Size = UDim2.new(1,0,0,64),
         SizeConstraint = Enum.SizeConstraint.RelativeXX,
         BorderSizePixel = 0,
         BackgroundColor3 = isCraftable and Color3.new(0.9,0.9,0.9) or Color3.new(0.7,0.7,0.7),

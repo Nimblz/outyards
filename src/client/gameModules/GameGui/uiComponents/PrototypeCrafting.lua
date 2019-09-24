@@ -44,11 +44,11 @@ function PrototypeCrafting:render()
 
     for id, _ in pairs(ingredientsOwned) do
         local item = Items.byId[id]
-        local itemTier = item.tier
+        local itemSortOrder = item.sortOrder
         local newCraftableLabel = Roact.createElement(CraftableLabel, {
             itemId = id,
             isCraftable = canCraft(self.props.state, LocalPlayer, id),
-            layoutOrder = itemTier
+            layoutOrder = itemSortOrder
         })
 
         children[id] = newCraftableLabel
