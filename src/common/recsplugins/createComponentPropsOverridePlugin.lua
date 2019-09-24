@@ -9,6 +9,8 @@ local function createComponentPropsOverridePlugin()
         if not typeof(entity) == "Instance" then return end -- entity is not an instance, not interested.
         local componentPropsModule = entity:FindFirstChild("ComponentProps")
         if not componentPropsModule then return end -- doesnt exist, not interested
+        if componentPropsModule:IsA("ObjectValue") then componentPropsModule = componentPropsModule.Value end
+        if not componentPropsModule then return end
         if not componentPropsModule:IsA("ModuleScript") then return end -- not a module script, not interested.
 
         -- type checkingggg

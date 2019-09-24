@@ -8,6 +8,8 @@ local recsPlugins = common:WaitForChild("recsplugins")
 
 local RECS = require(lib:WaitForChild("RECS"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Signal = require(lib:WaitForChild("Signal"))
+local Promise = require(lib:WaitForChild("Promise"))
 
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 local Systems = require(script.Systems)
@@ -18,7 +20,11 @@ local createComponentPropsOverridePlugin = require(recsPlugins:WaitForChild("cre
 
 local ServerRECSContainer = PizzaAlpaca.GameModule:extend("ServerRECSContainer")
 
-function ServerRECSContainer:preInit()
+function ServerRECSContainer:create()
+    self.recsCoreCreated = Signal.new()
+end
+
+function ServerRECSContainer:onStoreCreated(store)
     self.recsCore = RECS.Core.new({
         RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
@@ -26,7 +32,8 @@ function ServerRECSContainer:preInit()
         createInjectorPlugin("getClientModule", function(_, name)
             return self.core:getModule(name)
         end),
-        createInjectorPlugin("pzCore", self.core)
+        createInjectorPlugin("pzCore", self.core),
+        createInjectorPlugin("store", store),
     })
 
     -- register all components
@@ -38,8 +45,23 @@ function ServerRECSContainer:preInit()
     self.recsCore:registerSteppers(Steppers)
 end
 
+function ServerRECSContainer:getCore()
+    return Promise.async(function(resolve, reject)
+        resolve(self.recsCore or self.recsCoreCreated:wait())
+    end)
+end
+
+function ServerRECSContainer:preInit()
+end
+
 function ServerRECSContainer:init()
-    self.recsCore:start()
+    local storeContainer = self.core:getModule("StoreContainer")
+    storeContainer:getStore():andThen(function(store)
+        self:onStoreCreated(store)
+
+        self.recsCore:start()
+        self.recsCoreCreated:fire(self.recsCore)
+    end)
 end
 
 function ServerRECSContainer:postInit()

@@ -45,7 +45,6 @@ function NPCDriverSystem:onComponentAdded(instance, component)
     bodyForce.Parent = instance
     bodyGyro.Parent = instance
 
-    print("setting group")
     PhysicsService:SetPartCollisionGroup(instance,"monsters")
 
     self:onComponentChange(instance,component)
