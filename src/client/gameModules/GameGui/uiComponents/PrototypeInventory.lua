@@ -30,29 +30,31 @@ function PrototypeInventory:render()
     local inventory = self.props.inventory
 
     local children = {
-        listLayout = Roact.createElement("UIListLayout", {
+        listLayout = Roact.createElement("UIGridLayout", {
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Top,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            Padding = UDim.new(0,PADDING),
-            FillDirection = Enum.FillDirection.Vertical,
+            CellSize = UDim2.new(0,48,0,48),
+            CellPadding = UDim2.new(0,8,0,8),
         }),
     }
 
     for id, quantity in pairs(inventory) do
-        local item = Items.byId[id]
-        local itemTier = item.tier
-        local newItemLabel = Roact.createElement(ItemLabel, {
-            itemId = id,
-            quantity = quantity,
-            layoutOrder = itemTier
-        })
+        if quantity > 0 then
+            local item = Items.byId[id]
+            local itemSortOrder = item.sortOrder
+            local newItemLabel = Roact.createElement(ItemLabel, {
+                itemId = id,
+                quantity = quantity,
+                layoutOrder = itemSortOrder
+            })
 
-        children[id] = newItemLabel
+            children[id] = newItemLabel
+        end
     end
 
     return Roact.createElement("ScrollingFrame", {
-        Size = UDim2.new(0,250,0,600),
+        Size = UDim2.new(0,(48+8)*6 + 16,0,600),
         AnchorPoint = Vector2.new(1,0.5),
         Position = UDim2.new(1,0,0.5,0),
 
@@ -64,7 +66,7 @@ function PrototypeInventory:render()
         TopImage = "rbxassetid://1539341292",
         MidImage = "rbxassetid://1539341292",
         BottomImage = "rbxassetid://1539341292",
-        CanvasSize = UDim2.new(0,0,2,0),
+        CanvasSize = UDim2.new(0,0,1,0),
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
 end

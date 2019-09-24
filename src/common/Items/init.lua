@@ -5,6 +5,13 @@ local by = require(common.util:WaitForChild("by"))
 local compileSubmodulesToArray = require(common.util:WaitForChild("compileSubmodulesToArray"))
 local assets = compileSubmodulesToArray(script, true)
 
+for _, item in pairs(assets) do
+    item.spriteSheet = item.spriteSheet or "materials"
+    item.spriteCoords = item.spriteCoords or Vector2.new(16,16)
+    item.sortOrder = item.tier
+    if item.type then item.sortorder = item.sortorder + 100 end
+end
+
 local function isTierLower(asset1,asset2)
     return asset1.tier < asset2.tier
 end
