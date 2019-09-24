@@ -2,17 +2,17 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="259">
+	<Item class="Folder" referent="287">
 		<Properties>
 			<string name="Name">TagList</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="260">
+		<Item class="Folder" referent="288">
 			<Properties>
 				<string name="Name">AI</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="261">
+			<Item class="Color3Value" referent="289">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -24,12 +24,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="262">
+		<Item class="Folder" referent="290">
 			<Properties>
 				<string name="Name">NPCDriver</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="263">
+			<Item class="Color3Value" referent="291">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -41,12 +41,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="264">
+		<Item class="Folder" referent="292">
 			<Properties>
 				<string name="Name">ActorStats</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="265">
+			<Item class="Color3Value" referent="293">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -58,12 +58,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="266">
+		<Item class="Folder" referent="294">
 			<Properties>
 				<string name="Name">ItemDrops</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="267">
+			<Item class="Color3Value" referent="295">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -75,12 +75,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX19E00C750E7149B5AFAA890BED767A1A">
+		<Item class="Folder" referent="296">
 			<Properties>
 				<string name="Name">NPC</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Color3Value" referent="RBX83EBC8FEEA684FC1A15AE789E11B754E">
+			<Item class="Color3Value" referent="297">
 				<Properties>
 					<string name="Name">Color</string>
 					<BinaryString name="Tags"></BinaryString>
@@ -88,6 +88,57 @@
 						<R>0.201486796</R>
 						<G>0.527843118</G>
 						<B>0.449023455</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX7F74BF5C7DF746C784C0D17AF9C7017A">
+			<Properties>
+				<string name="Name">SpawnZone</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="RBX2CAEEF21975B414FB08C06FF730571F5">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.2074458</R>
+						<G>0.51686275</G>
+						<B>0.383606046</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX35A6E9CD2B7A41528E9983CB4D2A874C">
+			<Properties>
+				<string name="Name">ItemDoor</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="RBXA99CC386C3DD4A8A8682447E16F8D465">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.289359152</R>
+						<G>0.644803703</G>
+						<B>0.73647058</B>
+					</Color3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX7CC3A93F479340B5B5EFA2F7730C5201">
+			<Properties>
+				<string name="Name">PepperoniSecret</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Color3Value" referent="RBXC6EC40EE52F4487980EA132332CAD41F">
+				<Properties>
+					<string name="Name">Color</string>
+					<BinaryString name="Tags"></BinaryString>
+					<Color3 name="Value">
+						<R>0.124786161</R>
+						<G>0.20068261</G>
+						<B>0.728235304</B>
 					</Color3>
 				</Properties>
 			</Item>
