@@ -62,8 +62,10 @@ function ActorHealthbarSystem:init()
     end
 
     self.core:getComponentAddedSignal(RecsComponents.ActorStats):connect(function(instance,component)
+        self:onComponentAdded(instance, component)
     end)
     self.core:getComponentRemovingSignal(RecsComponents.ActorStats):connect(function(instance,component)
+        self:onComponentRemoving(instance, component)
     end)
 end
 
