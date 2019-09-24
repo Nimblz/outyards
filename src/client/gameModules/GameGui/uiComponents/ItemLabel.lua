@@ -8,11 +8,13 @@ local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
 local Items = require(common:WaitForChild("Items"))
+local Sprites = require(common:WaitForChild("Sprites"))
 
 local ItemLabel = Roact.Component:extend("ItemLabel")
 
 local errors = {
-    invalidItemId = "Invalid itemId [%s]!"
+    invalidItemId = "Invalid itemId [%s]!",
+    invalidSpriteSheet = "Invalid sprite sheet [%s]!",
 }
 
 function ItemLabel:init()
@@ -27,19 +29,49 @@ function ItemLabel:render()
     local isGray = self.props.isGray
     local layoutOrder = self.props.layoutOrder or 0
 
+
     local item = Items.byId[itemId]
-
+    local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(item, errors.invalidItemId:format(tostring(itemId)))
+    assert(spriteSheet, errors.invalidSpriteSheet:format(tostring(spriteSheet)))
 
-    return Roact.createElement("TextLabel", {
-        Text = " "..(item.name or itemId).." - "..tostring(quantity),
-        Size = UDim2.new(1,0,0,40),
+    local spriteRectSize = spriteSheet.spriteSize * spriteSheet.scaleFactor
+    local spriteRectOffset = Vector2.new(
+        (item.spriteCoords.X-1) * spriteSheet.spriteSize.X,
+        (item.spriteCoords.Y-1) * spriteSheet.spriteSize.Y
+    )   * spriteSheet.scaleFactor
+
+
+    local quantityLabel
+    if quantity then
+        quantityLabel = Roact.createElement("TextLabel", {
+            Size = UDim2.new(0,24,0,24),
+            AnchorPoint = Vector2.new(0.5,0.5),
+            Position = UDim2.new(1,0,1,0),
+            BackgroundTransparency = 1,
+            Text = quantity,
+            TextSize = 24,
+            TextColor3 = Color3.new(1,1,1),
+            TextStrokeTransparency = 0,
+            Font = Enum.Font.GothamBold,
+            TextXAlignment = Enum.TextXAlignment.Right,
+            TextYAlignment = Enum.TextYAlignment.Bottom,
+        })
+    end
+
+    return Roact.createElement("ImageLabel", {
+        Size = UDim2.new(0,48,0,48),
         BorderSizePixel = 0,
-        BackgroundColor3 = isGray and Color3.new(0.7,0.7,0.7) or Color3.new(1,1,1),
-        TextSize = 20,
-        TextXAlignment = Enum.TextXAlignment.Left,
-        Font = Enum.Font.GothamBold,
+        BackgroundTransparency = 1,
         LayoutOrder = layoutOrder,
+
+        Image = spriteSheet.assetId,
+        ImageRectSize = spriteRectSize,
+        ImageRectOffset = spriteRectOffset,
+
+        ImageColor3 = isGray and Color3.new(0.3,0.3,0.3) or Color3.new(1,1,1)
+    }, {
+        quantityLabel = quantityLabel
     })
 end
 
