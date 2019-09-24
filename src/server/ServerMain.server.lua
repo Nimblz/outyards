@@ -21,3 +21,5 @@ core:registerChildrenAsModules(sidedModules)
 
 -- start the core
 core:load()
+
+print("Outyards server started!")
