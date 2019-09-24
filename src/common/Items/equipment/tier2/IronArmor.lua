@@ -7,8 +7,8 @@ return {
     tier = 2,
     recipe = {
         leather = 80,
-        iron = 50,
+        ingotIron = 50,
         wood = 30,
-        copper = 20,
+        ingotCopper = 20,
     }
 }

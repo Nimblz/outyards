@@ -6,8 +6,8 @@ return {
     equipmentType = "trinket",
     tier = 1,
     recipe = {
-        stone = 10,
+        brick = 20,
         wood = 30,
-        leather = 10,
+        leather = 30,
     }
 }
