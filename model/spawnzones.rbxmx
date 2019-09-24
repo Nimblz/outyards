@@ -2,17 +2,17 @@
 	<Meta name="ExplicitAutoJoints">true</Meta>
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Folder" referent="RBXE006D25263D64C808BBE043D5D4A0F2B">
+	<Item class="Folder" referent="298">
 		<Properties>
 			<string name="Name">spawnZones</string>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="RBXAEADD3B1521848E19316B5045A5CBA82">
+		<Item class="Folder" referent="299">
 			<Properties>
 				<string name="Name">grassSpawns</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX90ABE483CEA94E40B86089ED24CC4DF1">
+			<Item class="Part" referent="300">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -87,7 +87,7 @@
 					</Vector3>
 				</Properties>
 			</Item>
-			<Item class="Part" referent="RBX13824FB555434FDD890E9B773C4D0F1C">
+			<Item class="Part" referent="301">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -162,13 +162,31 @@
 					</Vector3>
 				</Properties>
 			</Item>
+			<Item class="ModuleScript" referent="RBX4BCA7C33083946E38CFB36CBCC609D78">
+				<Properties>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">ComponentProps</string>
+					<string name="ScriptGuid">{6CA6BDBE-B356-46AF-8D10-97C695FC41ED}</string>
+					<ProtectedString name="Source"><![CDATA[return function()
+	return {
+		SpawnZone = {
+			npcs = {
+				{npcType = "basicGrass", rarity = 1.0},
+				{npcType = "bigGrass", rarity = 0.1},
+			}	
+		}	
+	}
+end]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
 		</Item>
-		<Item class="Folder" referent="RBX8CE837F8C7FA4F7495AAB6994B7E79E6">
+		<Item class="Folder" referent="302">
 			<Properties>
 				<string name="Name">snowSpawns</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX9C7BD0B0B1D841F1AF315E206D36210B">
+			<Item class="Part" referent="303">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
@@ -244,12 +262,12 @@
 				</Properties>
 			</Item>
 		</Item>
-		<Item class="Folder" referent="RBXFF6886A5725E4C89A657659DC75DFBF0">
+		<Item class="Folder" referent="304">
 			<Properties>
 				<string name="Name">desertSpawns</string>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="Part" referent="RBX53D9B029F5B64E5CAAD53417CA468978">
+			<Item class="Part" referent="305">
 				<Properties>
 					<bool name="Anchored">false</bool>
 					<float name="BackParamA">-0.5</float>
