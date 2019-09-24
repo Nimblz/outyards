@@ -6,8 +6,8 @@ return {
     equipmentType = "armor",
     tier = 2,
     recipe = {
-        voidPlate = 50,
-        soulPowder = 50,
+        ingotVoid = 30,
+        stardust = 50,
         powerShard = 10,
     }
 }

@@ -7,7 +7,7 @@ return {
     tier = 2,
     recipe = {
         starCloth = 40,
-        soulPowder = 50,
+        stardust = 50,
         powerShard = 5,
     }
 }

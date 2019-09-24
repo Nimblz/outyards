@@ -8,7 +8,7 @@ return {
     recipe = {
         leather = 40,
         wood = 20,
-        iron = 50,
-        copper = 50,
+        ingotIron = 50,
+        ingotCopper = 50,
     }
 }
