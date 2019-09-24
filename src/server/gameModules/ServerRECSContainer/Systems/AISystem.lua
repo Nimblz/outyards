@@ -41,23 +41,27 @@ function AISystem:onComponentAdded(instance,aiComponent)
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
-                if not dropsComponent then return end
-                for _,dropDescription in pairs(dropsComponent.items) do
-                    -- {itemId = "matWood", dropRange = {min = 4, max = 10}, dropRate = 1.00}
+                if dropsComponent then
+                    for _,dropDescription in pairs(dropsComponent.items) do
+                        -- {itemId = "matWood", dropRange = {min = 4, max = 10}, dropRate = 1.00}
 
-                    local itemId = dropDescription.itemId
-                    local dropRange = dropDescription.dropRange
-                    local dropRate = dropDescription.dropRate
+                        local itemId = dropDescription.itemId
+                        local dropRange = dropDescription.dropRange
+                        local dropRate = dropDescription.dropRate
 
-                    assert(Items.byId[itemId], errors.invalidItemId:format(itemId))
+                        assert(Items.byId[itemId], errors.invalidItemId:format(itemId))
 
-                    local dropAmmt = math.floor(randomRange(dropRange.min,dropRange.max)+0.5)
+                        local dropAmmt = math.floor(randomRange(dropRange.min,dropRange.max)+0.5)
 
-                    if math.random() <= dropRate then
-                        -- award the drop to everyone in this npcs damagedby component
-                        for player,_ in pairs(damagedByComponent.players) do
-                            self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                        if math.random() <= dropRate then
+                            -- award the drop to everyone in this npcs damagedby component
+                            for player,_ in pairs(damagedByComponent.players) do
+                                self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                            end
                         end
+                    end
+                    for player,_ in pairs(damagedByComponent.players) do
+                        self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
                     end
                 end
 
