@@ -14,25 +14,26 @@ local ActorDamageHandler = PizzaAlpaca.GameModule:extend("ActorDamageHandler")
 
 local eAttackActor = event:WaitForChild("eAttackActor")
 
-function ActorDamageHandler:onRecs(recsCore)
+function ActorDamageHandler:onRecsAndStore(recsCore, store)
     eAttackActor.OnServerEvent:connect(function(player, instance)
         assert(typeof(instance) == "Instance", "Invalid parameter")
 
         local ActorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
         local DamagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
+
         assert(ActorStats, "Invalid entity. Has no stats.")
         assert(DamagedBy, "Invalid entity. Has no DamagedBy component.")
 
-        ActorStats:updateProperty("health", ActorStats.health - 1)
         DamagedBy:updateProperty("players", Dictionary.join({[player] = true}, DamagedBy.players))
+        ActorStats:updateProperty("health", ActorStats.health - 1)
     end)
 end
 
 function ActorDamageHandler:onStore(store)
     local recsContainer = self.core:getModule("ServerRECSContainer")
     recsContainer:getCore():andThen(function(recsCore)
-        self:onRecs(recsCore)
+        self:onRecsAndStore(recsCore, store)
     end)
 end
 
