@@ -12,7 +12,7 @@
 	url = https://github.com/Nimblz/pizzaalpaca
 [submodule "lib/recs"]
 	path = lib/recs
-	url = https://github.com/AmaranthineCodices/recs.git
+	url = https://github.com/Nimblz/recs
 [submodule "lib/t"]
 	path = lib/t
 	url = https://github.com/osyrisrblx/t
