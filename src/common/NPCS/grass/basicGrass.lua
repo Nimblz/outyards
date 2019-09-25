@@ -15,5 +15,9 @@ return {
                 cash = 1,
             }
         }
-    end
+    end,
+    boundingBoxProps = {
+        Size = Vector3.new(2,6,2),
+        Color = Color3.fromRGB(190, 104, 98),
+    }
 }
