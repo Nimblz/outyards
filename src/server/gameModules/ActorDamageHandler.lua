@@ -26,7 +26,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         assert(DamagedBy, "Invalid entity. Has no DamagedBy component.")
 
         DamagedBy:updateProperty("players", Dictionary.join({[player] = true}, DamagedBy.players))
-        ActorStats:updateProperty("health", ActorStats.health - 1)
+        ActorStats:updateProperty("health", ActorStats.health - 5)
     end)
 end
 
