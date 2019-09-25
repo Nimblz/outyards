@@ -8,5 +8,8 @@ local Systems = require(script.Parent:WaitForChild("Systems"))
 return {
     RECS.interval(1/15, {
         Systems.AISystem
+    }),
+    RECS.interval(1, {
+        Systems.SpawnZoneSystem
     })
 }
