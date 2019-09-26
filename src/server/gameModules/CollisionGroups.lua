@@ -1,6 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
 
 --local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
@@ -19,12 +20,28 @@ local function noCollideCharacter(char)
     end
 end
 
+local function addChildrenToGroup(obj,groupName)
+    for _,v in pairs(obj:GetChildren()) do
+        if v:IsA("BasePart") then
+            PhysicsService:SetPartCollisionGroup(v,groupName)
+        end
+    end
+end
+
 function CollisionGroups:preInit()
+
+    local world = Workspace:WaitForChild("world")
+    local mobCollide = world:WaitForChild("mobcollide")
+
     PhysicsService:CreateCollisionGroup("players")
     PhysicsService:CreateCollisionGroup("monsters")
-    PhysicsService:CollisionGroupSetCollidable("monsters","monsters",false)
+    PhysicsService:CreateCollisionGroup("mobCollide")
+
+    addChildrenToGroup(mobCollide,"mobCollide")
+
     PhysicsService:CollisionGroupSetCollidable("players","monsters",false)
     PhysicsService:CollisionGroupSetCollidable("players","players",false)
+    PhysicsService:CollisionGroupSetCollidable("players","mobCollide",false)
 
     Players.PlayerAdded:connect(function(player)
         player.CharacterAdded:connect(noCollideCharacter)
