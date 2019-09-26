@@ -61,12 +61,6 @@
           "$path": "lib/roblox-lua-promise/lib"
         }
       },
-      "template": {
-        "$path": "model/templateGui.rbxmx"
-      },
-      "event": {
-        "$path": "model/event.rbxmx"
-      }
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
@@ -87,18 +81,6 @@
       "$className": "Workspace",
       "$properties": {
         "FilteringEnabled": true
-      },
-      "world": {
-        "$path": "model/world.rbxmx"
-      }
-    },
-    "ServerStorage": {
-      "$className": "ServerStorage",
-      "spawnZones": {
-        "$path": "model/spawnZones.rbxmx"
-      },
-      "TagList": {
-        "$path": "model/taglist.rbxmx"
       }
     }
   }
