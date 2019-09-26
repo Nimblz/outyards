@@ -60,7 +60,7 @@
         "Promise": {
           "$path": "lib/roblox-lua-promise/lib"
         }
-      },
+      }
     },
     "StarterPlayer": {
       "$className": "StarterPlayer",
