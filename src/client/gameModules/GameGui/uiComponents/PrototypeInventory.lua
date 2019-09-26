@@ -37,6 +37,12 @@ function PrototypeInventory:render()
             CellSize = UDim2.new(0,48,0,48),
             CellPadding = UDim2.new(0,8,0,8),
         }),
+        margin = Roact.createElement("UIPadding", {
+            PaddingBottom = UDim.new(0,4),
+            PaddingTop = UDim.new(0,4),
+            PaddingLeft = UDim.new(0,4),
+            PaddingRight = UDim.new(0,4),
+        }),
     }
 
     for id, quantity in pairs(inventory) do
@@ -46,6 +52,7 @@ function PrototypeInventory:render()
             local newItemLabel = Roact.createElement(ItemLabel, {
                 itemId = id,
                 quantity = quantity,
+                activatable = true,
                 layoutOrder = itemSortOrder
             })
 
@@ -61,6 +68,7 @@ function PrototypeInventory:render()
         BorderSizePixel = 0,
         BackgroundTransparency = 0.75,
         BackgroundColor3 = Color3.new(1,1,1),
+        Selectable = false,
 
         ScrollBarThickness = 16,
         TopImage = "rbxassetid://1539341292",
