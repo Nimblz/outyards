@@ -12,7 +12,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 
 local CashLabel = Roact.Component:extend("CashLabel")
 
-local HORIZONTAL_SIZE = 192
+local HORIZONTAL_SIZE = 24*3*4
 local VERTICAL_SIZE = HORIZONTAL_SIZE/4
 local PADDING = 24
 
@@ -35,7 +35,7 @@ function CashLabel:render()
             FillDirection = Enum.FillDirection.Horizontal,
         }),
         coinThumbnail = Roact.createElement("ImageLabel", {
-            Image = "rbxassetid://3106155974",
+            Image = "rbxassetid://3977083793",
             Size = UDim2.new(1,0,1,0),
             SizeConstraint = Enum.SizeConstraint.RelativeYY,
             BackgroundTransparency = 1,
@@ -46,6 +46,7 @@ function CashLabel:render()
             Size = UDim2.new(1,-((VERTICAL_SIZE)+PADDING),1,0),
             BackgroundTransparency = 1,
             TextColor3 = Color3.new(1,1,1),
+            TextStrokeTransparency = 0,
             LayoutOrder = 2,
             TextSize = PADDING,
             TextXAlignment = Enum.TextXAlignment.Left,
