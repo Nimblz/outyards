@@ -79,14 +79,16 @@ function CraftableLabel:render()
         }),
         craftableItem = Roact.createElement(ItemLabel, {
             itemId = itemId,
+            isGray = not isCraftable,
             layoutOrder = 1,
         }),
         arrowLabel = Roact.createElement(ItemLabel, {
             itemId = "leftNavArrow",
             layoutOrder = 2,
+            showTooltip = false,
         }),
         ingredientList = Roact.createElement("Frame", {
-            Size = UDim2.new(1,-105,1,0),
+            Size = UDim2.new(1,-128,1,0),
             LayoutOrder = 3,
             BorderSizePixel = 0,
             BackgroundColor3 = Color3.new(0.8,0.8,0.8),
