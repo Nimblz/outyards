@@ -3,8 +3,9 @@ return {
     propsGenerator = function()
         return {
             ActorStats = {
-                maxHealth = 8,
-                health = 8,
+                maxHealth = 5,
+                health = 5,
+                moveSpeed = 10,
             },
             ItemDrops = {
                 items = {
