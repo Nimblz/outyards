@@ -1,5 +1,7 @@
 return function(state,action)
-    state = state or {}
+    state = state or {
+        --powerGauntlet = 1
+    }
     local newState = {}
 
 
