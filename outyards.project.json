@@ -90,9 +90,6 @@
       },
       "world": {
         "$path": "model/world.rbxmx"
-      },
-      "interactables": {
-        "$path": "model/interactables.rbxmx"
       }
     },
     "ServerStorage": {
