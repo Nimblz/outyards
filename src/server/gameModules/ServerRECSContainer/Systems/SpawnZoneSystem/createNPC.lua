@@ -22,6 +22,10 @@ return function(recsCore, npcType, cframe)
     NewNPCPart.Color= mobDesc.boundingBoxProps.Color
     NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2) + 1, 0)
 
+    local Decal = Instance.new("Decal")
+    Decal.Texture = "rbxassetid://23912218"
+    Decal.Parent = NewNPCPart
+
     local physProps = PhysicalProperties.new(1,0,0.5,100,100)
     NewNPCPart.CustomPhysicalProperties = physProps
 
