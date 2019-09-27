@@ -1,7 +1,7 @@
 return {
     id = "greenKey",
     name = "Green Key",
-    tier = 1,
+    tier = 300,
 
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(1,2),
