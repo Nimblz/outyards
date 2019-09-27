@@ -5,4 +5,10 @@ return {
 
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(1,2),
+
+    onlyOne = true,
+
+    recipe = {
+        wood = 1
+    }
 }
