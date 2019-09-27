@@ -10,6 +10,6 @@ return {
 
     recipe = {
         wood = 100,
-        brick = 100,
+        brick = 50,
     }
 }
