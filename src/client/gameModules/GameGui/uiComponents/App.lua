@@ -26,7 +26,7 @@ end
 
 function App:render()
     local elements = {
-        cashLabel = Roact.createElement(CashLabel),
+        --cashLabel = Roact.createElement(CashLabel),
         inventory = Roact.createElement(Inventory),
         crafting = Roact.createElement(Crafting),
         tooltip = Roact.createElement(Tooltip),
