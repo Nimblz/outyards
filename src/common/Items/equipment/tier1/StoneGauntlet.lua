@@ -7,8 +7,9 @@ return {
     spriteSheet = "armor",
     spriteCoords = Vector2.new(1,3),
     tier = 1,
+    onlyOne = true,
     recipe = {
-        brick = 30,
+        brick = 15,
         wood = 100,
         leather = 50,
     },

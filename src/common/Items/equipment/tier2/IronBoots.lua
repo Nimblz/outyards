@@ -7,11 +7,12 @@ return {
     tier = 2,
     spriteSheet = "armor",
     spriteCoords = Vector2.new(2,2),
+    onlyOne = true,
     recipe = {
-        leather = 40,
-        wood = 20,
-        ingotIron = 30,
-        ingotCopper = 30,
+        leather = 50,
+        wood = 50,
+        ingotIron = 10,
+        ingotCopper = 10,
     },
 
     stats = {
