@@ -21,7 +21,7 @@ return function(player,itemToCraftId)
             for id, quantity in pairs(recipe) do
                 store:dispatch(Actions.ITEM_REMOVE(player, id, quantity))
             end
-            store:dispatch(Actions.ITEM_ADD(player, itemToCraftId, 1))
+            store:dispatch(Actions.ITEM_ADD(player, itemToCraftId, itemToCraft.craftQuantity or 1))
         end
     end
 end

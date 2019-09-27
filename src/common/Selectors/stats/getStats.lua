@@ -1,4 +1,5 @@
-local getPlayerState = require(script.Parent.getPlayerState)
+local selectors = script:FindFirstAncestor("Selectors")
+local getPlayerState = require(selectors.getPlayerState)
 
 return function(state,player)
     local pstate = getPlayerState(state,player)

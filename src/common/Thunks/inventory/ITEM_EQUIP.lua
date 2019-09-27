@@ -1,12 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
+local thunks = script:FindFirstAncestor("Thunks")
+local stats = thunks:WaitForChild("stats")
 
 local Items = require(common:WaitForChild("Items"))
 local Selectors = require(common:WaitForChild("Selectors"))
 local Actions = require(common:WaitForChild("Actions"))
 
-local EQUIPMENT_APPLYSTATS = require(script.Parent:WaitForChild("EQUIPMENT_APPLYSTATS"))
+local EQUIPMENT_APPLYSTATS = require(stats:WaitForChild("EQUIPMENT_APPLYSTATS"))
 
 return function(player,itemToEquip)
     return function (store)
