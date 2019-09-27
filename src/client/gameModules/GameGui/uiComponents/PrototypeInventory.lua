@@ -20,9 +20,15 @@ local PrototypeInventory = Roact.Component:extend("PrototypeInventory")
 local PADDING = 8
 
 function PrototypeInventory:init()
+    self:setState({
+        visible = true
+    })
 end
 
-function PrototypeInventory:didMount()
+function PrototypeInventory:toggle()
+    self:setState({
+        visible = not self.state.visible
+    })
 end
 
 function PrototypeInventory:render()
@@ -60,15 +66,18 @@ function PrototypeInventory:render()
         end
     end
 
-    local titleFrame = Roact.createElement("TextLabel", {
+    local titleFrame = Roact.createElement("TextButton", {
         Text = "Inventory",
         Font = Enum.Font.GothamBlack,
         Size = UDim2.new(1,0,0,32),
         AnchorPoint = Vector2.new(0,1),
-        BackgroundTransparency = 1,
+        Position = self.state.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),
+        BorderSizePixel = 0,
+        BackgroundColor3 = Color3.new(1,1,1),
         TextColor3 = Color3.new(1,1,1),
         TextStrokeTransparency = 0,
         TextSize = 32,
+        [Roact.Event.Activated] = function() self:toggle() end
     })
 
     local scrollFrame = Roact.createElement("ScrollingFrame", {
@@ -88,14 +97,14 @@ function PrototypeInventory:render()
     }, children)
 
     return Roact.createElement("Frame", {
-        Size = UDim2.new(0,(48+8)*6 + 16,0,600),
-        AnchorPoint = Vector2.new(1,0.5),
-        Position = UDim2.new(1,0,0.5,0),
+        Size = UDim2.new(0,(48+8)*6 + 16,0,400),
+        AnchorPoint = Vector2.new(1,1),
+        Position = UDim2.new(1,0,1,0),
 
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
     }, {
-        scrollFrame = scrollFrame,
+        scrollFrame = self.state.visible and scrollFrame,
         titleFrame = titleFrame,
     })
 end

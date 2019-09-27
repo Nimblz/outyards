@@ -18,14 +18,19 @@ local PrototypeCrafting = Roact.Component:extend("PrototypeCrafting")
 
 local getCraftable = require(crafting:WaitForChild("getCraftable"))
 local canCraft = require(crafting:WaitForChild("canCraft"))
-local getItemsWithIngredientOwned = require(crafting:WaitForChild("getItemsWithIngredientOwned"))
 
 local PADDING = 8
 
 function PrototypeCrafting:init()
+    self:setState({
+        visible = true
+    })
 end
 
-function PrototypeCrafting:didMount()
+function PrototypeCrafting:toggle()
+    self:setState({
+        visible = not self.state.visible
+    })
 end
 
 function PrototypeCrafting:render()
@@ -73,34 +78,38 @@ function PrototypeCrafting:render()
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
 
-    local titleFrame = Roact.createElement("TextLabel", {
+    local titleFrame = Roact.createElement("TextButton", {
         Text = "Crafting",
         Font = Enum.Font.GothamBlack,
         Size = UDim2.new(1,0,0,32),
         AnchorPoint = Vector2.new(0,1),
-        BackgroundTransparency = 1,
+        Position = self.state.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),
+        BorderSizePixel = 0,
+        BackgroundColor3 = Color3.new(1,1,1),
         TextColor3 = Color3.new(1,1,1),
         TextStrokeTransparency = 0,
         TextSize = 32,
+        [Roact.Event.Activated] = function() self:toggle() end
     })
 
     return Roact.createElement("Frame", {
-        Size = UDim2.new(0,400,0,600),
-        AnchorPoint = Vector2.new(0,0.5),
-        Position = UDim2.new(0,0,0.5,0),
+        Size = UDim2.new(0,400,0,400),
+        AnchorPoint = Vector2.new(0,1),
+        Position = UDim2.new(0,0,1,0),
 
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
     }, {
-        scrollFrame = scrollFrame,
+        scrollFrame = self.state.visible and scrollFrame,
         titleFrame = titleFrame,
     })
 end
 
 local function mapStateToProps(state,props)
     return {
-        ingredientsOwned = getItemsWithIngredientOwned(state,LocalPlayer),
+        ingredientsOwned = getCraftable(state,LocalPlayer),
         state = state,
+        visible = Selectors.getCraftingVisible(state)
     }
 end
 
