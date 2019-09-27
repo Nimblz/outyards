@@ -102,12 +102,28 @@ function InputHandler:createActionSignal(name)
     local endedSignal = Signal.new()
     local canceledSignal = Signal.new()
 
-    self.actionSignals[name] = {
+    local binding = {
         began = beganSignal,
         changed = changedSignal,
         ended = endedSignal,
         canceled = canceledSignal,
+
+        isActive = false,
     }
+
+    beganSignal:connect(function()
+        binding.isActive = true
+    end)
+
+    endedSignal:connect(function()
+        binding.isActive = false
+    end)
+
+    canceledSignal:connect(function()
+        binding.isActive = false
+    end)
+
+    self.actionSignals[name] = binding
 end
 
 -- Returns a signal object for the action name, returns nil and warns you if action does not exist
