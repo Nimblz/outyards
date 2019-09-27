@@ -7,6 +7,7 @@ return {
     tier = 2,
     spriteSheet = "armor",
     spriteCoords = Vector2.new(7,2),
+    onlyOne = true,
     recipe = {
         ingotVoid = 15,
         stardust = 150,
