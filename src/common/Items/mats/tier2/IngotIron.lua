@@ -6,6 +6,7 @@ return {
     spriteCoords = Vector2.new(3,2),
 
     recipe = {
-        oreIron = 5,
-    }
+        oreIron = 15,
+    },
+    craftQuantity = 5,
 }
