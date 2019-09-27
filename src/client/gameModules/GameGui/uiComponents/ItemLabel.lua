@@ -33,9 +33,13 @@ function ItemLabel:render()
     local quantity = self.props.quantity
     local isGray = self.props.isGray
     local layoutOrder = self.props.layoutOrder or 0
-    local showTooltip = self.props.showTooltip or true
+    local showTooltip = self.props.showTooltip
     local activatable = self.props.activatable or false
     local equipped = self.props.isEquipped and activatable
+
+    if showTooltip == nil then
+        showTooltip = true
+    end
 
     local item = Items.byId[itemId]
     local spriteSheet = Sprites[item.spriteSheet or "materials"]
@@ -98,9 +102,9 @@ function ItemLabel:render()
         Selectable = activatable,
 
         ImageColor3 = isGray and Color3.new(0.3,0.3,0.3) or Color3.new(1,1,1),
-        [Roact.Event.MouseEnter] = showTooltip and function() self.props.showTooltip(itemName,unpack(statStrings)) end or nil,
+        [Roact.Event.MouseEnter] = showTooltip and function() self.props.displayTooltip(itemName,unpack(statStrings)) end or nil,
         [Roact.Event.MouseLeave] = showTooltip and function() self.props.hideTooltip() end or nil,
-        [Roact.Event.SelectionGained] = showTooltip and function() self.props.showTooltip(itemName,unpack(statStrings)) end or nil,
+        [Roact.Event.SelectionGained] = showTooltip and function() self.props.displayTooltip(itemName,unpack(statStrings)) end or nil,
         [Roact.Event.SelectionLost] = showTooltip and function() self.props.hideTooltip() end or nil,
         [Roact.Event.Activated] = activatable and function() eRequestEquip:FireServer(itemId) end or nil,
     }, {
@@ -115,7 +119,7 @@ ItemLabel = RoactRodux.connect(function(state,props)
     }
 end, function(dispatch)
     return {
-        showTooltip = function(...)
+        displayTooltip = function(...)
             local strings = {...}
             dispatch(Actions.TOOLTIP_STRINGS_SET(strings))
             dispatch(Actions.TOOLTIP_VISIBLE_SET(true))
