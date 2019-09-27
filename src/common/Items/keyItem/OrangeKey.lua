@@ -1,7 +1,7 @@
 return {
     id = "orangeKey",
     name = "Orange Key",
-    tier = 2,
+    tier = 301,
 
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(1,1),
@@ -10,6 +10,6 @@ return {
 
     recipe = {
         wood = 100,
-        brick = 50,
+        brick = 30,
     }
 }
