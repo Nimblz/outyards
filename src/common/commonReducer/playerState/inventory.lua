@@ -1,6 +1,6 @@
 return function(state,action)
     state = state or {
-        --powerGauntlet = 1
+        wood = 1
     }
     local newState = {}
 
