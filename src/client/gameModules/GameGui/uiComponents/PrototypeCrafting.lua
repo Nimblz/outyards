@@ -54,8 +54,8 @@ function PrototypeCrafting:render()
         children[id] = newCraftableLabel
     end
 
-    return Roact.createElement("ScrollingFrame", {
-        Size = UDim2.new(0,400,0,600),
+    local scrollFrame =  Roact.createElement("ScrollingFrame", {
+        Size = UDim2.new(1,0,1,0),
         AnchorPoint = Vector2.new(0,0.5),
         Position = UDim2.new(0,0,0.5,0),
 
@@ -72,6 +72,29 @@ function PrototypeCrafting:render()
         CanvasSize = UDim2.new(0,0,2,0),
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
+
+    local titleFrame = Roact.createElement("TextLabel", {
+        Text = "Crafting",
+        Font = Enum.Font.GothamBlack,
+        Size = UDim2.new(1,0,0,32),
+        AnchorPoint = Vector2.new(0,1),
+        BackgroundTransparency = 1,
+        TextColor3 = Color3.new(1,1,1),
+        TextStrokeTransparency = 0,
+        TextSize = 32,
+    })
+
+    return Roact.createElement("Frame", {
+        Size = UDim2.new(0,400,0,600),
+        AnchorPoint = Vector2.new(0,0.5),
+        Position = UDim2.new(0,0,0.5,0),
+
+        BorderSizePixel = 0,
+        BackgroundTransparency = 1,
+    }, {
+        scrollFrame = scrollFrame,
+        titleFrame = titleFrame,
+    })
 end
 
 local function mapStateToProps(state,props)
