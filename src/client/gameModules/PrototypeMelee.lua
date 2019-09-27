@@ -5,10 +5,12 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local PlayerMouse = LocalPlayer:GetMouse()
 
---local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage:WaitForChild("common")
 --local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+
+local Selectors = require(common:WaitForChild("Selectors"))
 
 local eAttackActor = event:WaitForChild("eAttackActor")
 
@@ -20,19 +22,29 @@ local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 
 function PrototypeMelee:create()
     self.attackRadius = 8
-    self.attackRate = 4
-    self.autoAttack = true
+    self.attackRate = 1
+    self.autoAttack = false
 end
 
-function PrototypeMelee:preInit()
+function PrototypeMelee:onStore(store)
+    store.changed:connect(function(newState,oldState)
+        local attackRate = Selectors.getAttackRate(newState,LocalPlayer)
+        local autoAttack = Selectors.getAutoAttack(newState,LocalPlayer)
+        self.attackRate = attackRate
+        self.autoAttack = autoAttack
+    end)
 end
 
 function PrototypeMelee:init()
-    local InputHandler = self.core:getModule("InputHandler")
-    local attack = InputHandler:getActionSignal("attack")
+    local inputHandler = self.core:getModule("InputHandler")
+    local storeContainer = self.core:getModule("StoreContainer")
+    local attack = inputHandler:getActionSignal("attack")
+
+    storeContainer:getStore():andThen(function(store)
+        self:onStore(store)
+    end)
 
     local currentAttack = nil
-
     attack.began:connect(function(input)
         if currentAttack then return currentAttack:resume() end
         currentAttack = {}

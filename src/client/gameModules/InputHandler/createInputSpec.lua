@@ -70,7 +70,7 @@ return function()
                 },
             },
         },
-        
+
         nextWeapon = {
             inputs = {
                 {
@@ -87,5 +87,13 @@ return function()
                 },
             },
         },
+
+        mouseMoved = {
+            inputs = {
+                {
+                    type = Enum.UserInputType.MouseMovement
+                }
+            }
+        }
     }
 end
