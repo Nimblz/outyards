@@ -7,8 +7,6 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 local uiComponents = script.Parent
 
-local eRequestCraft = event:WaitForChild("eRequestCraft")
-
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Selectors = require(common:WaitForChild("Selectors"))
@@ -17,6 +15,9 @@ local Items = require(common:WaitForChild("Items"))
 
 local ItemLabel = require(uiComponents:WaitForChild("ItemLabel"))
 local CraftableLabel = Roact.Component:extend("CraftableLabel")
+
+local eRequestCraft = event:WaitForChild("eRequestCraft")
+local eRequestEquip = event:WaitForChild("eRequestEquip")
 
 local errors = {
     invalidItemId = "Invalid itemId [%s]!"
@@ -81,6 +82,7 @@ function CraftableLabel:render()
             itemId = itemId,
             isGray = not isCraftable,
             layoutOrder = 1,
+            quantity = item.craftQuantity
         }),
         arrowLabel = Roact.createElement(ItemLabel, {
             itemId = "leftNavArrow",
@@ -104,6 +106,7 @@ function CraftableLabel:render()
         Image = "",
         [Roact.Event.MouseButton1Click] = function()
             eRequestCraft:FireServer(itemId)
+            eRequestEquip:FireServer(itemId)
         end
     }, children)
 end
