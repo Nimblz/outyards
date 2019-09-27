@@ -1,5 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
+local TweenService = game:GetService("TweenService")
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
@@ -11,14 +12,13 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 
 local Selectors = require(common:WaitForChild("Selectors"))
-
-local eAttackActor = event:WaitForChild("eAttackActor")
-
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
 
---local debouncer = require(util:WaitForChild("debouncer"))
+local eAttackActor = event:WaitForChild("eAttackActor")
+
+local explosionTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
 function PrototypeMelee:create()
     self.attackRadius = 8
@@ -29,9 +29,7 @@ end
 function PrototypeMelee:onStore(store)
     store.changed:connect(function(newState,oldState)
         local attackRate = Selectors.getAttackRate(newState,LocalPlayer)
-        local autoAttack = Selectors.getAutoAttack(newState,LocalPlayer)
         self.attackRate = attackRate
-        self.autoAttack = autoAttack
     end)
 end
 
@@ -44,30 +42,16 @@ function PrototypeMelee:init()
         self:onStore(store)
     end)
 
-    local currentAttack = nil
+    local attacking = false
+
     attack.began:connect(function(input)
-        if currentAttack then return currentAttack:resume() end
-        currentAttack = {}
-
-        local attacking = true
-        currentAttack.cancel = function()
-            attacking = false
-        end
-        currentAttack.resume = function()
-            attacking = true
-        end
-
-        repeat
+        if attacking then return end
+        attacking = true
+        while attack.isActive do
             self:onAttack()
             wait(1/self.attackRate)
-        until not attacking or not self.autoAttack
-
-        currentAttack = nil
-    end)
-
-    attack.ended:connect(function(input)
-        if not currentAttack then return end
-        currentAttack:cancel()
+        end
+        attacking = false
     end)
 end
 
@@ -103,12 +87,38 @@ function PrototypeMelee:onAttack()
     attackVis.CastShadow = false
     attackVis.Material = Enum.Material.Neon
     attackVis.BrickColor = BrickColor.new("Bright red")
-    attackVis.Transparency = 0.75
-    attackVis.Size = Vector3.new(1,1,1) * self.attackRadius*2
+    attackVis.Transparency = 0.5
+    attackVis.Size = Vector3.new(1,1,1) * self.attackRadius*1.1
     attackVis.CFrame = targetCFrame
     attackVis.Shape = Enum.PartType.Ball
 
-    attackVis.Parent = workspace
+    local attackVis2 = Instance.new("Part")
+    attackVis2.Anchored = true
+    attackVis2.CanCollide = false
+    attackVis2.CastShadow = false
+    attackVis2.Material = Enum.Material.Neon
+    attackVis2.BrickColor = BrickColor.new("White")
+    attackVis2.Transparency = 0.5
+    attackVis2.Size = Vector3.new(1,1,1) * self.attackRadius*1
+    attackVis2.CFrame = targetCFrame
+    attackVis2.Shape = Enum.PartType.Ball
+
+    attackVis.Parent = LocalPlayer.Character
+    attackVis2.Parent = LocalPlayer.Character
+
+    TweenService:Create(attackVis,explosionTweenInfo, {
+        Size = Vector3.new(1,1,1) * self.attackRadius*3,
+        Transparency = 1,
+    }):Play()
+
+    TweenService:Create(attackVis2,explosionTweenInfo, {
+        Size = Vector3.new(1,1,1) * self.attackRadius*1.5,
+        Transparency = 1,
+    }):Play()
+
+    delay(0.1,function()
+        attackVis2:Destroy()
+    end)
 
     -- find npcs
     local cornerOffset = Vector3.new(1,1,1)*self.attackRadius
@@ -122,7 +132,7 @@ function PrototypeMelee:onAttack()
         eAttackActor:FireServer(v)
     end
 
-    delay(3/20,function()
+    delay(0.3,function()
         attackVis:Destroy()
     end)
 end
