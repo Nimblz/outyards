@@ -60,10 +60,19 @@ function PrototypeInventory:render()
         end
     end
 
-    return Roact.createElement("ScrollingFrame", {
-        Size = UDim2.new(0,(48+8)*6 + 16,0,600),
-        AnchorPoint = Vector2.new(1,0.5),
-        Position = UDim2.new(1,0,0.5,0),
+    local titleFrame = Roact.createElement("TextLabel", {
+        Text = "Inventory",
+        Font = Enum.Font.GothamBlack,
+        Size = UDim2.new(1,0,0,32),
+        AnchorPoint = Vector2.new(0,1),
+        BackgroundTransparency = 1,
+        TextColor3 = Color3.new(1,1,1),
+        TextStrokeTransparency = 0,
+        TextSize = 32,
+    })
+
+    local scrollFrame = Roact.createElement("ScrollingFrame", {
+        Size = UDim2.new(1,0,1,0),
 
         BorderSizePixel = 0,
         BackgroundTransparency = 0.75,
@@ -77,6 +86,18 @@ function PrototypeInventory:render()
         CanvasSize = UDim2.new(0,0,1,0),
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
+
+    return Roact.createElement("Frame", {
+        Size = UDim2.new(0,(48+8)*6 + 16,0,600),
+        AnchorPoint = Vector2.new(1,0.5),
+        Position = UDim2.new(1,0,0.5,0),
+
+        BorderSizePixel = 0,
+        BackgroundTransparency = 1,
+    }, {
+        scrollFrame = scrollFrame,
+        titleFrame = titleFrame,
+    })
 end
 
 local function mapStateToProps(state,props)
