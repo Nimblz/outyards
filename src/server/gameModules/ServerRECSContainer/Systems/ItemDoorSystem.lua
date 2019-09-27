@@ -33,11 +33,9 @@ function ItemDoorSystem:onComponentAdded(instance, component)
 
         if player then
             local itemCount = Selectors.getItem(state,player,component.keyItem)
-            print(itemCount)
             if itemCount >= 1 then
                 instance:Destroy()
             else
-                print("Player doesnt have item!")
             end
         end
     end)
