@@ -4,4 +4,6 @@ return {
     tier = 4,
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(3,1),
+
+    onlyOne = true,
 }
