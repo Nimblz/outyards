@@ -17,10 +17,10 @@ local errors = {
 }
 
 local stateMap = {
-    [Enum.UserInputState.Begin] = "began",
-    [Enum.UserInputState.Change] = "changed",
-    [Enum.UserInputState.End] = "ended",
-    [Enum.UserInputState.Cancel] = "canceled",
+    [Enum.UserInputState.Begin] = {"_beforeBegan","began"},
+    [Enum.UserInputState.Change] = {"changed"},
+    [Enum.UserInputState.End] = {"_beforeEnded","ended"},
+    [Enum.UserInputState.Cancel] = {"canceled"},
 }
 
 local INPUT_DEBUG_PRINTS = false
@@ -97,12 +97,17 @@ end
 function InputHandler:createActionSignal(name)
     assert(not self.actionSignals[name], errors.multipleSignalError:format(name))
 
+    local _beforeBegan = Signal.new()
+    local _beforeEnded = Signal.new()
     local beganSignal = Signal.new()
     local changedSignal = Signal.new()
     local endedSignal = Signal.new()
     local canceledSignal = Signal.new()
 
     local binding = {
+        _beforeBegan = _beforeBegan,
+        _beforeEnded = _beforeEnded,
+
         began = beganSignal,
         changed = changedSignal,
         ended = endedSignal,
@@ -111,11 +116,11 @@ function InputHandler:createActionSignal(name)
         isActive = false,
     }
 
-    beganSignal:connect(function()
+    _beforeBegan:connect(function()
         binding.isActive = true
     end)
 
-    endedSignal:connect(function()
+    _beforeEnded:connect(function()
         binding.isActive = false
     end)
 
@@ -137,8 +142,11 @@ end
 function InputHandler:fireActionSignal(name, input)
     local signalRoot = self.actionSignals[name]
     assert(signalRoot, errors.invalidActionError:format(name))
-    local signal = signalRoot[stateMap[input.UserInputState]]
-    assert(signal, errors.invalidActionError:format(name))
+    for _,signalName in ipairs(stateMap[input.UserInputState]) do
+        local signal = signalRoot[signalName]
+        assert(signal, errors.invalidActionError:format(name))
+        signal:fire(input)
+    end
 
     if INPUT_DEBUG_PRINTS then
         self.logger:log(("Action [%s] fired!"):format(name))
@@ -150,7 +158,6 @@ function InputHandler:fireActionSignal(name, input)
             "---- Type - State: "..tostring(input.UserInputType).." - "..tostring(input.UserInputState).."\n"
         )
     end
-    signal:fire(input)
 end
 
 
