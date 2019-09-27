@@ -11,10 +11,11 @@ local Roact = require(lib:WaitForChild("Roact"))
 local App = Roact.Component:extend("App")
 local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
 --local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
---local Navbar = require(uiComponents:WaitForChild("Navbar"))
 local Inventory = require(uiComponents:WaitForChild("PrototypeInventory"))
 local Crafting = require(uiComponents:WaitForChild("PrototypeCrafting"))
 local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
+local MenuBar = require(uiComponents:WaitForChild("MenuBar"))
+local StatsBar = require(uiComponents:WaitForChild("StatsBar"))
 --local Equipment = require(uiComponents:WaitForChild("Equipment"))
 --local WeaponBar = require(uiComponents:WaitForChild("WeaponBar"))
 
@@ -30,6 +31,8 @@ function App:render()
         inventory = Roact.createElement(Inventory),
         crafting = Roact.createElement(Crafting),
         tooltip = Roact.createElement(Tooltip),
+        -- menubar = Roact.createElement(MenuBar),
+        statsbar = Roact.createElement(StatsBar),
     }
 
     return Roact.createElement("ScreenGui",{
