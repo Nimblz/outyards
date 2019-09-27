@@ -1,4 +1,5 @@
-local getEquipped = require(script.Parent.getEquipped)
+local inventory = script:FindFirstAncestor("inventory")
+local getEquipped = require(inventory.getEquipped)
 
 return function(state,player,itemId)
     local equipped = getEquipped(state,player)
