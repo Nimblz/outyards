@@ -1,5 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
+local GuiService = game:GetService("GuiService")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 
@@ -50,6 +51,10 @@ function InputHandler:postInit()
     UserInputService.InputBegan:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
     UserInputService.InputChanged:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
     UserInputService.InputEnded:connect(function(input, robloxProcessed) self:onInput(input, robloxProcessed) end)
+end
+
+function InputHandler:getMousePos()
+    return UserInputService:GetMouseLocation() - Vector2.new(0,GuiService:GetGuiInset().Y)
 end
 
 function InputHandler:onInput(input, robloxProcessed)

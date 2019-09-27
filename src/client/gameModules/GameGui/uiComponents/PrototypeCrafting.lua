@@ -63,6 +63,8 @@ function PrototypeCrafting:render()
         BackgroundTransparency = 0.75,
         BackgroundColor3 = Color3.new(1,1,1),
 
+        Selectable = false,
+
         ScrollBarThickness = 16,
         TopImage = "rbxassetid://1539341292",
         MidImage = "rbxassetid://1539341292",

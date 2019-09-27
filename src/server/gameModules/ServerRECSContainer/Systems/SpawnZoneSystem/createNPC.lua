@@ -15,11 +15,15 @@ return function(recsCore, npcType, cframe)
     assert(mobDesc, errors.invalidMob:format(npcType))
 
     local NewNPCPart = Instance.new("Part")
+    NewNPCPart.CastShadow = false
     NewNPCPart.TopSurface = Enum.SurfaceType.Smooth
     NewNPCPart.BottomSurface = Enum.SurfaceType.Smooth
     NewNPCPart.Size = mobDesc.boundingBoxProps.Size
     NewNPCPart.Color= mobDesc.boundingBoxProps.Color
     NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2) + 1, 0)
+
+    local physProps = PhysicalProperties.new(1,0,0.5,100,100)
+    NewNPCPart.CustomPhysicalProperties = physProps
 
     NewNPCPart.Parent = workspace
 
