@@ -7,7 +7,7 @@ local util = common:WaitForChild("util")
 
 local Dictionary = require(util:WaitForChild("Dictionary"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
-
+local Selectors = require(common:WaitForChild("Selectors"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local ActorDamageHandler = PizzaAlpaca.GameModule:extend("ActorDamageHandler")
@@ -18,6 +18,11 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
     eAttackActor.OnServerEvent:connect(function(player, instance)
         assert(typeof(instance) == "Instance", "Invalid parameter")
 
+        local state = store:getState()
+
+        local playerDamage = Selectors.getBaseDamage(state, player)
+        assert(playerDamage, "Player damage is undefined!")
+
         local ActorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
         local DamagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
@@ -26,7 +31,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         assert(DamagedBy, "Invalid entity. Has no DamagedBy component.")
 
         DamagedBy:updateProperty("players", Dictionary.join({[player] = true}, DamagedBy.players))
-        ActorStats:updateProperty("health", ActorStats.health - 5)
+        ActorStats:updateProperty("health", ActorStats.health - playerDamage)
     end)
 end
 

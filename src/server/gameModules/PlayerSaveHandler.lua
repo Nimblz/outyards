@@ -8,6 +8,7 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 
 local Actions = require(common:WaitForChild("Actions"))
+local Thunks = require(common:WaitForChild("Thunks"))
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
@@ -27,6 +28,7 @@ function PlayerSaveHandler:init()
             store:dispatch(Actions.PLAYER_ADD(player,{}))
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
+            store:dispatch(Thunks.EQUIPMENT_APPLYSTATS(player))
         end
 
         Players.PlayerAdded:connect(playerAdded)

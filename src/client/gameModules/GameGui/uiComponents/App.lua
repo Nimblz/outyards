@@ -14,6 +14,7 @@ local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
 --local Navbar = require(uiComponents:WaitForChild("Navbar"))
 local Inventory = require(uiComponents:WaitForChild("PrototypeInventory"))
 local Crafting = require(uiComponents:WaitForChild("PrototypeCrafting"))
+local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
 --local Equipment = require(uiComponents:WaitForChild("Equipment"))
 --local WeaponBar = require(uiComponents:WaitForChild("WeaponBar"))
 
@@ -24,11 +25,11 @@ function App:didMount()
 end
 
 function App:render()
-
     local elements = {
         cashLabel = Roact.createElement(CashLabel),
         inventory = Roact.createElement(Inventory),
         crafting = Roact.createElement(Crafting),
+        tooltip = Roact.createElement(Tooltip),
     }
 
     return Roact.createElement("ScreenGui",{
