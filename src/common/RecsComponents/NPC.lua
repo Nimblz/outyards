@@ -6,9 +6,11 @@ local RECS = require(lib:WaitForChild("RECS"))
 
 return RECS.defineComponent({
     name = "NPC",
-    generator = function()
+    generator = function(props)
+        props = props or {}
+        local npcType = props.npcType
         return {
-            npcType = "basicGrass"
+            npcType = npcType or "basicGrass"
         }
     end,
 })
