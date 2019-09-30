@@ -10,7 +10,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
 local CashLabel = require(uiComponents:WaitForChild("CashLabel"))
---local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
+local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 local Inventory = require(uiComponents:WaitForChild("PrototypeInventory"))
 local Crafting = require(uiComponents:WaitForChild("PrototypeCrafting"))
 local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
@@ -33,6 +33,7 @@ function App:render()
         tooltip = Roact.createElement(Tooltip),
         -- menubar = Roact.createElement(MenuBar),
         statsbar = Roact.createElement(StatsBar),
+        healthbar = Roact.createElement(HealthBar),
     }
 
     return Roact.createElement("ScreenGui",{
