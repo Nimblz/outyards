@@ -23,15 +23,15 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         local playerDamage = Selectors.getBaseDamage(state, player)
         assert(playerDamage, "Player damage is undefined!")
 
-        local ActorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
-        local DamagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
+        local actorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
+        local damagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
 
-        assert(ActorStats, "Invalid entity. Has no stats.")
-        assert(DamagedBy, "Invalid entity. Has no DamagedBy component.")
+        if not actorStats then return end
+        if not damagedBy then return end
 
-        DamagedBy:updateProperty("players", Dictionary.join({[player] = true}, DamagedBy.players))
-        ActorStats:updateProperty("health", ActorStats.health - playerDamage)
+        damagedBy:updateProperty("players", Dictionary.join({[player] = true}, damagedBy.players))
+        actorStats:updateProperty("health", actorStats.health - playerDamage)
     end)
 end
 
