@@ -20,7 +20,9 @@ local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
 local ProjectileMotionSystem = RECS.System:extend("ProjectileMotionSystem")
 
-function ProjectileMotionSystem:onComponentAdded(instance, component)
+function ProjectileMotionSystem:removeBullet(instance)
+    self.core:removeComponent(instance,RecsComponents.Projectile)
+    instance:Destroy()
 end
 
 function ProjectileMotionSystem:init()
@@ -44,8 +46,7 @@ function ProjectileMotionSystem:step()
         ), {workspace:FindFirstChild("bullets")})
 
         if hit then
-            self.core:removeComponent(instance,projectile.className)
-            instance:Destroy()
+            self:removeBullet(instance)
 
             -- if its an enemy do damage
             if CollectionService:HasTag(hit,"ActorStats") then
@@ -58,8 +59,7 @@ function ProjectileMotionSystem:step()
         instance.CFrame = CFrame.new(projectile.position, projectile.position + projectile.velocity.Unit)
 
         if projectile.position.y < -500 then
-            self.core:removeComponent(instance,projectile.className)
-            instance:Destroy()
+            self:removeBullet(instance)
         end
     end
 end
