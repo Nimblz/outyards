@@ -20,9 +20,24 @@ local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
 local ProjectileMotionSystem = RECS.System:extend("ProjectileMotionSystem")
 
+local PROJECTILE_LIFETIME = 4
+
 function ProjectileMotionSystem:removeBullet(instance)
+    if not instance then return end
+    if not self.core:getComponent(instance,RecsComponents.Projectile) then return end
     self.core:removeComponent(instance,RecsComponents.Projectile)
-    instance:Destroy()
+    coroutine.wrap(function()
+        instance.Material = Enum.Material.Air
+        wait(PROJECTILE_LIFETIME)
+        instance:Destroy()
+    end)()
+end
+
+function ProjectileMotionSystem:onComponentAdded(instance, component)
+    coroutine.wrap(function()
+        wait(PROJECTILE_LIFETIME)
+        self:removeBullet(instance)
+    end)()
 end
 
 function ProjectileMotionSystem:init()
