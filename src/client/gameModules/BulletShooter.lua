@@ -24,7 +24,7 @@ end
 
 function BulletShooter:create()
     self.bulletsPerAttack = 10
-    self.attackRate = 20
+    self.attackRate = 60
 end
 
 function BulletShooter:init()
@@ -32,6 +32,8 @@ function BulletShooter:init()
     local attack = self.inputHandler:getActionSignal("attack")
 
     self.projectileCreator = self.core:getModule("ProjectileCreator")
+
+    self.bulletBin = workspace:WaitForChild("bullets")
 
     local attacking = false
 
@@ -76,7 +78,10 @@ function BulletShooter:onAttack()
     if not root then return end
 
     local camRay = camRayFromMousePos(self.inputHandler:getMousePos())
-    local hit,pos,norm = Workspace:FindPartOnRayWithIgnoreList(Ray.new(camRay.Origin,camRay.Direction*512), {character})
+    local hit,pos,norm = Workspace:FindPartOnRayWithIgnoreList(
+        Ray.new(camRay.Origin,camRay.Direction*512),
+        {character, self.bulletBin}
+    )
 
     local origin = root.CFrame * CFrame.new(0,1,-5)
     local direction = pos - origin.p
