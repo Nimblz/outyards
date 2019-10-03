@@ -7,6 +7,7 @@ local Systems = require(script.Parent:WaitForChild("Systems"))
 
 return {
     RECS.event(game:GetService("RunService").RenderStepped, {
-        Systems.SpinnySystem
+        Systems.SpinnySystem,
+        Systems.ProjectileMotionSystem
     }),
 }
