@@ -38,26 +38,26 @@
 		<Item class="Camera" referent="RBX998F7D5D6F3C471693FEF53032368814">
 			<Properties>
 				<CoordinateFrame name="CFrame">
-					<X>28.8504944</X>
-					<Y>76.2866287</Y>
-					<Z>111.928894</Z>
-					<R00>0.889550388</R00>
-					<R01>-0.200329587</R01>
-					<R02>0.410570651</R02>
+					<X>-82.3650208</X>
+					<Y>85.4434814</Y>
+					<Z>160.757233</Z>
+					<R00>0.901634693</R00>
+					<R01>0.13144666</R01>
+					<R02>-0.412039787</R02>
 					<R10>-0</R10>
-					<R11>0.898724318</R11>
-					<R12>0.438514233</R12>
-					<R20>-0.456837147</R20>
-					<R21>-0.390080512</R21>
-					<R22>0.79946053</R22>
+					<R11>0.952696323</R11>
+					<R12>0.303923875</R12>
+					<R20>0.432498634</R20>
+					<R21>-0.274028301</R21>
+					<R22>0.858983934</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>28.0293522</X>
-					<Y>75.4095993</Y>
-					<Z>110.329971</Z>
+					<X>-81.5409393</X>
+					<Y>84.8356323</Y>
+					<Z>159.039261</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -52207,6 +52207,394 @@ end]]></ProtectedString>
 					</Item>
 				</Item>
 			</Item>
+			<Item class="Part" referent="RBXCACF9FADA5B24E47949BA297C7A6C0A8">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>-60</X>
+						<Y>20.5</Y>
+						<Z>128.5</Z>
+						<R00>-1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>-1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<bool name="CastShadow">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4294506744</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">272</token>
+					<string name="Name">TutorialSignEquipment</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>16</X>
+						<Y>9</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+				<Item class="SurfaceGui" referent="RBX8CC3A07EAA7846968DEA11CE1D236813">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Ref name="Adornee">null</Ref>
+						<bool name="AlwaysOnTop">false</bool>
+						<bool name="AutoLocalize">true</bool>
+						<Vector2 name="CanvasSize">
+							<X>800</X>
+							<Y>600</Y>
+						</Vector2>
+						<bool name="ClipsDescendants">true</bool>
+						<bool name="Enabled">true</bool>
+						<token name="Face">5</token>
+						<float name="LightInfluence">1</float>
+						<string name="Name">SurfaceGui</string>
+						<float name="PixelsPerStud">20</float>
+						<bool name="ResetOnSpawn">true</bool>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<token name="SizingMode">1</token>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="ToolPunchThroughDistance">0</float>
+						<token name="ZIndexBehavior">1</token>
+						<float name="ZOffset">0</float>
+					</Properties>
+					<Item class="TextLabel" referent="RBX4AEEAAE81CC043EC9376E3C8D88CC2B0">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<token name="Font">20</token>
+							<int name="LayoutOrder">0</int>
+							<float name="LineHeight">1</float>
+							<string name="Name">TextLabel</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<string name="Text">Stay moving to avoid damage!</string>
+							<Color3 name="TextColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<bool name="TextScaled">true</bool>
+							<float name="TextSize">100</float>
+							<Color3 name="TextStrokeColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<float name="TextStrokeTransparency">1</float>
+							<float name="TextTransparency">0</float>
+							<token name="TextTruncate">0</token>
+							<bool name="TextWrapped">true</bool>
+							<token name="TextXAlignment">2</token>
+							<token name="TextYAlignment">1</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="UIPadding" referent="RBXB44A5F27EDD146E8AE8C1BA7D92A91A5">
+						<Properties>
+							<string name="Name">UIPadding</string>
+							<UDim name="PaddingBottom">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingLeft">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingRight">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingTop">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<BinaryString name="Tags"></BinaryString>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Part" referent="RBXB053F4CA446A46A8B0587CCCE6749874">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<CoordinateFrame name="CFrame">
+						<X>-60</X>
+						<Y>9.5</Y>
+						<Z>128.5</Z>
+						<R00>-1</R00>
+						<R01>0</R01>
+						<R02>0</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>0</R20>
+						<R21>0</R21>
+						<R22>-1</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">false</bool>
+					<bool name="CastShadow">true</bool>
+					<int name="CollisionGroupId">0</int>
+					<Color3uint8 name="Color3uint8">4294506744</Color3uint8>
+					<PhysicalProperties name="CustomPhysicalProperties">
+						<CustomPhysics>false</CustomPhysics>
+					</PhysicalProperties>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<bool name="Massless">false</bool>
+					<token name="Material">272</token>
+					<string name="Name">TutorialSignKey</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<int name="RootPriority">0</int>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<BinaryString name="Tags"></BinaryString>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<token name="formFactorRaw">1</token>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>16</X>
+						<Y>9</Y>
+						<Z>1</Z>
+					</Vector3>
+				</Properties>
+				<Item class="SurfaceGui" referent="RBX253CB4C828274B03AA8C5790B4693492">
+					<Properties>
+						<bool name="Active">true</bool>
+						<Ref name="Adornee">null</Ref>
+						<bool name="AlwaysOnTop">false</bool>
+						<bool name="AutoLocalize">true</bool>
+						<Vector2 name="CanvasSize">
+							<X>800</X>
+							<Y>600</Y>
+						</Vector2>
+						<bool name="ClipsDescendants">true</bool>
+						<bool name="Enabled">true</bool>
+						<token name="Face">5</token>
+						<float name="LightInfluence">1</float>
+						<string name="Name">SurfaceGui</string>
+						<float name="PixelsPerStud">20</float>
+						<bool name="ResetOnSpawn">true</bool>
+						<Ref name="RootLocalizationTable">null</Ref>
+						<token name="SizingMode">1</token>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="ToolPunchThroughDistance">0</float>
+						<token name="ZIndexBehavior">1</token>
+						<float name="ZOffset">0</float>
+					</Properties>
+					<Item class="TextLabel" referent="RBX77FF475F824D414AA3508972C5AE31D9">
+						<Properties>
+							<bool name="Active">false</bool>
+							<Vector2 name="AnchorPoint">
+								<X>0</X>
+								<Y>0</Y>
+							</Vector2>
+							<bool name="AutoLocalize">true</bool>
+							<Color3 name="BackgroundColor3">
+								<R>1</R>
+								<G>1</G>
+								<B>1</B>
+							</Color3>
+							<float name="BackgroundTransparency">1</float>
+							<Color3 name="BorderColor3">
+								<R>0.105882362</R>
+								<G>0.164705887</G>
+								<B>0.207843155</B>
+							</Color3>
+							<token name="BorderMode">0</token>
+							<int name="BorderSizePixel">1</int>
+							<bool name="ClipsDescendants">false</bool>
+							<bool name="Draggable">false</bool>
+							<token name="Font">20</token>
+							<int name="LayoutOrder">0</int>
+							<float name="LineHeight">1</float>
+							<string name="Name">TextLabel</string>
+							<Ref name="NextSelectionDown">null</Ref>
+							<Ref name="NextSelectionLeft">null</Ref>
+							<Ref name="NextSelectionRight">null</Ref>
+							<Ref name="NextSelectionUp">null</Ref>
+							<UDim2 name="Position">
+								<XS>0</XS>
+								<XO>0</XO>
+								<YS>0</YS>
+								<YO>0</YO>
+							</UDim2>
+							<Ref name="RootLocalizationTable">null</Ref>
+							<float name="Rotation">0</float>
+							<bool name="Selectable">false</bool>
+							<Ref name="SelectionImageObject">null</Ref>
+							<UDim2 name="Size">
+								<XS>1</XS>
+								<XO>0</XO>
+								<YS>1</YS>
+								<YO>0</YO>
+							</UDim2>
+							<token name="SizeConstraint">0</token>
+							<BinaryString name="Tags"></BinaryString>
+							<string name="Text">Craft the green key then touch the door!</string>
+							<Color3 name="TextColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<bool name="TextScaled">true</bool>
+							<float name="TextSize">100</float>
+							<Color3 name="TextStrokeColor3">
+								<R>0</R>
+								<G>0</G>
+								<B>0</B>
+							</Color3>
+							<float name="TextStrokeTransparency">1</float>
+							<float name="TextTransparency">0</float>
+							<token name="TextTruncate">0</token>
+							<bool name="TextWrapped">true</bool>
+							<token name="TextXAlignment">2</token>
+							<token name="TextYAlignment">1</token>
+							<bool name="Visible">true</bool>
+							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+					<Item class="UIPadding" referent="RBX9C3EEA98B6274968B3360B3FEF88AD03">
+						<Properties>
+							<string name="Name">UIPadding</string>
+							<UDim name="PaddingBottom">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingLeft">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingRight">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<UDim name="PaddingTop">
+								<S>0</S>
+								<O>24</O>
+							</UDim>
+							<BinaryString name="Tags"></BinaryString>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
 		</Item>
 		<Item class="Terrain" referent="RBXD6AD4DF505D845238EFF324B804E1E15">
 			<Properties>
@@ -52293,394 +52681,6 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 					<Z>2044</Z>
 				</Vector3>
 			</Properties>
-		</Item>
-		<Item class="Part" referent="RBXCACF9FADA5B24E47949BA297C7A6C0A8">
-			<Properties>
-				<bool name="Anchored">true</bool>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">0</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>-71.5</X>
-					<Y>9.5</Y>
-					<Z>140</Z>
-					<R00>0</R00>
-					<R01>0</R01>
-					<R02>-1</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>1</R20>
-					<R21>0</R21>
-					<R22>0</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">false</bool>
-				<bool name="CastShadow">true</bool>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4294506744</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">false</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">272</token>
-				<string name="Name">TutorialSignEquipment</string>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<BinaryString name="Tags"></BinaryString>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">0</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<token name="formFactorRaw">1</token>
-				<token name="shape">1</token>
-				<Vector3 name="size">
-					<X>16</X>
-					<Y>9</Y>
-					<Z>1</Z>
-				</Vector3>
-			</Properties>
-			<Item class="SurfaceGui" referent="RBX8CC3A07EAA7846968DEA11CE1D236813">
-				<Properties>
-					<bool name="Active">true</bool>
-					<Ref name="Adornee">null</Ref>
-					<bool name="AlwaysOnTop">false</bool>
-					<bool name="AutoLocalize">true</bool>
-					<Vector2 name="CanvasSize">
-						<X>800</X>
-						<Y>600</Y>
-					</Vector2>
-					<bool name="ClipsDescendants">true</bool>
-					<bool name="Enabled">true</bool>
-					<token name="Face">5</token>
-					<float name="LightInfluence">1</float>
-					<string name="Name">SurfaceGui</string>
-					<float name="PixelsPerStud">20</float>
-					<bool name="ResetOnSpawn">true</bool>
-					<Ref name="RootLocalizationTable">null</Ref>
-					<token name="SizingMode">1</token>
-					<BinaryString name="Tags"></BinaryString>
-					<float name="ToolPunchThroughDistance">0</float>
-					<token name="ZIndexBehavior">1</token>
-					<float name="ZOffset">0</float>
-				</Properties>
-				<Item class="TextLabel" referent="RBX4AEEAAE81CC043EC9376E3C8D88CC2B0">
-					<Properties>
-						<bool name="Active">false</bool>
-						<Vector2 name="AnchorPoint">
-							<X>0</X>
-							<Y>0</Y>
-						</Vector2>
-						<bool name="AutoLocalize">true</bool>
-						<Color3 name="BackgroundColor3">
-							<R>1</R>
-							<G>1</G>
-							<B>1</B>
-						</Color3>
-						<float name="BackgroundTransparency">1</float>
-						<Color3 name="BorderColor3">
-							<R>0.105882362</R>
-							<G>0.164705887</G>
-							<B>0.207843155</B>
-						</Color3>
-						<token name="BorderMode">0</token>
-						<int name="BorderSizePixel">1</int>
-						<bool name="ClipsDescendants">false</bool>
-						<bool name="Draggable">false</bool>
-						<token name="Font">20</token>
-						<int name="LayoutOrder">0</int>
-						<float name="LineHeight">1</float>
-						<string name="Name">TextLabel</string>
-						<Ref name="NextSelectionDown">null</Ref>
-						<Ref name="NextSelectionLeft">null</Ref>
-						<Ref name="NextSelectionRight">null</Ref>
-						<Ref name="NextSelectionUp">null</Ref>
-						<UDim2 name="Position">
-							<XS>0</XS>
-							<XO>0</XO>
-							<YS>0</YS>
-							<YO>0</YO>
-						</UDim2>
-						<Ref name="RootLocalizationTable">null</Ref>
-						<float name="Rotation">0</float>
-						<bool name="Selectable">false</bool>
-						<Ref name="SelectionImageObject">null</Ref>
-						<UDim2 name="Size">
-							<XS>1</XS>
-							<XO>0</XO>
-							<YS>1</YS>
-							<YO>0</YO>
-						</UDim2>
-						<token name="SizeConstraint">0</token>
-						<BinaryString name="Tags"></BinaryString>
-						<string name="Text">Try to stay moving while fighting monsters! You cant take damage if you dont get hit!</string>
-						<Color3 name="TextColor3">
-							<R>0</R>
-							<G>0</G>
-							<B>0</B>
-						</Color3>
-						<bool name="TextScaled">true</bool>
-						<float name="TextSize">100</float>
-						<Color3 name="TextStrokeColor3">
-							<R>0</R>
-							<G>0</G>
-							<B>0</B>
-						</Color3>
-						<float name="TextStrokeTransparency">1</float>
-						<float name="TextTransparency">0</float>
-						<token name="TextTruncate">0</token>
-						<bool name="TextWrapped">true</bool>
-						<token name="TextXAlignment">2</token>
-						<token name="TextYAlignment">1</token>
-						<bool name="Visible">true</bool>
-						<int name="ZIndex">1</int>
-					</Properties>
-				</Item>
-				<Item class="UIPadding" referent="RBXB44A5F27EDD146E8AE8C1BA7D92A91A5">
-					<Properties>
-						<string name="Name">UIPadding</string>
-						<UDim name="PaddingBottom">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingLeft">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingRight">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingTop">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-			</Item>
-		</Item>
-		<Item class="Part" referent="RBXB053F4CA446A46A8B0587CCCE6749874">
-			<Properties>
-				<bool name="Anchored">true</bool>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">0</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>-60</X>
-					<Y>9.5</Y>
-					<Z>128.5</Z>
-					<R00>-1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>-1</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">false</bool>
-				<bool name="CastShadow">true</bool>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4294506744</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">false</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">272</token>
-				<string name="Name">TutorialSignKey</string>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<BinaryString name="Tags"></BinaryString>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">0</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<token name="formFactorRaw">1</token>
-				<token name="shape">1</token>
-				<Vector3 name="size">
-					<X>16</X>
-					<Y>9</Y>
-					<Z>1</Z>
-				</Vector3>
-			</Properties>
-			<Item class="SurfaceGui" referent="RBX253CB4C828274B03AA8C5790B4693492">
-				<Properties>
-					<bool name="Active">true</bool>
-					<Ref name="Adornee">null</Ref>
-					<bool name="AlwaysOnTop">false</bool>
-					<bool name="AutoLocalize">true</bool>
-					<Vector2 name="CanvasSize">
-						<X>800</X>
-						<Y>600</Y>
-					</Vector2>
-					<bool name="ClipsDescendants">true</bool>
-					<bool name="Enabled">true</bool>
-					<token name="Face">5</token>
-					<float name="LightInfluence">1</float>
-					<string name="Name">SurfaceGui</string>
-					<float name="PixelsPerStud">20</float>
-					<bool name="ResetOnSpawn">true</bool>
-					<Ref name="RootLocalizationTable">null</Ref>
-					<token name="SizingMode">1</token>
-					<BinaryString name="Tags"></BinaryString>
-					<float name="ToolPunchThroughDistance">0</float>
-					<token name="ZIndexBehavior">1</token>
-					<float name="ZOffset">0</float>
-				</Properties>
-				<Item class="TextLabel" referent="RBX77FF475F824D414AA3508972C5AE31D9">
-					<Properties>
-						<bool name="Active">false</bool>
-						<Vector2 name="AnchorPoint">
-							<X>0</X>
-							<Y>0</Y>
-						</Vector2>
-						<bool name="AutoLocalize">true</bool>
-						<Color3 name="BackgroundColor3">
-							<R>1</R>
-							<G>1</G>
-							<B>1</B>
-						</Color3>
-						<float name="BackgroundTransparency">1</float>
-						<Color3 name="BorderColor3">
-							<R>0.105882362</R>
-							<G>0.164705887</G>
-							<B>0.207843155</B>
-						</Color3>
-						<token name="BorderMode">0</token>
-						<int name="BorderSizePixel">1</int>
-						<bool name="ClipsDescendants">false</bool>
-						<bool name="Draggable">false</bool>
-						<token name="Font">20</token>
-						<int name="LayoutOrder">0</int>
-						<float name="LineHeight">1</float>
-						<string name="Name">TextLabel</string>
-						<Ref name="NextSelectionDown">null</Ref>
-						<Ref name="NextSelectionLeft">null</Ref>
-						<Ref name="NextSelectionRight">null</Ref>
-						<Ref name="NextSelectionUp">null</Ref>
-						<UDim2 name="Position">
-							<XS>0</XS>
-							<XO>0</XO>
-							<YS>0</YS>
-							<YO>0</YO>
-						</UDim2>
-						<Ref name="RootLocalizationTable">null</Ref>
-						<float name="Rotation">0</float>
-						<bool name="Selectable">false</bool>
-						<Ref name="SelectionImageObject">null</Ref>
-						<UDim2 name="Size">
-							<XS>1</XS>
-							<XO>0</XO>
-							<YS>1</YS>
-							<YO>0</YO>
-						</UDim2>
-						<token name="SizeConstraint">0</token>
-						<BinaryString name="Tags"></BinaryString>
-						<string name="Text">Craft the green key then touch the door!</string>
-						<Color3 name="TextColor3">
-							<R>0</R>
-							<G>0</G>
-							<B>0</B>
-						</Color3>
-						<bool name="TextScaled">true</bool>
-						<float name="TextSize">100</float>
-						<Color3 name="TextStrokeColor3">
-							<R>0</R>
-							<G>0</G>
-							<B>0</B>
-						</Color3>
-						<float name="TextStrokeTransparency">1</float>
-						<float name="TextTransparency">0</float>
-						<token name="TextTruncate">0</token>
-						<bool name="TextWrapped">true</bool>
-						<token name="TextXAlignment">2</token>
-						<token name="TextYAlignment">1</token>
-						<bool name="Visible">true</bool>
-						<int name="ZIndex">1</int>
-					</Properties>
-				</Item>
-				<Item class="UIPadding" referent="RBX9C3EEA98B6274968B3360B3FEF88AD03">
-					<Properties>
-						<string name="Name">UIPadding</string>
-						<UDim name="PaddingBottom">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingLeft">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingRight">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<UDim name="PaddingTop">
-							<S>0</S>
-							<O>24</O>
-						</UDim>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-			</Item>
 		</Item>
 	</Item>
 	<Item class="SoundService" referent="326">
@@ -52961,25 +52961,32 @@ local recsPlugins = common:WaitForChild("recsplugins")
 
 local RECS = require(lib:WaitForChild("RECS"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Signal = require(lib:WaitForChild("Signal"))
+local Promise = require(lib:WaitForChild("Promise"))
 
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 local Systems = require(script.Systems)
 local Steppers = require(script.Steppers)
 
 local createInjectorPlugin = require(recsPlugins:WaitForChild("createInjectorPlugin"))
+local createComponentPropsOverridePlugin = require(recsPlugins:WaitForChild("createComponentPropsOverridePlugin"))
 
-local ClientRecsContainer = PizzaAlpaca.GameModule:extend("ClientRecsContainer")
+local ClientRECSContainer = PizzaAlpaca.GameModule:extend("ClientRECSContainer")
 
-function ClientRecsContainer:preInit()
+function ClientRECSContainer:create()
+    self.recsCoreCreated = Signal.new()
 end
 
-function ClientRecsContainer:init()
+function ClientRECSContainer:onStoreCreated(store)
     self.recsCore = RECS.Core.new({
         RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
+        createComponentPropsOverridePlugin(),
         createInjectorPlugin("getClientModule", function(_, name)
             return self.core:getModule(name)
         end),
+        createInjectorPlugin("pzCore", self.core),
+        createInjectorPlugin("store", store),
     })
 
     -- register all components
@@ -52989,15 +52996,32 @@ function ClientRecsContainer:init()
 
     self.recsCore:registerSystems(Systems)
     self.recsCore:registerSteppers(Steppers)
-
-    self.recsCore:start()
 end
 
-function ClientRecsContainer:postInit()
+function ClientRECSContainer:getCore()
+    return Promise.async(function(resolve, reject)
+        resolve(self.recsCore or self.recsCoreCreated:wait())
+    end)
+end
+
+function ClientRECSContainer:preInit()
+end
+
+function ClientRECSContainer:init()
+    local storeContainer = self.core:getModule("StoreContainer")
+    storeContainer:getStore():andThen(function(store)
+        self:onStoreCreated(store)
+
+        self.recsCore:start()
+        self.recsCoreCreated:fire(self.recsCore)
+    end)
+end
+
+function ClientRECSContainer:postInit()
 end
 
 
-return ClientRecsContainer]]></ProtectedString>
+return ClientRECSContainer]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 						<Item class="ModuleScript" referent="335">
@@ -53014,7 +53038,8 @@ local Systems = require(script.Parent:WaitForChild("Systems"))
 
 return {
     RECS.event(game:GetService("RunService").RenderStepped, {
-        Systems.SpinnySystem
+        Systems.SpinnySystem,
+        Systems.ProjectileMotionSystem
     }),
 }]]></ProtectedString>
 								<BinaryString name="Tags"></BinaryString>
@@ -53079,6 +53104,81 @@ function SpinnySystem:step()
 end
 
 return SpinnySystem]]></ProtectedString>
+									<BinaryString name="Tags"></BinaryString>
+								</Properties>
+							</Item>
+							<Item class="ModuleScript" referent="RBX6C328FF6DA884609A3B5CF363D144677">
+								<Properties>
+									<Content name="LinkedSource"><null></null></Content>
+									<string name="Name">ProjectileMotionSystem</string>
+									<string name="ScriptGuid">{4AFB60D3-BB0A-4433-A312-5E7F59F0B431}</string>
+									<ProtectedString name="Source"><![CDATA[-- local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
+local Workspace = game:GetService("Workspace")
+-- local LocalPlayer = Players.LocalPlayer
+
+local src = script:FindFirstAncestor("server")
+local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage:WaitForChild("common")
+-- local util = common:WaitForChild("util")
+local event = ReplicatedStorage:WaitForChild("event")
+
+local eAttackActor = event:WaitForChild("eAttackActor")
+
+local Items = require(common:WaitForChild("Items"))
+local Actions = require(common:WaitForChild("Actions"))
+
+local RECS = require(lib:WaitForChild("RECS"))
+local RecsComponents = require(common:WaitForChild("RecsComponents"))
+
+local ProjectileMotionSystem = RECS.System:extend("ProjectileMotionSystem")
+
+function ProjectileMotionSystem:onComponentAdded(instance, component)
+end
+
+function ProjectileMotionSystem:init()
+    for instance,component in self.core:components(RecsComponents.Projectile) do
+        self:onComponentAdded(instance, component)
+    end
+
+    self.core:getComponentAddedSignal(RecsComponents.Projectile):connect(function(instance,component)
+        self:onComponentAdded(instance, component)
+    end)
+end
+
+function ProjectileMotionSystem:step()
+    for instance,projectile in self.core:components(RecsComponents.Projectile) do
+        projectile.velocity = projectile.velocity - Vector3.new(0,Workspace.Gravity*(1/60),0)
+
+        -- hit test
+        local hit = Workspace:FindPartOnRayWithIgnoreList(Ray.new(
+            projectile.position,
+            projectile.velocity * 1/60
+        ), {workspace:FindFirstChild("bullets")})
+
+        if hit then
+            self.core:removeComponent(instance,projectile.className)
+            instance:Destroy()
+
+            -- if its an enemy do damage
+            if CollectionService:HasTag(hit,"ActorStats") then
+                eAttackActor:FireServer(hit)
+            end
+        end
+
+        projectile.position = projectile.position + (projectile.velocity * (1/60))
+
+        instance.CFrame = CFrame.new(projectile.position, projectile.position + projectile.velocity.Unit)
+
+        if projectile.position.y < -500 then
+            self.core:removeComponent(instance,projectile.className)
+            instance:Destroy()
+        end
+    end
+end
+
+return ProjectileMotionSystem]]></ProtectedString>
 									<BinaryString name="Tags"></BinaryString>
 								</Properties>
 							</Item>
@@ -54535,154 +54635,6 @@ end]]></ProtectedString>
 							</Properties>
 						</Item>
 					</Item>
-					<Item class="ModuleScript" referent="347">
-						<Properties>
-							<Content name="LinkedSource"><null></null></Content>
-							<string name="Name">PrototypeMelee</string>
-							<string name="ScriptGuid">{701DF08B-66FB-4B15-B0CF-AB507D0911CD}</string>
-							<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CollectionService = game:GetService("CollectionService")
-local TweenService = game:GetService("TweenService")
-local Workspace = game:GetService("Workspace")
-local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-local PlayerMouse = LocalPlayer:GetMouse()
-
-local common = ReplicatedStorage:WaitForChild("common")
---local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-
-local Selectors = require(common:WaitForChild("Selectors"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-
-local PrototypeMelee = PizzaAlpaca.GameModule:extend("PrototypeMelee")
-
-local eAttackActor = event:WaitForChild("eAttackActor")
-
-local explosionTweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
-
-function PrototypeMelee:create()
-    self.attackRadius = 8
-    self.attackRate = 1
-    self.autoAttack = false
-end
-
-function PrototypeMelee:onStore(store)
-    store.changed:connect(function(newState,oldState)
-        local attackRate = Selectors.getAttackRate(newState,LocalPlayer)
-        self.attackRate = attackRate
-    end)
-end
-
-function PrototypeMelee:init()
-    local inputHandler = self.core:getModule("InputHandler")
-    local storeContainer = self.core:getModule("StoreContainer")
-    local attack = inputHandler:getActionSignal("attack")
-
-    storeContainer:getStore():andThen(function(store)
-        self:onStore(store)
-    end)
-
-    local attacking = false
-
-    attack.began:connect(function(input)
-        if attacking then return end
-        attacking = true
-        while attack.isActive do
-            self:onAttack()
-            wait(1/self.attackRate)
-        end
-        attacking = false
-    end)
-end
-
-function PrototypeMelee:postInit()
-end
-
-function PrototypeMelee:canAttack()
-    local character = LocalPlayer.character
-    if not character then return false end
-    if not character.PrimaryPart then return false end
-    local humanoid = character:FindFirstChild("Humanoid")
-    if not humanoid then return false end
-    if humanoid.Health <= 0 then return false end
-
-    return true
-end
-
-function PrototypeMelee:onAttack()
-    if not self:canAttack() then return end
-
-    local character = LocalPlayer.Character
-    local rootPart = character.PrimaryPart
-    local rootPos = rootPart.Position
-    local rootPosXZ = rootPos * Vector3.new(1,0,1)
-    local mousePosXZ = PlayerMouse.hit.p * Vector3.new(1,0,1)
-    local faceFec = (mousePosXZ-rootPosXZ).unit
-    local targetCFrame = CFrame.new(Vector3.new(0,0,0), faceFec) * CFrame.new(0,0,-self.attackRadius*0.75)
-    targetCFrame = targetCFrame + rootPos
-
-    local attackVis = Instance.new("Part")
-    attackVis.Anchored = true
-    attackVis.CanCollide = false
-    attackVis.CastShadow = false
-    attackVis.Material = Enum.Material.Neon
-    attackVis.BrickColor = BrickColor.new("Bright red")
-    attackVis.Transparency = 0.5
-    attackVis.Size = Vector3.new(1,1,1) * self.attackRadius*1.1
-    attackVis.CFrame = targetCFrame
-    attackVis.Shape = Enum.PartType.Ball
-
-    local attackVis2 = Instance.new("Part")
-    attackVis2.Anchored = true
-    attackVis2.CanCollide = false
-    attackVis2.CastShadow = false
-    attackVis2.Material = Enum.Material.Neon
-    attackVis2.BrickColor = BrickColor.new("White")
-    attackVis2.Transparency = 0.5
-    attackVis2.Size = Vector3.new(1,1,1) * self.attackRadius*1
-    attackVis2.CFrame = targetCFrame
-    attackVis2.Shape = Enum.PartType.Ball
-
-    attackVis.Parent = LocalPlayer.Character
-    attackVis2.Parent = LocalPlayer.Character
-
-    TweenService:Create(attackVis,explosionTweenInfo, {
-        Size = Vector3.new(1,1,1) * self.attackRadius*3,
-        Transparency = 1,
-    }):Play()
-
-    TweenService:Create(attackVis2,explosionTweenInfo, {
-        Size = Vector3.new(1,1,1) * self.attackRadius*1.5,
-        Transparency = 1,
-    }):Play()
-
-    delay(0.1,function()
-        attackVis2:Destroy()
-    end)
-
-    -- find npcs
-    local cornerOffset = Vector3.new(1,1,1)*self.attackRadius
-    local topCorner = targetCFrame.p + cornerOffset
-    local bottomCorner = targetCFrame.p - cornerOffset
-    local testRegion = Region3.new(bottomCorner,topCorner)
-
-    local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
-
-    for _,v in pairs(parts) do
-        eAttackActor:FireServer(v)
-    end
-
-    delay(0.3,function()
-        attackVis:Destroy()
-    end)
-end
-
-return PrototypeMelee]]></ProtectedString>
-							<BinaryString name="Tags"></BinaryString>
-						</Properties>
-					</Item>
 					<Item class="ModuleScript" referent="348">
 						<Properties>
 							<Content name="LinkedSource"><null></null></Content>
@@ -54755,6 +54707,161 @@ function StoreContainer:postInit()
 end
 
 return StoreContainer]]></ProtectedString>
+							<BinaryString name="Tags"></BinaryString>
+						</Properties>
+					</Item>
+					<Item class="ModuleScript" referent="RBX09947C4FF8A9477FA5DC8F6956C04832">
+						<Properties>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">BulletShooter</string>
+							<string name="ScriptGuid">{795E9FF8-C2C9-4695-A5FB-14A71F3768BC}</string>
+							<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local CollectionService = game:GetService("CollectionService")
+local TweenService = game:GetService("TweenService")
+local Workspace = game:GetService("Workspace")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerMouse = LocalPlayer:GetMouse()
+
+local common = ReplicatedStorage:WaitForChild("common")
+--local util = common:WaitForChild("util")
+local lib = ReplicatedStorage:WaitForChild("lib")
+
+local Selectors = require(common:WaitForChild("Selectors"))
+local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+
+local BulletShooter = PizzaAlpaca.GameModule:extend("BulletShooter")
+
+local function camRayFromMousePos(mousePos)
+    local cam = Workspace.CurrentCamera
+    if not cam then return end
+
+    return cam:ScreenPointToRay(mousePos.X,mousePos.Y,1)
+end
+
+function BulletShooter:create()
+    self.bulletsPerAttack = 10
+    self.attackRate = 20
+end
+
+function BulletShooter:init()
+    self.inputHandler = self.core:getModule("InputHandler")
+    local attack = self.inputHandler:getActionSignal("attack")
+
+    self.projectileCreator = self.core:getModule("ProjectileCreator")
+
+    local attacking = false
+
+    attack.began:connect(function(input)
+        if attacking then return end
+        attacking = true
+        while attack.isActive do
+            self:onAttack()
+            wait(1/self.attackRate)
+        end
+        attacking = false
+    end)
+end
+
+function BulletShooter:canAttack()
+    local character = LocalPlayer.character
+    if not character then return false end
+    if not character.PrimaryPart then return false end
+    local humanoid = character:FindFirstChild("Humanoid")
+    if not humanoid then return false end
+    if humanoid.Health <= 0 then return false end
+
+    return true
+end
+
+function BulletShooter:shootBullet(origin,directionGoal)
+    local directionCF = CFrame.new(Vector3.new(0,0,0),directionGoal)
+    directionCF = directionCF * CFrame.fromAxisAngle(
+        Vector3.new(math.random()*2 - 1,math.random()*2 - 1,math.random()*2 - 1).Unit,
+        math.random() * math.rad(8)
+    ) * CFrame.new(0,0,-1)
+
+    local direction = directionCF.p
+
+    self.projectileCreator:fireProjectile(LocalPlayer,"bullet", origin.p, direction)
+end
+
+function BulletShooter:onAttack()
+    if not self:canAttack() then return end
+    local character = LocalPlayer.Character
+    local root = character:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+
+    local camRay = camRayFromMousePos(self.inputHandler:getMousePos())
+    local hit,pos,norm = Workspace:FindPartOnRayWithIgnoreList(Ray.new(camRay.Origin,camRay.Direction*512), {character})
+
+    local origin = root.CFrame * CFrame.new(0,1,-5)
+    local direction = pos - origin.p
+
+    for i = 1, self.bulletsPerAttack do
+        self:shootBullet(origin,direction)
+    end
+end
+
+return BulletShooter]]></ProtectedString>
+							<BinaryString name="Tags"></BinaryString>
+						</Properties>
+					</Item>
+					<Item class="ModuleScript" referent="RBXB8CE578535764976AEEA32303609A4BD">
+						<Properties>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">ProjectileCreator</string>
+							<string name="ScriptGuid">{7FF09602-A98C-4C3B-8BB7-1D7C62E69976}</string>
+							<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local common = ReplicatedStorage:WaitForChild("common")
+local lib = ReplicatedStorage:WaitForChild("lib")
+local event = ReplicatedStorage:WaitForChild("event")
+
+local eAttackActor = event:WaitForChild("eAttackActor")
+
+local Projectiles = require(common:WaitForChild("Projectiles"))
+
+local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+
+local ProjectileCreator = PizzaAlpaca.GameModule:extend("ProjectileCreator")
+
+function ProjectileCreator:fireProjectile(owner, id, origin, direction)
+    if not self.recsCore then return end
+
+    local model = Projectiles.getModelForId(id)
+    local projectile = Projectiles.byId[id]
+
+    if not model then return end
+    if not projectile then return end
+
+    local newBullet = model:clone()
+
+    newBullet.Parent = self.bulletBin
+    newBullet.CFrame = CFrame.new(origin,origin+(direction.Unit))
+
+    self.recsCore:addComponent(newBullet,self.recsCore:getComponentClass("Projectile"), {
+        position = origin,
+        velocity = direction.Unit * projectile.speed,
+        gravityScale = projectile.gravityScale,
+    })
+end
+
+function ProjectileCreator:init()
+    local bulletBin = Instance.new("Folder")
+    bulletBin.Name = "bullets"
+    bulletBin.Parent = workspace
+    self.bulletBin = bulletBin
+end
+
+function ProjectileCreator:postInit()
+    local recsContainer = self.core:getModule("ClientRECSContainer")
+    recsContainer:getCore():andThen(function(newCore)
+        self.recsCore = newCore
+    end)
+end
+
+return ProjectileCreator]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 						</Properties>
 					</Item>
@@ -55242,15 +55349,15 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         local playerDamage = Selectors.getBaseDamage(state, player)
         assert(playerDamage, "Player damage is undefined!")
 
-        local ActorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
-        local DamagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
+        local actorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
+        local damagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
 
-        assert(ActorStats, "Invalid entity. Has no stats.")
-        assert(DamagedBy, "Invalid entity. Has no DamagedBy component.")
+        if not actorStats then return end
+        if not damagedBy then return end
 
-        DamagedBy:updateProperty("players", Dictionary.join({[player] = true}, DamagedBy.players))
-        ActorStats:updateProperty("health", ActorStats.health - playerDamage)
+        damagedBy:updateProperty("players", Dictionary.join({[player] = true}, damagedBy.players))
+        actorStats:updateProperty("health", actorStats.health - playerDamage)
     end)
 end
 
@@ -58594,9 +58701,11 @@ local RECS = require(lib:WaitForChild("RECS"))
 
 return RECS.defineComponent({
     name = "NPC",
-    generator = function()
+    generator = function(props)
+        props = props or {}
+        local npcType = props.npcType
         return {
-            npcType = "basicGrass"
+            npcType = npcType or "basicGrass"
         }
     end,
 })]]></ProtectedString>
@@ -58695,6 +58804,33 @@ return RECS.defineComponent({
             spinRate = 1, -- per sec
             hoverDist = 1,
             hoverRate = 2,
+        }
+    end,
+})]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+				<Item class="ModuleScript" referent="RBX10123707DEB44D37B98181CDD7651D64">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Projectile</string>
+						<string name="ScriptGuid">{AD569F44-41FB-4729-95D1-7D1FCF0F23DF}</string>
+						<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local lib = ReplicatedStorage:WaitForChild("lib")
+
+local RECS = require(lib:WaitForChild("RECS"))
+
+return RECS.defineComponent({
+    name = "Projectile",
+    generator = function(props)
+        props = props or {}
+        return {
+            position = props.position or Vector3.new(0,0,0), -- per sec
+            velocity = props.velocity or Vector3.new(0,0,0),
+            gravityScale = props.gravityScale or 1,
+            owner = nil, -- player who owns this projectile, nil if server owned
+            damagesPlayers = false, -- does this projectile damage players? server created projectiles often will
         }
     end,
 })]]></ProtectedString>
@@ -60163,6 +60299,42 @@ end]]></ProtectedString>
 					</Properties>
 				</Item>
 			</Item>
+			<Item class="ModuleScript" referent="RBX2771CCCBF2CB47F188C07E7EF8F415E9">
+				<Properties>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Projectiles</string>
+					<string name="ScriptGuid">{D7DA49AD-BCC1-4E9A-9B8C-56BB8678444C}</string>
+					<ProtectedString name="Source"><![CDATA[local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local common = ReplicatedStorage:WaitForChild("common")
+local model = ReplicatedStorage:WaitForChild("model"):WaitForChild("projectile")
+
+local by = require(common.util:WaitForChild("by"))
+local compileSubmodulesToArray = require(common.util:WaitForChild("compileSubmodulesToArray"))
+local assets = compileSubmodulesToArray(script, true)
+
+return {
+    all = assets,
+    byId = by("id", assets),
+    getModelForId = function(id)
+        return model:FindFirstChild(id)
+    end
+}]]></ProtectedString>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="ModuleScript" referent="RBXEFEFEC083BC24734BE3B786704876709">
+					<Properties>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">Bullet</string>
+						<string name="ScriptGuid">{5CC8107E-82B7-457A-9EE5-111D1C782D81}</string>
+						<ProtectedString name="Source"><![CDATA[return {
+    id = "bullet",
+    speed = 350,
+    gravityScale = 0.1,
+}]]></ProtectedString>
+						<BinaryString name="Tags"></BinaryString>
+					</Properties>
+				</Item>
+			</Item>
 		</Item>
 		<Item class="Folder" referent="115">
 			<Properties>
@@ -60171,7 +60343,7 @@ end]]></ProtectedString>
 			</Properties>
 			<Item class="RemoteEvent" referent="116">
 				<Properties>
-					<string name="Name">eAttackActor</string>
+					<string name="Name">eRequestProjectileFire</string>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
@@ -60196,6 +60368,12 @@ end]]></ProtectedString>
 			<Item class="RemoteEvent" referent="120">
 				<Properties>
 					<string name="Name">eRequestCraft</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="RemoteEvent" referent="RBX433A2DEC4A104CFAA8A1B8E46B25A0EB">
+				<Properties>
+					<string name="Name">eAttackActor</string>
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
@@ -60439,6 +60617,12 @@ end]]></ProtectedString>
 	An implementation of Promises similar to Promise/A+.
 ]]
 
+local ERROR_YIELD_NEW = "Yielding inside Promise.new is not allowed! Use Promise.async or create a new thread in the Promise executor!"
+local ERROR_YIELD_THEN = "Yielding inside andThen/catch is not allowed! Instead, return a new Promise from andThen/catch."
+local ERROR_NON_PROMISE_IN_LIST = "Non-promise value passed into %s at index %s"
+local ERROR_NON_LIST = "Please pass a list of promises to %s"
+local ERROR_NON_FUNCTION = "Please pass a handler function to %s!"
+
 local RunService = game:GetService("RunService")
 
 --[[
@@ -60452,21 +60636,30 @@ local function pack(...)
 	return len, { ... }
 end
 
+--[[
+	Returns first value (success), and packs all following values.
+]]
 local function packResult(...)
 	local result = (...)
 
 	return result, pack(select(2, ...))
 end
 
-local function ppcall(callback, ...)
-	local co = coroutine.create(callback)
+--[[
+	Calls a non-yielding function in a new coroutine.
+
+	Handles errors if they happen.
+]]
+local function ppcall(yieldError, callback, ...)
+	-- Wrapped because C functions can't be passed to coroutine.create!
+	local co = coroutine.create(function(...)
+		return callback(...)
+	end)
 
 	local ok, len, result = packResult(coroutine.resume(co, ...))
 
 	if ok and coroutine.status(co) ~= "dead" then
-		error("Yielding inside Promise.new is not allowed! Use Promise.async or create a new thread in the Promise executor!", 2)
-	elseif not ok then
-		result[1] = debug.traceback(result[1], 2)
+		error(yieldError, 2)
 	end
 
 	return ok, len, result
@@ -60476,14 +60669,14 @@ end
 	Creates a function that invokes a callback with correct error handling and
 	resolution mechanisms.
 ]]
-local function createAdvancer(callback, resolve, reject)
+local function createAdvancer(traceback, callback, resolve, reject)
 	return function(...)
-		local ok, resultLength, result = ppcall(callback, ...)
+		local ok, resultLength, result = ppcall(ERROR_YIELD_THEN, callback, ...)
 
 		if ok then
 			resolve(unpack(result, 1, resultLength))
 		else
-			reject(unpack(result, 1, resultLength))
+			reject(result[1], traceback)
 		end
 	end
 end
@@ -60492,28 +60685,20 @@ local function isEmpty(t)
 	return next(t) == nil
 end
 
-local function createSymbol(name)
-	assert(type(name) == "string", "createSymbol requires `name` to be a string.")
-
-	local symbol = newproxy(true)
-
-	getmetatable(symbol).__tostring = function()
-		return ("Symbol(%s)"):format(name)
-	end
-
-	return symbol
-end
-
 local Promise = {}
 Promise.prototype = {}
 Promise.__index = Promise.prototype
 
-Promise.Status = {
-	Started = createSymbol("Started"),
-	Resolved = createSymbol("Resolved"),
-	Rejected = createSymbol("Rejected"),
-	Cancelled = createSymbol("Cancelled"),
-}
+Promise.Status = setmetatable({
+	Started = "Started",
+	Resolved = "Resolved",
+	Rejected = "Rejected",
+	Cancelled = "Cancelled",
+}, {
+	__index = function(_, k)
+		error(("%s is not in Promise.Status!"):format(k), 2)
+	end
+})
 
 --[[
 	Constructs a new Promise with the given initializing callback.
@@ -60537,6 +60722,9 @@ function Promise.new(callback, parent)
 		_source = debug.traceback(),
 
 		_status = Promise.Status.Started,
+
+		-- Will be set to the Lua error string if it occurs while executing.
+		_error = nil,
 
 		-- A table containing a list of all results, whether success or failure.
 		-- Only valid if _status is set to something besides Started
@@ -60592,14 +60780,44 @@ function Promise.new(callback, parent)
 		return self._status == Promise.Status.Cancelled
 	end
 
-	local ok, _, result = ppcall(callback, resolve, reject, onCancel)
-	local err = result[1]
+	local ok, _, result = ppcall(
+		ERROR_YIELD_NEW,
+		callback,
+		resolve,
+		reject,
+		onCancel
+	)
 
-	if not ok and self._status == Promise.Status.Started then
-		reject(err)
+	if not ok then
+		self._error = result[1] or "error"
+		reject((result[1] or "error") .. "\n" .. self._source)
 	end
 
 	return self
+end
+
+function Promise._newWithSelf(executor, ...)
+	local args
+	local promise = Promise.new(function(...)
+		args = {...}
+	end, ...)
+
+	executor(promise, unpack(args))
+
+	return promise
+end
+
+function Promise._new(traceback, executor, ...)
+	return Promise._newWithSelf(function(self, resolve, reject)
+		self._source = traceback
+
+		executor(resolve, function(err, traceback)
+			err = err or "error"
+			traceback = traceback or ""
+			self._error = err
+			reject(err .. "\n" .. traceback)
+		end)
+	end, ...)
 end
 
 --[[
@@ -60607,35 +60825,48 @@ end
 ]]
 function Promise.async(callback)
 	local traceback = debug.traceback()
-	return Promise.new(function(resolve, reject, onCancel)
+	local promise
+	promise = Promise.new(function(resolve, reject, onCancel)
 		local connection
 		connection = RunService.Heartbeat:Connect(function()
 			connection:Disconnect()
 			local ok, err = pcall(callback, resolve, reject, onCancel)
 
 			if not ok then
+				promise._error = err or "error"
 				reject(err .. "\n" .. traceback)
 			end
 		end)
 	end)
+
+	return promise
 end
 
 --[[
 	Create a promise that represents the immediately resolved value.
 ]]
-function Promise.resolve(value)
+function Promise.resolve(...)
+	local length, values = pack(...)
 	return Promise.new(function(resolve)
-		resolve(value)
+		resolve(unpack(values, 1, length))
 	end)
 end
 
 --[[
 	Create a promise that represents the immediately rejected value.
 ]]
-function Promise.reject(value)
+function Promise.reject(...)
+	local length, values = pack(...)
 	return Promise.new(function(_, reject)
-		reject(value)
+		reject(unpack(values, 1, length))
 	end)
+end
+
+--[[
+	Begins a Promise chain, turning synchronous errors into rejections.
+]]
+function Promise.try(...)
+	return Promise.resolve():andThenCall(...)
 end
 
 --[[
@@ -60643,9 +60874,122 @@ end
 		* is resolved when all input promises resolve
 		* is rejected if ANY input promises reject
 ]]
-function Promise.all(promises)
+function Promise._all(traceback, promises, amount)
 	if type(promises) ~= "table" then
-		error("Please pass a list of promises to Promise.all", 2)
+		error(ERROR_NON_LIST:format("Promise.all"), 3)
+	end
+
+	-- We need to check that each value is a promise here so that we can produce
+	-- a proper error rather than a rejected promise with our error.
+	for i, promise in pairs(promises) do
+		if not Promise.is(promise) then
+			error((ERROR_NON_PROMISE_IN_LIST):format("Promise.all", tostring(i)), 3)
+		end
+	end
+
+	-- If there are no values then return an already resolved promise.
+	if #promises == 0 or amount == 0 then
+		return Promise.resolve({})
+	end
+
+	return Promise._newWithSelf(function(self, resolve, reject, onCancel)
+		self._source = traceback
+
+		-- An array to contain our resolved values from the given promises.
+		local resolvedValues = {}
+		local newPromises = {}
+
+		-- Keep a count of resolved promises because just checking the resolved
+		-- values length wouldn't account for promises that resolve with nil.
+		local resolvedCount = 0
+		local rejectedCount = 0
+		local done = false
+
+		local function cancel()
+			for _, promise in ipairs(newPromises) do
+				promise:cancel()
+			end
+		end
+
+		-- Called when a single value is resolved and resolves if all are done.
+		local function resolveOne(i, ...)
+			if done then
+				return
+			end
+
+			resolvedCount = resolvedCount + 1
+
+			if amount == nil then
+				resolvedValues[i] = ...
+			else
+				resolvedValues[resolvedCount] = ...
+			end
+
+			if resolvedCount >= (amount or #promises) then
+				done = true
+				resolve(resolvedValues)
+				cancel()
+			end
+		end
+
+		onCancel(cancel)
+
+		-- We can assume the values inside `promises` are all promises since we
+		-- checked above.
+		for i = 1, #promises do
+			table.insert(
+				newPromises,
+				promises[i]:andThen(
+					function(...)
+						resolveOne(i, ...)
+					end,
+					function(...)
+						rejectedCount = rejectedCount + 1
+
+						if amount == nil or #promises - rejectedCount < amount then
+							cancel()
+							done = true
+
+							reject(...)
+						end
+					end
+				)
+			)
+		end
+
+		if done then
+			cancel()
+		end
+	end)
+end
+
+function Promise.all(promises)
+	return Promise._all(debug.traceback(), promises)
+end
+
+function Promise.some(promises, amount)
+	assert(type(amount) == "number", "Bad argument #2 to Promise.some: must be a number")
+
+	return Promise._all(debug.traceback(), promises, amount)
+end
+
+function Promise.any(promises)
+	return Promise._all(debug.traceback(), promises, 1):andThen(function(values)
+		return values[1]
+	end)
+end
+
+function Promise.allSettled(promises)
+	if type(promises) ~= "table" then
+		error(ERROR_NON_LIST:format("Promise.allSettled"), 2)
+	end
+
+	-- We need to check that each value is a promise here so that we can produce
+	-- a proper error rather than a rejected promise with our error.
+	for i, promise in pairs(promises) do
+		if not Promise.is(promise) then
+			error((ERROR_NON_PROMISE_IN_LIST):format("Promise.allSettled", tostring(i)), 2)
+		end
 	end
 
 	-- If there are no values then return an already resolved promise.
@@ -60653,42 +60997,42 @@ function Promise.all(promises)
 		return Promise.resolve({})
 	end
 
-	-- We need to check that each value is a promise here so that we can produce
-	-- a proper error rather than a rejected promise with our error.
-	for i = 1, #promises do
-		if not Promise.is(promises[i]) then
-			error(("Non-promise value passed into Promise.all at index #%d"):format(i), 2)
-		end
-	end
-
-	return Promise.new(function(resolve, reject)
+	return Promise.new(function(resolve, _, onCancel)
 		-- An array to contain our resolved values from the given promises.
-		local resolvedValues = {}
+		local fates = {}
+		local newPromises = {}
 
 		-- Keep a count of resolved promises because just checking the resolved
 		-- values length wouldn't account for promises that resolve with nil.
-		local resolvedCount = 0
+		local finishedCount = 0
 
 		-- Called when a single value is resolved and resolves if all are done.
 		local function resolveOne(i, ...)
-			resolvedValues[i] = ...
-			resolvedCount = resolvedCount + 1
+			finishedCount = finishedCount + 1
 
-			if resolvedCount == #promises then
-				resolve(resolvedValues)
+			fates[i] = ...
+
+			if finishedCount >= #promises then
+				resolve(fates)
 			end
 		end
+
+		onCancel(function()
+			for _, promise in ipairs(newPromises) do
+				promise:cancel()
+			end
+		end)
 
 		-- We can assume the values inside `promises` are all promises since we
 		-- checked above.
 		for i = 1, #promises do
-			promises[i]:andThen(
-				function(...)
-					resolveOne(i, ...)
-				end,
-				function(...)
-					reject(...)
-				end
+			table.insert(
+				newPromises,
+				promises[i]:finally(
+					function(...)
+						resolveOne(i, ...)
+					end
+				)
 			)
 		end
 	end)
@@ -60699,27 +61043,43 @@ end
 	cancelling the others.
 ]]
 function Promise.race(promises)
-	assert(type(promises) == "table", "Please pass a list of promises to Promise.race")
+	assert(type(promises) == "table", ERROR_NON_LIST:format("Promise.race"))
 
-	for i, promise in ipairs(promises) do
-		assert(Promise.is(promise), ("Non-promise value passed into Promise.race at index #%d"):format(i))
+	for i, promise in pairs(promises) do
+		assert(Promise.is(promise), (ERROR_NON_PROMISE_IN_LIST):format("Promise.race", tostring(i)))
 	end
 
 	return Promise.new(function(resolve, reject, onCancel)
+		local newPromises = {}
+		local finished = false
+
+		local function cancel()
+			for _, promise in ipairs(newPromises) do
+				promise:cancel()
+			end
+		end
+
 		local function finalize(callback)
 			return function (...)
-				for _, promise in ipairs(promises) do
-					promise:cancel()
-				end
-
+				cancel()
+				finished = true
 				return callback(...)
 			end
 		end
 
-		onCancel(finalize(reject))
+		if onCancel(finalize(reject)) then
+			return
+		end
 
 		for _, promise in ipairs(promises) do
-			promise:andThen(finalize(resolve), finalize(reject))
+			table.insert(
+				newPromises,
+				promise:andThen(finalize(resolve), finalize(reject))
+			)
+		end
+
+		if finished then
+			cancel()
 		end
 	end)
 end
@@ -60740,13 +61100,92 @@ end
 ]]
 function Promise.promisify(callback)
 	return function(...)
+		local traceback = debug.traceback()
 		local length, values = pack(...)
-		return Promise.new(function(resolve)
+		return Promise.new(function(resolve, reject)
 			coroutine.wrap(function()
-				resolve(callback(unpack(values, 1, length)))
+				local ok, resultLength, resultValues = packResult(pcall(callback, unpack(values, 1, length)))
+				if ok then
+					resolve(unpack(resultValues, 1, resultLength))
+				else
+					reject((resultValues[1] or "error") .. "\n" .. traceback)
+				end
 			end)()
 		end)
 	end
+end
+
+--[[
+	Creates a Promise that resolves after given number of seconds.
+]]
+do
+	local connection
+	local queue = {}
+
+	local function enqueue(callback, seconds)
+		table.insert(queue, {
+			callback = callback,
+			startTime = tick(),
+			endTime = tick() + math.max(seconds, 1/60)
+		})
+
+		table.sort(queue, function(a, b)
+			return a.endTime < b.endTime
+		end)
+
+		if not connection then
+			connection = RunService.Heartbeat:Connect(function()
+				while #queue > 0 and queue[1].endTime <= tick() do
+					local item = table.remove(queue, 1)
+
+					item.callback(tick() - item.startTime)
+				end
+
+				if #queue == 0 then
+					connection:Disconnect()
+					connection = nil
+				end
+			end)
+		end
+	end
+
+	local function dequeue(callback)
+		for i, item in ipairs(queue) do
+			if item.callback == callback then
+				table.remove(queue, i)
+				break
+			end
+		end
+	end
+
+	function Promise.delay(seconds)
+		assert(type(seconds) == "number", "Bad argument #1 to Promise.delay, must be a number.")
+		-- If seconds is -INF, INF, or NaN, assume seconds is 0.
+		-- This mirrors the behavior of wait()
+		if seconds < 0 or seconds == math.huge or seconds ~= seconds then
+			seconds = 0
+		end
+
+		return Promise.new(function(resolve, _, onCancel)
+			enqueue(resolve, seconds)
+
+			onCancel(function()
+				dequeue(resolve)
+			end)
+		end)
+	end
+end
+
+--[[
+	Rejects the promise after `seconds` seconds.
+]]
+function Promise.prototype:timeout(seconds, timeoutValue)
+	return Promise.race({
+		Promise.delay(seconds):andThen(function()
+			return Promise.reject(timeoutValue == nil and "Timed out" or timeoutValue)
+		end),
+		self
+	})
 end
 
 function Promise.prototype:getStatus()
@@ -60758,22 +61197,32 @@ end
 
 	The given callbacks are invoked depending on that result.
 ]]
-function Promise.prototype:andThen(successHandler, failureHandler)
+function Promise.prototype:_andThen(traceback, successHandler, failureHandler)
 	self._unhandledRejection = false
 
 	-- Create a new promise to follow this part of the chain
-	return Promise.new(function(resolve, reject)
+	return Promise._new(traceback, function(resolve, reject)
 		-- Our default callbacks just pass values onto the next promise.
 		-- This lets success and failure cascade correctly!
 
 		local successCallback = resolve
 		if successHandler then
-			successCallback = createAdvancer(successHandler, resolve, reject)
+			successCallback = createAdvancer(
+				traceback,
+				successHandler,
+				resolve,
+				reject
+			)
 		end
 
 		local failureCallback = reject
 		if failureHandler then
-			failureCallback = createAdvancer(failureHandler, resolve, reject)
+			failureCallback = createAdvancer(
+				traceback,
+				failureHandler,
+				resolve,
+				reject
+			)
 		end
 
 		if self._status == Promise.Status.Started then
@@ -60794,20 +61243,68 @@ function Promise.prototype:andThen(successHandler, failureHandler)
 	end, self)
 end
 
+function Promise.prototype:andThen(successHandler, failureHandler)
+	assert(
+		successHandler == nil or type(successHandler) == "function",
+		ERROR_NON_FUNCTION:format("Promise:andThen")
+	)
+	assert(
+		failureHandler == nil or type(failureHandler) == "function",
+		ERROR_NON_FUNCTION:format("Promise:andThen")
+	)
+
+	return self:_andThen(debug.traceback(), successHandler, failureHandler)
+end
+
 --[[
 	Used to catch any errors that may have occurred in the promise.
 ]]
 function Promise.prototype:catch(failureCallback)
-	return self:andThen(nil, failureCallback)
+	assert(
+		failureCallback == nil or type(failureCallback) == "function",
+		ERROR_NON_FUNCTION:format("Promise:catch")
+	)
+	return self:_andThen(debug.traceback(), nil, failureCallback)
+end
+
+--[[
+	Like andThen, but the value passed into the handler is also the
+	value returned from the handler.
+]]
+function Promise.prototype:tap(tapCallback)
+	assert(type(tapCallback) == "function", ERROR_NON_FUNCTION:format("Promise:tap"))
+	return self:_andThen(debug.traceback(), function(...)
+		local callbackReturn = tapCallback(...)
+
+		if Promise.is(callbackReturn) then
+			local length, values = pack(...)
+			return callbackReturn:andThen(function()
+				return unpack(values, 1, length)
+			end)
+		end
+
+		return ...
+	end)
 end
 
 --[[
 	Calls a callback on `andThen` with specific arguments.
 ]]
 function Promise.prototype:andThenCall(callback, ...)
+	assert(type(callback) == "function", ERROR_NON_FUNCTION:format("Promise:andThenCall"))
 	local length, values = pack(...)
-	return self:andThen(function()
+	return self:_andThen(debug.traceback(), function()
 		return callback(unpack(values, 1, length))
+	end)
+end
+
+--[[
+	Shorthand for an andThen handler that returns the given value.
+]]
+function Promise.prototype:andThenReturn(...)
+	local length, values = pack(...)
+	return self:_andThen(debug.traceback(), function()
+		return unpack(values, 1, length)
 	end)
 end
 
@@ -60857,14 +61354,32 @@ end
 	Used to set a handler for when the promise resolves, rejects, or is
 	cancelled. Returns a new promise chained from this promise.
 ]]
-function Promise.prototype:finally(finallyHandler)
-	self._unhandledRejection = false
+function Promise.prototype:_finally(traceback, finallyHandler, onlyOk)
+	if not onlyOk then
+		self._unhandledRejection = false
+	end
 
 	-- Return a promise chained off of this promise
-	return Promise.new(function(resolve, reject)
+	return Promise._new(traceback, function(resolve, reject)
 		local finallyCallback = resolve
 		if finallyHandler then
-			finallyCallback = createAdvancer(finallyHandler, resolve, reject)
+			finallyCallback = createAdvancer(
+				traceback,
+				finallyHandler,
+				resolve,
+				reject
+			)
+		end
+
+		if onlyOk then
+			local callback = finallyCallback
+			finallyCallback = function(...)
+				if self._status == Promise.Status.Rejected then
+					return resolve(self)
+				end
+
+				return callback(...)
+			end
 		end
 
 		if self._status == Promise.Status.Started then
@@ -60877,14 +61392,65 @@ function Promise.prototype:finally(finallyHandler)
 	end, self)
 end
 
+function Promise.prototype:finally(finallyHandler)
+	assert(
+		finallyHandler == nil or type(finallyHandler) == "function",
+		ERROR_NON_FUNCTION:format("Promise:finally")
+	)
+	return self:_finally(debug.traceback(), finallyHandler)
+end
+
 --[[
 	Calls a callback on `finally` with specific arguments.
 ]]
 function Promise.prototype:finallyCall(callback, ...)
+	assert(type(callback) == "function", ERROR_NON_FUNCTION:format("Promise:finallyCall"))
 	local length, values = pack(...)
-	return self:finally(function()
+	return self:_finally(debug.traceback(), function()
 		return callback(unpack(values, 1, length))
 	end)
+end
+
+--[[
+	Shorthand for a finally handler that returns the given value.
+]]
+function Promise.prototype:finallyReturn(...)
+	local length, values = pack(...)
+	return self:_finally(debug.traceback(), function()
+		return unpack(values, 1, length)
+	end)
+end
+
+--[[
+	Similar to finally, except rejections are propagated through it.
+]]
+function Promise.prototype:done(finallyHandler)
+	assert(
+		finallyHandler == nil or type(finallyHandler) == "function",
+		ERROR_NON_FUNCTION:format("Promise:finallyO")
+	)
+	return self:_finally(debug.traceback(), finallyHandler, true)
+end
+
+--[[
+	Calls a callback on `done` with specific arguments.
+]]
+function Promise.prototype:doneCall(callback, ...)
+	assert(type(callback) == "function", ERROR_NON_FUNCTION:format("Promise:doneCall"))
+	local length, values = pack(...)
+	return self:_finally(debug.traceback(), function()
+		return callback(unpack(values, 1, length))
+	end, true)
+end
+
+--[[
+	Shorthand for a done handler that returns the given value.
+]]
+function Promise.prototype:doneReturn(...)
+	local length, values = pack(...)
+	return self:_finally(debug.traceback(), function()
+		return unpack(values, 1, length)
+	end, true)
 end
 
 --[[
@@ -60979,11 +61545,17 @@ function Promise.prototype:_resolve(...)
 			warn(message)
 		end
 
-		local promise = (...):andThen(
+		local chainedPromise = ...
+
+		local promise = chainedPromise:andThen(
 			function(...)
 				self:_resolve(...)
 			end,
 			function(...)
+				-- The handler errored. Replace the inner stack trace with our outer stack trace.
+				if chainedPromise._error then
+					return self:_reject((chainedPromise._error or "") .. "\n" .. self._source)
+				end
 				self:_reject(...)
 			end
 		)
@@ -61041,10 +61613,15 @@ function Promise.prototype:_reject(...)
 			end
 
 			-- Build a reasonable message
-			local message = ("Unhandled promise rejection:\n\n%s\n\n%s"):format(
-				err,
-				self._source
-			)
+			local message
+			if self._error then
+				message = ("Unhandled promise rejection:\n\n%s"):format(err)
+			else
+				message = ("Unhandled promise rejection:\n\n%s\n\n%s"):format(
+					err,
+					self._source
+				)
+			end
 			warn(message)
 		end)()
 	end
@@ -61063,6 +61640,10 @@ function Promise.prototype:_finalize()
 		-- resolved values, or rejected errors. If the developer needs the values,
 		-- they should use :andThen or :catch explicitly.
 		callback(self._status)
+	end
+
+	if self._parent and self._error == nil then
+		self._error = self._parent._error
 	end
 
 	-- Allow family to be buried
@@ -61089,6 +61670,14 @@ return Promise]]></ProtectedString>
 
 		return len, { ... }
 	end
+
+	describe("Promise.Status", function()
+		it("should error if indexing nil value", function()
+			expect(function()
+				local _ = Promise.Status.wrong
+			end).to.throw()
+		end)
+	end)
 
 	describe("Promise.new", function()
 		it("should instantiate with a callback", function()
@@ -61164,11 +61753,12 @@ return Promise]]></ProtectedString>
 
 	describe("Promise.resolve", function()
 		it("should immediately resolve with a value", function()
-			local promise = Promise.resolve(5)
+			local promise = Promise.resolve(5, 6)
 
 			expect(promise).to.be.ok()
 			expect(promise:getStatus()).to.equal(Promise.Status.Resolved)
 			expect(promise._values[1]).to.equal(5)
+			expect(promise._values[2]).to.equal(6)
 		end)
 
 		it("should chain onto passed promises", function()
@@ -61184,11 +61774,12 @@ return Promise]]></ProtectedString>
 
 	describe("Promise.reject", function()
 		it("should immediately reject with a value", function()
-			local promise = Promise.reject(6)
+			local promise = Promise.reject(6, 7)
 
 			expect(promise).to.be.ok()
 			expect(promise:getStatus()).to.equal(Promise.Status.Rejected)
 			expect(promise._values[1]).to.equal(6)
+			expect(promise._values[2]).to.equal(7)
 		end)
 
 		it("should pass a promise as-is as an error", function()
@@ -61488,6 +62079,18 @@ return Promise]]></ProtectedString>
 			expect(p2._parent).to.equal(p1)
 			expect(p1._consumers[p2]).to.equal(true)
 		end)
+
+		it("should forward return values", function()
+			local value
+
+			Promise.resolve():finally(function()
+				return 1
+			end):andThen(function(v)
+				value = v
+			end)
+
+			expect(value).to.equal(1)
+		end)
 	end)
 
 	describe("Promise.all", function()
@@ -61562,8 +62165,8 @@ return Promise]]></ProtectedString>
 
 			expect(combinedPromise:getStatus()).to.equal(Promise.Status.Started)
 
-			resolveB("foo", "bar")
 			rejectA("baz", "qux")
+			resolveB("foo", "bar")
 
 			local resultLength, result = pack(combinedPromise:_unwrap())
 			local success, first, second = unpack(result, 1, resultLength)
@@ -61572,6 +62175,7 @@ return Promise]]></ProtectedString>
 			expect(success).to.equal(false)
 			expect(first).to.equal("baz")
 			expect(second).to.equal("qux")
+			expect(b:getStatus()).to.equal(Promise.Status.Cancelled)
 		end)
 
 		it("should not resolve if resolved after rejecting", function()
@@ -61632,6 +62236,42 @@ return Promise]]></ProtectedString>
 			expect(first).to.equal("foo")
 			expect(second).to.equal("bar")
 		end)
+
+		it("should error if a non-array table is passed in", function()
+			local ok, err = pcall(function()
+				Promise.all(Promise.new(function() end))
+			end)
+
+			expect(ok).to.be.ok()
+			expect(err:find("Non%-promise")).to.be.ok()
+		end)
+
+		it("should cancel pending promises if one rejects", function()
+			local p = Promise.new(function() end)
+			expect(Promise.all({
+				Promise.resolve(),
+				Promise.reject(),
+				p
+			}):getStatus()).to.equal(Promise.Status.Rejected)
+			expect(p:getStatus()).to.equal(Promise.Status.Cancelled)
+		end)
+
+		it("should cancel promises if it is cancelled", function()
+			local p = Promise.new(function() end)
+			p:andThen(function() end)
+
+			local promises = {
+				Promise.new(function() end),
+				Promise.new(function() end),
+				p
+			}
+
+			Promise.all(promises):cancel()
+
+			expect(promises[1]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[2]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[3]:getStatus()).to.equal(Promise.Status.Started)
+		end)
 	end)
 
 	describe("Promise.race", function()
@@ -61647,10 +62287,11 @@ return Promise]]></ProtectedString>
 		end)
 
 		it("should cancel other promises", function()
+			local promise = Promise.new(function() end)
+			promise:andThen(function() end)
 			local promises = {
-				Promise.new(function(resolve)
-					-- resolve(1)
-				end),
+				promise,
+				Promise.new(function() end),
 				Promise.new(function(resolve)
 					resolve(2)
 				end)
@@ -61660,8 +62301,43 @@ return Promise]]></ProtectedString>
 
 			expect(promise:getStatus()).to.equal(Promise.Status.Resolved)
 			expect(promise._values[1]).to.equal(2)
+			expect(promises[1]:getStatus()).to.equal(Promise.Status.Started)
+			expect(promises[2]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[3]:getStatus()).to.equal(Promise.Status.Resolved)
+
+			local p = Promise.new(function() end)
+			expect(Promise.race({
+				Promise.reject(),
+				Promise.resolve(),
+				p
+			}):getStatus()).to.equal(Promise.Status.Rejected)
+			expect(p:getStatus()).to.equal(Promise.Status.Cancelled)
+		end)
+
+		it("should error if a non-array table is passed in", function()
+			local ok, err = pcall(function()
+				Promise.race(Promise.new(function() end))
+			end)
+
+			expect(ok).to.be.ok()
+			expect(err:find("Non%-promise")).to.be.ok()
+		end)
+
+		it("should cancel promises if it is cancelled", function()
+			local p = Promise.new(function() end)
+			p:andThen(function() end)
+
+			local promises = {
+				Promise.new(function() end),
+				Promise.new(function() end),
+				p
+			}
+
+			Promise.race(promises):cancel()
+
 			expect(promises[1]:getStatus()).to.equal(Promise.Status.Cancelled)
-			expect(promises[2]:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(promises[2]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[3]:getStatus()).to.equal(Promise.Status.Started)
 		end)
 	end)
 
@@ -61676,6 +62352,314 @@ return Promise]]></ProtectedString>
 
 			expect(status).to.equal(Promise.Status.Resolved)
 			expect(result).to.equal(2)
+		end)
+
+		it("should catch errors after a yield", function()
+			local bindable = Instance.new("BindableEvent")
+			local test = Promise.promisify(function ()
+				bindable.Event:Wait()
+				error('errortext')
+			end)
+
+			local promise = test()
+
+			expect(promise:getStatus()).to.equal(Promise.Status.Started)
+			bindable:Fire()
+			expect(promise:getStatus()).to.equal(Promise.Status.Rejected)
+			expect(promise._values[1]:find("errortext")).to.be.ok()
+		end)
+	end)
+
+	describe("Promise.tap", function()
+		it("should thread through values", function()
+			local first, second
+
+			Promise.resolve(1)
+				:andThen(function(v)
+					return v + 1
+				end)
+				:tap(function(v)
+					first = v
+					return v + 1
+				end)
+				:andThen(function(v)
+					second = v
+				end)
+
+			expect(first).to.equal(2)
+			expect(second).to.equal(2)
+		end)
+
+		it("should chain onto promises", function()
+			local resolveInner, finalValue
+
+			local promise = Promise.resolve(1)
+				:tap(function()
+					return Promise.new(function(resolve)
+						resolveInner = resolve
+					end)
+				end)
+				:andThen(function(v)
+					finalValue = v
+				end)
+
+			expect(promise:getStatus()).to.equal(Promise.Status.Started)
+			expect(finalValue).to.never.be.ok()
+
+			resolveInner(1)
+
+			expect(promise:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(finalValue).to.equal(1)
+		end)
+	end)
+
+	describe("Promise.try", function()
+		it("should catch synchronous errors", function()
+			local errorText
+			Promise.try(function()
+				error('errortext')
+			end):catch(function(e)
+				errorText = e
+			end)
+
+			expect(errorText:find("errortext")).to.be.ok()
+		end)
+	end)
+
+	describe("Promise:andThenReturn", function()
+		it("should return the given values", function()
+			local value1, value2
+
+			Promise.resolve():andThenReturn(1, 2):andThen(function(one, two)
+				value1 = one
+				value2 = two
+			end)
+
+			expect(value1).to.equal(1)
+			expect(value2).to.equal(2)
+		end)
+	end)
+
+	describe("Promise:doneReturn", function()
+		it("should return the given values", function()
+			local value1, value2
+
+			Promise.resolve():doneReturn(1, 2):andThen(function(one, two)
+				value1 = one
+				value2 = two
+			end)
+
+			expect(value1).to.equal(1)
+			expect(value2).to.equal(2)
+		end)
+	end)
+
+	describe("Promise:andThenCall", function()
+		it("should call the given function with arguments", function()
+			local value1, value2
+			Promise.resolve():andThenCall(function(a, b)
+				value1 = a
+				value2 = b
+			end, 3, 4)
+
+			expect(value1).to.equal(3)
+			expect(value2).to.equal(4)
+		end)
+	end)
+
+	describe("Promise:doneCall", function()
+		it("should call the given function with arguments", function()
+			local value1, value2
+			Promise.resolve():doneCall(function(a, b)
+				value1 = a
+				value2 = b
+			end, 3, 4)
+
+			expect(value1).to.equal(3)
+			expect(value2).to.equal(4)
+		end)
+	end)
+
+	describe("Promise:done", function()
+		it("should trigger on resolve or cancel", function()
+			local promise = Promise.new(function() end)
+			local value
+
+			local p = promise:done(function()
+				value = true
+			end)
+
+			expect(value).to.never.be.ok()
+			promise:cancel()
+			expect(p:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(value).to.equal(true)
+
+			local never, always
+			Promise.reject():done(function()
+				never = true
+			end):finally(function()
+				always = true
+			end)
+
+			expect(never).to.never.be.ok()
+			expect(always).to.be.ok()
+		end)
+	end)
+
+	describe("Promise.some", function()
+		it("should resolve once the goal is reached", function()
+			local p = Promise.some({
+				Promise.resolve(1),
+				Promise.reject(),
+				Promise.resolve(2)
+			}, 2)
+			expect(p:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(p._values[1][1]).to.equal(1)
+			expect(p._values[1][2]).to.equal(2)
+		end)
+
+		it("should error if the goal can't be reached", function()
+			expect(Promise.some({
+				Promise.resolve(),
+				Promise.reject()
+			}, 2):getStatus()).to.equal(Promise.Status.Rejected)
+
+			local reject
+			local p = Promise.some({
+				Promise.resolve(),
+				Promise.new(function(_, r) reject = r end)
+			}, 2)
+
+			expect(p:getStatus()).to.equal(Promise.Status.Started)
+			reject("foo")
+			expect(p:getStatus()).to.equal(Promise.Status.Rejected)
+			expect(p._values[1]).to.equal("foo")
+		end)
+
+		it("should cancel pending Promises once the goal is reached", function()
+			local resolve
+			local pending1 = Promise.new(function() end)
+			local pending2 = Promise.new(function(r) resolve = r end)
+
+			local some = Promise.some({
+				pending1,
+				pending2,
+				Promise.resolve()
+			}, 2)
+
+			expect(some:getStatus()).to.equal(Promise.Status.Started)
+			expect(pending1:getStatus()).to.equal(Promise.Status.Started)
+			expect(pending2:getStatus()).to.equal(Promise.Status.Started)
+
+			resolve()
+
+			expect(some:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(pending1:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(pending2:getStatus()).to.equal(Promise.Status.Resolved)
+		end)
+
+		it("should error if passed a non-number", function()
+			expect(function()
+				Promise.some({}, "non-number")
+			end).to.throw()
+		end)
+
+		it("should return an empty array if amount is 0", function()
+			local p = Promise.some({
+				Promise.resolve(2)
+			}, 0)
+
+			expect(p:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(#p._values[1]).to.equal(0)
+		end)
+
+		it("should not return extra values", function()
+			local p = Promise.some({
+				Promise.resolve(1),
+				Promise.resolve(2),
+				Promise.resolve(3),
+				Promise.resolve(4),
+			}, 2)
+
+			expect(p:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(#p._values[1]).to.equal(2)
+			expect(p._values[1][1]).to.equal(1)
+			expect(p._values[1][2]).to.equal(2)
+		end)
+
+		it("should cancel promises if it is cancelled", function()
+			local p = Promise.new(function() end)
+			p:andThen(function() end)
+
+			local promises = {
+				Promise.new(function() end),
+				Promise.new(function() end),
+				p
+			}
+
+			Promise.some(promises, 3):cancel()
+
+			expect(promises[1]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[2]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[3]:getStatus()).to.equal(Promise.Status.Started)
+		end)
+
+		describe("Promise.any", function()
+			it("should return the value directly", function()
+				local p = Promise.any({
+					Promise.reject(),
+					Promise.reject(),
+					Promise.resolve(1)
+				})
+
+				expect(p:getStatus()).to.equal(Promise.Status.Resolved)
+				expect(p._values[1]).to.equal(1)
+			end)
+
+			it("should error if all are rejected", function()
+				expect(Promise.any({
+					Promise.reject(),
+					Promise.reject(),
+					Promise.reject(),
+				}):getStatus()).to.equal(Promise.Status.Rejected)
+			end)
+		end)
+	end)
+
+	describe("Promise.allSettled", function()
+		it("should resolve with an array of PromiseStatuses", function()
+			local reject
+			local p = Promise.allSettled({
+				Promise.resolve(),
+				Promise.reject(),
+				Promise.resolve(),
+				Promise.new(function(_, r) reject = r end)
+			})
+
+			expect(p:getStatus()).to.equal(Promise.Status.Started)
+			reject()
+			expect(p:getStatus()).to.equal(Promise.Status.Resolved)
+			expect(p._values[1][1]).to.equal(Promise.Status.Resolved)
+			expect(p._values[1][2]).to.equal(Promise.Status.Rejected)
+			expect(p._values[1][3]).to.equal(Promise.Status.Resolved)
+			expect(p._values[1][4]).to.equal(Promise.Status.Rejected)
+		end)
+
+		it("should cancel promises if it is cancelled", function()
+			local p = Promise.new(function() end)
+			p:andThen(function() end)
+
+			local promises = {
+				Promise.new(function() end),
+				Promise.new(function() end),
+				p
+			}
+
+			Promise.allSettled(promises):cancel()
+
+			expect(promises[1]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[2]:getStatus()).to.equal(Promise.Status.Cancelled)
+			expect(promises[3]:getStatus()).to.equal(Promise.Status.Started)
 		end)
 	end)
 end]]></ProtectedString>
@@ -62130,15 +63114,8 @@ function Core:addComponent(entityId, componentIdentifier, props)
             -- Don't re-create the component or overwrite what's already there!
             return false, componentInstance
         else
-            componentInstance = componentClass._create()
+            componentInstance = componentClass._create(props)
             componentInstances[entityId] = componentInstance
-
-            -- apply props to new component
-            if props then
-                for k,v in pairs(props) do
-                    componentInstance[k] =  v
-                end
-            end
 
             self:__callPluginMethod("componentAdded", entityId, componentInstance)
 
@@ -62744,8 +63721,13 @@ local defineComponent = require(script.Parent.Parent.defineComponent)
 return function()
     local ComponentClass = defineComponent({
         name = "TestComponent",
-        generator = function()
-            return {}
+        generator = function(props)
+            props = props or {
+                a = 0
+            }
+            return {
+                a = props.a + 1
+            }
         end
     })
 
@@ -62765,6 +63747,18 @@ return function()
         local addedNew, component = core:addComponent(entity, ComponentClass)
         expect(addedNew).to.equal(true)
         expect(component).to.be.ok()
+    end)
+
+    it("should add components with props", function()
+        local core = Core.new()
+        core:registerComponent(ComponentClass)
+
+        local entity = core:createEntity()
+        local addedNew, component = core:addComponent(entity, ComponentClass, {
+            a = 1
+        })
+
+        expect(component.a).to.equal(2)
     end)
 
     it("should return false plus the existing component if the component already exists", function()
@@ -64606,8 +65600,8 @@ local function defineComponent(args)
 
     local generator = args.generator
 
-    function definition._create()
-        local component = generator()
+    function definition._create(props)
+        local component = generator(props)
 
         if typeof(component) ~= "table" then
             error(errorFormats.nonTableDefaultPropsReturn:format(args.name, typeof(component)))
@@ -64739,6 +65733,44 @@ return function()
             expect(component.a).to.equal(1)
             component:setA(2)
             expect(component.a).to.equal(2)
+        end)
+
+        it("should pass props argument to generator", function()
+            local class = defineComponent({
+                name = "Test",
+                generator = function(props)
+                    return {
+                        a = 1 + props.aAdd,
+                        b = 2 - props.bSubstract,
+                    }
+                end,
+            })
+
+            local component = class._create({
+                aAdd = 1,
+                bSubstract = 1,
+            })
+
+            expect(component.a).to.equal(2)
+            expect(component.b).to.equal(1)
+        end)
+
+        it("should accept any type as a props argument", function()
+            local class = defineComponent({
+                name = "Test",
+                generator = function(props)
+                    props = props or ""
+                    return {
+                        a = "foo"..props
+                    }
+                end,
+            })
+
+            local componentOne = class._create("bar")
+            local componentTwo = class._create()
+
+            expect(componentOne.a).to.equal("foobar")
+            expect(componentTwo.a).to.equal("foo")
         end)
     end)
 end]]></ProtectedString>
@@ -78217,6 +79249,119 @@ return t]]></ProtectedString>
 							<BinaryString name="Tags"></BinaryString>
 							<bool name="Visible">true</bool>
 							<int name="ZIndex">1</int>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX02B65F0AE789480B840EC16F9DB93D20">
+			<Properties>
+				<string name="Name">model</string>
+				<BinaryString name="Tags"></BinaryString>
+			</Properties>
+			<Item class="Folder" referent="RBX2E6B034AB79E4681ACE2D4456B531C57">
+				<Properties>
+					<string name="Name">projectile</string>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+				<Item class="Part" referent="RBX4B29E6156454438A8B114E1E09453739">
+					<Properties>
+						<bool name="Anchored">true</bool>
+						<float name="BackParamA">-0.5</float>
+						<float name="BackParamB">0.5</float>
+						<token name="BackSurface">0</token>
+						<token name="BackSurfaceInput">0</token>
+						<float name="BottomParamA">-0.5</float>
+						<float name="BottomParamB">0.5</float>
+						<token name="BottomSurface">0</token>
+						<token name="BottomSurfaceInput">0</token>
+						<CoordinateFrame name="CFrame">
+							<X>-15.5</X>
+							<Y>0.5</Y>
+							<Z>31</Z>
+							<R00>1</R00>
+							<R01>0</R01>
+							<R02>0</R02>
+							<R10>0</R10>
+							<R11>1</R11>
+							<R12>0</R12>
+							<R20>0</R20>
+							<R21>0</R21>
+							<R22>1</R22>
+						</CoordinateFrame>
+						<bool name="CanCollide">false</bool>
+						<bool name="CastShadow">false</bool>
+						<int name="CollisionGroupId">0</int>
+						<Color3uint8 name="Color3uint8">4283236096</Color3uint8>
+						<PhysicalProperties name="CustomPhysicalProperties">
+							<CustomPhysics>false</CustomPhysics>
+						</PhysicalProperties>
+						<float name="FrontParamA">-0.5</float>
+						<float name="FrontParamB">0.5</float>
+						<token name="FrontSurface">0</token>
+						<token name="FrontSurfaceInput">0</token>
+						<float name="LeftParamA">-0.5</float>
+						<float name="LeftParamB">0.5</float>
+						<token name="LeftSurface">0</token>
+						<token name="LeftSurfaceInput">0</token>
+						<bool name="Locked">true</bool>
+						<bool name="Massless">true</bool>
+						<token name="Material">288</token>
+						<string name="Name">bullet</string>
+						<float name="Reflectance">0</float>
+						<float name="RightParamA">-0.5</float>
+						<float name="RightParamB">0.5</float>
+						<token name="RightSurface">0</token>
+						<token name="RightSurfaceInput">0</token>
+						<int name="RootPriority">0</int>
+						<Vector3 name="RotVelocity">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<BinaryString name="Tags"></BinaryString>
+						<float name="TopParamA">-0.5</float>
+						<float name="TopParamB">0.5</float>
+						<token name="TopSurface">0</token>
+						<token name="TopSurfaceInput">0</token>
+						<float name="Transparency">0</float>
+						<Vector3 name="Velocity">
+							<X>0</X>
+							<Y>0</Y>
+							<Z>0</Z>
+						</Vector3>
+						<token name="formFactorRaw">1</token>
+						<token name="shape">1</token>
+						<Vector3 name="size">
+							<X>1</X>
+							<Y>1</Y>
+							<Z>4</Z>
+						</Vector3>
+					</Properties>
+					<Item class="SpecialMesh" referent="RBX7BB188471F854288A8D4C5B200182803">
+						<Properties>
+							<token name="LODX">2</token>
+							<token name="LODY">2</token>
+							<Content name="MeshId"><null></null></Content>
+							<token name="MeshType">3</token>
+							<string name="Name">Mesh</string>
+							<Vector3 name="Offset">
+								<X>0</X>
+								<Y>0</Y>
+								<Z>0</Z>
+							</Vector3>
+							<Vector3 name="Scale">
+								<X>1</X>
+								<Y>1</Y>
+								<Z>1</Z>
+							</Vector3>
+							<BinaryString name="Tags"></BinaryString>
+							<Content name="TextureId"><null></null></Content>
+							<Vector3 name="VertexColor">
+								<X>1</X>
+								<Y>1</Y>
+								<Z>1</Z>
+							</Vector3>
 						</Properties>
 					</Item>
 				</Item>
