@@ -33,7 +33,7 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
     })
 end
 
-function ProjectileCreator:init()
+function ProjectileCreator:preInit()
     local bulletBin = Instance.new("Folder")
     bulletBin.Name = "bullets"
     bulletBin.Parent = workspace
