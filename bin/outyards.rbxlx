@@ -38,26 +38,26 @@
 		<Item class="Camera" referent="RBX998F7D5D6F3C471693FEF53032368814">
 			<Properties>
 				<CoordinateFrame name="CFrame">
-					<X>78.4953003</X>
-					<Y>141.290054</Y>
-					<Z>179.770706</Z>
-					<R00>0.709875703</R00>
-					<R01>-0.383534223</R01>
-					<R02>0.590743601</R02>
-					<R10>1.49011612e-08</R10>
-					<R11>0.838734865</R11>
-					<R12>0.544539988</R12>
-					<R20>-0.704326987</R20>
-					<R21>-0.386555701</R21>
-					<R22>0.595397532</R22>
+					<X>-82.3650208</X>
+					<Y>85.4434814</Y>
+					<Z>160.757233</Z>
+					<R00>0.901634693</R00>
+					<R01>0.13144666</R01>
+					<R02>-0.412039787</R02>
+					<R10>-0</R10>
+					<R11>0.952696323</R11>
+					<R12>0.303923875</R12>
+					<R20>0.432498634</R20>
+					<R21>-0.274028301</R21>
+					<R22>0.858983934</R22>
 				</CoordinateFrame>
 				<Ref name="CameraSubject">null</Ref>
 				<token name="CameraType">0</token>
 				<float name="FieldOfView">70</float>
 				<CoordinateFrame name="Focus">
-					<X>77.3138123</X>
-					<Y>140.200974</Y>
-					<Z>178.57991</Z>
+					<X>-81.5409393</X>
+					<Y>84.8356323</Y>
+					<Z>159.039261</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>
@@ -79292,7 +79292,7 @@ return t]]></ProtectedString>
 						<bool name="CanCollide">false</bool>
 						<bool name="CastShadow">false</bool>
 						<int name="CollisionGroupId">0</int>
-						<Color3uint8 name="Color3uint8">4294931200</Color3uint8>
+						<Color3uint8 name="Color3uint8">4283236096</Color3uint8>
 						<PhysicalProperties name="CustomPhysicalProperties">
 							<CustomPhysics>false</CustomPhysics>
 						</PhysicalProperties>
