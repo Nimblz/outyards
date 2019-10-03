@@ -51,12 +51,13 @@ function HealthBar:healthChanged(newHealth,newMaxhealth)
 end
 
 function HealthBar:didMount()
-    print("Mounting HealthBar")
-    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:wait()
-    self:setHumanoidFromCharacter(character)
-    LocalPlayer.CharacterAdded:connect(function(char)
-        self:setHumanoidFromCharacter(char)
-    end)
+    coroutine.wrap(function()
+        local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:wait()
+        self:setHumanoidFromCharacter(character)
+        LocalPlayer.CharacterAdded:connect(function(char)
+            self:setHumanoidFromCharacter(char)
+        end)
+    end)()
 end
 
 function HealthBar:render()
