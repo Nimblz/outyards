@@ -1,6 +1,3 @@
--- trying to make an ergonomic state machine
--- maybe im just making madness
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
