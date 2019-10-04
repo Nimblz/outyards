@@ -20,7 +20,7 @@ return function(recsCore, npcType, cframe)
     NewNPCPart.BottomSurface = Enum.SurfaceType.Smooth
     NewNPCPart.Size = mobDesc.boundingBoxProps.Size
     NewNPCPart.Color= mobDesc.boundingBoxProps.Color
-    NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2) + 1, 0)
+    NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2), 0)
 
     local Decal = Instance.new("Decal")
     Decal.Texture = "rbxassetid://23912218"
