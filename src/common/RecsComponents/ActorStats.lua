@@ -1,13 +1,17 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage:WaitForChild("common")
+local util = common:WaitForChild("util")
+
+local Dictionary = require(util:WaitForChild("Dictionary"))
 
 local RECS = require(lib:WaitForChild("RECS"))
 
 return RECS.defineComponent({
     name = "ActorStats",
-    generator = function()
-        return {
+    generator = function(props)
+        return Dictionary.join({
             health = 30,
             maxHealth = 30,
             defense = 0, -- percent of dmg blocked
@@ -16,6 +20,6 @@ return RECS.defineComponent({
             attackRate = 1, -- per sec
             aggroRadius = 32,
             attackRange = 12,
-        }
+        },props)
     end,
 })
