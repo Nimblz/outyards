@@ -17,6 +17,13 @@ return function(entity, recs, pz)
         idle = {
             enter = function()
                 driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
+                entity.Anchored = true
+            end,
+            step = function()
+            end,
+        },
+        dead = { -- entered when health reaches zero. will yield until previous state's enter is finished
+            enter = function()
             end,
             step = function()
             end,
