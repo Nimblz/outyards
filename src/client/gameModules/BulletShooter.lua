@@ -7,10 +7,12 @@ local LocalPlayer = Players.LocalPlayer
 local PlayerMouse = LocalPlayer:GetMouse()
 
 local common = ReplicatedStorage:WaitForChild("common")
---local util = common:WaitForChild("util")
+local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
 
+local Trajectory = require(util:WaitForChild("Trajectory"))
 local Selectors = require(common:WaitForChild("Selectors"))
+local Projectiles = require(common:WaitForChild("Projectiles"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local BulletShooter = PizzaAlpaca.GameModule:extend("BulletShooter")
@@ -23,8 +25,8 @@ local function camRayFromMousePos(mousePos)
 end
 
 function BulletShooter:create()
-    self.bulletsPerAttack = 10
-    self.attackRate = 60
+    self.bulletsPerAttack = 3
+    self.attackRate = 10
 end
 
 function BulletShooter:init()
@@ -63,7 +65,7 @@ function BulletShooter:shootBullet(origin,directionGoal)
     local directionCF = CFrame.new(Vector3.new(0,0,0),directionGoal)
     directionCF = directionCF * CFrame.fromAxisAngle(
         Vector3.new(math.random()*2 - 1,math.random()*2 - 1,math.random()*2 - 1).Unit,
-        math.random() * math.rad(8)
+        math.random() * math.rad(1)
     ) * CFrame.new(0,0,-1)
 
     local direction = directionCF.p
@@ -78,13 +80,16 @@ function BulletShooter:onAttack()
     if not root then return end
 
     local camRay = camRayFromMousePos(self.inputHandler:getMousePos())
-    local hit,pos,norm = Workspace:FindPartOnRayWithIgnoreList(
+    local hit,goalPos,norm = Workspace:FindPartOnRayWithIgnoreList(
         Ray.new(camRay.Origin,camRay.Direction*512),
         {character, self.bulletBin}
     )
 
+    local bulletSpeed = Projectiles.byId["bullet"].speed
+    local bulletGravity = Workspace.Gravity * Projectiles.byId["bullet"].gravityScale
     local origin = root.CFrame * CFrame.new(0,1,-5)
-    local direction = pos - origin.p
+    local direction = Trajectory.directionToReachGoal(origin.p, goalPos, bulletSpeed, bulletGravity)
+    if not direction then direction = goalPos - origin.p end
 
     for i = 1, self.bulletsPerAttack do
         self:shootBullet(origin,direction)
