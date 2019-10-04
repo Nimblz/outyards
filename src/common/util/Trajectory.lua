@@ -1,9 +1,9 @@
-local function calcTrajectoryTheta(start,goal,speed,pickHighAngle)
+local function calcTrajectoryTheta(start,goal,speed,gravity,pickHighAngle)
     local xzStart = start * Vector3.new(1,0,1)
     local xzGoal = goal * Vector3.new(1,0,1)
     local range = (xzGoal-xzStart).Magnitude
     local yDiff = goal.Y - start.Y
-    local g = workspace.Gravity
+    local g = gravity or workspace.Gravity
     if range == 0 then return math.pi/2 end
     if g == 0 then
         return math.atan(yDiff/range) -- simply return angle to the goal
@@ -27,8 +27,8 @@ local function calcTrajectoryTheta(start,goal,speed,pickHighAngle)
     end
 end
 
-local function directionToReachGoal(start,goal,speed,pickHighAngle)
-    local theta = calcTrajectoryTheta(start,goal,speed,pickHighAngle)
+local function directionToReachGoal(start,goal,speed,gravity,pickHighAngle)
+    local theta = calcTrajectoryTheta(start,goal,speed,gravity,pickHighAngle)
     if not theta then return nil end
     local facingDirection = ((goal-start) * Vector3.new(1,0,1)).Unit -- direction on xz plane towards our goal
     local facingCFrame = CFrame.new(Vector3.new(), facingDirection) -- get a cframe at 0,0,0 pointing in our target direction
