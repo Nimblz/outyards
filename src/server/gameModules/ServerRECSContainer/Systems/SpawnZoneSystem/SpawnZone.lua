@@ -48,7 +48,7 @@ local function createThresholdArray(ratioTable)
 end
 
 local function getRandomPointInPart(part)
-	local point = Vector3.new(math.random()*2 - 1,0,math.random()*2 - 1)
+	local point = Vector3.new(math.random()*2 - 1,-1,math.random()*2 - 1)
 	local pointPos = (point/2) * part.Size
 	return (part.CFrame * CFrame.new(pointPos)).p
 end
