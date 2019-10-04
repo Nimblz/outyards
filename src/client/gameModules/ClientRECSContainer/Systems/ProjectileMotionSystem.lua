@@ -52,7 +52,7 @@ end
 
 function ProjectileMotionSystem:step()
     for instance,projectile in self.core:components(RecsComponents.Projectile) do
-        projectile.velocity = projectile.velocity - Vector3.new(0,Workspace.Gravity*(1/60),0)
+        projectile.velocity = projectile.velocity - Vector3.new(0,Workspace.Gravity*(1/60)*projectile.gravityScale,0)
 
         -- hit test
         local hit = Workspace:FindPartOnRayWithIgnoreList(Ray.new(
