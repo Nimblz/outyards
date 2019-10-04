@@ -29,15 +29,9 @@ function NPCCreationSystem:onComponentAdded(instance, component)
     }
 
     for _,componentName in pairs(npcComponents) do
-        CollectionService:AddTag(instance,componentName)
-
-        local newComponent = self.core:getComponent(instance, self.core:getComponentClass(componentName))
         local propsOverride = overrideProps[componentName]
-        if propsOverride then
-            for propName,value in pairs(propsOverride) do
-                newComponent[propName] = value
-            end
-        end
+        self.core:addComponent(instance, self.core:getComponentClass(componentName), propsOverride)
+        CollectionService:AddTag(instance,componentName)
     end
 end
 
