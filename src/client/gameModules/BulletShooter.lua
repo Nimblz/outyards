@@ -24,14 +24,26 @@ local function camRayFromMousePos(mousePos)
     return cam:ScreenPointToRay(mousePos.X,mousePos.Y,1)
 end
 
+function BulletShooter:onStore(store)
+    store.changed:connect(function(newState,oldState)
+        local attackRate = Selectors.getAttackRate(newState,LocalPlayer)
+        self.attackRate = attackRate
+    end)
+end
+
 function BulletShooter:create()
     self.bulletsPerAttack = 3
-    self.attackRate = 10
+    self.attackRate = 1
 end
 
 function BulletShooter:init()
     self.inputHandler = self.core:getModule("InputHandler")
     local attack = self.inputHandler:getActionSignal("attack")
+
+    local storeContainer = self.core:getModule("StoreContainer")
+    storeContainer:getStore():andThen(function(store)
+        self:onStore(store)
+    end)
 
     self.projectileCreator = self.core:getModule("ProjectileCreator")
 
@@ -65,7 +77,7 @@ function BulletShooter:shootBullet(origin,directionGoal)
     local directionCF = CFrame.new(Vector3.new(0,0,0),directionGoal)
     directionCF = directionCF * CFrame.fromAxisAngle(
         Vector3.new(math.random()*2 - 1,math.random()*2 - 1,math.random()*2 - 1).Unit,
-        math.random() * math.rad(1)
+        math.random() * math.rad(4)
     ) * CFrame.new(0,0,-1)
 
     local direction = directionCF.p
@@ -85,14 +97,21 @@ function BulletShooter:onAttack()
         {character, self.bulletBin}
     )
 
+    local rootPos = root.Position
+    local rootPosXZ = rootPos * Vector3.new(1,0,1)
+    local mousePosXZ = goalPos * Vector3.new(1,0,1)
+    local faceFec = (mousePosXZ-rootPosXZ).unit
+    local targetCFrame = CFrame.new(Vector3.new(0,0,0), faceFec) * CFrame.new(0,0,-5)
+    targetCFrame = targetCFrame + rootPos
+
     local bulletSpeed = Projectiles.byId["bullet"].speed
     local bulletGravity = Workspace.Gravity * Projectiles.byId["bullet"].gravityScale
-    local origin = root.CFrame * CFrame.new(0,1,-5)
-    local direction = Trajectory.directionToReachGoal(origin.p, goalPos, bulletSpeed, bulletGravity)
-    if not direction then direction = goalPos - origin.p end
+    local origin = root.CFrame * CFrame.new(0,5,0)
+    local direction = Trajectory.directionToReachGoal(targetCFrame.p, goalPos, bulletSpeed, bulletGravity)
+    if not direction then direction = goalPos - targetCFrame.p end
 
     for i = 1, self.bulletsPerAttack do
-        self:shootBullet(origin,direction)
+        self:shootBullet(targetCFrame,direction)
     end
 end
 
