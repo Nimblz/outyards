@@ -27,6 +27,7 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
     newBullet.CFrame = CFrame.new(origin,origin+(direction.Unit))
 
     self.recsCore:addComponent(newBullet,self.recsCore:getComponentClass("Projectile"), {
+        id = id,
         position = origin,
         velocity = direction.Unit * projectile.speed,
         gravityScale = projectile.gravityScale,
