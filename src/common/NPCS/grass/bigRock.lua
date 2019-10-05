@@ -9,7 +9,7 @@ return {
             },
             ItemDrops = {
                 items = {
-                    {itemId = "stone", dropRange = {min = 15, max = 30}, dropRate = 1},
+                    {itemId = "brick", dropRange = {min = 15, max = 30}, dropRate = 1},
                 },
                 cash = 0,
             },
