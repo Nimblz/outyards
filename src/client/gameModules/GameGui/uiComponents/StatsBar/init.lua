@@ -1,4 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterPlayer = game:GetService("StarterPlayer")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
@@ -13,6 +14,7 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local StatsBar = Roact.Component:extend("StatsBar")
 local StatsLabel = require(script:WaitForChild("StatsLabel"))
 
+local DEFAULT_WALKSPEED = StarterPlayer.CharacterWalkSpeed
 local PADDING = 32
 
 function StatsBar:init()
@@ -67,7 +69,7 @@ local function mapStateToProps(state,props)
     return {
         baseDamage = Selectors.getBaseDamage(state,LocalPlayer),
         defense = Selectors.getDefense(state,LocalPlayer),
-        moveSpeed = Selectors.getMoveSpeed(state,LocalPlayer) - 16,
+        moveSpeed = Selectors.getMoveSpeed(state,LocalPlayer) - DEFAULT_WALKSPEED,
     }
 end
 
