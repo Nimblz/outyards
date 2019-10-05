@@ -4,6 +4,9 @@ local attackRange = require(script:WaitForChild("attackRange"))
 local moveSpeed = require(script:WaitForChild("moveSpeed"))
 local defense = require(script:WaitForChild("defense"))
 local autoAttack = require(script:WaitForChild("autoAttack"))
+local meleeModifier = require(script:WaitForChild("meleeModifier"))
+local rangedModifier = require(script:WaitForChild("rangedModifier"))
+local magicModifier = require(script:WaitForChild("magicModifier"))
 local cash = require(script:WaitForChild("cash"))
 
 return function(state,action)
@@ -18,6 +21,9 @@ return function(state,action)
         baseDamage = baseDamage(state.baseDamage, action),
         attackRate = attackRate(state.attackRate, action),
         attackRange = attackRange(state.attackRange, action),
+        meleeModifier = meleeModifier(state.meleeModifier, action),
+        rangedModifier = rangedModifier(state.rangedModifier, action),
+        magicModifier = magicModifier(state.magicModifier, action),
         moveSpeed = moveSpeed(state.moveSpeed, action),
         defense = defense(state.defense, action),
         autoAttack = autoAttack(state.autoAttack, action),
