@@ -3,6 +3,7 @@ local CollectionService = game:GetService("CollectionService")
 
 local common = ReplicatedStorage:WaitForChild("common")
 
+local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
 local NPCS = require(common:WaitForChild("NPCS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
@@ -32,6 +33,8 @@ return function(recsCore, npcType, cframe)
     NewNPCPart.Parent = workspace
 
     recsCore:addComponent(NewNPCPart,RecsComponents.NPC, {npcType = npcType})
+
+    ParticleCreator.spawnParticle("smoke", NewNPCPart.CFrame, 1, 6)
 
     return NewNPCPart
 end
