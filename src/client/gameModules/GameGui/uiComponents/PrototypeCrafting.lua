@@ -14,6 +14,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Items = require(common:WaitForChild("Items"))
 
 local CraftableLabel = require(uiComponents:WaitForChild("CraftableLabel"))
+local SliceButton = require(uiComponents:WaitForChild("SliceButton"))
 local PrototypeCrafting = Roact.Component:extend("PrototypeCrafting")
 
 local getCraftable = require(crafting:WaitForChild("getCraftable"))
@@ -23,7 +24,7 @@ local PADDING = 8
 
 function PrototypeCrafting:init()
     self:setState({
-        visible = true
+        visible = false
     })
 end
 
@@ -78,18 +79,23 @@ function PrototypeCrafting:render()
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
 
-    local titleFrame = Roact.createElement("TextButton", {
-        Text = "Crafting",
-        Font = Enum.Font.GothamBlack,
-        Size = UDim2.new(1,0,0,32),
+    local titleFrame = Roact.createElement(SliceButton, {
+        Size = UDim2.new(1,0,0,48),
         AnchorPoint = Vector2.new(0,1),
         Position = self.state.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),
         BorderSizePixel = 0,
         BackgroundColor3 = Color3.new(1,1,1),
-        TextColor3 = Color3.new(1,1,1),
-        TextStrokeTransparency = 0,
-        TextSize = 32,
         [Roact.Event.Activated] = function() self:toggle() end
+    }, {
+        Roact.createElement("TextLabel", {
+            BackgroundTransparency = 1,
+            Size = UDim2.new(1,0,1,0),
+            Text = "Crafting",
+            Font = Enum.Font.GothamBlack,
+            TextColor3 = Color3.new(1,1,1),
+            TextStrokeTransparency = 0,
+            TextSize = 32,
+        })
     })
 
     return Roact.createElement("Frame", {
