@@ -115,7 +115,7 @@ function SpawnZone.new(recsCore, parts, component, name)
     self.recsCore = recsCore
 
     self.container = Instance.new("Folder")
-    self.container.Parent = workspace
+    self.container.Parent = workspace:WaitForChild("enemies")
     self.container.Name = name
 
     return self
