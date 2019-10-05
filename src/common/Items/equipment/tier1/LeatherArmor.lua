@@ -9,8 +9,8 @@ return {
     tier = 1,
     onlyOne = true,
     recipe = {
-        wood = 75,
-        leather = 150,
+        wood = 10,
+        leather = 30,
     },
 
     stats = {
