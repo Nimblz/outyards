@@ -14,6 +14,7 @@ local Actions = require(common:WaitForChild("Actions"))
 local AI = require(src.ai:WaitForChild("AI"))
 local RECS = require(lib:WaitForChild("RECS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
 
 local errors = {
     invalidItemId = "Invalid drop item id [%s]!"
@@ -38,6 +39,8 @@ function AISystem:onComponentAdded(instance,aiComponent)
                 changedConnection:disconnect()
                 self.AIs[aiComponent]:kill()
                 self.AIs[aiComponent] = nil
+
+                ParticleCreator.spawnParticle("smoke", instance.CFrame, 1, 3)
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
