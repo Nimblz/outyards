@@ -15,6 +15,11 @@ local EquipmentRenderers = require(common:WaitForChild("EquipmentRenderers"))
 
 local Equipment = PizzaAlpaca.GameModule:extend("Equipment")
 
+local eUpdateEquipmentProps = event:WaitForChild("eUpdateEquipmentProps")
+local eEquipmentUpdated = event:WaitForChild("eEquipmentUpdated")
+local eEquipmentActivated = event:WaitForChild("eEquipmentActivated")
+local eEquipmentDeactivated = event:WaitForChild("eEquipmentDeactivated")
+
 local function camRayFromMousePos(mousePos)
     local cam = Workspace.CurrentCamera
     if not cam then return end
@@ -48,11 +53,12 @@ local function getDiffs(before,after)
     return added,removed
 end
 
-local function newObject(prototype, player , itemId, pzCore)
+local function newObject(prototype, player, itemId, pzCore)
     return setmetatable({
         itemId = itemId,
         pzCore = pzCore,
         player = player,
+        character = player.Character,
     }, {__index = prototype})
 end
 
@@ -188,6 +194,16 @@ function Equipment:playerUnequipped(player,itemId)
     behaviors[itemId] = nil
 end
 
+function Equipment:playerActivated(player,itemId,props)
+    local behavior = self:getBehavior(player,itemId)
+    coroutine.wrap(function() behavior:activated(props) end)()
+end
+
+function Equipment:playerDeactivated(player,itemId)
+    local behavior = self:getBehavior(player,itemId)
+    coroutine.wrap(function() behavior:deactivated() end)()
+end
+
 function Equipment:canAttack()
     local character = LocalPlayer.character
     if not character then return false end
@@ -201,8 +217,6 @@ end
 
 function Equipment:onAttackBegan()
     local inputHandler = self.core:getModule("InputHandler")
-    -- activate all equipment behaviors
-    local ourBehaviors = self:getBehaviors(LocalPlayer)
     local screenPos = inputHandler:getMousePos()
     local character = LocalPlayer.character
     local camRay = camRayFromMousePos(screenPos)
@@ -212,27 +226,31 @@ function Equipment:onAttackBegan()
     )
 
     local inputProps = {
-        getMouse = function()
-            return {
-                screenPos = inputHandler:getMousePos(),
-                worldPos = worldPos,
-                worldNormal = worldNormal,
-                hit = CFrame.new(worldPos,worldNormal),
-                target = target,
-            }
-        end
+        mouse = {
+            screenPos = inputHandler:getMousePos(),
+            worldPos = worldPos,
+            worldNormal = worldNormal,
+            hit = CFrame.new(worldPos,worldNormal),
+            target = target,
+        }
     }
 
-    for _,behavior in pairs(ourBehaviors) do
-        behavior:activated(inputProps)
+    local state = self.store:getState()
+    local currentWeapon = Selectors.getEquipped(state,LocalPlayer).weapon
+
+    if currentWeapon then
+        eEquipmentActivated:FireServer(currentWeapon, inputProps)
+        self:playerActivated(LocalPlayer, currentWeapon, inputProps)
     end
 end
 
 function Equipment:onAttackEnded()
-    -- deactivate all equipment behaviors
-    local ourBehaviors = self:getBehaviors(LocalPlayer)
-    for _,behavior in pairs(ourBehaviors) do
-        behavior:deactivated()
+    local state = self.store:getState()
+    local currentWeapon = Selectors.getEquipped(state,LocalPlayer).weapon
+
+    if currentWeapon then
+        eEquipmentDeactivated:FireServer(currentWeapon)
+        self:playerDeactivated(LocalPlayer, currentWeapon)
     end
 end
 
@@ -287,6 +305,39 @@ function Equipment:postInit()
 
         attack.ended:connect(function(input)
             self:onAttackEnded()
+        end)
+
+        coroutine.wrap(function()
+            while true do
+                wait(1/5)
+                -- broadcast current props to server
+                for id, behavior in pairs(self:getBehaviors(LocalPlayer)) do
+                    if behavior.props then
+                        eUpdateEquipmentProps:FireServer(id,behavior.props)
+                    end
+                end
+            end
+        end)()
+
+        eEquipmentUpdated.OnClientEvent:connect(function(globalProps)
+            for userId, allProps in pairs(globalProps) do
+                local player = Players:GetPlayerByUserId(userId)
+                if player == LocalPlayer then return end
+                for id, props in pairs(allProps) do
+                    local behavior = self:getBehavior(player,id)
+                    if behavior then
+                        self:recieveProps(player,id,props)
+                    end
+                end
+            end
+        end)
+
+        eEquipmentActivated.OnClientEvent:connect(function(player,id,props)
+            self:playerActivated(player,id,props)
+        end)
+
+        eEquipmentDeactivated.OnClientEvent:connect(function(player,id)
+            self:playerDeactivated(player,id)
         end)
     end)
 end
