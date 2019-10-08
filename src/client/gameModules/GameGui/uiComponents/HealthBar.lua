@@ -83,11 +83,12 @@ function HealthBar:render()
 
     return Roact.createElement("Frame", {
         AnchorPoint = Vector2.new(0.5,0.5),
-        Position = UDim2.new(0.5,0,3/4,0),
+        Position = UDim2.new(0.5,0,1,-HEIGHT*2),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
         BackgroundTransparency = 0,
         BackgroundColor3 = Color3.fromRGB(192, 0, 0),
         BorderSizePixel = 0,
+        ClipsDescendants = true
     }, children)
 end
 
