@@ -3,7 +3,7 @@ return function(player, itemId, quantity)
         type = script.Name,
         player = player,
         itemId = itemId,
-        quantity = quantity,
+        quantity = quantity or 1,
 
         replicateTo = player,
     }
