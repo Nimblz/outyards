@@ -1,5 +1,7 @@
+local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
@@ -12,6 +14,13 @@ local EquipmentBehaviors = require(common:WaitForChild("EquipmentBehaviors"))
 local EquipmentRenderers = require(common:WaitForChild("EquipmentRenderers"))
 
 local Equipment = PizzaAlpaca.GameModule:extend("Equipment")
+
+local function camRayFromMousePos(mousePos)
+    local cam = Workspace.CurrentCamera
+    if not cam then return end
+
+    return cam:ScreenPointToRay(mousePos.X,mousePos.Y,1)
+end
 
 local function getDiffs(before,after)
     local added, removed = {}, {}
@@ -179,8 +188,59 @@ function Equipment:playerUnequipped(player,itemId)
     behaviors[itemId] = nil
 end
 
+function Equipment:canAttack()
+    local character = LocalPlayer.character
+    if not character then return false end
+    if not character.PrimaryPart then return false end
+    local humanoid = character:FindFirstChild("Humanoid")
+    if not humanoid then return false end
+    if humanoid.Health <= 0 then return false end
+
+    return true
+end
+
+function Equipment:onAttackBegan()
+    local inputHandler = self.core:getModule("InputHandler")
+    -- activate all equipment behaviors
+    local ourBehaviors = self:getBehaviors(LocalPlayer)
+    local screenPos = inputHandler:getMousePos()
+    local character = LocalPlayer.character
+    local camRay = camRayFromMousePos(screenPos)
+    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithIgnoreList(
+        Ray.new(camRay.Origin,camRay.Direction*512),
+        {character, self.bulletBin}
+    )
+
+    local inputProps = {
+        getMouse = function()
+            return {
+                screenPos = inputHandler:getMousePos(),
+                worldPos = worldPos,
+                worldNormal = worldNormal,
+                hit = CFrame.new(worldPos,worldNormal),
+                target = target,
+            }
+        end
+    }
+
+    for _,behavior in pairs(ourBehaviors) do
+        behavior:activated(inputProps)
+    end
+end
+
+function Equipment:onAttackEnded()
+    -- deactivate all equipment behaviors
+    local ourBehaviors = self:getBehaviors(LocalPlayer)
+    for _,behavior in pairs(ourBehaviors) do
+        behavior:deactivated()
+    end
+end
+
 function Equipment:postInit()
     local storeContainer = self.core:getModule("StoreContainer")
+
+    self.bulletBin = workspace:WaitForChild("bullets")
+
     storeContainer:getStore():andThen(function(store)
         -- on store change, for each player, collect differences in equipped items
         -- for each diff, add and remove those behaviors
@@ -215,6 +275,19 @@ function Equipment:postInit()
         for _,player in pairs(Players:GetPlayers()) do
             self:playerAdded(player)
         end
+
+        -- bind activation stuff
+        local inputHandler = self.core:getModule("InputHandler")
+
+        local attack = inputHandler:getActionSignal("attack")
+
+        attack.began:connect(function(input)
+            self:onAttackBegan()
+        end)
+
+        attack.ended:connect(function(input)
+            self:onAttackEnded()
+        end)
     end)
 end
 
