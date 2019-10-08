@@ -4,6 +4,6 @@ return function(player, itemId)
         player = player,
         itemId = itemId,
 
-        replicateTo = player,
+        replicateBroadcast = true,
     }
 end
