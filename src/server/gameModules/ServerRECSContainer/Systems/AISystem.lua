@@ -40,7 +40,11 @@ function AISystem:onComponentAdded(instance,aiComponent)
                 self.AIs[aiComponent]:kill()
                 self.AIs[aiComponent] = nil
 
-                ParticleCreator.spawnParticle("smoke", instance.CFrame, 1, 3)
+                ParticleCreator.spawnParticle("smoke", {
+                    cFrame = instance.CFrame,
+                    scale = 1,
+                    amount = 3
+                })
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
