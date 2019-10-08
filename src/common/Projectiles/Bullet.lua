@@ -14,13 +14,21 @@ return {
     gravityScale = 0.25,
 
     onFire = function(entity, component, pzCore)
-        ParticleCreator.spawnParticle("spark", entity.CFrame, 0.3, 1)
+        ParticleCreator.spawnParticle("spark", {
+            cFrame = entity.CFrame,
+            scale = 0.3,
+            amount = 1
+        })
     end,
 
     onHit = function(entity, component, pzCore, hit)
         -- if its an enemy do damage
 
-        ParticleCreator.spawnParticle("spark", entity.CFrame, 0.5, 1)
+        ParticleCreator.spawnParticle("ring", {
+            cFrame = entity.CFrame,
+            scale = 0.5,
+            amount = 1
+        })
 
             -- find npcs
         local cornerOffset = Vector3.new(1,1,1)*4
