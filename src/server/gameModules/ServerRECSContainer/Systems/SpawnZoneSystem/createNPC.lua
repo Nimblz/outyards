@@ -34,7 +34,11 @@ return function(recsCore, npcType, cframe)
 
     recsCore:addComponent(NewNPCPart,RecsComponents.NPC, {npcType = npcType})
 
-    ParticleCreator.spawnParticle("smoke", NewNPCPart.CFrame, 1, 6)
+    ParticleCreator.spawnParticle("smoke",{
+        amount = 6,
+        scale = 1,
+        cFrame = NewNPCPart.CFrame,
+    })
 
     return NewNPCPart
 end

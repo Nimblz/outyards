@@ -12,9 +12,11 @@ particleBin.Name = "particles"
 
 local ParticleCreator = {}
 
-function ParticleCreator.spawnParticle(name, cframe, scale, amount)
-    scale = scale or 1
-    amount = amount or 1
+function ParticleCreator.spawnParticle(name, props)
+    local scale = props.scale or 1
+    local amount = props.amount or 1
+    local cframe = props.cFrame or CFrame.new(0,0,0)
+    local colorSeq = props.colorSeq
 
     local sourceParticleModel = particle:FindFirstChild(name)
     if not sourceParticleModel then return end
@@ -32,7 +34,7 @@ function ParticleCreator.spawnParticle(name, cframe, scale, amount)
         end
     end
 
-    -- adjust scales
+    -- set scales
     for _,emitter in pairs(emitters) do
         local newKeypoints = {}
         for idx,keypoint in ipairs(emitter.Size.Keypoints) do
@@ -45,7 +47,12 @@ function ParticleCreator.spawnParticle(name, cframe, scale, amount)
         emitter.Size = NumberSequence.new(newKeypoints)
     end
 
-    -- get lifetime
+    -- set color
+    for _,emitter in pairs(emitters) do
+        emitter.Color = colorSeq or emitter.Color
+    end
+
+    -- get max possible lifetime
     for _,emitter in pairs(emitters) do
         lifetime = math.max(emitter.Lifetime.Max, lifetime)
     end
