@@ -14,6 +14,7 @@ local Trajectory = require(util:WaitForChild("Trajectory"))
 local Selectors = require(common:WaitForChild("Selectors"))
 local Projectiles = require(common:WaitForChild("Projectiles"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Sound = require(common:WaitForChild("Sound"))
 
 local BulletShooter = PizzaAlpaca.GameModule:extend("BulletShooter")
 
@@ -109,6 +110,8 @@ function BulletShooter:onAttack()
     local origin = root.CFrame * CFrame.new(0,5,0)
     local direction = Trajectory.directionToReachGoal(targetCFrame.p, goalPos, bulletSpeed, bulletGravity)
     if not direction then direction = goalPos - targetCFrame.p end
+
+    Sound.playSoundAt(origin, Sound.presets.gunshot)
 
     for i = 1, self.bulletsPerAttack do
         self:shootBullet(targetCFrame,direction)
