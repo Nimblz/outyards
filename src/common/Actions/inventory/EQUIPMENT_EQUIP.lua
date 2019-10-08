@@ -1,9 +1,11 @@
-return function(player, itemId)
+return function(player, itemId, index)
+    index = index or 1
     return {
         type = script.Name,
         player = player,
         itemId = itemId,
+        index = index,
 
-        replicateTo = player,
+        replicateBroadcast = true,
     }
 end
