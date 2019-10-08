@@ -67,7 +67,6 @@ function NPCDriverSystem:onComponentRemoving(instance,component)
 end
 
 function NPCDriverSystem:init()
-
     for instance,component in self.core:components(RecsComponents.NPCDriver) do
         self:onComponentAdded(instance, component)
     end
