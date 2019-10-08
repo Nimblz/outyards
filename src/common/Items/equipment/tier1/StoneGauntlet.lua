@@ -9,8 +9,7 @@ return {
     tier = 1,
     onlyOne = true,
     recipe = {
-        slime = 10,
-        wood = 15,
+        stone = 15,
         leather = 10,
     },
 
