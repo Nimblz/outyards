@@ -29,6 +29,12 @@ function NPCDriverSystem:onComponentChange(instance, component)
     bodyGyro.P = 5000
     bodyGyro.D = 500
     bodyGyro.CFrame = CFrame.new(Vector3.new(0,0,0),component.targetDirection)
+
+    if component.disabled then
+        bodyGyro.MaxTorque = Vector3.new()
+        bodyVelocity.MaxForce = Vector3.new()
+        bodyForce.Force = Vector3.new(0,0,0)
+    end
 end
 
 function NPCDriverSystem:onComponentAdded(instance, component)
