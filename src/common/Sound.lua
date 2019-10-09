@@ -54,6 +54,16 @@ return {
             volume = 0.5,
             pitch = 1,
             startTime = 0.3
+        },
+        banned = {
+            soundId = "rbxassetid://147722910",
+            volume = 2,
+            pitch = 1,
+        },
+        blargh = {
+            soundId = "rbxassetid://138100175",
+            volume = 2,
+            pitch = 1,
         }
     },
     playSoundGlobal = playSoundGlobal,
