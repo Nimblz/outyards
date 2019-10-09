@@ -37,14 +37,6 @@ function AISystem:onComponentAdded(instance,aiComponent)
         if key == "health" then
             if new <= 0 then
                 changedConnection:disconnect()
-                self.AIs[aiComponent]:kill()
-                self.AIs[aiComponent] = nil
-
-                ParticleCreator.spawnParticle("smoke", {
-                    cFrame = instance.CFrame,
-                    scale = 1,
-                    amount = 3
-                })
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
@@ -71,6 +63,15 @@ function AISystem:onComponentAdded(instance,aiComponent)
                         self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
                     end
                 end
+
+                self.AIs[aiComponent]:kill()
+                self.AIs[aiComponent] = nil
+
+                ParticleCreator.spawnParticle("smoke", {
+                    cFrame = instance.CFrame,
+                    scale = 1,
+                    amount = 3
+                })
 
                 instance:Destroy()
             end
