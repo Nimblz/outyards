@@ -1,23 +1,23 @@
 return {
-    id = "requiem",
-    name = "Requiem",
+    id = "crescendo",
+    name = "Crescendo",
     desc = "Strange runes are inscibed on the hilt...",
     tier = 1,
 
     equipmentType = "weapon",
-    behaviorType = "sword",
+    behaviorType = "melee",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(1,1),
+    spriteCoords = Vector2.new(6,1),
 
     stats = {
         baseDamage = 100,
     },
 
     metadata = {
-        fireRate = 5,
-        attackDepth = 24,
+        fireRate = 10,
+        attackRange = 18,
         attackArc = 180, -- in degrees
     }
 }
