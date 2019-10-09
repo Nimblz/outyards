@@ -1,5 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
 
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
@@ -62,6 +63,8 @@ function EquipmentReplicator:postInit()
         assert(props, "Invalid props")
         assert(typeof(props)=="table", "Invalid props")
 
+        HttpService:JSONEncode(props) -- quick and dirty sanitizer, will throw if props are malformed
+
         self:setProps(player,id,props)
     end)
 
@@ -74,6 +77,8 @@ function EquipmentReplicator:postInit()
     end)()
 
     eEquipmentActivated.OnServerEvent:connect(function(sourcePlayer,id,props)
+        -- TODO: Validate activation.
+        -- Player must own the item they're using and have not activated it within the last fireRate*userAttackRate
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= sourcePlayer then
                 eEquipmentActivated:FireClient(player,sourcePlayer,id,props)
@@ -84,7 +89,7 @@ function EquipmentReplicator:postInit()
     eEquipmentDeactivated.OnServerEvent:connect(function(sourcePlayer,id)
         for _, player in pairs(Players:GetPlayers()) do
             if player ~= sourcePlayer then
-                eEquipmentDeactivated:FireClient(player,sourcePlayer,id,props)
+                eEquipmentDeactivated:FireClient(player,sourcePlayer,id)
             end
         end
     end)
