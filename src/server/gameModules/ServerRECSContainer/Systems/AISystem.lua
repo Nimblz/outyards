@@ -2,6 +2,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 -- local Workspace = game:GetService("Workspace")
 -- local LocalPlayer = Players.LocalPlayer
+local CollectionService = game:GetService("CollectionService")
 
 local src = script:FindFirstAncestor("server")
 local lib = ReplicatedStorage:WaitForChild("lib")
@@ -37,6 +38,8 @@ function AISystem:onComponentAdded(instance,aiComponent)
         if key == "health" then
             if new <= 0 then
                 changedConnection:disconnect()
+
+                CollectionService:RemoveTag(instance, "ActorStats")
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
