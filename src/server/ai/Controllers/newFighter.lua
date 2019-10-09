@@ -180,6 +180,24 @@ return function(entity, recs, pz)
         },
         dead = { -- entered when health reaches zero. will yield until previous state's enter is finished
             enter = function()
+                driver:updateProperty("disabled", true)
+                entity.Velocity = Vector3.new(
+                    math.random()*2 - 1,
+                    math.random()*2 - 1,
+                    math.random()*2 - 1
+                ).Unit * 50
+                entity.RotVelocity = Vector3.new(
+                    math.random()*2 - 1,
+                    math.random()*2 - 1,
+                    math.random()*2 - 1
+                ).Unit * 30
+
+                entity.BrickColor = BrickColor.new("Black")
+
+                local physProps = PhysicalProperties.new(Enum.Material.Plastic)
+                entity.CustomPhysicalProperties = physProps
+
+                wait(1)
             end,
             step = function()
             end,
