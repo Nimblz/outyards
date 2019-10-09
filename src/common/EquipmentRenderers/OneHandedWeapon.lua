@@ -16,6 +16,11 @@ function renderer:create()
     local gripAttachment = weaponModel:FindFirstChild("grip")
     assert(gripAttachment, "no grip for model: "..self.itemId)
 
+    local transparencyLock = Instance.new("BoolValue")
+    transparencyLock.Name = "TransparencyLock"
+    transparencyLock.Value = true
+    transparencyLock.Parent = weaponModel
+
     local weld = Instance.new("ManualWeld")
     weld.Part0 = weaponModel
     weld.Part1 = rightHand
