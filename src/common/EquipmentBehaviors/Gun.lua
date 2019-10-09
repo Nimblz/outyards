@@ -1,5 +1,5 @@
 local behavior = {
-    id = "bow"
+    id = "gun"
 }
 
 function behavior:create()
