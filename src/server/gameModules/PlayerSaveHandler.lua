@@ -34,6 +34,7 @@ function PlayerSaveHandler:init()
             store:dispatch(Actions.ITEM_ADD(player, "crescendo", 1))
             store:dispatch(Actions.ITEM_ADD(player, "symphony", 1))
             store:dispatch(Actions.ITEM_ADD(player, "requiem", 1))
+            store:dispatch(Actions.ITEM_ADD(player, "banhammer", 1))
         end
 
         Players.PlayerAdded:connect(playerAdded)
