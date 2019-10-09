@@ -3,7 +3,7 @@ return {
     name = "Shortbow",
 
     equipmentType = "weapon",
-    behaviorType = "bow",
+    behaviorType = "gun",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
