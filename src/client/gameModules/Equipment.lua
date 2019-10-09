@@ -56,6 +56,7 @@ end
 local function newObject(prototype, player, itemId, pzCore)
     return setmetatable({
         itemId = itemId,
+        item = Items.byId[itemId],
         pzCore = pzCore,
         player = player,
         character = player.Character,
@@ -169,6 +170,7 @@ function Equipment:playerEquipped(player,itemId)
             self.core
         )
         behavior:create()
+        behavior:equipped()
         behaviors[itemId] = behavior
     end
     if rendererType then
@@ -186,6 +188,8 @@ end
 function Equipment:playerUnequipped(player,itemId)
     local renderers = self:getRenderers(player)
     local behaviors = self:getBehaviors(player)
+
+    behaviors[itemId]:unequipped()
 
     renderers[itemId]:destroy()
     behaviors[itemId]:destroy()
