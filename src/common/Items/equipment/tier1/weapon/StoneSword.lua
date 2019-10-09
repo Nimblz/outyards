@@ -18,7 +18,7 @@ return {
     },
 
     stats = {
-        baseDamage = 6,
+        baseDamage = 2,
     },
 
     metadata = {
