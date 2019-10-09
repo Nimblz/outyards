@@ -60,6 +60,7 @@ local function newObject(prototype, player, itemId, pzCore)
         pzCore = pzCore,
         player = player,
         character = player.Character,
+        owned = player == LocalPlayer,
     }, {__index = prototype})
 end
 
@@ -200,11 +201,13 @@ end
 
 function Equipment:playerActivated(player,itemId,props)
     local behavior = self:getBehavior(player,itemId)
+    if not behavior then return end
     coroutine.wrap(function() behavior:activated(props) end)()
 end
 
 function Equipment:playerDeactivated(player,itemId)
     local behavior = self:getBehavior(player,itemId)
+    if not behavior then return end
     coroutine.wrap(function() behavior:deactivated() end)()
 end
 
