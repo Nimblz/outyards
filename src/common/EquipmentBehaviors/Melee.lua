@@ -2,11 +2,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
 
 local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 
-local Visualize = require(util:WaitForChild("Visualize"))
 local Sound = require(common:WaitForChild("Sound"))
 local Animations = require(common:WaitForChild("Animations"))
 
@@ -84,12 +81,6 @@ function behavior:doAttack()
     local bottomCorner = rootCF.p - cornerOffset
     local testRegion = Region3.new(bottomCorner,topCorner)
 
-    Visualize.sphere({
-        origin = rootCF.p,
-        radius = range,
-        lifetime = 1/10
-    })
-
     local parts = workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
     local toHit = {}
 
@@ -102,7 +93,7 @@ function behavior:doAttack()
         local angle = relativePosition.Unit:Dot(facing)
         angle = math.acos(angle)
 
-        if dist < range and angle < math.rad(arc) then
+        if dist < range and angle < math.rad(arc/2) then
             table.insert(toHit,monster)
         end
     end
