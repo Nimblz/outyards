@@ -5,19 +5,19 @@ return {
     tier = 1,
 
     equipmentType = "weapon",
-    behaviorType = "sword",
+    behaviorType = "melee",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(1,1),
+    spriteCoords = Vector2.new(4,1),
 
     stats = {
         baseDamage = 100,
     },
 
     metadata = {
-        fireRate = 5,
-        attackDepth = 24,
+        fireRate = 3,
+        attackRange = 18,
         attackArc = 180, -- in degrees
     }
 }

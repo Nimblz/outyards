@@ -5,7 +5,7 @@ return {
     tier = 1,
 
     equipmentType = "weapon",
-    behaviorType = "sword",
+    behaviorType = "melee",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
@@ -23,7 +23,7 @@ return {
 
     metadata = {
         fireRate = 2,
-        attackDepth = 7,
-        attackArc = 45, -- in degrees
+        attackRange = 7,
+        attackArc = 120, -- in degrees
     }
 }
