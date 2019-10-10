@@ -16,7 +16,7 @@ local eEquipmentActivated = event:WaitForChild("eEquipmentActivated")
 local eEquipmentDeactivated = event:WaitForChild("eEquipmentDeactivated")
 
 local function playerKey(player)
-    return tostring(player.UserId)
+    return player
 end
 
 function EquipmentReplicator:create()
@@ -70,9 +70,11 @@ function EquipmentReplicator:postInit()
 
     coroutine.wrap(function()
         while true do
-            wait(1/5)
+            wait(1/15)
             -- broadcast current props to clients
-            eEquipmentUpdated:FireAllClients(self.props)
+            for player, props in pairs(self.props) do
+                eEquipmentUpdated:FireAllClients(player,props)
+            end
         end
     end)()
 
