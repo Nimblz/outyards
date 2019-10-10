@@ -23,7 +23,7 @@ return {
 
     metadata = {
         fireRate = 2,
-        attackRange = 7,
+        attackRange = 9,
         attackArc = 120, -- in degrees
     }
 }
