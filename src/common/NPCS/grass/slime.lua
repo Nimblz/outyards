@@ -1,5 +1,6 @@
 return {
     npcType = script.Name,
+    name = "Slime",
     propsGenerator = function()
         return {
             ActorStats = {
