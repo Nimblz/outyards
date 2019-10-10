@@ -30,6 +30,7 @@ function renderer:create()
 
     weaponModel.Parent = character
     weaponModel.Anchored = false
+    weaponModel.CanCollide = false
     weld.Parent = weaponModel
 
     self.model = weaponModel
