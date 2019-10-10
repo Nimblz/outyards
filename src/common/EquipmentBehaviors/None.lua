@@ -13,7 +13,7 @@ end
 function behavior:deactivated()
 end
 
-function behavior:updateProps(newProps)
+function behavior:recieveProps(newProps)
     self.props = newProps
 end
 
