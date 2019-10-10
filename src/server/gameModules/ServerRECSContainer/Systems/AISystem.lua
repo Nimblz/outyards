@@ -67,6 +67,10 @@ function AISystem:onComponentAdded(instance,aiComponent)
                     end
                 end
 
+                if not instance.Anchored then
+                    instance:SetNetworkOwner(nil)
+                end
+
                 self.AIs[aiComponent]:kill()
                 self.AIs[aiComponent] = nil
 
