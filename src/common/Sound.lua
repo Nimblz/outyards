@@ -55,14 +55,19 @@ return {
             pitch = 1,
             startTime = 0.3
         },
+        hammer = {
+            soundId = "rbxassetid://10730819",
+            volume = 0.33,
+            pitch = 1,
+        },
         banned = {
             soundId = "rbxassetid://147722910",
-            volume = 2,
+            volume = 1,
             pitch = 1,
         },
         blargh = {
             soundId = "rbxassetid://138100175",
-            volume = 2,
+            volume = 1,
             pitch = 1,
         }
     },
