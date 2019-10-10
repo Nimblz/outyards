@@ -183,9 +183,9 @@ return function(entity, recs, pz)
                 driver:updateProperty("disabled", true)
                 entity.Velocity = Vector3.new(
                     math.random()*2 - 1,
-                    math.random()*2 - 1,
+                    1,
                     math.random()*2 - 1
-                ).Unit * 50
+                ).Unit * 20
                 entity.RotVelocity = Vector3.new(
                     math.random()*2 - 1,
                     math.random()*2 - 1,
