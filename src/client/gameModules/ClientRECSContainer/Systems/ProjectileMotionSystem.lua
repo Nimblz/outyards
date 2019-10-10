@@ -65,7 +65,7 @@ function ProjectileMotionSystem:step()
         projectile.velocity = projectile.velocity - Vector3.new(0,Workspace.Gravity*(1/60)*projectile.gravityScale,0)
         local projectileDesc = Projectiles.byId[projectile.id]
         -- hit test
-        local hit = Workspace:FindPartOnRayWithWhitelist(Ray.new(
+        local hit, pos, norm = Workspace:FindPartOnRayWithWhitelist(Ray.new(
             projectile.position,
             projectile.velocity * 1/60
         ), self.hittables)
@@ -74,7 +74,7 @@ function ProjectileMotionSystem:step()
             self:removeBullet(instance)
 
             if projectileDesc.onHit then
-                projectileDesc.onHit(instance, projectile, self.pzCore, hit)
+                projectileDesc.onHit(instance, projectile, self.pzCore, hit, pos, norm)
             end
         end
 
