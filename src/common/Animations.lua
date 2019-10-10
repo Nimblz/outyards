@@ -7,7 +7,7 @@ end
 
 return {
     toolhold = newAnimation("hold","rbxassetid://507768375"),
-    swing = newAnimation("swing", "rbxassetid://667286531"),
-    backswing = newAnimation("backswing", "rbxassetid://667318897"),
-    pickswing = newAnimation("pickswing", "rbxassetid://666865136"),
+    swing = newAnimation("swing", "rbxassetid://04093489126"),
+    backswing = newAnimation("backswing", "rbxassetid://04093501278"),
+    pickswing = newAnimation("pickswing", "rbxassetid://04093472220"),
 }
