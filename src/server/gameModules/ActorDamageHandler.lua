@@ -26,12 +26,27 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         local actorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
         local damagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
+        local char = player.Character
+        if not char then return end
+        local humanoid = char:FindFirstChild("Humanoid")
+        if not humanoid then return end
+        if humanoid.Health <= 0 then return end
+        local root = char.PrimaryPart
+        if not root then return end
+        local rootPos = root.Position
+        local mobPos = instance.Position
+        local knockbackDirection = (mobPos-rootPos) * Vector3.new(1,0,1)
+        knockbackDirection = knockbackDirection.Unit
+
 
         if not actorStats then return end
         if not damagedBy then return end
 
         damagedBy:updateProperty("players", Dictionary.join({[player] = true}, damagedBy.players))
         actorStats:updateProperty("health", actorStats.health - playerDamage)
+
+        instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
+        instance.Velocity = instance.Velocity + knockbackDirection * 50
     end)
 end
 
