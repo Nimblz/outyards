@@ -10,6 +10,7 @@ local template = ReplicatedStorage:WaitForChild("template")
 
 local healthbarTemplate = template:WaitForChild("Healthbar")
 
+local NPCS = require(common:WaitForChild("NPCS"))
 local RECS = require(lib:WaitForChild("RECS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
@@ -22,8 +23,10 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
     if not healthbar then return end
     local redFrame = healthbar:WaitForChild("redFrame")
     local greenFrame = redFrame:WaitForChild("greenFrame")
+    local nameLabel = healthbar:WaitForChild("nameLabel")
+    local healthLabel = healthbar:WaitForChild("healthLabel")
 
-    local health = component.health
+    local health = math.max(component.health,0)
     local maxHealth = component.maxHealth
 
     if health/maxHealth >= 1 then
@@ -31,6 +34,15 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
         return
     else
         healthbar.Enabled = true
+
+        if component.npcType then
+            local npcDesc = NPCS.byType[component.npcType]
+            nameLabel.Text = npcDesc.name or "???"
+        else
+            nameLabel.Text = "???"
+        end
+        healthLabel.Text = "  "..tostring(math.ceil(health)).." / "..tostring(math.floor(maxHealth))
+
         greenFrame.Size = UDim2.new(component.health/component.maxHealth,0,1,0)
     end
 end
@@ -52,7 +64,7 @@ end
 function ActorHealthbarSystem:onComponentRemoving(instance,component)
     local healthbar = instance:FindFirstChild("Healthbar")
     if not healthbar then return end
-    healthbar:Destroy()
+    --healthbar:Destroy()
 end
 
 function ActorHealthbarSystem:init()
