@@ -11,6 +11,8 @@ local RECS = require(lib:WaitForChild("RECS"))
 return RECS.defineComponent({
     name = "ActorStats",
     generator = function(props)
+        props = props or {}
+
         return Dictionary.join({
             health = 30,
             maxHealth = 30,
@@ -20,6 +22,6 @@ return RECS.defineComponent({
             attackRate = 1, -- per sec
             aggroRadius = 64,
             attackRange = 12,
-        },props)
+        }, props)
     end,
 })
