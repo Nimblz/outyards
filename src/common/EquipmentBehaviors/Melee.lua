@@ -58,14 +58,14 @@ function behavior:doAttack()
 
         self.doBackSwing = true
         self.backSwingTrack:Stop()
-        self.swingTrack:Play(0,1,animLength/waitTime)
+        self.swingTrack:Play(0.1,1,animLength/waitTime)
     else
         local animLength = self.backSwingTrack.Length
         local waitTime = 1/fireRate
 
         self.doBackSwing = false
         self.swingTrack:Stop()
-        self.backSwingTrack:Play(0,1,animLength/waitTime)
+        self.backSwingTrack:Play(0.1,1,animLength/waitTime)
     end
 
     -- play swing sound
@@ -93,7 +93,7 @@ function behavior:doAttack()
         local angle = relativePosition.Unit:Dot(facing)
         angle = math.acos(angle)
 
-        if dist < range and angle < math.rad(arc/2) then
+        if (dist < range and angle < math.rad(arc/2)) or (dist < 4) then
             table.insert(toHit,monster)
         end
     end
@@ -133,7 +133,7 @@ function behavior:deactivated()
     self.attackActive = false
 end
 
-function behavior:updateProps(newProps)
+function behavior:recieveProps(newProps)
     self.props = newProps
 end
 
@@ -145,10 +145,14 @@ function behavior:equipped()
 end
 
 function behavior:unequipped()
+    self.attackActive = false
     self.holdTrack:stop()
 end
 
 function behavior:destroy()
+    -- for k,_ in pairs(self) do
+    --     self[k] = nil
+    -- end
 end
 
 return behavior
