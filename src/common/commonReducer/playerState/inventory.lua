@@ -1,6 +1,5 @@
 return function(state,action)
     state = state or {
-        wood = 1
     }
     local newState = {}
 
