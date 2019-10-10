@@ -28,13 +28,13 @@ end
 function BulletShooter:onStore(store)
     store.changed:connect(function(newState,oldState)
         local attackRate = Selectors.getAttackRate(newState,LocalPlayer)
-        self.attackRate = attackRate
+        self.attackRate = 10
     end)
 end
 
 function BulletShooter:create()
     self.bulletsPerAttack = 3
-    self.attackRate = 1
+    self.attackRate = 10
 end
 
 function BulletShooter:init()
