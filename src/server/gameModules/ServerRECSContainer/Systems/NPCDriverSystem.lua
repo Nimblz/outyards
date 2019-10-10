@@ -18,13 +18,15 @@ function NPCDriverSystem:onComponentChange(instance, component)
     local bodyForce = instance:FindFirstChild("BodyForce")
     local bodyGyro = instance:FindFirstChild("BodyGyro")
 
+    local mass = instance:GetMass()
+
     if not bodyVelocity then return end
     if not bodyForce then return end
     if not bodyGyro then return end
 
-    bodyVelocity.MaxForce = component.maxMoveForce
+    bodyVelocity.MaxForce = component.maxMoveForce * mass
     bodyVelocity.Velocity = component.targetVelocity
-    bodyForce.Force = Vector3.new(0, instance:GetMass() * workspace.Gravity * (1-component.gravityWeight), 0)
+    bodyForce.Force = Vector3.new(0, mass * workspace.Gravity * (1-component.gravityWeight), 0)
     bodyGyro.MaxTorque = Vector3.new(20000,20000,20000)
     bodyGyro.P = 5000
     bodyGyro.D = 500
