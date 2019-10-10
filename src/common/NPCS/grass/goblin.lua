@@ -1,5 +1,6 @@
 return {
     npcType = script.Name,
+    name = "Goblin",
     propsGenerator = function()
         return {
             ActorStats = {
