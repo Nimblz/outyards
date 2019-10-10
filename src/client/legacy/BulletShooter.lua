@@ -107,11 +107,10 @@ function BulletShooter:onAttack()
 
     local bulletSpeed = Projectiles.byId["bullet"].speed
     local bulletGravity = Workspace.Gravity * Projectiles.byId["bullet"].gravityScale
-    local origin = root.CFrame * CFrame.new(0,5,0)
     local direction = Trajectory.directionToReachGoal(targetCFrame.p, goalPos, bulletSpeed, bulletGravity)
     if not direction then direction = goalPos - targetCFrame.p end
 
-    Sound.playSoundAt(origin, Sound.presets.gunshot)
+    Sound.playSoundAt(targetCFrame, Sound.presets.gunshot)
 
     for i = 1, self.bulletsPerAttack do
         self:shootBullet(targetCFrame,direction)
