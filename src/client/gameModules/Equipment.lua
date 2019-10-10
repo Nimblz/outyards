@@ -1,6 +1,7 @@
 local Workspace = game:GetService("Workspace")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage:WaitForChild("common")
@@ -87,7 +88,8 @@ end
 
 function Equipment:recieveProps(player,id,props)
     local behavior = self:getBehavior(player,id)
-    behavior:updateProps(props)
+    if not behavior then return end
+    behavior:recieveProps(props)
 end
 
 function Equipment:clearRenderers(player)
@@ -140,12 +142,8 @@ function Equipment:playerAdded(player)
 end
 
 function Equipment:playerLeaving(player)
-    for _,behavior in pairs(self.behaviors[player]) do
-        behavior:destroy()
-    end
-    for _,renderer in pairs(self.renderers[player]) do
-        renderer:destroy()
-    end
+    self:clearBehaviors(player)
+    self:clearRenderers(player)
     self.behaviors[player] = nil
     self.renderers[player] = nil
 end
@@ -189,11 +187,13 @@ end
 function Equipment:playerUnequipped(player,itemId)
     local renderers = self:getRenderers(player)
     local behaviors = self:getBehaviors(player)
+    local renderer = self:getRenderer(player,itemId)
+    local behavior = self:getBehavior(player,itemId)
 
-    behaviors[itemId]:unequipped()
+    behavior:unequipped()
 
-    renderers[itemId]:destroy()
-    behaviors[itemId]:destroy()
+    renderer:destroy()
+    behavior:destroy()
 
     renderers[itemId] = nil
     behaviors[itemId] = nil
@@ -227,9 +227,9 @@ function Equipment:onAttackBegan()
     local screenPos = inputHandler:getMousePos()
     local character = LocalPlayer.character
     local camRay = camRayFromMousePos(screenPos)
-    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithIgnoreList(
-        Ray.new(camRay.Origin,camRay.Direction*512),
-        {character, self.bulletBin}
+    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithWhitelist(
+        Ray.new(camRay.Origin,camRay.Direction*2048),
+        {self.world,self.enemies}
     )
 
     local inputProps = {
@@ -261,10 +261,38 @@ function Equipment:onAttackEnded()
     end
 end
 
+function Equipment:update()
+    local inputHandler = self.core:getModule("InputHandler")
+    local screenPos = inputHandler:getMousePos()
+    local character = LocalPlayer.character
+    local camRay = camRayFromMousePos(screenPos)
+    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithWhitelist(
+        Ray.new(camRay.Origin,camRay.Direction*2048),
+        {self.world,self.enemies}
+    )
+
+    local inputProps = {
+        mouse = {
+            screenPos = inputHandler:getMousePos(),
+            worldPos = worldPos,
+            worldNormal = worldNormal,
+            hit = CFrame.new(worldPos,worldNormal),
+            target = target,
+        }
+    }
+
+    for _, behavior in pairs(self:getBehaviors(LocalPlayer)) do
+        behavior:recieveProps(inputProps)
+        behavior:update()
+    end
+end
+
 function Equipment:postInit()
     local storeContainer = self.core:getModule("StoreContainer")
 
     self.bulletBin = workspace:WaitForChild("bullets")
+    self.world = workspace:WaitForChild("world")
+    self.enemies = workspace:WaitForChild("enemies")
 
     storeContainer:getStore():andThen(function(store)
         -- on store change, for each player, collect differences in equipped items
@@ -314,9 +342,13 @@ function Equipment:postInit()
             self:onAttackEnded()
         end)
 
+        RunService.RenderStepped:connect(function()
+            self:update()
+        end)
+
         coroutine.wrap(function()
             while true do
-                wait(1/5)
+                wait(1/15)
                 -- broadcast current props to server
                 for id, behavior in pairs(self:getBehaviors(LocalPlayer)) do
                     if behavior.props then
@@ -326,16 +358,9 @@ function Equipment:postInit()
             end
         end)()
 
-        eEquipmentUpdated.OnClientEvent:connect(function(globalProps)
-            for userId, allProps in pairs(globalProps) do
-                local player = Players:GetPlayerByUserId(userId)
-                if player == LocalPlayer then return end
-                for id, props in pairs(allProps) do
-                    local behavior = self:getBehavior(player,id)
-                    if behavior then
-                        self:recieveProps(player,id,props)
-                    end
-                end
+        eEquipmentUpdated.OnClientEvent:connect(function(player,weaponProps)
+            for id, props in pairs(weaponProps) do
+                self:recieveProps(player,id,props)
             end
         end)
 
