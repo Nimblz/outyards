@@ -6,8 +6,9 @@ local CollectionService = game:GetService("CollectionService")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
--- local util = common:WaitForChild("util")
+local util = common:WaitForChild("util")
 
+local Dictionary = require(util:WaitForChild("Dictionary"))
 local NPCS = require(common:WaitForChild("NPCS"))
 
 local RECS = require(lib:WaitForChild("RECS"))
@@ -29,7 +30,9 @@ function NPCCreationSystem:onComponentAdded(instance, component)
     }
 
     for _,componentName in pairs(npcComponents) do
-        local propsOverride = overrideProps[componentName]
+        local propsOverride = Dictionary.join(overrideProps[componentName], {
+            npcType = component.npcType
+        })
         self.core:addComponent(instance, self.core:getComponentClass(componentName), propsOverride)
         CollectionService:AddTag(instance,componentName)
     end
