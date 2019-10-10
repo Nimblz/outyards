@@ -18,7 +18,7 @@ return RECS.defineComponent({
             gravityWeight = 1,
             targetVelocity = Vector3.new(0,0,0),
             targetDirection = Vector3.new(0,0,-1),
-            maxMoveForce = Vector3.new(2000,0,2000),
+            maxMoveForce = Vector3.new(1000,0,1000),
         },props)
     end,
 })
