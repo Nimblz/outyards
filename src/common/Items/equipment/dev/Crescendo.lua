@@ -12,12 +12,13 @@ return {
     spriteCoords = Vector2.new(6,1),
 
     stats = {
-        baseDamage = 100,
+        baseDamage = 500,
+        moveSpeed = 50,
     },
 
     metadata = {
-        fireRate = 10,
-        attackRange = 18,
+        fireRate = 5,
+        attackRange = 12,
         attackArc = 180, -- in degrees
     }
 }
