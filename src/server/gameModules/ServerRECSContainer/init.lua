@@ -4,6 +4,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
+local event = ReplicatedStorage:WaitForChild("event")
+local recsEvent = event:WaitForChild("recs")
 local recsPlugins = common:WaitForChild("recsplugins")
 
 local RECS = require(lib:WaitForChild("RECS"))
@@ -17,6 +19,11 @@ local Steppers = require(script.Steppers)
 
 local createInjectorPlugin = require(recsPlugins:WaitForChild("createInjectorPlugin"))
 local createComponentPropsOverridePlugin = require(recsPlugins:WaitForChild("createComponentPropsOverridePlugin"))
+local createBroadcasterPlugin = require(recsPlugins:WaitForChild("createComponentNetworkBroadcaster"))
+
+local eComponentAdded = recsEvent:WaitForChild("eComponentAdded")
+local eComponentRemoved = recsEvent:WaitForChild("eComponentRemoved")
+local eComponentChanged = recsEvent:WaitForChild("eComponentChanged")
 
 local ServerRECSContainer = PizzaAlpaca.GameModule:extend("ServerRECSContainer")
 
@@ -34,6 +41,7 @@ function ServerRECSContainer:onStoreCreated(store)
         end),
         createInjectorPlugin("pzCore", self.core),
         createInjectorPlugin("store", store),
+        createBroadcasterPlugin(eComponentAdded,eComponentChanged,eComponentRemoved)
     })
 
     -- register all components
