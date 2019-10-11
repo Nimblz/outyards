@@ -26,7 +26,7 @@ function renderer:create()
     weld.Part1 = rightHand
 
     weld.C0 = gripAttachment.CFrame
-    weld.C1 = rightHand:FindFirstChild("RightGripAttachment").CFrame
+    weld.C1 = rightHand:WaitForChild("RightGripAttachment").CFrame
 
     weaponModel.Parent = character
     weaponModel.Anchored = false
