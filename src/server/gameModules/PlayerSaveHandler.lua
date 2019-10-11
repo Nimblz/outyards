@@ -29,6 +29,9 @@ function PlayerSaveHandler:init()
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
             store:dispatch(Thunks.EQUIPMENT_APPLYSTATS(player))
+            store:dispatch(Actions.ITEM_ADD(player, "swordStone", 1))
+            store:dispatch(Actions.ITEM_ADD(player, "shortbow", 1))
+            store:dispatch(Actions.ITEM_ADD(player, "crescendo", 1))
         end
 
         Players.PlayerAdded:connect(playerAdded)

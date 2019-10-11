@@ -27,13 +27,14 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
     newBullet.CFrame = CFrame.new(origin,origin+(direction.Unit))
 
     self.recsCore:addComponent(newBullet,self.recsCore:getComponentClass("Projectile"), {
+        id = id,
         position = origin,
         velocity = direction.Unit * projectile.speed,
         gravityScale = projectile.gravityScale,
     })
 end
 
-function ProjectileCreator:init()
+function ProjectileCreator:preInit()
     local bulletBin = Instance.new("Folder")
     bulletBin.Name = "bullets"
     bulletBin.Parent = workspace

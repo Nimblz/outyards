@@ -38,6 +38,10 @@ function SpawnZoneSystem:onComponentAdded(instance, component)
         instance.Name.."_spawnContainer"
     )
 
+    for _ = 1, component.spawnCap do
+        newSpawnZone:spawnNPC()
+    end
+
     self.spawnZones[instance] = newSpawnZone
 end
 
@@ -45,6 +49,9 @@ function SpawnZoneSystem:onComponentRemoving(instance,component)
 end
 
 function SpawnZoneSystem:init()
+    local enemiesBin = Instance.new("Folder")
+    enemiesBin.Name = "enemies"
+    enemiesBin.Parent = workspace
 
     self.spawnZones = {}
 
