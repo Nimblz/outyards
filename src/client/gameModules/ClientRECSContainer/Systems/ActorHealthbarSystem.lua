@@ -34,9 +34,9 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
         return
     else
         healthbar.Enabled = true
-
-        if component.npcType then
-            local npcDesc = NPCS.byType[component.npcType]
+        local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
+        if npcComponent then
+            local npcDesc = NPCS.byType[npcComponent.npcType]
             nameLabel.Text = npcDesc.name or "???"
         else
             nameLabel.Text = "???"
