@@ -10,7 +10,8 @@ return RECS.defineComponent({
         props = props or {}
         local npcType = props.npcType
         return {
-            npcType = npcType or "basicGrass"
+            npcType = npcType or "basicGrass",
+            replicates = true,
         }
     end,
 })
