@@ -42,7 +42,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         if not actorStats then return end
         if not damagedBy then return end
 
-        damagedBy:updateProperty("players", Dictionary.join({[player] = true}, damagedBy.players))
+        damagedBy:updateProperty("players", Dictionary.join({[player.Name] = true}, damagedBy.players))
         actorStats:updateProperty("health", actorStats.health - playerDamage)
 
         instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
