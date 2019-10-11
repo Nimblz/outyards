@@ -20,7 +20,7 @@ local function toNetworkable(component)
     return className, networkedComponent
 end
 
-local function createPlugin(addedEvent, changedEvent, removedEvent)
+local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent)
     local broadcastPlugin = {}
 
     local function fireAdded(player, instance, component)
@@ -48,13 +48,19 @@ local function createPlugin(addedEvent, changedEvent, removedEvent)
 
         local function playerAdded(newPlayer)
             -- for each entity, replicate its components x-x (is this too much?)
+            local allComponents = {}
             for _, entityPairs in pairs(core._components) do
                 for entity, component in pairs(entityPairs) do
+                    if not allComponents[entity] then allComponents[entity] = {} end
+                    local entityComponents = allComponents[entity]
                     if component.replicates then
-                        fireAdded(newPlayer, entity, component)
+                        local className, networkedComponent = toNetworkable(component)
+                        entityComponents[className] = networkedComponent
                     end
                 end
             end
+
+            initialEvent:FireClient(newPlayer, allComponents)
         end
 
         Players.PlayerAdded:connect(playerAdded)
