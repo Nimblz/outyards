@@ -22,6 +22,7 @@ return RECS.defineComponent({
             attackRate = 1, -- per sec
             aggroRadius = 64,
             attackRange = 12,
+            replicates = true,
         }, props)
     end,
 })
