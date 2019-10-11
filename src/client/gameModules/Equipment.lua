@@ -163,7 +163,7 @@ function Equipment:playerEquipped(player,itemId)
 
     if behaviorType then
         local behavior = newObject(
-            EquipmentBehaviors.byId[behaviorType],
+            EquipmentBehaviors.byId[behaviorType or "none"],
             player,
             itemId,
             self.core
@@ -174,7 +174,7 @@ function Equipment:playerEquipped(player,itemId)
     end
     if rendererType then
         local renderer = newObject(
-            EquipmentRenderers.byId[rendererType],
+            EquipmentRenderers.byId[rendererType or "none"],
             player,
             itemId,
             self.core
@@ -190,10 +190,14 @@ function Equipment:playerUnequipped(player,itemId)
     local renderer = self:getRenderer(player,itemId)
     local behavior = self:getBehavior(player,itemId)
 
-    behavior:unequipped()
+    if behavior then
+        behavior:unequipped()
+        behavior:destroy()
+    end
 
-    renderer:destroy()
-    behavior:destroy()
+    if renderer then
+        renderer:destroy()
+    end
 
     renderers[itemId] = nil
     behaviors[itemId] = nil
@@ -225,7 +229,6 @@ end
 function Equipment:onAttackBegan()
     local inputHandler = self.core:getModule("InputHandler")
     local screenPos = inputHandler:getMousePos()
-    local character = LocalPlayer.character
     local camRay = camRayFromMousePos(screenPos)
     local target, worldPos, worldNormal = Workspace:FindPartOnRayWithWhitelist(
         Ray.new(camRay.Origin,camRay.Direction*2048),
