@@ -34,7 +34,7 @@ end
 
 function ClientRECSContainer:onStoreCreated(store)
     self.recsCore = RECS.Core.new({
-        RECS.BuiltInPlugins.CollectionService(),
+        --RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
         createComponentPropsOverridePlugin(),
         createInjectorPlugin("getClientModule", function(_, name)
