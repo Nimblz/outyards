@@ -1,11 +1,12 @@
--- trying to make an ergonomic state machine
--- maybe im just making madness
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 
 local Signal = require(lib:WaitForChild("Signal"))
+
+local errors = {
+    invalidState = "Cannot transition to state [%s] Does not exist!"
+}
 
 local FSM = {}
 
@@ -36,6 +37,7 @@ function FSM:transition(newState, ...)
     end
 
     local targetState = self.states[newState]
+    assert(targetState, errors.invalidState:format(newState))
     self.currentState = targetState
 
     self.enteringState:fire(self.currentState.name)

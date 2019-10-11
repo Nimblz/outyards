@@ -2,6 +2,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 -- local Workspace = game:GetService("Workspace")
 -- local LocalPlayer = Players.LocalPlayer
+local CollectionService = game:GetService("CollectionService")
 
 local src = script:FindFirstAncestor("server")
 local lib = ReplicatedStorage:WaitForChild("lib")
@@ -14,6 +15,7 @@ local Actions = require(common:WaitForChild("Actions"))
 local AI = require(src.ai:WaitForChild("AI"))
 local RECS = require(lib:WaitForChild("RECS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
 
 local errors = {
     invalidItemId = "Invalid drop item id [%s]!"
@@ -36,8 +38,8 @@ function AISystem:onComponentAdded(instance,aiComponent)
         if key == "health" then
             if new <= 0 then
                 changedConnection:disconnect()
-                self.AIs[aiComponent]:kill()
-                self.AIs[aiComponent] = nil
+
+                CollectionService:RemoveTag(instance, "ActorStats")
 
                 local dropsComponent = self.core:getComponent(instance,RecsComponents.ItemDrops)
                 local damagedByComponent = self.core:getComponent(instance,RecsComponents.DamagedBy)
@@ -55,15 +57,34 @@ function AISystem:onComponentAdded(instance,aiComponent)
 
                         if math.random() <= dropRate then
                             -- award the drop to everyone in this npcs damagedby component
-                            for player,_ in pairs(damagedByComponent.players) do
-                                self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                            for playerName,_ in pairs(damagedByComponent.players) do
+                                local player = game:GetService("Players"):FindFirstChild(playerName)
+                                if player then
+                                    self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                                end
                             end
                         end
                     end
-                    for player,_ in pairs(damagedByComponent.players) do
-                        self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
+                    for playerName,_ in pairs(damagedByComponent.players) do
+                        local player = game:GetService("Players"):FindFirstChild(playerName)
+                        if player then
+                            self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
+                        end
                     end
                 end
+
+                if not instance.Anchored then
+                    instance:SetNetworkOwner(nil)
+                end
+
+                self.AIs[aiComponent]:kill()
+                self.AIs[aiComponent] = nil
+
+                ParticleCreator.spawnParticle("smoke", {
+                    cFrame = instance.CFrame,
+                    scale = 1,
+                    amount = 3
+                })
 
                 instance:Destroy()
             end

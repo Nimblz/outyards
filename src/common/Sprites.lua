@@ -1,12 +1,12 @@
 return {
     materials = {
-        assetId = "rbxassetid://3969880425",
+        assetId = "rbxassetid://4041243692",
         scaleFactor = 4, -- ratio bywhich this was upscaled when exporting (standard is 4)
         spriteSize = Vector2.new(16,16), -- in pixels
         sheetSize = Vector2.new(16,16), -- in tiles
     },
-    weapons = {
-        assetId = "rbxassetid://3969721230",
+    weapon = {
+        assetId = "rbxassetid://4087861359",
         scaleFactor = 4, -- ratio bywhich this was upscaled when exporting (standard is 4)
         spriteSize = Vector2.new(16,16), -- in pixels
         sheetSize = Vector2.new(16,16), -- in tiles
