@@ -24,6 +24,7 @@ local createSubscriberPlugin = require(recsPlugins:WaitForChild("createComponent
 local eComponentAdded = recsEvent:WaitForChild("eComponentAdded")
 local eComponentRemoved = recsEvent:WaitForChild("eComponentRemoved")
 local eComponentChanged = recsEvent:WaitForChild("eComponentChanged")
+local eInitialComponents = recsEvent:WaitForChild("eInitialComponents")
 
 local ClientRECSContainer = PizzaAlpaca.GameModule:extend("ClientRECSContainer")
 
@@ -41,7 +42,12 @@ function ClientRECSContainer:onStoreCreated(store)
         end),
         createInjectorPlugin("pzCore", self.core),
         createInjectorPlugin("store", store),
-        createSubscriberPlugin(eComponentAdded,eComponentChanged,eComponentRemoved)
+        createSubscriberPlugin(
+            eComponentAdded,
+            eComponentChanged,
+            eComponentRemoved,
+            eInitialComponents
+        )
     })
 
     -- register all components
