@@ -37,6 +37,15 @@ local function directionToReachGoal(start,goal,speed,gravity,pickHighAngle)
     return angledCFrame.LookVector
 end
 
+local function towardsWithAngle(start,goal,theta)
+    local facingDirection = ((goal-start) * Vector3.new(1,0,1)).Unit -- direction on xz plane towards our goal
+    local facingCFrame = CFrame.new(Vector3.new(), facingDirection) -- get a cframe at 0,0,0 pointing in our target direction
+    local angledCFrame = facingCFrame * CFrame.fromAxisAngle(Vector3.new(1,0,0), theta) -- tilt up by theta
+
+    return angledCFrame.LookVector
+end
+
 return {
-    directionToReachGoal = directionToReachGoal
+    directionToReachGoal = directionToReachGoal,
+    towardsWithAngle = towardsWithAngle,
 }
