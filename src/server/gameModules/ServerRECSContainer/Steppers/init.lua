@@ -9,7 +9,7 @@ return {
     RECS.interval(1/15, {
         Systems.AISystem
     }),
-    RECS.interval(2, {
+    RECS.interval(1/2, {
         Systems.SpawnZoneSystem
     })
 }
