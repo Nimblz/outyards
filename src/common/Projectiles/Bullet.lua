@@ -10,8 +10,8 @@ local eAttackActor = event:WaitForChild("eAttackActor")
 
 return {
     id = "bullet",
-    speed = 200,
-    gravityScale = 0.25,
+    speed = 300,
+    gravityScale = 1/3,
 
     onFire = function(entity, component, pzCore)
         ParticleCreator.spawnParticle("spark", {
@@ -21,7 +21,7 @@ return {
         })
     end,
 
-    onHit = function(entity, component, pzCore, hit)
+    onHit = function(entity, component, pzCore, hit, hitPos, normal)
         -- if its an enemy do damage
 
         ParticleCreator.spawnParticle("ring", {
@@ -29,7 +29,6 @@ return {
             scale = 0.5,
             amount = 1
         })
-
             -- find npcs
         local cornerOffset = Vector3.new(1,1,1)*4
         local topCorner = entity.CFrame.p + cornerOffset
@@ -38,8 +37,14 @@ return {
 
         local parts = workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
 
+        if CollectionService:HasTag(hit, "ActorStats") then
+            eAttackActor:FireServer(hit)
+        end
+
         for _,v in pairs(parts) do
-            eAttackActor:FireServer(v)
+            if v ~= hit then
+                eAttackActor:FireServer(v)
+            end
         end
     end,
 }
