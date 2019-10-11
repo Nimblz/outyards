@@ -15,7 +15,7 @@ return RECS.defineComponent({
             spawnables = {},
             spawnRate = 1, -- every n ticks
             counter = 0, -- when counter == rate, cointer gets set to 0 and mob is spawned
-            spawnCap = 30,
+            spawnCap = 50,
         },props)
     end,
 })
