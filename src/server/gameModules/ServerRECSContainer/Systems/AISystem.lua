@@ -57,13 +57,19 @@ function AISystem:onComponentAdded(instance,aiComponent)
 
                         if math.random() <= dropRate then
                             -- award the drop to everyone in this npcs damagedby component
-                            for player,_ in pairs(damagedByComponent.players) do
-                                self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                            for playerName,_ in pairs(damagedByComponent.players) do
+                                local player = game:GetService("Players"):FindFirstChild(playerName)
+                                if player then
+                                    self.store:dispatch(Actions.ITEM_ADD(player,itemId,dropAmmt))
+                                end
                             end
                         end
                     end
-                    for player,_ in pairs(damagedByComponent.players) do
-                        self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
+                    for playerName,_ in pairs(damagedByComponent.players) do
+                        local player = game:GetService("Players"):FindFirstChild(playerName)
+                        if player then
+                            self.store:dispatch(Actions.CASH_ADD(player, dropsComponent.cash or 0))
+                        end
                     end
                 end
 
