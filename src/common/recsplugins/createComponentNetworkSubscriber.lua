@@ -3,6 +3,21 @@ local function createPlugin(addedEvent,changedEvent,removedEvent, initialEvent)
     local subscriberPlugin = {}
 
     function subscriberPlugin:afterStepperStart(core)
+
+        initialEvent.OnClientEvent:connect(function(allComponents)
+            for _, componentEntity in ipairs(allComponents) do
+                local entity = componentEntity.entity
+                local components = componentEntity.components
+                for className, componentProps in pairs(components) do
+                    if not entity then return end
+                    local componentIdentifier = core:getComponentClass(className)
+                    if componentIdentifier then
+                        core:addComponent(entity, componentIdentifier, componentProps)
+                    end
+                end
+            end
+        end)
+
         addedEvent.OnClientEvent:connect(function(instance, className, props)
             if not instance then return end
             local componentIdentifier = core:getComponentClass(className)
@@ -25,18 +40,6 @@ local function createPlugin(addedEvent,changedEvent,removedEvent, initialEvent)
             local componentIdentifier = core:getComponentClass(className)
             if core:getComponent(instance,componentIdentifier) then
                 core:removeComponent(instance, componentIdentifier)
-            end
-        end)
-
-        initialEvent.OnClientEvent:connect(function(allComponents)
-            for entity, components in pairs(allComponents) do
-                for className, componentProps in pairs(components) do
-                    if not entity then return end
-                    local componentIdentifier = core:getComponentClass(className)
-                    if componentIdentifier then
-                        core:addComponent(entity, componentIdentifier, componentProps)
-                    end
-                end
             end
         end)
     end

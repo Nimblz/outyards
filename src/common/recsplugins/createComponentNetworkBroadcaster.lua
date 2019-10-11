@@ -51,12 +51,15 @@ local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent
             local allComponents = {}
             for _, entityPairs in pairs(core._components) do
                 for entity, component in pairs(entityPairs) do
-                    if not allComponents[entity] then allComponents[entity] = {} end
-                    local entityComponents = allComponents[entity]
+                    local newEntity = {
+						entity = entity,
+						components = {},
+					}
                     if component.replicates then
                         local className, networkedComponent = toNetworkable(component)
-                        entityComponents[className] = networkedComponent
+                        newEntity.components[className] = networkedComponent
                     end
+					table.insert(allComponents, newEntity)
                 end
             end
 
