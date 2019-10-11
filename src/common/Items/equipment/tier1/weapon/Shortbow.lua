@@ -16,10 +16,13 @@ return {
     },
 
     stats = {
-        baseDamage = 4,
+        baseDamage = 3,
     },
 
     metadata = {
-        fireRate = 2
+        fireRate = 1,
+        projectileType = "slowarrow",
+        projectileCount = 1,
+        projectileDeviation = 3,
     }
 }
