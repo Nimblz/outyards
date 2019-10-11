@@ -24,7 +24,7 @@ return function(recsCore, npcType, cframe)
     NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2), 0)
 
     local Decal = Instance.new("Decal")
-    Decal.Texture = "rbxassetid://23912218"
+    Decal.Texture = "rbxassetid://3283452005"
     Decal.Parent = NewNPCPart
 
     local physProps = PhysicalProperties.new(1,0,0.5,100,100)
