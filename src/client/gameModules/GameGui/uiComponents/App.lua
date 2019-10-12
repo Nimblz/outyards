@@ -26,13 +26,6 @@ function App:didMount()
 end
 
 function App:render()
-
-    local scale = Roact.createElement("UIScale", {
-        Scale = 2/3,
-    })
-
-    local touchEnabled = game:GetService("UserInputService").TouchEnabled
-
     local elements = {
         --cashLabel = Roact.createElement(CashLabel),
         inventory = Roact.createElement(Inventory),
@@ -41,7 +34,6 @@ function App:render()
         -- menubar = Roact.createElement(MenuBar),
         statsbar = Roact.createElement(StatsBar),
         healthbar = Roact.createElement(HealthBar),
-        scale = touchEnabled and scale,
     }
 
     return Roact.createElement("ScreenGui",{
