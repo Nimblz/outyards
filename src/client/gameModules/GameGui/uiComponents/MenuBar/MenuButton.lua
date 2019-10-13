@@ -20,7 +20,7 @@ function MenuButton:render()
     return Roact.createElement(RoundFrame, {
         class = "ImageButton",
 
-        Size = UDim2.new(0,100,0,100),
+        Size = UDim2.new(0,72,0,72),
         BorderSizePixel = 0,
         BackgroundColor3 = Color3.new(1,1,1),
         LayoutOrder = self.props.layoutOrder,
@@ -31,7 +31,7 @@ function MenuButton:render()
             BackgroundTransparency = 1,
             Image = self.props.icon,
             ImageColor3 = Color3.new(0,0,0),
-            Size = UDim2.new(0,64,0,64),
+            Size = UDim2.new(0,48,0,48),
         }),
     })
 end
