@@ -8,6 +8,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local MenuBar = Roact.Component:extend("MenuBar")
 local MenuButton = require(script:WaitForChild("MenuButton"))
+local CashLabel = require(script:WaitForChild("CashLabel"))
 
 local PADDING = 16
 
@@ -21,19 +22,19 @@ function MenuBar:render()
     local menuButtons = self.props.menuButtons or {
         shop = {
             icon = "rbxassetid://4102976956",
-            layoutOrder = 1
+            layoutOrder = 2
         },
         crafting = {
             icon = "rbxassetid://666448950",
-            layoutOrder = 2
+            layoutOrder = 3
         },
         inventory = {
             icon = "rbxassetid://666448883",
-            layoutOrder = 3
+            layoutOrder = 4
         },
         options = {
             icon = "rbxassetid://282366832",
-            layoutOrder = 4
+            layoutOrder = 5
         },
     }
     local buttons = {}
@@ -41,10 +42,12 @@ function MenuBar:render()
     buttons.layout = Roact.createElement("UIListLayout", {
         SortOrder = Enum.SortOrder.LayoutOrder,
         VerticalAlignment = Enum.VerticalAlignment.Bottom,
-        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+        HorizontalAlignment = Enum.HorizontalAlignment.Left,
         Padding = UDim.new(0,PADDING),
         FillDirection = Enum.FillDirection.Vertical,
     })
+
+    buttons.cash = Roact.createElement(CashLabel)
 
     for idx,buttonProps in pairs(menuButtons) do
         local newButton = Roact.createElement(MenuButton, buttonProps)
