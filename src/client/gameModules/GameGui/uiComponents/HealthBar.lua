@@ -5,14 +5,16 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local component = script:FindFirstAncestor("uiComponents")
 
 local Selectors = require(common:WaitForChild("Selectors"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
+local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local HealthBar = Roact.Component:extend("HealthBar")
 
-local HEIGHT = 30
+local HEIGHT = 32
 local WIDTH = 300
 
 function HealthBar:init()
@@ -64,31 +66,31 @@ function HealthBar:render()
     local children = {}
 
     local healthRatio = self.state.health/self.state.maxHealth
+    healthRatio = math.clamp(healthRatio,0,1)
 
-    children.greenFrame = Roact.createElement("Frame", {
-        Size = UDim2.new(healthRatio,0,1,0),
+    children.greenFrame = Roact.createElement(RoundFrame, {
+        AnchorPoint = Vector2.new(0,0.5),
+        Size = UDim2.new(healthRatio,0,0,math.min(healthRatio*WIDTH, HEIGHT)),
+        Position = UDim2.new(0,0,0.5,0),
         BorderSizePixel = 0,
-        BackgroundColor3 = Color3.fromRGB(90, 224, 0)
+        color = Color3.fromRGB(0, 255, 0)
     })
 
     children.healthText = Roact.createElement("TextLabel", {
-        Text = " "..tostring(math.floor(self.state.health)).." / "..tostring(self.state.maxHealth),
+        Text = "   "..tostring(math.floor(self.state.health)).." / "..tostring(self.state.maxHealth),
         Size = UDim2.new(1,0,1,0),
         BackgroundTransparency = 1,
-        TextColor3 = Color3.new(1,1,1),
+        TextColor3 = Color3.new(0,0,0),
         Font = Enum.Font.GothamBlack,
         TextSize = 24,
         TextXAlignment = Enum.TextXAlignment.Left,
     })
 
-    return Roact.createElement("Frame", {
+    return Roact.createElement(RoundFrame, {
         AnchorPoint = Vector2.new(0.5,0.5),
         Position = UDim2.new(0.5,0,1,-HEIGHT*2),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
-        BackgroundTransparency = 0,
-        BackgroundColor3 = Color3.fromRGB(192, 0, 0),
-        BorderSizePixel = 0,
-        ClipsDescendants = true
+        color = Color3.new(1,1,1),
     }, children)
 end
 
