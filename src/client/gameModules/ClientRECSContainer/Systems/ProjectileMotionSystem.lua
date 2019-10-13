@@ -27,6 +27,11 @@ function ProjectileMotionSystem:removeBullet(instance)
     self.core:removeComponent(instance,RecsComponents.Projectile)
     coroutine.wrap(function()
         instance.Material = Enum.Material.Air
+        for _, child in pairs(instance:GetDescendants()) do
+            if child:IsA("ParticleEmitter") then
+                child.Enabled = false
+            end
+        end
         wait(PROJECTILE_LIFETIME)
         instance:Destroy()
     end)()
@@ -76,6 +81,10 @@ function ProjectileMotionSystem:step()
             if projectileDesc.onHit then
                 projectileDesc.onHit(instance, projectile, self.pzCore, hit, pos, norm)
             end
+        end
+
+        if projectileDesc.onUpdate then
+            projectileDesc.onUpdate(instance, projectile, self.pzCore)
         end
 
         projectile.position = projectile.position + (projectile.velocity * (1/60))
