@@ -37,9 +37,10 @@ function SpawnZoneSystem:onComponentAdded(instance, component)
         component,
         instance.Name.."_spawnContainer"
     )
-
+    wait(3)
     for _ = 1, component.spawnCap do
         newSpawnZone:spawnNPC()
+        wait()
     end
 
     self.spawnZones[instance] = newSpawnZone
@@ -49,9 +50,12 @@ function SpawnZoneSystem:onComponentRemoving(instance,component)
 end
 
 function SpawnZoneSystem:init()
-    local enemiesBin = Instance.new("Folder")
-    enemiesBin.Name = "enemies"
-    enemiesBin.Parent = workspace
+    local enemiesBin = workspace:FindFirstChild("enemies")
+    if not enemiesBin then
+        enemiesBin = Instance.new("Folder")
+        enemiesBin.Name = "enemies"
+        enemiesBin.Parent = workspace
+    end
 
     self.spawnZones = {}
 
@@ -68,15 +72,11 @@ function SpawnZoneSystem:init()
 end
 
 function SpawnZoneSystem:step()
-    -- loop thru each spawn zone
-    -- if it's not full, spawn some npcs
-    -- fullness should be based on the total area of the spawn zones
-    -- 16 studs square should contain 5 mobs I think
-    -- the ratio is 5/256
+    -- loop thru each spawn zone and spawn npcs if counter is at/over rate
 
     for instance,zoneComponent in self.core:components(RecsComponents.SpawnZone) do
         zoneComponent.counter = zoneComponent.counter + 1
-        if zoneComponent.counter == zoneComponent.spawnRate then
+        if zoneComponent.counter >= zoneComponent.spawnRate then
             self:spawnNPC(instance)
             zoneComponent.counter = 0
         end
