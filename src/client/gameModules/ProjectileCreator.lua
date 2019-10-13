@@ -14,7 +14,6 @@ local ProjectileCreator = PizzaAlpaca.GameModule:extend("ProjectileCreator")
 
 function ProjectileCreator:fireProjectile(owner, id, origin, direction)
     if not self.recsCore then return end
-
     local model = Projectiles.getModelForId(id)
     local projectile = Projectiles.byId[id]
 
@@ -31,6 +30,7 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
         position = origin,
         velocity = direction.Unit * projectile.speed,
         gravityScale = projectile.gravityScale,
+        fireTime = tick(),
     })
 end
 
