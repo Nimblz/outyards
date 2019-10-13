@@ -37,7 +37,7 @@ function SpawnZoneSystem:onComponentAdded(instance, component)
         component,
         instance.Name.."_spawnContainer"
     )
-    wait(3)
+    wait(1)
     for _ = 1, component.spawnCap do
         newSpawnZone:spawnNPC()
         wait()
