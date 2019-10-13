@@ -32,6 +32,9 @@ function PlayerSaveHandler:init()
             store:dispatch(Actions.ITEM_ADD(player, "swordStone", 1))
             store:dispatch(Actions.ITEM_ADD(player, "shortbow", 1))
             store:dispatch(Actions.ITEM_ADD(player, "crescendo", 1))
+            store:dispatch(Actions.ITEM_ADD(player, "testgun", 1))
+            wait(2)
+            store:dispatch(Thunks.ITEM_EQUIP(player, "testgun"))
         end
 
         Players.PlayerAdded:connect(playerAdded)
