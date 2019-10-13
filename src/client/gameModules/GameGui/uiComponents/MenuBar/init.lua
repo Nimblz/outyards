@@ -18,15 +18,32 @@ function MenuBar:didMount()
 end
 
 function MenuBar:render()
-    local menuButtons = self.props.menuButtons or {}
+    local menuButtons = self.props.menuButtons or {
+        shop = {
+            icon = "rbxassetid://4102976956",
+            layoutOrder = 1
+        },
+        crafting = {
+            icon = "rbxassetid://666448950",
+            layoutOrder = 2
+        },
+        inventory = {
+            icon = "rbxassetid://666448883",
+            layoutOrder = 3
+        },
+        options = {
+            icon = "rbxassetid://282366832",
+            layoutOrder = 4
+        },
+    }
     local buttons = {}
 
     buttons.layout = Roact.createElement("UIListLayout", {
         SortOrder = Enum.SortOrder.LayoutOrder,
-        VerticalAlignment = Enum.VerticalAlignment.Center,
+        VerticalAlignment = Enum.VerticalAlignment.Bottom,
         HorizontalAlignment = Enum.HorizontalAlignment.Center,
         Padding = UDim.new(0,PADDING),
-        FillDirection = Enum.FillDirection.Horizontal,
+        FillDirection = Enum.FillDirection.Vertical,
     })
 
     for idx,buttonProps in pairs(menuButtons) do
@@ -35,11 +52,11 @@ function MenuBar:render()
     end
 
     return Roact.createElement("Frame", {
-        Size = UDim2.new(0.5,0,0,100),
-        Position = UDim2.new(0.5,0,0,PADDING),
-        AnchorPoint = Vector2.new(0.5,0),
+        Size = UDim2.new(0,100,0,0),
+        Position = UDim2.new(0,PADDING,1,-PADDING),
+        AnchorPoint = Vector2.new(0,1),
         BackgroundTransparency = 1,
-    },buttons)
+    }, buttons)
 end
 
 return MenuBar
