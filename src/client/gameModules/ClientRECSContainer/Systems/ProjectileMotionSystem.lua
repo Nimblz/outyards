@@ -32,7 +32,7 @@ function ProjectileMotionSystem:removeBullet(instance)
                 child.Enabled = false
             end
         end
-        wait(PROJECTILE_LIFETIME)
+        wait(2)
         instance:Destroy()
     end)()
 end
