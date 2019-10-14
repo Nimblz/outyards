@@ -11,8 +11,7 @@ return {
     tier = 1,
     onlyOne = true,
     recipe = {
-        wood = 15,
-        stone = 10,
+        wood = 10,
     },
 
     stats = {

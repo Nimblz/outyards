@@ -1,7 +1,7 @@
 return {
-    id = "swordStone",
-    name = "Stone Shortsword",
-    desc = "More of club than a sword",
+    id = "swordWood",
+    name = "Wooden Shortsword",
+    desc = "More of stick than a sword",
     tier = 1,
 
     equipmentType = "weapon",
@@ -14,7 +14,6 @@ return {
     onlyOne = true,
     recipe = {
         wood = 10,
-        stone = 15,
     },
 
     stats = {
