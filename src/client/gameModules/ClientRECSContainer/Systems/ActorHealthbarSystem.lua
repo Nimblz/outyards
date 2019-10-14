@@ -1,7 +1,5 @@
--- local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
--- local Workspace = game:GetService("Workspace")
--- local LocalPlayer = Players.LocalPlayer
+local TweenService = game:GetService("TweenService")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
@@ -9,6 +7,11 @@ local template = ReplicatedStorage:WaitForChild("template")
 -- local util = common:WaitForChild("util")
 
 local healthbarTemplate = template:WaitForChild("Healthbar")
+local healthTween = TweenInfo.new(
+    0.1,
+    Enum.EasingStyle.Quad,
+    Enum.EasingDirection.Out
+)
 
 local NPCS = require(common:WaitForChild("NPCS"))
 local RECS = require(lib:WaitForChild("RECS"))
@@ -42,8 +45,12 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
             nameLabel.Text = "???"
         end
         healthLabel.Text = "  "..tostring(math.ceil(health)).." / "..tostring(math.floor(maxHealth))
+        local targetProps = {
+            Size = UDim2.new(health/component.maxHealth,0,1,0)
+        }
 
-        greenFrame.Size = UDim2.new(component.health/component.maxHealth,0,1,0)
+        local newTween = TweenService:Create(greenFrame,healthTween,targetProps, true)
+        newTween:Play()
     end
 end
 
@@ -68,7 +75,6 @@ function ActorHealthbarSystem:onComponentRemoving(instance,component)
 end
 
 function ActorHealthbarSystem:init()
-
     for instance,component in self.core:components(RecsComponents.ActorStats) do
         self:onComponentAdded(instance, component)
     end
