@@ -20,7 +20,7 @@ end
 
 function MenuBar:render()
     local menuButtons = self.props.menuButtons or {
-        shop = {
+        boosts = {
             icon = "rbxassetid://4102976956",
             layoutOrder = 2
         },
@@ -32,9 +32,13 @@ function MenuBar:render()
             icon = "rbxassetid://666448883",
             layoutOrder = 4
         },
+        codes = {
+            icon = "rbxassetid://391745819",
+            layoutOrder = 5
+        },
         options = {
             icon = "rbxassetid://282366832",
-            layoutOrder = 5
+            layoutOrder = 6
         },
     }
     local buttons = {}
