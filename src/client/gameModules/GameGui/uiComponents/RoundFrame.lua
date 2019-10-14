@@ -11,7 +11,6 @@ local Dictionary = require(util:WaitForChild("Dictionary"))
 
 return function(props)
     local elementProps = Dictionary.join(props, {
-        class = Dictionary.None,
         color = Dictionary.None,
     })
 
@@ -22,7 +21,7 @@ return function(props)
         Color3.new(1,1,1)
     )
 
-    return Roact.createElement(props.class or "ImageLabel", Dictionary.join({
+    return Roact.createElement("ImageLabel", Dictionary.join({
         BackgroundTransparency = 1,
         BorderSizePixel = 0,
         Image = "rbxassetid://4103149690",
