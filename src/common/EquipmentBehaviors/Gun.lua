@@ -16,7 +16,7 @@ local behavior = {
 }
 
 function behavior:canAttack()
-    local character = LocalPlayer.character
+    local character = self.character
     if not character then return false end
     if not character.PrimaryPart then return false end
     local humanoid = character:FindFirstChild("Humanoid")
@@ -67,7 +67,7 @@ function behavior:shootBullet(origin,directionGoal)
     )
     local direction = directionCF.LookVector
 
-    self.projectileCreator:fireProjectile(LocalPlayer, projectileType, origin.p, direction)
+    self.projectileCreator:fireProjectile(self.player, projectileType, origin.p, direction)
 end
 
 function behavior:doAttack()
