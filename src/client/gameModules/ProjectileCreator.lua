@@ -30,6 +30,7 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
         position = origin,
         velocity = direction.Unit * projectile.speed,
         gravityScale = projectile.gravityScale,
+        owner = owner,
         fireTime = tick(),
     })
 end
