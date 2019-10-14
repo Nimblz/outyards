@@ -49,13 +49,15 @@ return {
 
         local parts = workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
 
-        if CollectionService:HasTag(hit, "ActorStats") then
-            eAttackActor:FireServer(hit)
-        end
+        if component.owned then
+            if CollectionService:HasTag(hit, "ActorStats") then
+                eAttackActor:FireServer(hit)
+            end
 
-        for _,v in pairs(parts) do
-            if v ~= hit then
-                eAttackActor:FireServer(v)
+            for _,v in pairs(parts) do
+                if v ~= hit then
+                    eAttackActor:FireServer(v)
+                end
             end
         end
     end,
