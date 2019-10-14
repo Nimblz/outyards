@@ -23,6 +23,8 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         local playerDamage = Selectors.getBaseDamage(state, player)
         assert(playerDamage, "Player damage is undefined!")
 
+        playerDamage = math.max(playerDamage + math.random(-1,2),1)
+
         local actorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
         local damagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
 
