@@ -7,7 +7,7 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(1,4),
+    spriteCoords = Vector2.new(3,8),
     tier = 1,
     onlyOne = true,
     recipe = {
@@ -20,7 +20,7 @@ return {
     },
 
     metadata = {
-        fireRate = 30,
+        fireRate = 10,
         projectileType = "superbullet",
         projectileCount = 3,
         projectileDeviation = 3,
