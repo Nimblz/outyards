@@ -1,25 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
 local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local RoundButton = require(component:WaitForChild("RoundButton"))
 local MenuButton = Roact.Component:extend("MenuButton")
 
-function MenuButton:init()
-end
-
-function MenuButton:didMount()
-end
-
 function MenuButton:render()
-    return Roact.createElement(RoundFrame, {
-        class = "ImageButton",
-
+    return Roact.createElement(RoundButton, {
         Size = UDim2.new(0,72,0,72),
         BorderSizePixel = 0,
         BackgroundColor3 = Color3.new(1,1,1),
