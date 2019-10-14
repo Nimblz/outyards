@@ -73,7 +73,7 @@ function HealthBar:render()
         Size = UDim2.new(healthRatio,0,0,math.min(healthRatio*WIDTH, HEIGHT)),
         Position = UDim2.new(0,0,0.5,0),
         BorderSizePixel = 0,
-        color = Color3.fromRGB(0, 255, 0)
+        color = Color3.fromRGB(102, 255, 0)
     })
 
     children.healthText = Roact.createElement("TextLabel", {
@@ -87,10 +87,10 @@ function HealthBar:render()
     })
 
     return Roact.createElement(RoundFrame, {
-        AnchorPoint = Vector2.new(0.5,0.5),
-        Position = UDim2.new(0.5,0,1,-HEIGHT*2),
+        AnchorPoint = Vector2.new(0.5,0),
+        Position = UDim2.new(0.5,0,0,HEIGHT*2),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
-        color = Color3.new(1,1,1),
+        color = Color3.fromRGB(197, 0, 0),
     }, children)
 end
 
