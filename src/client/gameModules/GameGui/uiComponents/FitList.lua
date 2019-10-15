@@ -18,6 +18,7 @@ end
 
 function FitList:render()
 	local containerKind = self.props.containerKind or "Frame"
+	local scale = self.props.scale or 1
 	local fitAxes = self.props.fitAxes or "XY"
 	local containerProps = self.props.containerProps
 	local layoutProps = self.props.layoutProps
@@ -25,6 +26,12 @@ function FitList:render()
 
 	local padding
 	if paddingProps ~= nil then
+		paddingProps = Dictionary.merge({
+			PaddingTop = UDim.new(0,0),
+			PaddingBottom = UDim.new(0,0),
+			PaddingLeft = UDim.new(0,0),
+			PaddingRight = UDim.new(0,0),
+		}, paddingProps)
 		padding = e("UIPadding", paddingProps)
 	end
 
@@ -32,7 +39,7 @@ function FitList:render()
 		["$Layout"] = e("UIListLayout", Dictionary.merge({
 			SortOrder = Enum.SortOrder.LayoutOrder,
 			[Roact.Change.AbsoluteContentSize] = function(instance)
-				local contentSize = instance.AbsoluteContentSize
+				local contentSize = instance.AbsoluteContentSize / scale
 
 				if paddingProps ~= nil then
 					contentSize = contentSize + Vector2.new(
