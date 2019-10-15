@@ -1,22 +1,22 @@
-local function getDiffs(t1,t2)
+local function getDiffs(before,after)
     local added, removed = {}, {}
-    local t1Set, t2Set = {}, {}
+    local beforeSet, afterSet = {}, {}
 
-    -- create t1 hash set
-    for _,v in pairs(t1) do
-        t1Set[v] = true
+    -- create before hash set
+    for _,v in pairs(before) do
+        beforeSet[v] = true
     end
-    -- create t2 hash set and check against t1 set to find new elements
-    for _,v in pairs(t2) do
-        t2Set[v] = true
+    -- create after hash set and check against before set to find new elements
+    for _,v in pairs(after) do
+        afterSet[v] = true
         -- do this here to cut out an extra for loop
-        if not t1Set[v] then
+        if not beforeSet[v] then
             table.insert(added,v)
         end
     end
-    -- check t1 against t2 set to find removed
-    for _,v in pairs(t1) do
-        if not t2Set[v] then
+    -- check before against after set to find removed
+    for _,v in pairs(before) do
+        if not afterSet[v] then
             table.insert(removed,v)
         end
     end
