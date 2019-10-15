@@ -61,6 +61,7 @@ function CashLabel:render()
         Size = UDim2.new(0,HORIZONTAL_SIZE,0,VERTICAL_SIZE),
         Position = UDim2.new(0,PADDING,1,-PADDING),
         AnchorPoint = Vector2.new(0,1),
+        LayoutOrder = 1,
     }, children)
 end
 
