@@ -10,6 +10,7 @@ local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Actions = require(common:WaitForChild("Actions"))
+local Thunks = require(common:WaitForChild("Thunks"))
 local uiComponents = script:WaitForChild("uiComponents")
 local App = require(uiComponents.App)
 
@@ -37,7 +38,10 @@ function GuiContainer:init()
 
     storeContainer:getStore():andThen(function(store)
 
+        store:dispatch(Thunks.VIEW_SET("default"))
+
         local screenSizer = Instance.new("ScreenGui")
+        screenSizer.Name = "ScreenSizeReporter"
         screenSizer.Parent = PlayerGui
         screenSizer:GetPropertyChangedSignal("AbsoluteSize"):connect(function()
             store:dispatch(Actions.SCREENSIZE_SET(screenSizer.AbsoluteSize))
