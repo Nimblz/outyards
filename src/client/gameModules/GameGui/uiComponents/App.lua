@@ -5,16 +5,21 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 
 local uiComponents = script.Parent
+local views = uiComponents:WaitForChild("views")
 
 local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
-local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
---local Inventory = require(uiComponents:WaitForChild("Inventory"))
---local Crafting = require(uiComponents:WaitForChild("Crafting"))
+local Inventory = require(views:WaitForChild("Inventory"))
+local Crafting = require(views:WaitForChild("Crafting"))
+local Boosts = require(views:WaitForChild("Boosts"))
+local Codes = require(views:WaitForChild("Codes"))
+local Options = require(views:WaitForChild("Options"))
 local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
 local MenuBar = require(uiComponents:WaitForChild("MenuBar"))
---local WeaponBar = require(uiComponents:WaitForChild("WeaponBar"))
+local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
+local NotificationContainer = require(uiComponents:WaitForChild("NotificationContainer"))
+--local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
 
 function App:init()
 end
@@ -24,11 +29,16 @@ end
 
 function App:render()
     local elements = {
-        -- inventory = Roact.createElement(Inventory),
-        -- crafting = Roact.createElement(Crafting),
+        inventory = Roact.createElement(Inventory),
+        crafting = Roact.createElement(Crafting),
+        boosts = Roact.createElement(Boosts),
+        codes = Roact.createElement(Codes),
+        options = Roact.createElement(Options),
         tooltip = Roact.createElement(Tooltip),
         menubar = Roact.createElement(MenuBar),
         healthbar = Roact.createElement(HealthBar),
+        notificationContainer = Roact.createElement(NotificationContainer)
+        -- toolbar = Roact.createElement(Toolbar)
     }
 
     return Roact.createElement("ScreenGui",{
