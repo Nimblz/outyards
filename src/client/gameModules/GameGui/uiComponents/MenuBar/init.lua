@@ -3,10 +3,12 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local util = common:WaitForChild("util")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
+local Dictionary = require(util:WaitForChild("Dictionary"))
 local Selectors = require(common:WaitForChild("Selectors"))
 local Thunks = require(common:WaitForChild("Thunks"))
 
@@ -16,38 +18,41 @@ local CashLabel = require(script:WaitForChild("CashLabel"))
 
 local PADDING = 16
 
+function MenuBar:init()
+    self.buttons = {
+        {
+            id = "inventory",
+            icon = "rbxassetid://666448883",
+            name = "Inventory",
+        },
+        {
+            id = "crafting",
+            icon = "rbxassetid://666448950",
+            name = "Crafting",
+        },
+        {
+            id = "boosts",
+            icon = "rbxassetid://4102976956",
+            name = "Premium Shop",
+        },
+        {
+            id = "options",
+            icon = "rbxassetid://282366832",
+            name = "Options",
+        },
+    }
+
+    self.buttonRefs = {}
+
+    for idx, _ in pairs(self.buttons) do
+        self.buttonRefs[idx] = Roact.createRef()
+    end
+end
+
 function MenuBar:render()
     local visible = self.props.visible
     local currentView = self.props.currentView
     local buttons = {}
-
-    local menuButtons = {
-        inventory = {
-            icon = "rbxassetid://666448883",
-            name = "Inventory",
-            layoutOrder = 2
-        },
-        crafting = {
-            icon = "rbxassetid://666448950",
-            name = "Crafting",
-            layoutOrder = 3
-        },
-        boosts = {
-            icon = "rbxassetid://4102976956",
-            name = "Premium Shop",
-            layoutOrder = 4
-        },
-        -- codes = {
-        --     icon = "rbxassetid://391745819",
-        --     name = "Social Codes",
-        --     layoutOrder = 5
-        -- },
-        options = {
-            icon = "rbxassetid://282366832",
-            name = "Options",
-            layoutOrder = 5
-        },
-    }
 
     buttons.layout = Roact.createElement("UIListLayout", {
         SortOrder = Enum.SortOrder.LayoutOrder,
@@ -59,12 +64,24 @@ function MenuBar:render()
 
     buttons.cash = Roact.createElement(CashLabel)
 
-    for idx,buttonProps in pairs(menuButtons) do
-        buttonProps.callback = function()
-            self.props.setView(currentView, idx)
+    for idx,buttonProps in pairs(self.buttons) do
+        local id = buttonProps.id
+        local callback = function()
+            self.props.setView(currentView, id)
         end
-        buttonProps.active = currentView == idx
-        local newButton = Roact.createElement(MenuButton, buttonProps)
+        local active = currentView == id
+
+        local props = Dictionary.join(buttonProps, {
+            callback = callback,
+            active = active,
+            layoutOrder = idx + 1,
+
+            buttonRef = self.buttonRefs[idx],
+            downRef = self.buttonRefs[idx+1],
+            upRef = self.buttonRefs[idx-1],
+        })
+
+        local newButton = Roact.createElement(MenuButton, props)
         buttons["button_"..idx] = newButton
     end
 
@@ -73,7 +90,8 @@ function MenuBar:render()
         Position = UDim2.new(0,PADDING,1,-PADDING),
         AnchorPoint = Vector2.new(0,1),
         BackgroundTransparency = 1,
-        Visible = visible
+        Visible = visible,
+        ZIndex = 4,
     }, buttons)
 end
 
