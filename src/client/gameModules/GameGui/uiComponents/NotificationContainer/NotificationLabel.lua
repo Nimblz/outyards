@@ -42,9 +42,9 @@ function NotificationLabel:render()
         textLabel = Roact.createElement("TextLabel", {
             Size = UDim2.new(1,-80,0,50),
             BackgroundTransparency = 1,
-            Text = self.props.text or "/I SEE YOU/",
+            Text = self.props.text or "N/A",
             Font = Enum.Font.GothamSemibold,
-            TextSize = 16,
+            TextSize = 18,
             TextWrapped = true,
             TextXAlignment = Enum.TextXAlignment.Left,
             LayoutOrder = 2,
