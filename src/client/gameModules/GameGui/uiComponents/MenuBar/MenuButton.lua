@@ -31,6 +31,11 @@ function MenuButton:render()
     local hovered = self.state.hovered or false
 
     return Roact.createElement(RoundButton, {
+        [Roact.Ref] = self.props.buttonRef,
+
+        NextSelectionDown = self.props.downRef,
+        NextSelectionUp = self.props.upRef,
+
         Size = UDim2.new(0,72,0,72),
         BorderSizePixel = 0,
         BackgroundColor3 = Color3.new(1,1,1),
