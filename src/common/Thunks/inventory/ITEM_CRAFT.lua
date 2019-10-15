@@ -13,8 +13,8 @@ return function(player,itemToCraftId)
     return function (store)
         local state = store:getState()
         local itemToCraft = Items.byId[itemToCraftId]
+        if not itemToCraft then return end
         local recipe = itemToCraft.recipe
-
         if not recipe then return end
 
         if canCraft(state, player, itemToCraftId) then
