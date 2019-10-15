@@ -91,7 +91,16 @@ function HealthBar:render()
         Position = UDim2.new(0.5,0,0,HEIGHT*2),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
         color = Color3.fromRGB(197, 0, 0),
+        Visible = self.props.visible
     }, children)
 end
+
+local function mapStateToProps(state,props)
+    return {
+        visible = Selectors.getHealthbarVisible(state),
+    }
+end
+
+HealthBar = RoactRodux.connect(mapStateToProps)(HealthBar)
 
 return HealthBar
