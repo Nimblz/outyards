@@ -5,6 +5,7 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local components = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
@@ -15,6 +16,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
 
+local RoundFrame = require(components:WaitForChild("RoundFrame"))
 local ItemLabel = Roact.Component:extend("ItemLabel")
 
 local errors = {
@@ -89,11 +91,13 @@ function ItemLabel:render()
         table.insert(statStrings,newString)
     end
 
-    return Roact.createElement(activatable and "ImageButton" or "ImageLabel", {
+    local itemButton = Roact.createElement(activatable and "ImageButton" or "ImageLabel", {
         Size = UDim2.new(0,spriteSheet.spriteSize.X * 3,0,spriteSheet.spriteSize.Y * 3),
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
         LayoutOrder = layoutOrder,
+        AnchorPoint = Vector2.new(0.5,0.5),
+        Position = UDim2.new(0.5,0,0.5,0),
 
         Image = spriteSheet.assetId,
         ImageRectSize = spriteRectSize,
@@ -110,6 +114,14 @@ function ItemLabel:render()
     }, {
         quantityLabel = quantityLabel,
         equippedLabel = equippedLabel,
+    })
+
+    return Roact.createElement(RoundFrame, {
+        BackgroundTransparency = 0,
+        BorderSizePixel = 0,
+        Size = UDim2.new(0,56,0,56),
+    }, {
+        [itemId.."_icon"] = itemButton
     })
 end
 
