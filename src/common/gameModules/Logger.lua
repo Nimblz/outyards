@@ -29,24 +29,28 @@ local printFuncs = {
     end
 }
 
+local logger = {}
+
+function logger:log(msg, severity)
+    local module = self.module
+    severity = severity or logtype.OUTPUT
+    printFuncs[severity or logtype.OUTPUT](LOG_FORMAT_STRING:format(
+        tostring(module),
+        tostring(logtypeNames[severity]),
+        tostring(msg))
+    )
+end
+
 function Logger:create() -- constructor, fired on instantiation, core will be nil.
     self.logtype = logtype
 end
 
 function Logger:createLogger(module)
-    local logger = {}
-    logger.logtype = logtype
+    local newLogger = setmetatable({},{__index = logger})
+    newLogger.module = module
+    newLogger.logtype = logtype
 
-    function logger:log(msg,severity)
-        severity = severity or logtype.OUTPUT
-        printFuncs[severity or logtype.OUTPUT](LOG_FORMAT_STRING:format(
-            tostring(module),
-            tostring(logtypeNames[severity]),
-            tostring(msg))
-        )
-    end
-
-    return logger
+    return newLogger
 end
 
 return Logger
