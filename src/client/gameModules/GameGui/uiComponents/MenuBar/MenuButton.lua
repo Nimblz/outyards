@@ -64,7 +64,6 @@ function MenuButton:render()
             Size = UDim2.new(0,128,0,32),
             BorderSizePixel = 0,
             BackgroundColor3 = Color3.fromRGB(255,255,255),
-            BackgroundTransparency = 1,
         }, {
             text = Roact.createElement("TextLabel", {
                 Text = name,
