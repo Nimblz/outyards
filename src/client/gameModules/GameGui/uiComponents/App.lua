@@ -5,6 +5,7 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 
 local uiComponents = script.Parent
+local legacy = uiComponents:WaitForChild("legacy")
 local views = uiComponents:WaitForChild("views")
 
 local Roact = require(lib:WaitForChild("Roact"))
@@ -19,7 +20,10 @@ local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
 local MenuBar = require(uiComponents:WaitForChild("MenuBar"))
 local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 local NotificationContainer = require(uiComponents:WaitForChild("NotificationContainer"))
+local withScale = require(uiComponents:WaitForChild("withScale"))
 --local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
+
+local ProtoCrafting = require(legacy:WaitForChild("PrototypeCrafting"))
 
 function App:init()
 end
@@ -30,7 +34,7 @@ end
 function App:render()
     local elements = {
         inventory = Roact.createElement(Inventory),
-        crafting = Roact.createElement(Crafting),
+        crafting = Roact.createElement(ProtoCrafting),
         boosts = Roact.createElement(Boosts),
         codes = Roact.createElement(Codes),
         options = Roact.createElement(Options),
@@ -41,7 +45,7 @@ function App:render()
         -- toolbar = Roact.createElement(Toolbar)
     }
 
-    return Roact.createElement("ScreenGui",{
+    return Roact.createElement(withScale("ScreenGui"),{
         ResetOnSpawn = false,
         ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
     }, elements)
