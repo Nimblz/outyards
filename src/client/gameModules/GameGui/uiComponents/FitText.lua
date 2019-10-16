@@ -48,7 +48,7 @@ end
 function FitText:updateTextMeasurements()
 	local minSize = self.props.minSize or Vector2.new(0, 0)
 	local padding = self.props.padding or Vector2.new(0, 0)
-	local scale = self.props.scale or 1
+	local scale = self._context.getScale and self._context.getScale() or 1
 	local fitAxis = self.props.fitAxis or "XY"
 	local baseSize = self.props.Size
 
