@@ -15,6 +15,7 @@ return function(props)
         BackgroundColor3 = Dictionary.None,
         BorderSizePixel = Dictionary.None,
         color = Dictionary.None,
+        transparency = Dictionary.None,
     })
 
     elementProps.ImageColor3 = (
@@ -24,7 +25,12 @@ return function(props)
         Color3.new(1,1,1)
     )
 
-    elementProps.ImageTransparency = props.BackgroundTransparency
+    elementProps.ImageTransparency = (
+        props.transparency or
+        props.ImageTransparency or
+        props.BackgroundTransparency or
+        0
+    )
 
     return Roact.createElement("ImageLabel", Dictionary.join({
         BackgroundTransparency = 1,
