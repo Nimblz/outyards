@@ -74,9 +74,6 @@ local function withScale(component)
 
     function newScaled:render()
         local children = self.props[Roact.Children]
-        for k,v in pairs(children) do
-            print(k,v)
-        end
 
         local prunedProps = Dictionary.join(self.props, {
             [Roact.Children] = Dictionary.None,
