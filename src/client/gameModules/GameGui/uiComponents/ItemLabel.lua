@@ -64,12 +64,13 @@ function ItemLabel:render()
             Position = UDim2.new(1,0,1,0),
             BackgroundTransparency = 1,
             Text = quantity,
-            TextSize = 18,
+            TextSize = 22,
             TextColor3 = Color3.new(1,1,1),
             TextStrokeTransparency = 0,
             Font = Enum.Font.GothamBlack,
             TextXAlignment = Enum.TextXAlignment.Right,
             TextYAlignment = Enum.TextYAlignment.Bottom,
+            ZIndex = 3
         })
     end
 
@@ -95,7 +96,6 @@ function ItemLabel:render()
         Size = UDim2.new(0,spriteSheet.spriteSize.X * 3,0,spriteSheet.spriteSize.Y * 3),
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
-        LayoutOrder = layoutOrder,
         AnchorPoint = Vector2.new(0.5,0.5),
         Position = UDim2.new(0.5,0,0.5,0),
 
@@ -112,16 +112,17 @@ function ItemLabel:render()
         [Roact.Event.SelectionLost] = showTooltip and function() self.props.hideTooltip() end or nil,
         [Roact.Event.Activated] = activatable and function() eRequestEquip:FireServer(itemId) end or nil,
     }, {
-        quantityLabel = quantityLabel,
         equippedLabel = equippedLabel,
     })
 
     return Roact.createElement(RoundFrame, {
         BackgroundTransparency = 0,
         BorderSizePixel = 0,
-        Size = UDim2.new(0,56,0,56),
+        Size = UDim2.new(0,58,0,58),
+        LayoutOrder = layoutOrder,
     }, {
-        [itemId.."_icon"] = itemButton
+        [itemId.."_icon"] = itemButton,
+        quantityLabel = quantityLabel,
     })
 end
 
