@@ -5,12 +5,13 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
-local uiComponents = script.Parent
+local uiComponents = script.Parent.Parent
+local legacy = uiComponents:WaitForChild("legacy")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Selectors = require(common:WaitForChild("Selectors"))
-
+local Actions = require(common:WaitForChild("Actions"))
 local Items = require(common:WaitForChild("Items"))
 
 local ItemLabel = require(uiComponents:WaitForChild("ItemLabel"))
@@ -98,7 +99,7 @@ function CraftableLabel:render()
     }
 
     return Roact.createElement("ImageButton", {
-        Size = UDim2.new(1,0,0,64),
+        Size = UDim2.new(1,0,0,74),
         SizeConstraint = Enum.SizeConstraint.RelativeXX,
         BorderSizePixel = 0,
         BackgroundColor3 = isCraftable and Color3.new(0.9,0.9,0.9) or Color3.new(0.7,0.7,0.7),
@@ -107,6 +108,7 @@ function CraftableLabel:render()
         [Roact.Event.MouseButton1Click] = function()
             eRequestCraft:FireServer(itemId)
             eRequestEquip:FireServer(itemId)
+            self.props.hideTooltip()
         end
     }, children)
 end
@@ -117,6 +119,14 @@ local function mapStateToProps(state,props)
     }
 end
 
-CraftableLabel = RoactRodux.connect(mapStateToProps)(CraftableLabel)
+local function mapDispatchToProps(dispatch)
+    return {
+        hideTooltip = function()
+            dispatch(Actions.TOOLTIP_VISIBLE_SET(false))
+        end
+    }
+end
+
+CraftableLabel = RoactRodux.connect(mapStateToProps,mapDispatchToProps)(CraftableLabel)
 
 return CraftableLabel
