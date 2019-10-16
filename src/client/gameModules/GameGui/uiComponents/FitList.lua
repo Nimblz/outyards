@@ -8,6 +8,7 @@ local lib = ReplicatedStorage:WaitForChild("lib")
 local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
 
+local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
 local e = Roact.createElement
 
 local FitList = Roact.Component:extend("FitList")
@@ -18,7 +19,6 @@ end
 
 function FitList:render()
 	local containerKind = self.props.containerKind or "Frame"
-	local scale = self.props.scale or 1
 	local fitAxes = self.props.fitAxes or "XY"
 	local containerProps = self.props.containerProps
 	local layoutProps = self.props.layoutProps
@@ -39,7 +39,9 @@ function FitList:render()
 		["$Layout"] = e("UIListLayout", Dictionary.merge({
 			SortOrder = Enum.SortOrder.LayoutOrder,
 			[Roact.Change.AbsoluteContentSize] = function(instance)
+				local scale = getAppliedScale(instance)
 				local contentSize = instance.AbsoluteContentSize / scale
+				print(instance:GetFullName(), contentSize)
 
 				if paddingProps ~= nil then
 					contentSize = contentSize + Vector2.new(
