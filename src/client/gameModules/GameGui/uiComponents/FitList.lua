@@ -41,7 +41,6 @@ function FitList:render()
 			[Roact.Change.AbsoluteContentSize] = function(instance)
 				local scale = getAppliedScale(instance)
 				local contentSize = instance.AbsoluteContentSize / scale
-				print(instance:GetFullName(), contentSize)
 
 				if paddingProps ~= nil then
 					contentSize = contentSize + Vector2.new(
