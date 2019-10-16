@@ -140,13 +140,7 @@ function InputHandler:getActionSignal(name)
 end
 
 function InputHandler:fireActionSignal(name, input)
-    local signalRoot = self.actionSignals[name]
-    assert(signalRoot, errors.invalidActionError:format(name))
-    for _,signalName in ipairs(stateMap[input.UserInputState]) do
-        local signal = signalRoot[signalName]
-        assert(signal, errors.invalidActionError:format(name))
-        signal:fire(input)
-    end
+    self:fireActionState(name, input.UserInputState, input)
 
     if INPUT_DEBUG_PRINTS then
         self.logger:log(("Action [%s] fired!"):format(name))
@@ -158,6 +152,22 @@ function InputHandler:fireActionSignal(name, input)
             "---- Type - State: "..tostring(input.UserInputType).." - "..tostring(input.UserInputState).."\n"
         )
     end
+end
+
+function InputHandler:fireActionState(name, inputState, input)
+    local signalRoot = self.actionSignals[name]
+    assert(signalRoot, errors.invalidActionError:format(name))
+
+    for _,signalName in ipairs(stateMap[inputState]) do
+        local signal = signalRoot[signalName]
+        assert(signal, errors.invalidActionError:format(name))
+        signal:fire(input)
+    end
+end
+
+function InputHandler:simulateActivation(name)
+    self:fireActionState(name, Enum.UserInputState.Begin)
+    self:fireActionState(name, Enum.UserInputState.End)
 end
 
 
