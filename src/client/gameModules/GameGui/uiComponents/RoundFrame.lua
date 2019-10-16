@@ -11,6 +11,9 @@ local Dictionary = require(util:WaitForChild("Dictionary"))
 
 return function(props)
     local elementProps = Dictionary.join(props, {
+        BackgroundTransparency = Dictionary.None,
+        BackgroundColor3 = Dictionary.None,
+        BorderSizePixel = Dictionary.None,
         color = Dictionary.None,
     })
 
@@ -20,6 +23,8 @@ return function(props)
         props.BackgroundColor3 or
         Color3.new(1,1,1)
     )
+
+    elementProps.ImageTransparency = props.BackgroundTransparency
 
     return Roact.createElement("ImageLabel", Dictionary.join({
         BackgroundTransparency = 1,
