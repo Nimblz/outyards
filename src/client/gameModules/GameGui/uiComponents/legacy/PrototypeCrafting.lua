@@ -6,33 +6,22 @@ local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 local crafting = common:WaitForChild("crafting")
-local uiComponents = script.Parent
+local component = script.Parent.Parent
+local legacy = component:WaitForChild("legacy")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Selectors = require(common:WaitForChild("Selectors"))
 local Items = require(common:WaitForChild("Items"))
 
-local CraftableLabel = require(uiComponents:WaitForChild("CraftableLabel"))
-local SliceButton = require(uiComponents:WaitForChild("SliceButton"))
+local CraftableLabel = require(legacy:WaitForChild("CraftableLabel"))
+local RoundTextLabel = require(component:WaitForChild("RoundTextLabel"))
 local PrototypeCrafting = Roact.Component:extend("PrototypeCrafting")
 
 local getCraftable = require(crafting:WaitForChild("getCraftable"))
 local canCraft = require(crafting:WaitForChild("canCraft"))
 
 local PADDING = 8
-
-function PrototypeCrafting:init()
-    self:setState({
-        visible = false
-    })
-end
-
-function PrototypeCrafting:toggle()
-    self:setState({
-        visible = not self.state.visible
-    })
-end
 
 function PrototypeCrafting:render()
 
@@ -79,34 +68,29 @@ function PrototypeCrafting:render()
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
 
-    local titleFrame = Roact.createElement(SliceButton, {
+    local titleFrame = Roact.createElement(RoundTextLabel, {
         Size = UDim2.new(1,0,0,48),
         AnchorPoint = Vector2.new(0,1),
-        Position = self.state.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),
+        Position = self.props.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),
         BorderSizePixel = 0,
         BackgroundColor3 = Color3.new(1,1,1),
-        [Roact.Event.Activated] = function() self:toggle() end
-    }, {
-        Roact.createElement("TextLabel", {
-            BackgroundTransparency = 1,
-            Size = UDim2.new(1,0,1,0),
-            Text = "Crafting",
-            Font = Enum.Font.GothamBlack,
-            TextColor3 = Color3.new(1,1,1),
-            TextStrokeTransparency = 0,
-            TextSize = 32,
-        })
+        Text = "Crafting",
+        Font = Enum.Font.GothamBlack,
+        TextColor3 = Color3.new(1,1,1),
+        TextStrokeTransparency = 0,
+        TextSize = 32,
     })
 
     return Roact.createElement("Frame", {
         Size = UDim2.new(0,400,0,400),
-        AnchorPoint = Vector2.new(0,1),
-        Position = UDim2.new(0,0,1,0),
+        AnchorPoint = Vector2.new(0.5,0.5),
+        Position = UDim2.new(0.5,0,0.5,0),
 
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
+        Visible = self.props.visible
     }, {
-        scrollFrame = self.state.visible and scrollFrame,
+        scrollFrame = scrollFrame,
         titleFrame = titleFrame,
     })
 end
