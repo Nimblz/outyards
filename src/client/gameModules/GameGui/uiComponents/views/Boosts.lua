@@ -12,6 +12,8 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local RoundFrame = require(components:WaitForChild("RoundFrame"))
 local Boosts = Roact.Component:extend("Boosts")
 
+local makeView = require(script.Parent:WaitForChild("makeView"))
+
 function Boosts:init()
 end
 
@@ -38,12 +40,6 @@ function Boosts:render()
     })
 end
 
-local function mapStateToProps(state,props)
-    return {
-        visible = Selectors.getBoostsVisible(state)
-    }
-end
-
-Boosts = RoactRodux.connect(mapStateToProps)(Boosts)
+Boosts = makeView(Boosts, "boosts")
 
 return Boosts

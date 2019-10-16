@@ -12,6 +12,8 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local RoundFrame = require(components:WaitForChild("RoundFrame"))
 local Crafting = Roact.Component:extend("Crafting")
 
+local makeView = require(script.Parent:WaitForChild("makeView"))
+
 function Crafting:init()
 end
 
@@ -38,12 +40,6 @@ function Crafting:render()
     })
 end
 
-local function mapStateToProps(state,props)
-    return {
-        visible = Selectors.getCraftingVisible(state)
-    }
-end
-
-Crafting = RoactRodux.connect(mapStateToProps)(Crafting)
+Crafting = makeView(Crafting, "crafting")
 
 return Crafting
