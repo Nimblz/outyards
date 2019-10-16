@@ -12,6 +12,8 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local RoundFrame = require(components:WaitForChild("RoundFrame"))
 local Options = Roact.Component:extend("Options")
 
+local makeView = require(script.Parent:WaitForChild("makeView"))
+
 function Options:init()
 end
 
@@ -38,12 +40,6 @@ function Options:render()
     })
 end
 
-local function mapStateToProps(state,props)
-    return {
-        visible = Selectors.getOptionsVisible(state)
-    }
-end
-
-Options = RoactRodux.connect(mapStateToProps)(Options)
+Options = makeView(Options, "options")
 
 return Options
