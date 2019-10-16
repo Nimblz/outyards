@@ -94,6 +94,51 @@ return function()
                     type = Enum.UserInputType.MouseMovement
                 }
             }
-        }
+        },
+
+        openInventory = {
+            inputs = {
+                {
+                    type = Enum.UserInputType.Keyboard,
+                    keyCode = Enum.KeyCode.N,
+                }
+            }
+        },
+
+        openCrafting = {
+            inputs = {
+                {
+                    type = Enum.UserInputType.Keyboard,
+                    keyCode = Enum.KeyCode.M,
+                }
+            }
+        },
+
+        -- openBoosts = {
+        --     inputs = {
+        --         {
+        --             type = Enum.UserInputType.Keyboard,
+        --             keyCode = Enum.KeyCode.Comma,
+        --         }
+        --     }
+        -- },
+
+        -- openOptions = {
+        --     inputs = {
+        --         {
+        --             type = Enum.UserInputType.Keyboard,
+        --             keyCode = Enum.KeyCode.Period,
+        --         }
+        --     }
+        -- },
+
+        cancel = {
+            inputs = {
+                {
+                    type = Enum.UserInputType.Gamepad1,
+                    keyCode = Enum.KeyCode.ButtonB,
+                }
+            }
+        },
     }
 end
