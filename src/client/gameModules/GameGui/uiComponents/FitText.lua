@@ -48,7 +48,6 @@ end
 function FitText:updateTextMeasurements()
 	local minSize = self.props.minSize or Vector2.new(0, 0)
 	local padding = self.props.padding or Vector2.new(0, 0)
-	local scale = self._context.getScale and self._context.getScale() or 1
 	local fitAxis = self.props.fitAxis or "XY"
 	local baseSize = self.props.Size
 
@@ -68,7 +67,7 @@ function FitText:updateTextMeasurements()
 		textBounds = Vector2.new(containerSize.X - padding.X * 2, 9e6)
 	end
 
-	local measuredText = TextService:GetTextSize(text, textSize, font, textBounds) / scale
+	local measuredText = TextService:GetTextSize(text, textSize, font, textBounds)
 
 	local computedX = math.max(minSize.X, padding.X * 2 + measuredText.X)
 	local computedY = math.max(minSize.Y, padding.Y * 2 + measuredText.Y)
