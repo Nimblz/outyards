@@ -120,6 +120,8 @@ function ItemLabel:render()
         BorderSizePixel = 0,
         Size = UDim2.new(0,58,0,58),
         LayoutOrder = layoutOrder,
+        AnchorPoint = Vector2.new(0.5, 0.5),
+        Position = UDim2.new(0.5,0,0.5,0),
     }, {
         [itemId.."_icon"] = itemButton,
         quantityLabel = quantityLabel,
