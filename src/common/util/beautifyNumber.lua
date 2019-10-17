@@ -30,7 +30,7 @@ local localeSuffixes = {
     en_us = magnitudes_en_us,
 }
 
-return function(inNumber, dontTruncate, locale)
+return function(inNumber, dontTruncate, locale, suffixWidth)
     dontTruncate = dontTruncate or false
     locale = locale or "en_us"
     assert(typeof(inNumber) == "number")
@@ -45,7 +45,7 @@ return function(inNumber, dontTruncate, locale)
     if not suffix then return tostring(inNumber) end
 
     local fraction = inNumber/(10^(math.floor(magnitude/magnitudeWidth)*magnitudeWidth))
-    local formattedNumber = ("%."..magnitudeWidth.."f"):format(fraction)
+    local formattedNumber = ("%."..(suffixWidth or magnitudeWidth).."f"):format(fraction)
     if not dontTruncate then
         formattedNumber = string.gsub(formattedNumber, "0+$", "")
         formattedNumber = string.gsub(formattedNumber, "%.+$", "")
