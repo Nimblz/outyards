@@ -64,10 +64,10 @@ function ItemLabel:render()
         quantityLabel = Roact.createElement("TextLabel", {
             Size = UDim2.new(0,24,0,24),
             AnchorPoint = Vector2.new(1,1),
-            Position = UDim2.new(1,0,1,0),
+            Position = UDim2.new(1,-4,1,-4),
             BackgroundTransparency = 1,
-            Text = beautifyNumber(quantity),
-            TextSize = 22,
+            Text = beautifyNumber(quantity,nil,nil,1),
+            TextSize = 16,
             TextColor3 = Color3.new(1,1,1),
             TextStrokeTransparency = 0,
             Font = Enum.Font.GothamBlack,
