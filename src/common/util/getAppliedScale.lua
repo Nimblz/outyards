@@ -1,6 +1,7 @@
 -- searches for all scale objects that could be affecting passed instance
 local function getChildrenOfClass(instance, className)
 	local result = {}
+	if instance == game then return result end
 	for _, child in pairs(instance:GetChildren()) do
 		if child:IsA(className) then
 			table.insert(result, child)
@@ -16,7 +17,7 @@ local function getAppliedScale(instance)
 	while true do
         currentPosition = currentPosition.Parent
 
-		local scales = getChildrenOfClass(instance, "UIScale")
+		local scales = getChildrenOfClass(currentPosition, "UIScale")
 		for _, scaleInstance in pairs(scales) do
 			finalScale = finalScale * scaleInstance.Scale
         end
