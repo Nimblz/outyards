@@ -3,8 +3,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 
 local Items = require(common:WaitForChild("Items"))
-local Selectors = require(common:WaitForChild("Selectors"))
 
+local selectors = script:FindFirstAncestor("Selectors")
+local inventory = selectors:WaitForChild("inventory")
+
+local getItem = require(inventory:WaitForChild("getItem"))
 local hasAnIngredient = require(script.Parent:WaitForChild("hasAnIngredient"))
 
 local function getItemsWithIngredientOwned(state,player)
@@ -12,7 +15,7 @@ local function getItemsWithIngredientOwned(state,player)
 
     for id, item in pairs(Items.byId) do
         if item.recipe then
-            local hasOne = Selectors.getItem(state, player, id) >= 1
+            local hasOne = getItem(state, player, id) >= 1
             local shouldShow = not (item.onlyOne and hasOne)
             if hasAnIngredient(state,player,id) and shouldShow then
                 hasAnIngredientItems[id] = true

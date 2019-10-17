@@ -5,7 +5,6 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
-local crafting = common:WaitForChild("crafting")
 local component = script.Parent.Parent
 local legacy = component:WaitForChild("legacy")
 
@@ -17,9 +16,6 @@ local Items = require(common:WaitForChild("Items"))
 local CraftableLabel = require(legacy:WaitForChild("CraftableLabel"))
 local RoundTextLabel = require(component:WaitForChild("RoundTextLabel"))
 local PrototypeCrafting = Roact.Component:extend("PrototypeCrafting")
-
-local getCraftable = require(crafting:WaitForChild("getCraftable"))
-local canCraft = require(crafting:WaitForChild("canCraft"))
 
 local PADDING = 8
 
@@ -42,7 +38,7 @@ function PrototypeCrafting:render()
         local itemSortOrder = item.sortOrder
         local newCraftableLabel = Roact.createElement(CraftableLabel, {
             itemId = id,
-            isCraftable = canCraft(self.props.state, LocalPlayer, id),
+            isCraftable = Selectors.canCraft(self.props.state, LocalPlayer, id),
             layoutOrder = itemSortOrder
         })
 
@@ -97,7 +93,7 @@ end
 
 local function mapStateToProps(state,props)
     return {
-        ingredientsOwned = getCraftable(state,LocalPlayer),
+        ingredientsOwned = Selectors.getCraftable(state,LocalPlayer),
         state = state,
         visible = Selectors.getCraftingVisible(state)
     }
