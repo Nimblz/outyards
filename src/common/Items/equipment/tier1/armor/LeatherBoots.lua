@@ -1,11 +1,11 @@
 -- +defense
 
 return {
-    id = "leatherArmor",
-    name = "Leather Armor",
-    equipmentType = "armor",
+    id = "leatherBoots",
+    name = "Leather Boots",
+    equipmentType = "boots",
     spriteSheet = "armor",
-    spriteCoords = Vector2.new(1,1),
+    spriteCoords = Vector2.new(1,2),
     tier = 1,
     onlyOne = true,
     recipe = {
@@ -14,6 +14,7 @@ return {
     },
 
     stats = {
-        defense = 25,
+        defense = 10,
+        moveSpeed = 5,
     }
 }

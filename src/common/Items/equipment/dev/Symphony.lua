@@ -11,6 +11,11 @@ return {
     spriteSheet = "weapon",
     spriteCoords = Vector2.new(4,1),
 
+    onlyOne = true,
+    recipe = {
+        wood = 1,
+    },
+
     stats = {
         baseDamage = 100,
     },
