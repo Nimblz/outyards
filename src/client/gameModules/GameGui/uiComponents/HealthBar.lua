@@ -6,10 +6,13 @@ local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 local component = script:FindFirstAncestor("uiComponents")
+local util = common:WaitForChild("util")
 
 local Selectors = require(common:WaitForChild("Selectors"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
+
+local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
 
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local HealthBar = Roact.Component:extend("HealthBar")
@@ -77,7 +80,7 @@ function HealthBar:render()
     })
 
     children.healthText = Roact.createElement("TextLabel", {
-        Text = "   "..tostring(math.floor(self.state.health)).." / "..tostring(self.state.maxHealth),
+        Text = "   "..beautifyNumber(math.floor(self.state.health)).." / "..beautifyNumber(self.state.maxHealth),
         Size = UDim2.new(1,0,1,0),
         BackgroundTransparency = 1,
         TextColor3 = Color3.new(0,0,0),
