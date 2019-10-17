@@ -14,7 +14,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Items = require(common:WaitForChild("Items"))
 
 local CraftableLabel = require(legacy:WaitForChild("CraftableLabel"))
-local RoundTextLabel = require(component:WaitForChild("RoundTextLabel"))
+local RoundTextElement = require(component:WaitForChild("RoundTextElement"))
 local PrototypeCrafting = Roact.Component:extend("PrototypeCrafting")
 
 local PADDING = 8
@@ -64,7 +64,7 @@ function PrototypeCrafting:render()
         VerticalScrollBarInset = Enum.ScrollBarInset.Always,
     }, children)
 
-    local titleFrame = Roact.createElement(RoundTextLabel, {
+    local titleFrame = Roact.createElement(RoundTextElement, {
         Size = UDim2.new(1,0,0,48),
         AnchorPoint = Vector2.new(0,1),
         Position = self.props.visible and UDim2.new(0,0,0,0) or UDim2.new(0,0,1,0),

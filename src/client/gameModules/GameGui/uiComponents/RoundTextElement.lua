@@ -10,13 +10,18 @@ local Roact = require(lib:WaitForChild("Roact"))
 local Dictionary = require(util:WaitForChild("Dictionary"))
 
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local RoundButton = require(component:WaitForChild("RoundButton"))
 
 return function(props)
+    local kind = props.kind or "TextLabel"
+    local isButton = kind:sub((#kind)-(#"Button")+1) == "Button"
+    local roundKind = isButton and RoundButton or RoundFrame
 
     -- make props without component properties
     local elementProps = Dictionary.join(props, {
-        color = nil,
-        transparency = nil,
+        kind = Dictionary.None,
+        color = Dictionary.None,
+        transparency = Dictionary.None,
 
         [Roact.Children] = Dictionary.None,
     })
@@ -39,6 +44,9 @@ return function(props)
         TextWrapped = Dictionary.None,
         TextXAlignment = Dictionary.None,
         TextYAlignment = Dictionary.None,
+
+        color = props.color,
+        transparency = props.transparency,
     })
 
     -- make props without any image properties
@@ -61,7 +69,7 @@ return function(props)
         BorderSizePixel = 0,
     })
 
-    return Roact.createElement(RoundFrame, roundFrameProps, {
-        Roact.createElement("TextLabel", textProps, props[Roact.Children])
+    return Roact.createElement(roundKind, roundFrameProps, {
+        Roact.createElement(kind, textProps, props[Roact.Children])
     })
 end
