@@ -5,7 +5,7 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
-local components = script:FindFirstAncestor("uiComponents")
+local component = script:FindFirstAncestor("uiComponents")
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
 
@@ -14,10 +14,11 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
-local RoundFrame = require(components:WaitForChild("RoundFrame"))
-local FitList = require(components:WaitForChild("FitList"))
-local FitText = require(components:WaitForChild("FitText"))
-local ItemLabel = require(components:WaitForChild("ItemLabel"))
+local RoundTextElement = require(component:WaitForChild("RoundTextElement"))
+local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local FitList = require(component:WaitForChild("FitList"))
+local FitText = require(component:WaitForChild("FitText"))
+local ItemLabel = require(component:WaitForChild("ItemLabel"))
 local Inventory = Roact.Component:extend("Inventory")
 
 local makeView = require(script.Parent:WaitForChild("makeView"))
@@ -40,16 +41,23 @@ function Inventory:render()
                 itemId = id,
                 quantity = quantity,
                 activatable = true,
-                layoutOrder = itemSortOrder
+                AnchorPoint = Vector2.new(0.5, 0.5),
+                Position = UDim2.new(0.5,0,0.5,0),
             })
 
-            inventoryItems[id] = newItemLabel
+            local itemFrame = Roact.createElement("Frame", {
+                BackgroundTransparency = 1,
+                Size = UDim2.new(0,64,0,64),
+                LayoutOrder = itemSortOrder,
+            }, {item = newItemLabel})
+
+            inventoryItems[id] = itemFrame
         end
     end
 
     inventoryItems.layout = Roact.createElement("UIGridLayout", {
         CellPadding = UDim2.new(0,0,0,0),
-        CellSize = UDim2.new(0,56,0,56),
+        CellSize = UDim2.new(0,64,0,64),
     })
 
     return Roact.createElement(FitList, {
@@ -87,26 +95,26 @@ function Inventory:render()
                 LayoutOrder = 2,
             },
             paddingProps = {
-                PaddingLeft = UDim.new(0,16),
+                PaddingLeft = UDim.new(0,8),
             },
             layoutProps = {
-                Padding = UDim.new(0,16),
+                Padding = UDim.new(0,8),
                 FillDirection = Enum.FillDirection.Horizontal,
             }
         }, {
             searchLabel = Roact.createElement(FitText, {
                 scale = 1,
-                Text = "Search",
+                Text = "🔎",
                 Font = Enum.Font.GothamBlack,
                 minSize = Vector2.new(0,32),
-                TextSize = 16,
+                TextSize = 24,
                 BackgroundTransparency = 1,
                 TextXAlignment = Enum.TextXAlignment.Left,
                 LayoutOrder = 1,
             }),
             searchContainer = Roact.createElement(RoundFrame, {
                 color = Color3.fromRGB(216, 216, 216),
-                Size = UDim2.new(0,300,1,0),
+                Size = UDim2.new(0,256,1,0),
                 LayoutOrder = 2,
             }, {
                 padding = Roact.createElement("UIPadding", {
@@ -118,8 +126,28 @@ function Inventory:render()
                     Font = Enum.Font.Gotham,
                     TextXAlignment = Enum.TextXAlignment.Left,
                     TextSize = 18,
+                    Text = "",
+                    PlaceholderText = "Search",
                 })
-            })
+            }),
+            nextButton = Roact.createElement(RoundTextElement, {
+                kind = "TextButton",
+                Size = UDim2.new(0,72,0,32),
+                Text = "Next",
+                Font = Enum.Font.GothamSemibold,
+                TextSize = 18,
+                LayoutOrder = 3,
+                color = Color3.fromRGB(216, 216, 216)
+            }),
+            prevButton = Roact.createElement(RoundTextElement, {
+                kind = "TextButton",
+                Size = UDim2.new(0,72,0,32),
+                Text = "Prev",
+                Font = Enum.Font.GothamSemibold,
+                TextSize = 18,
+                LayoutOrder = 4,
+                color = Color3.fromRGB(216, 216, 216)
+            }),
         }),
         body = Roact.createElement(FitList, {
             scale = 1,
@@ -142,23 +170,16 @@ function Inventory:render()
                     PaddingLeft = UDim.new(0,16),
                     PaddingRight = UDim.new(0,16),
                 }),
-                scrollFrame = Roact.createElement("ScrollingFrame", {
+                scrollFrame = Roact.createElement("Frame", {
                     Size = UDim2.new(1,0,1,0),
                     BackgroundTransparency = 1,
                     BorderSizePixel = 0,
                     Selectable = false,
-
-                    ScrollBarThickness = 16,
-                    TopImage = "rbxassetid://1539341292",
-                    MidImage = "rbxassetid://1539341292",
-                    BottomImage = "rbxassetid://1539341292",
-                    CanvasSize = UDim2.new(0,0,1,-32),
-                    VerticalScrollBarInset = Enum.ScrollBarInset.Always,
                 }, inventoryItems)
             }),
             itemFocus = Roact.createElement(RoundFrame, {
                 color = Color3.fromRGB(216, 216, 216),
-                Size = UDim2.new(0,250,1,0)
+                Size = UDim2.new(0,250,0,450)
             }),
         })
     })
