@@ -27,8 +27,15 @@ function ProjectileMotionSystem:removeBullet(instance)
     self.core:removeComponent(instance,RecsComponents.Projectile)
     coroutine.wrap(function()
         instance.Material = Enum.Material.Air
+        instance.Transparency = 1
         for _, child in pairs(instance:GetDescendants()) do
             if child:IsA("ParticleEmitter") then
+                child.Enabled = false
+            end
+            if child:IsA("Fire") then
+                child.Enabled = false
+            end
+            if child:IsA("Sparkles") then
                 child.Enabled = false
             end
         end
