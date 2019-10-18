@@ -6,6 +6,7 @@ local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 local components = script:FindFirstAncestor("uiComponents")
+local util = common:WaitForChild("util")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
@@ -13,6 +14,8 @@ local Items = require(common:WaitForChild("Items"))
 local Sprites = require(common:WaitForChild("Sprites"))
 local Actions = require(common:WaitForChild("Actions"))
 local Selectors = require(common:WaitForChild("Selectors"))
+
+local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
 
@@ -61,10 +64,10 @@ function ItemLabel:render()
         quantityLabel = Roact.createElement("TextLabel", {
             Size = UDim2.new(0,24,0,24),
             AnchorPoint = Vector2.new(1,1),
-            Position = UDim2.new(1,0,1,0),
+            Position = UDim2.new(1,-4,1,-4),
             BackgroundTransparency = 1,
-            Text = quantity,
-            TextSize = 22,
+            Text = beautifyNumber(quantity,nil,nil,1),
+            TextSize = 16,
             TextColor3 = Color3.new(1,1,1),
             TextStrokeTransparency = 0,
             Font = Enum.Font.GothamBlack,
