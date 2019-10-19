@@ -47,8 +47,14 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         damagedBy:updateProperty("players", Dictionary.join({[player.Name] = true}, damagedBy.players))
         actorStats:updateProperty("health", actorStats.health - playerDamage)
 
-        instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
-        instance.Velocity = instance.Velocity + knockbackDirection * 50
+        if not self.knockingBack[instance] then
+            self.knockingBack[instance] = true
+            instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
+            instance.Velocity = instance.Velocity + knockbackDirection * 50
+            delay(1/4, function()
+                self.knockingBack[instance] = false
+            end)
+        end
     end)
 end
 
@@ -60,6 +66,7 @@ function ActorDamageHandler:onStore(store)
 end
 
 function ActorDamageHandler:init()
+    self.knockingBack = {}
     local storeContainer = self.core:getModule("StoreContainer")
     storeContainer:getStore():andThen(function(store) self:onStore(store) end)
 end

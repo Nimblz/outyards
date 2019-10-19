@@ -23,6 +23,8 @@ local boostsVisible = require(script:WaitForChild("boostsVisible"))
 local codesVisible = require(script:WaitForChild("codesVisible"))
 local optionsVisible = require(script:WaitForChild("optionsVisible"))
 local notifications = require(script:WaitForChild("notifications"))
+local inventoryPage = require(script:WaitForChild("inventoryPage"))
+local inventoryCatagory = require(script:WaitForChild("inventoryCatagory"))
 
 return function(state, action)
     state = state or {}
@@ -43,6 +45,9 @@ return function(state, action)
         navbarVisible = navbarVisible(state.navbarVisible, action),
         toolbarVisible = toolbarVisible(state.toolbarVisible, action),
         healthbarVisible = healthbarVisible(state.healthbarVisible, action),
+
+        inventoryPage = inventoryPage(state.inventoryPage, action),
+        inventoryCatagory = inventoryCatagory(state.inventoryCatagory, action),
 
         notifications = notifications(state.notifications, action),
     })

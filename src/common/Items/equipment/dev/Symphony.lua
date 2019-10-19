@@ -9,20 +9,16 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(4,1),
-
-    onlyOne = true,
-    recipe = {
-        wood = 1,
-    },
+    spriteCoords = Vector2.new(3,10),
 
     stats = {
-        baseDamage = 100,
+        baseDamage = 75,
+        defense = 200,
     },
 
     metadata = {
         fireRate = 3,
-        attackRange = 18,
+        attackRange = 12,
         attackArc = 180, -- in degrees
     }
 }

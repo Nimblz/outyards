@@ -14,6 +14,11 @@ return {
     gravityScale = 1/3,
 
     onFire = function(entity, component, pzCore)
+
+        if component.metadata then
+            entity.Color = component.metadata.color or entity.Color
+        end
+
         ParticleCreator.spawnParticle("spark", {
             cFrame = entity.CFrame,
             scale = 0.3,

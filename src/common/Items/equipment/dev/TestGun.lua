@@ -9,10 +9,6 @@ return {
     spriteSheet = "weapon",
     spriteCoords = Vector2.new(3,8),
     tier = 99,
-    onlyOne = true,
-    recipe = {
-        wood = 1,
-    },
 
     stats = {
         baseDamage = 50,

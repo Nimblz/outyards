@@ -1,13 +1,13 @@
 return {
-    id = "superrocketlauncher",
-    name = "Super Rocket",
+    id = "shotgun",
+    name = "Shotgun",
 
     equipmentType = "weapon",
     behaviorType = "gun",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(3,13),
+    spriteCoords = Vector2.new(2,7),
     tier = 99,
     onlyOne = true,
     recipe = {
@@ -15,13 +15,13 @@ return {
     },
 
     stats = {
-        baseDamage = 99,
+        baseDamage = 80,
     },
 
     metadata = {
-        fireRate = 3,
-        projectileType = "rocket",
-        projectileCount = 3,
-        projectileDeviation = 6,
+        fireRate = 3/2,
+        projectileType = "bullet",
+        projectileCount = 8,
+        projectileDeviation = 5,
     }
 }

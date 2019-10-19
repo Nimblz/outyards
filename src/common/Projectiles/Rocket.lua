@@ -10,8 +10,8 @@ local eAttackActor = event:WaitForChild("eAttackActor")
 
 return {
     id = "rocket",
-    speed = 80,
-    gravityScale = 0,
+    speed = 120,
+    gravityScale = 0.05,
 
     onFire = function(entity, component, pzCore)
         ParticleCreator.spawnParticle("spark", {
@@ -26,13 +26,13 @@ return {
 
         ParticleCreator.spawnParticle("circle", {
             cFrame = entity.CFrame,
-            scale = 2,
+            scale = 4,
             amount = 1
         })
 
         ParticleCreator.spawnParticle("ring", {
             cFrame = entity.CFrame,
-            scale = 2.5,
+            scale = 8,
             amount = 1
         })
             -- find npcs

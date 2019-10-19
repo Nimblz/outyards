@@ -60,9 +60,13 @@ return function(entity, recs, pz)
                 local target = props.target
                 local targetRoot = target.PrimaryPart
                 local selfPosXZ = entity.Position * Vector3.new(1,0,1)
+                local homePosXZ = props.homePos * Vector3.new(1,0,1)
+                local tooFarFromHome = not pointsCloserThan(selfPosXZ,homePosXZ,actorStats.aggroRadius * 3)
                 local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
                 local targetMoveDir = (targetPosXZ-selfPosXZ).unit
                 local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
+
+                if tooFarFromHome then return "goHome" end
 
                 if closeEnoughToAttack then
                     driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
@@ -171,6 +175,11 @@ return function(entity, recs, pz)
 
                 local character = findCharacterNear(entity, actorStats.aggroRadius)
                 if character then
+                    local root = character:FindFirstChild("HumanoidRootPart")
+                    if not root then return end
+                    local rootPosXZ = root.Position * Vector3.new(1,0,1)
+                    local tooFarFromHome = not pointsCloserThan(rootPosXZ,homePosXZ,actorStats.aggroRadius * 3)
+                    if tooFarFromHome then return end
                     local humanoid = character:FindFirstChild("Humanoid")
                     if not humanoid then return end
                     if humanoid.Health <= 0 then return end

@@ -5,7 +5,7 @@ local util = common:WaitForChild("util")
 
 local by = require(util:WaitForChild("by"))
 
-local catagories = {
+local equippables = {
     {
         id = "weapon",
     },
@@ -24,6 +24,6 @@ local catagories = {
 }
 
 return {
-    all = catagories,
-    byId = by("id", catagories),
+    all = equippables,
+    byId = by("id", equippables),
 }

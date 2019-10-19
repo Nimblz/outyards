@@ -10,6 +10,7 @@ return {
             },
             ItemDrops = {
                 items = {
+                    {itemId = "testgun", dropRange = {min = 1, max = 1}, dropRate = 1},
                 },
                 cash = 2000,
             }
