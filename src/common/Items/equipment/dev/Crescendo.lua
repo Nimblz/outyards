@@ -9,7 +9,7 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(6,1),
+    spriteCoords = Vector2.new(2,10),
 
     onlyOne = true,
     recipe = {
@@ -17,8 +17,9 @@ return {
     },
 
     stats = {
-        baseDamage = 500,
-        moveSpeed = 50,
+        baseDamage = 100,
+        moveSpeed = 10,
+        defense = -10,
     },
 
     metadata = {

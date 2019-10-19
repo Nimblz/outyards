@@ -55,6 +55,10 @@ end
 function behavior:shootBullet(origin,directionGoal)
     local item = self.item
     local metadata = item.metadata
+    local projectileMetadata
+    if metadata then
+        projectileMetadata = metadata.projectileMetadata
+    end
 
     local projectileType = metadata.projectileType
     local deviation = metadata.projectileDeviation or 0
@@ -67,7 +71,7 @@ function behavior:shootBullet(origin,directionGoal)
     )
     local direction = directionCF.LookVector
 
-    self.projectileCreator:fireProjectile(self.player, projectileType, origin.p, direction)
+    self.projectileCreator:fireProjectile(self.player, projectileType, origin.p, direction, projectileMetadata)
 end
 
 function behavior:doAttack()

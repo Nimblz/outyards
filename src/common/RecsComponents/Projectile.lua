@@ -19,6 +19,7 @@ return RECS.defineComponent({
             owner = props.owner, -- player who owns this projectile, nil if server owned
             owned = props.owner == LocalPlayer,
             damagesPlayers = false, -- does this projectile damage players? server created projectiles often will
+            metadata = props.metadata or {},
         }
     end,
 })

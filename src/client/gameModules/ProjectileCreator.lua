@@ -12,7 +12,7 @@ local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local ProjectileCreator = PizzaAlpaca.GameModule:extend("ProjectileCreator")
 
-function ProjectileCreator:fireProjectile(owner, id, origin, direction)
+function ProjectileCreator:fireProjectile(owner, id, origin, direction, metadata)
     if not self.recsCore then return end
     local model = Projectiles.getModelForId(id)
     local projectile = Projectiles.byId[id]
@@ -32,6 +32,7 @@ function ProjectileCreator:fireProjectile(owner, id, origin, direction)
         gravityScale = projectile.gravityScale,
         owner = owner,
         fireTime = tick(),
+        metadata = metadata
     })
 end
 
