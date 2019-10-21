@@ -37,7 +37,9 @@ function renderer:create()
 end
 
 function renderer:destroy()
-    self.model:destroy()
+    if self.model then
+        self.model:destroy()
+    end
 end
 
 return renderer
