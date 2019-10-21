@@ -9,9 +9,9 @@ local Actions = require(common:WaitForChild("Actions"))
 local statActions = {
     baseDamage = "BASEDAMAGE_SET",
     attackRate = "ATTACKRATE_SET",
-    attackRange = "ATTACKRANGE_SET",
     defense = "DEFENSE_SET",
     moveSpeed = "MOVESPEED_SET",
+    autoAttack = "AUTOATTACK_SET",
     autoAttack = "AUTOATTACK_SET",
 }
 
@@ -46,7 +46,7 @@ return function(player)
         local stats = Selectors.getStats(state,player)
         -- for each piece of equipment apply stats
 
-        stats = applyStats(stats, equipment.head)
+        stats = applyStats(stats, equipment.hat)
         stats = applyStats(stats, equipment.armor)
         stats = applyStats(stats, equipment.feet)
         stats = applyStats(stats, equipment.trinket)
