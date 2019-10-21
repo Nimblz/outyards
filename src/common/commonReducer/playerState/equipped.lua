@@ -30,7 +30,11 @@ return function(state,action)
     if action.type == "EQUIPMENT_UNEQUIP" then
         -- get equipment type
         -- set slot to nil
-        return state
+        local item = Items.byId[action.itemId]
+        if not item then return state end
+        local equipmentType = item.equipmentType
+        if not equipmentType then return state end
+        return Dictionary.join(state, {[equipmentType] = Dictionary.None})
     end
 
     return state
