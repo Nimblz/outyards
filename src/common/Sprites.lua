@@ -12,7 +12,7 @@ return {
         sheetSize = Vector2.new(16,16), -- in tiles
     },
     armor = {
-        assetId = "rbxassetid://3977282472",
+        assetId = "rbxassetid://4179171024",
         scaleFactor = 4, -- ratio bywhich this was upscaled when exporting (standard is 4)
         spriteSize = Vector2.new(16,16), -- in pixels
         sheetSize = Vector2.new(16,16), -- in tiles
