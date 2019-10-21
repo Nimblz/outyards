@@ -12,7 +12,51 @@ local cataFuncs = {
             warn("weapon model "..id.." does not exist")
             return model:WaitForChild("error"):Clone()
         end
-        return weaponModel:Clone()
+        local newWeaponModel = weaponModel:Clone()
+        newWeaponModel.Anchored = false
+        newWeaponModel.Massless = true
+        newWeaponModel.CanCollide = false
+
+        return newWeaponModel
+    end,
+    trinket = function(id, asset)
+        local trinketModel = model:WaitForChild("trinket"):FindFirstChild(id)
+        if not trinketModel then
+            warn("trinket model "..id.." does not exist")
+            return model:WaitForChild("error"):Clone()
+        end
+        local newTrinketModel = trinketModel:Clone()
+        newTrinketModel.Anchored = false
+        newTrinketModel.Massless = true
+        newTrinketModel.CanCollide = false
+
+        return newTrinketModel
+    end,
+    armor = function(id, asset)
+        local armorModel = model:WaitForChild("armor"):FindFirstChild(id)
+        if not armorModel then
+            warn("armor model "..id.." does not exist")
+            return model:WaitForChild("error"):Clone()
+        end
+        local newArmorModel = armorModel:Clone()
+        newArmorModel.Anchored = false
+        newArmorModel.Massless = true
+        newArmorModel.CanCollide = false
+
+        return newArmorModel
+    end,
+    hat = function(id, asset)
+        local hatModel = model:WaitForChild("hat"):FindFirstChild(id)
+        if not hatModel then
+            warn("hat model "..id.." does not exist")
+            return model:WaitForChild("error"):Clone()
+        end
+        local newModel = hatModel:Clone()
+        newModel.Anchored = false
+        newModel.Massless = true
+        newModel.CanCollide = false
+
+        return newModel
     end,
 }
 
