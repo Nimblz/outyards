@@ -22,6 +22,11 @@ function behavior:create()
 
     self.attacking = false
 
+    local lowerTorso = self.character:WaitForChild("LowerTorso")
+    local rootJoint = lowerTorso:WaitForChild("Root")
+    self.rootJoint = rootJoint
+    self.originalRootC0 = rootJoint.C0
+
     self.swingTrack = humanoid:LoadAnimation(slashAnimation)
     self.backSwingTrack = humanoid:LoadAnimation(backSlashAnimation)
     self.holdTrack = humanoid:LoadAnimation(holdAnimation)
@@ -43,9 +48,13 @@ function behavior:doAttack()
 
     local character = self.character
     local rootPart = character.PrimaryPart
+    local lowerTorso = character:FindFirstChild("LowerTorso")
+    if not lowerTorso then return end
+
     local rootCF = rootPart.CFrame
+    local torsoCF = lowerTorso.CFrame
     local rootPosXZ = rootCF.p * Vector3.new(1,0,1)
-    local facing = (rootCF.LookVector * Vector3.new(1,0,1)).Unit
+    local facing = (torsoCF.LookVector * Vector3.new(1,0,1)).Unit
 
     local metadata = self.item.metadata
     local range = metadata.attackRange
@@ -138,6 +147,22 @@ function behavior:recieveProps(newProps)
 end
 
 function behavior:update()
+    -- if not self.props then return end
+    -- local character = self.character
+    -- local root = character:FindFirstChild("HumanoidRootPart")
+    -- if not root then return end
+
+    -- local rootJoint = self.rootJoint
+    -- if not rootJoint then return end
+
+    -- local rootPos = root.Position
+    -- local goalPos = self.props.mouse.worldPos
+
+    -- local goalC0 = self.originalRootC0 * (root.CFrame - root.Position):Inverse() * CFrame.new(
+    --     Vector3.new(0,0,0),
+    --     (Vector3.new(goalPos.X, root.Position.Y, goalPos.Z) - rootPos).Unit
+    -- )
+    -- rootJoint.C0 = rootJoint.C0:lerp(goalC0, 0.1)
 end
 
 function behavior:equipped()
@@ -147,6 +172,8 @@ end
 function behavior:unequipped()
     self.attackActive = false
     self.holdTrack:stop()
+
+    self.rootJoint.C0 = self.originalRootC0
 end
 
 function behavior:destroy()
