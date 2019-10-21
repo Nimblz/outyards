@@ -78,6 +78,8 @@ end
 
 function Equipment:clearBehaviors(player)
     for _,behavior in pairs(self:getBehaviors(player)) do
+        behavior:deactivated()
+        behavior:unequipped()
         behavior:destroy()
     end
     self.behaviors[player] = {}
@@ -261,9 +263,20 @@ function Equipment:update()
         }
     }
 
-    for _, behavior in pairs(self:getBehaviors(LocalPlayer)) do
-        behavior:recieveProps(inputProps)
-        behavior:update()
+    -- for _, behavior in pairs(self:getBehaviors(LocalPlayer)) do
+    --     behavior:recieveProps(inputProps)
+    --     behavior:update()
+    -- end
+
+    for _, player in pairs(Players:GetPlayers()) do
+        local behaviors = self:getBehaviors(player)
+
+        for _, behavior in pairs(behaviors) do
+            if player == LocalPlayer then
+                behavior:recieveProps(inputProps)
+            end
+            behavior:update()
+        end
     end
 end
 
