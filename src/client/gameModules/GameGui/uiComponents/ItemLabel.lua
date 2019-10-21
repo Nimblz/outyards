@@ -18,6 +18,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
+local eRequestUnequip = event:WaitForChild("eRequestUnequip")
 
 local RoundFrame = require(components:WaitForChild("RoundFrame"))
 local ItemLabel = Roact.Component:extend("ItemLabel")
@@ -113,7 +114,14 @@ function ItemLabel:render()
         [Roact.Event.MouseLeave] = showTooltip and function() self.props.hideTooltip() end or nil,
         [Roact.Event.SelectionGained] = showTooltip and function() self.props.displayTooltip(itemName,unpack(statStrings)) end or nil,
         [Roact.Event.SelectionLost] = showTooltip and function() self.props.hideTooltip() end or nil,
-        [Roact.Event.Activated] = activatable and function() eRequestEquip:FireServer(itemId) end or nil,
+        [Roact.Event.Activated] = activatable and function()
+            if not equipped then
+                eRequestEquip:FireServer(itemId)
+            else
+                print("trying to unequip")
+                eRequestUnequip:FireServer(itemId)
+            end
+        end or nil,
     }, {
         equippedLabel = equippedLabel,
     })

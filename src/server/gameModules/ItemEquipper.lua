@@ -13,10 +13,14 @@ local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 local ItemEquipper = PizzaAlpaca.GameModule:extend("ItemEquipper")
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
+local eRequestUnequip = event:WaitForChild("eRequestUnequip")
 
 function ItemEquipper:onStore(store)
     eRequestEquip.OnServerEvent:connect(function(player, itemId)
         store:dispatch(Thunks.ITEM_EQUIP(player,itemId))
+    end)
+    eRequestUnequip.OnServerEvent:connect(function(player, itemId)
+        store:dispatch(Thunks.ITEM_UNEQUIP(player,itemId))
     end)
 end
 
