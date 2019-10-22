@@ -30,6 +30,10 @@ local localeSuffixes = {
     en_us = magnitudes_en_us,
 }
 
+local function snapFloor(x,increment)
+    return math.floor((x/increment))*increment
+end
+
 return function(inNumber, dontTruncate, locale, suffixWidth)
     dontTruncate = dontTruncate or false
     locale = locale or "en_us"
@@ -45,7 +49,8 @@ return function(inNumber, dontTruncate, locale, suffixWidth)
     if not suffix then return tostring(inNumber) end
 
     local fraction = inNumber/(10^(math.floor(magnitude/magnitudeWidth)*magnitudeWidth))
-    local formattedNumber = ("%."..(suffixWidth or magnitudeWidth).."f"):format(fraction)
+    local snapped = snapFloor(fraction, 0.001) -- snap to avoid rounding
+    local formattedNumber = ("%."..(suffixWidth or magnitudeWidth).."f"):format(snapped)
     if not dontTruncate then
         formattedNumber = string.gsub(formattedNumber, "0+$", "")
         formattedNumber = string.gsub(formattedNumber, "%.+$", "")
