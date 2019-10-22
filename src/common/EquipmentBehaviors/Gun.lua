@@ -35,32 +35,35 @@ function behavior:create()
     self.attacking = false
     self.projectileCreator = self.pzCore:getModule("ProjectileCreator")
 
+    self.metadata = self.item.metadata or {}
+
     self.holdTrack = humanoid:LoadAnimation(holdAnimation)
 end
 
 function behavior:activated(props)
     self.props = props
 
+    local metadata = self.metadata
+
     self.attackActive = true
     if self.attacking then return end
     self.attacking = true
     while self.attackActive do
         self:doAttack()
-        local fireRate = self.item.metadata.fireRate
+        local fireRate = metadata.fireRate or 3
         wait(1/fireRate)
     end
     self.attacking = false
 end
 
 function behavior:shootBullet(origin,directionGoal)
-    local item = self.item
-    local metadata = item.metadata
+    local metadata = self.metadata
     local projectileMetadata
     if metadata then
-        projectileMetadata = metadata.projectileMetadata
+        projectileMetadata = metadata.projectileMetadata or {}
     end
 
-    local projectileType = metadata.projectileType
+    local projectileType = metadata.projectileType or "bullet"
     local deviation = metadata.projectileDeviation or 0
 
     -- calc bullet direction (INNACURACY IS PER-CLIENT)
@@ -80,10 +83,9 @@ function behavior:doAttack()
     local root = character:FindFirstChild("HumanoidRootPart")
     if not root then return end
 
-    local item = self.item
-    local metadata = item.metadata
+    local metadata = self.metadata
 
-    local projectileType = metadata.projectileType
+    local projectileType = metadata.projectileType or "bullet"
     local projectile = Projectiles.byId[projectileType]
 
     -- calculate a bunch of positions
@@ -107,7 +109,7 @@ function behavior:doAttack()
 
     Sound.playSoundAt(originCFrame, Sound.presets[metadata.shootSound or "gunshot"])
 
-    for _ = 1, metadata.projectileCount do
+    for _ = 1, metadata.projectileCount or 1 do
         self:shootBullet(originCFrame,direction)
     end
 end
