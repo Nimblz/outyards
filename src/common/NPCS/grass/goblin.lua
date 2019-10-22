@@ -19,7 +19,7 @@ return {
         }
     end,
     boundingBoxProps = {
-        Size = Vector3.new(2,6,2),
+        Size = Vector3.new(2,4.5,2),
         Color = Color3.fromRGB(81, 204, 24),
     }
 }
