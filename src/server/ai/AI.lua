@@ -5,12 +5,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
 local util = common:WaitForChild("util")
---local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage:WaitForChild("lib")
+local ai = script.Parent
 --local event = ReplicatedStorage:WaitForChild("event")
 
 local FSM = require(util:WaitForChild("FSM"))
-
-local ai = script.Parent
 local Controllers = require(ai:WaitForChild("Controllers"))
 
 local AI = {}
@@ -30,6 +29,7 @@ function AI.new(entity, core, pzCore, aiType)
         fsm = fsm,
         type = aiType,
         entity = entity,
+        enteringState = fsm.enteringState
     }
 
     setmetatable(newAI,{__index = AI})
