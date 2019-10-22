@@ -44,13 +44,13 @@ function ActorRigSystem:onComponentAdded(instance, component)
     rig.PrimaryPart.Anchored = false
     rig:SetPrimaryPartCFrame(instance.CFrame)
 
-    local weld = Instance.new("Weld")
+    local weld = Instance.new("Motor6D")
     weld.Part0 = rig.PrimaryPart
     weld.Part1 = instance
     weld.Parent = rig.PrimaryPart
 
     rig.Parent = self.rigBin
-    rig.PrimaryPart:SetNetworkOwner()
+    --rig.PrimaryPart:SetNetworkOwner()
 
     self.rigs[instance] = rig
 
