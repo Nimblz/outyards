@@ -10,7 +10,7 @@ local errors = {
 
 local FSM = {}
 
-function FSM.new(states,startState)
+function FSM.new(states, startState)
     local self = setmetatable({},{__index=FSM})
 
     self.states = states
