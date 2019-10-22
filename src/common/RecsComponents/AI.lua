@@ -13,6 +13,7 @@ return RECS.defineComponent({
     generator = function(props)
         return Dictionary.join({
             aiType = "Fighter",
+            aiState = nil,
             replicates = true,
         },props)
     end,
