@@ -34,6 +34,11 @@ function AISystem:onComponentAdded(instance,aiComponent)
 
     local actorStats = self.core:getComponent(instance,RecsComponents.ActorStats)
     local changedConnection
+
+    newAI.enteringState:connect(function(newState)
+        aiComponent:updateProperty("aiState", newState)
+    end)
+
     changedConnection = actorStats.changed:connect(function(key,new,old)
         if key == "health" then
             if new <= 0 then
