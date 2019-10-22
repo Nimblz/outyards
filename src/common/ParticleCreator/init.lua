@@ -15,8 +15,11 @@ local ParticleCreator = {}
 function ParticleCreator.spawnParticle(name, props)
     local scale = props.scale or 1
     local amount = props.amount or 1
+    local timeScale = props.timeScale or 1
     local cframe = props.cFrame or CFrame.new(0,0,0)
-    local colorSeq = props.colorSeq
+    local color = props.color
+
+    timeScale = 1/timeScale
 
     local sourceParticleModel = particle:FindFirstChild(name)
     if not sourceParticleModel then return end
@@ -49,11 +52,12 @@ function ParticleCreator.spawnParticle(name, props)
 
     -- set color
     for _,emitter in pairs(emitters) do
-        emitter.Color = colorSeq or emitter.Color
+        emitter.Color = color or emitter.Color
     end
 
     -- get max possible lifetime
     for _,emitter in pairs(emitters) do
+        emitter.Lifetime = NumberRange.new(emitter.Lifetime.Min * timeScale, emitter.Lifetime.Max * timeScale)
         lifetime = math.max(emitter.Lifetime.Max, lifetime)
     end
 
