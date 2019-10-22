@@ -12,28 +12,6 @@ local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
 local ActorRigSystem = RECS.System:extend("ActorRigSystem")
 
--- local function fakeWeld(part1, part2)
--- 	--Check if HumanoidRootPart exists
--- 	local a0 = part1:FindFirstChild("Attachment") or Instance.new("Attachment")
---     local a1 = part2:FindFirstChild("Attachment") or Instance.new("Attachment")
--- 	local alignP = Instance.new("AlignPosition")
--- 	local alignO = Instance.new("AlignOrientation")
-
--- 	alignP.Attachment0 = a1 --local char
--- 	alignP.Attachment1 = a0
---     alignP.RigidityEnabled = true
---     alignP.ReactionForceEnabled = false
--- 	alignO.Attachment0 = a1 --local char
--- 	alignO.Attachment1 = a0
---     alignO.RigidityEnabled = true
---     alignO.ReactionTorqueEnabled = false
-
---     a0.Parent = part1
---     a1.Parent = part2
--- 	alignO.Parent = part1
--- 	alignP.Parent = part1
--- end
-
 function ActorRigSystem:onComponentAdded(instance, component)
     local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
     if not npcComponent then return end
