@@ -1,5 +1,4 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CollectionService = game:GetService("CollectionService")
 
 local common = ReplicatedStorage:WaitForChild("common")
 
@@ -15,30 +14,29 @@ return function(recsCore, npcType, cframe)
     local mobDesc = NPCS.byType[npcType]
     assert(mobDesc, errors.invalidMob:format(npcType))
 
-    local NewNPCPart = Instance.new("Part")
-    NewNPCPart.CastShadow = false
-    NewNPCPart.TopSurface = Enum.SurfaceType.Smooth
-    NewNPCPart.BottomSurface = Enum.SurfaceType.Smooth
-    NewNPCPart.Size = mobDesc.boundingBoxProps.Size
-    NewNPCPart.Color= mobDesc.boundingBoxProps.Color
-    NewNPCPart.CFrame = cframe * CFrame.new(0,(NewNPCPart.Size.Y/2), 0)
-
-    local Decal = Instance.new("Decal")
-    Decal.Texture = "rbxassetid://3283452005"
-    Decal.Parent = NewNPCPart
+    local newNPCPart = Instance.new("Part")
+    newNPCPart.CastShadow = false
+    newNPCPart.TopSurface = Enum.SurfaceType.Smooth
+    newNPCPart.BottomSurface = Enum.SurfaceType.Smooth
+    newNPCPart.Size = mobDesc.boundingBoxProps.Size
+    newNPCPart.Color= mobDesc.boundingBoxProps.Color
+    newNPCPart.Transparency = 0.5
+    newNPCPart.CFrame = cframe * CFrame.new(0,(newNPCPart.Size.Y/2), 0)
+    newNPCPart.CFrame = newNPCPart.CFrame * CFrame.Angles(0,math.random()*2*math.pi,0)
 
     local physProps = PhysicalProperties.new(1,0,0.5,100,100)
-    NewNPCPart.CustomPhysicalProperties = physProps
+    newNPCPart.CustomPhysicalProperties = physProps
 
-    NewNPCPart.Parent = workspace
+    newNPCPart.Parent = workspace
+    newNPCPart:SetNetworkOwner()
 
-    recsCore:addComponent(NewNPCPart,RecsComponents.NPC, {npcType = npcType})
+    recsCore:addComponent(newNPCPart,RecsComponents.NPC, {npcType = npcType})
 
     ParticleCreator.spawnParticle("smoke",{
         amount = 6,
         scale = 1,
-        cFrame = NewNPCPart.CFrame,
+        cFrame = newNPCPart.CFrame,
     })
 
-    return NewNPCPart
+    return newNPCPart
 end
