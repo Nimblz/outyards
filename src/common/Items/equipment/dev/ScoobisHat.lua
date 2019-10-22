@@ -1,8 +1,8 @@
 -- +defense
 
 return {
-    id = "scoobis",
-    name = "Scoobis",
+    id = "scoobisHat",
+    name = "Scoobis Hat",
     desc = "Scoob!",
     tier = 1,
 
