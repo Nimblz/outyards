@@ -36,6 +36,9 @@ function NPCCreationSystem:onComponentAdded(instance, component)
         self.core:addComponent(instance, self.core:getComponentClass(componentName), propsOverride)
         CollectionService:AddTag(instance,componentName)
     end
+
+    local driver = self.core:getComponent(instance, "NPCDriver")
+    driver:updateProperty("targetDirection", CFrame.Angles(0,math.random()*2*math.pi,0).LookVector)
 end
 
 function NPCCreationSystem:onComponentRemoving(instance,component)
