@@ -110,8 +110,11 @@ function SpawnZone.new(recsCore, parts, component, name)
 
     self.entities = {}
     self.spawnParts = parts
+    self.component = component
     self.spawnables = component.spawnables
     self.spawnCap = component.spawnCap
+    self.groupRadius = component.groupRadius
+    self.groupCount = component.groupCount
     self.recsCore = recsCore
 
     self.container = Instance.new("Folder")
@@ -121,18 +124,41 @@ function SpawnZone.new(recsCore, parts, component, name)
     return self
 end
 
+function SpawnZone:getNPCs()
+    return self.container:GetChildren()
+end
+
 function SpawnZone:getRandomPosition()
     return getRandomPointInGroup(self.spawnParts)
 end
 
-function SpawnZone:spawnNPC()
-    if #self.container:GetChildren() >= self.spawnCap then return end
+function SpawnZone:spawnNPC(cf)
+    if #self:getNPCs() >= self.spawnCap then return end
 
     local mobType = getRandomMobToSpawn(self.spawnables)
-    local randomCF = CFrame.new(self:getRandomPosition())
+    local randomCF = cf
 
     local newEntity = createNPC(self.recsCore, mobType, randomCF)
     newEntity.Parent = self.container
+end
+
+function SpawnZone:spawnGroup()
+    local groupPos = self:getRandomPosition()
+
+
+    local toSpawn = math.random(self.groupCount.Min, self.groupCount.Max)
+
+    for _ = 1, toSpawn do
+        local offset = Vector3.new(
+            math.random()*2 - 1,
+            0,
+            math.random()*2 - 1
+        ).Unit * self.groupRadius * math.random()
+
+        local newCF = CFrame.new(groupPos) + offset
+
+        self:spawnNPC(newCF)
+    end
 end
 
 return SpawnZone
