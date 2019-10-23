@@ -15,10 +15,10 @@ local SpawnZone = require(script:WaitForChild("SpawnZone"))
 
 local SpawnZoneSystem = RECS.System:extend("SpawnZoneSystem")
 
-function SpawnZoneSystem:spawnNPC(zoneInstance)
+function SpawnZoneSystem:spawnGroup(zoneInstance)
     local spawnZone = self.spawnZones[zoneInstance]
 
-    spawnZone:spawnNPC()
+    spawnZone:spawnGroup()
 end
 
 function SpawnZoneSystem:onComponentAdded(instance, component)
@@ -38,8 +38,8 @@ function SpawnZoneSystem:onComponentAdded(instance, component)
         instance.Name.."_spawnContainer"
     )
     wait(1)
-    for _ = 1, component.spawnCap do
-        newSpawnZone:spawnNPC()
+    while #newSpawnZone:getNPCs() < component.spawnCap do
+        newSpawnZone:spawnGroup()
         wait()
     end
 
@@ -74,10 +74,13 @@ end
 function SpawnZoneSystem:step()
     -- loop thru each spawn zone and spawn npcs if counter is at/over rate
 
+    -- find zones in areas occupied by players
+    -- only spawn in those zones
+
     for instance,zoneComponent in self.core:components(RecsComponents.SpawnZone) do
         zoneComponent.counter = zoneComponent.counter + 1
         if zoneComponent.counter >= zoneComponent.spawnRate then
-            self:spawnNPC(instance)
+            self:spawnGroup(instance)
             zoneComponent.counter = 0
         end
     end
