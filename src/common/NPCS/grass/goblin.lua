@@ -4,8 +4,8 @@ return {
     propsGenerator = function()
         return {
             ActorStats = {
-                maxHealth = 20,
-                health = 20,
+                maxHealth = 5,
+                health = 5,
                 moveSpeed = 12,
             },
             ItemDrops = {
@@ -21,5 +21,11 @@ return {
     boundingBoxProps = {
         Size = Vector3.new(2,4.5,2),
         Color = Color3.fromRGB(81, 204, 24),
-    }
+    },
+
+    animations = {
+        attack = "r6attack",
+        chase = "r6run",
+        idle = "r6idle",
+    },
 }
