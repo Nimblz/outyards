@@ -22,6 +22,7 @@ function CharacterStatsApplier:applyStats(state,player)
 
     humanoid.WalkSpeed = newMoveSpeed
     humanoid.MaxHealth = 100 + newDefense
+    humanoid.Health = math.min(humanoid.Health, humanoid.MaxHealth)
 end
 
 function CharacterStatsApplier:onStore(store)
