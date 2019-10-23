@@ -71,16 +71,25 @@ function HealthBar:render()
     local healthRatio = self.state.health/self.state.maxHealth
     healthRatio = math.clamp(healthRatio,0,1)
 
-    children.greenFrame = Roact.createElement(RoundFrame, {
-        AnchorPoint = Vector2.new(0,0.5),
-        Size = UDim2.new(healthRatio,0,0,math.min(healthRatio*WIDTH, HEIGHT)),
-        Position = UDim2.new(0,0,0.5,0),
-        BorderSizePixel = 0,
-        color = Color3.fromRGB(102, 255, 0)
+    local beautifiedHealth = beautifyNumber(math.floor(self.state.health))
+    local beautifiedMaxHealth = beautifyNumber(math.floor(self.state.maxHealth))
+
+    children.clippyFrame = Roact.createElement("Frame", {
+        BackgroundTransparency = 1,
+        ClipsDescendants = true,
+        Size = UDim2.new(healthRatio,0,1,0),
+    }, {
+        greenFrame = Roact.createElement(RoundFrame, {
+            AnchorPoint = Vector2.new(0,0),
+            Size = UDim2.new(0,300,1,0),
+            Position = UDim2.new(0,0,0,0),
+            BorderSizePixel = 0,
+            color = Color3.fromRGB(102, 255, 0)
+        })
     })
 
     children.healthText = Roact.createElement("TextLabel", {
-        Text = "   "..beautifyNumber(math.floor(self.state.health)).." / "..beautifyNumber(self.state.maxHealth),
+        Text = "   "..beautifiedHealth.." / "..beautifiedMaxHealth,
         Size = UDim2.new(1,0,1,0),
         BackgroundTransparency = 1,
         TextColor3 = Color3.new(0,0,0),
