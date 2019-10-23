@@ -1,13 +1,13 @@
 return {
-    id = "longbow",
-    name = "Longbow",
+    id = "deathbow",
+    name = "Deathbow",
 
     equipmentType = "weapon",
     behaviorType = "gun",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(2,4),
+    spriteCoords = Vector2.new(7,4),
     tier = 99,
 
     stats = {
@@ -15,7 +15,7 @@ return {
     },
 
     metadata = {
-        fireRate = 3/2,
+        fireRate = 2,
         projectileType = "arrow",
         projectileCount = 1,
         projectileDeviation = 0,
