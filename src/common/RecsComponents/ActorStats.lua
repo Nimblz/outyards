@@ -21,7 +21,7 @@ return RECS.defineComponent({
             baseDamage = 3, -- is modified by buffs and attack types
             attackRate = 1, -- per sec
             aggroRadius = 64,
-            attackRange = 12,
+            attackRange = 6,
             replicates = true,
         }, props)
     end,
