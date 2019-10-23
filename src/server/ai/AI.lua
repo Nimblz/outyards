@@ -42,7 +42,8 @@ function AI:step()
 end
 
 function AI:kill()
-    self.fsm:transition("dead")
+    self.fsm.deadLocked = true
+    self.fsm:_transition("dead")
     self.fsm = nil
     self.entity = nil
     self.type = nil
