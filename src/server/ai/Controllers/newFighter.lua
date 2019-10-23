@@ -59,6 +59,8 @@ return function(entity, recs, pz)
             step = function()
                 local target = props.target
                 local targetRoot = target.PrimaryPart
+                local targetHumanoid = target:FindFirstChild("Humanoid")
+                local isAlive = targetHumanoid.Health > 0
                 local selfPosXZ = entity.Position * Vector3.new(1,0,1)
                 local homePosXZ = props.homePos * Vector3.new(1,0,1)
                 local tooFarFromHome = not pointsCloserThan(selfPosXZ,homePosXZ,actorStats.aggroRadius * 3)
@@ -66,10 +68,11 @@ return function(entity, recs, pz)
                 local targetMoveDir = (targetPosXZ-selfPosXZ).unit
                 local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
 
-                if tooFarFromHome then return "goHome" end
+                if tooFarFromHome or (not isAlive) then return "goHome" end
 
                 if closeEnoughToAttack then
                     driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
+                    driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
                     return "attack", target
                 else
                     driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
@@ -82,82 +85,60 @@ return function(entity, recs, pz)
         },
         attack = {
             enter = function(target)
-                driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
                 props.target = target
+                driver:updateProperty("targetVelocity", Vector3.new(0,0,0))
 
-                local debounce = false
-
-                local function attack()
-                    if debounce then return end
-                    debounce = true
-
-                    local target = props.target
-                    local targetRoot = target.PrimaryPart
-                    local selfPos = entity.Position
-                    local lookVec = entity.CFrame.lookVector
-
-                    local attackRay = Ray.new(selfPos,lookVec*actorStats.attackRange)
-
-                    local hit, hitpos = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("AI"))
-                    if hit then
-                        local humanoid =
-                            hit.Parent:FindFirstChild("Humanoid") or
-                            hit.Parent.Parent:FindFirstChild("Humanoid")
-
-                        if humanoid then
-                            humanoid:TakeDamage(actorStats.baseDamage)
-                        end
-                    end
-
-                    -- debug vis
-                    local hitRange = (selfPos-hitpos).Magnitude
-
-                    local vis = Instance.new("Part")
-                    vis.Anchored = true
-                    vis.CanCollide = false
-                    vis.CastShadow = false
-                    vis.Material = Enum.Material.Neon
-                    vis.BrickColor = BrickColor.new("Bright red")
-                    vis.Transparency = 0.75
-                    vis.Size = Vector3.new(1,1/3,hitRange)
-                    vis.CFrame = CFrame.new(selfPos,selfPos+lookVec) * CFrame.new(0,0,-hitRange/2)
-                    vis.Parent = workspace
-
-                    delay(1/10, function() vis:Destroy() end)
-
-                    wait(1/actorStats.attackRate)
-                    debounce = false
-                end
-
-                props.attack = attack
-            end,
-            step = function()
-                if props.attack then
-                    coroutine.wrap(props.attack)()
-                end
-
-                local target = findCharacterNear(entity, actorStats.aggroRadius)
-                if not target then return "goHome" end
-                local targetRoot = target.PrimaryPart
-                if not targetRoot then return "goHome" end
-                local humanoid = target:FindFirstChild("Humanoid")
-                if not humanoid then return "goHome" end
-                if humanoid.Health <= 0 then return "goHome" end
-
+                local selfPos = entity.Position
+                local lookVec = entity.CFrame.lookVector
                 local selfPosXZ = entity.Position * Vector3.new(1,0,1)
+                local homePosXZ = props.homePos * Vector3.new(1,0,1)
+                local targetRoot = target.PrimaryPart
+                local targetHumanoid = target:FindFirstChild("Humanoid")
+                local isAlive = targetHumanoid.Health > 0
+                local tooFarFromHome = not pointsCloserThan(selfPosXZ,homePosXZ,actorStats.aggroRadius * 3)
                 local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
                 local closeEnoughToAttack = pointsCloserThan(selfPosXZ,targetPosXZ, actorStats.attackRange)
 
-                driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
-                if not closeEnoughToAttack then
+                if tooFarFromHome or (not isAlive) then return "goHome" end
+
+                local attackRay = Ray.new(selfPos,lookVec*(actorStats.attackRange+2))
+
+                local hit = Workspace:FindPartOnRayWithIgnoreList(attackRay, CollectionService:GetTagged("AI"))
+                if hit then
+                    local humanoid =
+                        hit.Parent:FindFirstChild("Humanoid") or
+                        hit.Parent.Parent:FindFirstChild("Humanoid")
+
+                    if humanoid then
+                        humanoid:TakeDamage(actorStats.baseDamage)
+                    end
+                end
+
+                wait(1/actorStats.attackRate)
+                if closeEnoughToAttack then
+                    print("attack again!")
+                    return "attack", target
+                else
                     return "chase", target
                 end
+            end,
+            step = function()
+                local target = props.target
+                local targetRoot = target.PrimaryPart
+                local selfPosXZ = entity.Position * Vector3.new(1,0,1)
+                local targetPosXZ = targetRoot.Position * Vector3.new(1,0,1)
+                --local targetMoveDir = (targetPosXZ-selfPosXZ).unit
+
+
+                driver:updateProperty("targetDirection", CFrame.new(selfPosXZ,targetPosXZ).lookVector)
+                --driver:updateProperty("targetVelocity", targetMoveDir * actorStats.moveSpeed)
             end,
             leaving = function()
                 props.target = nil
             end
         },
         goHome = {
+            animationOverride = "chase",
             enter = function()
             end,
             step = function()
