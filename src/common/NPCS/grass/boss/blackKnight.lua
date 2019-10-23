@@ -10,14 +10,20 @@ return {
             },
             ItemDrops = {
                 items = {
-                    {itemId = "testgun", dropRange = {min = 1, max = 1}, dropRate = 1},
+                    {itemId = "blackKnightSword", dropRange = {min = 1, max = 1}, dropRate = 1},
                 },
                 cash = 2000,
             }
         }
     end,
     boundingBoxProps = {
-        Size = Vector3.new(4,8,4),
+        Size = Vector3.new(4,12,4),
         Color = Color3.fromRGB(51, 43, 53),
-    }
+    },
+
+    animations = {
+        attack = "r6attack",
+        chase = "r6run",
+        idle = "r6idle",
+    },
 }
