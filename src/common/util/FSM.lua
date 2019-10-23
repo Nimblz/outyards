@@ -23,12 +23,23 @@ function FSM.new(states, startState)
     self.enteringState = Signal.new()
     self.leavingState = Signal.new()
 
+    self.stateLocked = false
+    self.deadLocked = false
+
     self:transition(startState)
 
     return self
 end
 
 function FSM:transition(newState, ...)
+    if not newState then return end
+    if self.stateLocked then return end
+    if self.deadLocked then return end
+
+    return self:_transition(newState, ...)
+end
+
+function FSM:_transition(newState, ...)
     if not newState then return end
 
     if self.currentState and typeof(self.currentState.leaving) == "function" then
@@ -39,6 +50,13 @@ function FSM:transition(newState, ...)
     local targetState = self.states[newState]
     assert(targetState, errors.invalidState:format(newState))
     self.currentState = targetState
+
+    if targetState.stateLockTime then
+        self.stateLocked = true
+        delay(targetState.stateLockTime, function()
+            self.stateLocked = false
+        end)
+    end
 
     self.enteringState:fire(self.currentState.name)
     return self:transition(targetState.enter(...))
