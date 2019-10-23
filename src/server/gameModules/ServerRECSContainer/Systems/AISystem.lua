@@ -36,7 +36,7 @@ function AISystem:onComponentAdded(instance,aiComponent)
     local changedConnection
 
     newAI.enteringState:connect(function(newState)
-        aiComponent:updateProperty("aiState", newState)
+        aiComponent:updateProperty("aiState", {state = newState})
     end)
 
     changedConnection = actorStats.changed:connect(function(key,new,old)
@@ -117,7 +117,9 @@ end
 
 function AISystem:step()
     for _,ai in pairs(self.AIs) do
-        ai:step()
+        coroutine.wrap(function()
+            ai:step()
+        end)()
     end
 end
 
