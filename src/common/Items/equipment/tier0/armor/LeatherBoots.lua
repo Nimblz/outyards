@@ -3,7 +3,7 @@
 return {
     id = "leatherBoots",
     name = "Leather Boots",
-    equipmentType = "boots",
+    equipmentType = "feet",
     spriteSheet = "armor",
     spriteCoords = Vector2.new(1,2),
     tier = 1,
