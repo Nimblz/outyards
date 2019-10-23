@@ -23,7 +23,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         local playerDamage = Selectors.getBaseDamage(state, player)
         assert(playerDamage, "Player damage is undefined!")
 
-        playerDamage = math.max(playerDamage + math.random(-1,2),1)
+        playerDamage = math.max(playerDamage + playerDamage*(math.random()*0.1 - 0.05),1)
 
         local actorStats = recsCore:getComponent(instance, RecsComponents.ActorStats)
         local damagedBy = recsCore:getComponent(instance, RecsComponents.DamagedBy)
@@ -44,7 +44,14 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         if not actorStats then return end
         if not damagedBy then return end
 
-        damagedBy:updateProperty("players", Dictionary.join({[player.Name] = true}, damagedBy.players))
+        local previousDamage = damagedBy.players[player.Name] or 0
+
+        damagedBy:updateProperty("players",
+            Dictionary.join(
+                damagedBy.players,
+                {[player.Name] = previousDamage + playerDamage}
+            )
+        )
         actorStats:updateProperty("health", actorStats.health - playerDamage)
 
         if not self.knockingBack[instance] then
