@@ -6,6 +6,14 @@ local common = ReplicatedStorage:WaitForChild("common")
 local model = ReplicatedStorage:WaitForChild("model")
 local npcModel = model:WaitForChild("npc")
 
+local npcModels = {}
+
+for _,child in pairs(npcModel:GetDescendants()) do
+    if child:IsA("Model") and child:FindFirstChild("AnimationController") then
+        npcModels[child.Name] = child
+    end
+end
+
 local Animations = require(common:WaitForChild("Animations"))
 local NPCS = require(common:WaitForChild("NPCS"))
 local RECS = require(lib:WaitForChild("RECS"))
@@ -18,8 +26,11 @@ function ActorRigSystem:onComponentAdded(instance, component)
     local aiComponent = self.core:getComponent(instance, RecsComponents.AI)
     if not npcComponent then return end
 
-    local rig = npcModel:FindFirstChild(npcComponent.npcType)
+    local npcType = npcComponent.npcType
+
+    local rig = npcModels[npcType]
     if not rig then return end
+
     rig = rig:Clone()
     rig.PrimaryPart.Anchored = false
     rig:SetPrimaryPartCFrame(instance.CFrame)
@@ -30,7 +41,6 @@ function ActorRigSystem:onComponentAdded(instance, component)
     weld.Parent = rig.PrimaryPart
 
     rig.Parent = self.rigBin
-    --rig.PrimaryPart:SetNetworkOwner()
 
     if aiComponent then
         local animationController = rig:FindFirstChildOfClass("AnimationController")
@@ -41,6 +51,8 @@ function ActorRigSystem:onComponentAdded(instance, component)
             idle = animationController:LoadAnimation(Animations.r6idle),
         }
 
+        local npcDescription = NPCS.byType[npcType]
+
         local playingAnimation
 
         aiComponent.changed:connect(function(key, newValue, oldValue)
@@ -48,7 +60,6 @@ function ActorRigSystem:onComponentAdded(instance, component)
                 local newState = newValue.state
                 if playingAnimation then playingAnimation:Stop() end
                 if animations[newState] then
-                    print(("Playing %s animation!"):format(newState))
                     playingAnimation = animations[newState]
                     animations[newState]:Play()
                 end
