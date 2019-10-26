@@ -270,12 +270,21 @@ function Equipment:update()
 
     for _, player in pairs(Players:GetPlayers()) do
         local behaviors = self:getBehaviors(player)
+        local renderers = self:getRenderers(player)
 
         for _, behavior in pairs(behaviors) do
             if player == LocalPlayer then
                 behavior:recieveProps(inputProps)
             end
-            behavior:update()
+            if typeof(behavior.update) == "function" then
+                behavior:update()
+            end
+        end
+
+        for _, renderer in pairs(renderers) do
+            if typeof(renderer.update) == "function" then
+                renderer:update()
+            end
         end
     end
 end
