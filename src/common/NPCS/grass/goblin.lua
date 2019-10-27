@@ -7,6 +7,7 @@ return {
                 maxHealth = 5,
                 health = 5,
                 moveSpeed = 12,
+                baseDamage = 1
             },
             ItemDrops = {
                 items = {
