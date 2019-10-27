@@ -3,19 +3,21 @@
 return {
     id = "ironArmor",
     name = "Iron Armor",
-    equipmentType = "armor",
     tier = 2,
+
+    equipmentType = "armor",
+    behaviorType = "none",
+    rendererType = "armor",
+
     spriteSheet = "armor",
-    spriteCoords = Vector2.new(2,1),
+    spriteCoords = Vector2.new(3,1),
+
     onlyOne = true,
     recipe = {
-        leather = 80,
         ingotIron = 25,
-        wood = 30,
-        ingotCopper = 15,
     },
 
     stats = {
-        defense = 75,
+        defense = 70,
     }
 }

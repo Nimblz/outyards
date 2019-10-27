@@ -8,7 +8,7 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(3,1),
+    spriteCoords = Vector2.new(2,1),
 
     onlyOne = true,
     recipe = {

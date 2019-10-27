@@ -6,17 +6,14 @@ return {
     equipmentType = "feet",
     tier = 2,
     spriteSheet = "armor",
-    spriteCoords = Vector2.new(2,2),
+    spriteCoords = Vector2.new(3,2),
     onlyOne = true,
     recipe = {
-        leather = 50,
-        wood = 50,
         ingotIron = 10,
-        ingotCopper = 10,
     },
 
     stats = {
-        defense = 25,
+        defense = 30,
         moveSpeed = 10,
     }
 }
