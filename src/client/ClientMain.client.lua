@@ -1,5 +1,7 @@
 print("Starting outyards client.")
 
+if not game:IsLoaded() then game.Loaded:Wait() end
+
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
