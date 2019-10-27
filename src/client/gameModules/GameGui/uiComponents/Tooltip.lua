@@ -4,75 +4,121 @@ local UserInputService = game:GetService("UserInputService")
 local GuiService = game:GetService("GuiService")
 
 local common = ReplicatedStorage:WaitForChild("common")
+local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local component = script.Parent
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Selectors = require(common:WaitForChild("Selectors"))
 
+local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
+
+local FitList = require(component:WaitForChild("FitList"))
+local FitText = require(component:WaitForChild("FitText"))
 local Tooltip = Roact.Component:extend("Tooltip")
 
 function Tooltip:init()
+    self.containerRef = Roact.createRef()
+
     self:setState({
         position = Vector2.new(0,0)
     })
 end
 
 function Tooltip:didMount()
-    self.steppedConnection = RunService.RenderStepped:connect(function()
+    self.steppedConnection = RunService.RenderStepped:Connect(function()
         self:setState({
-            position = UserInputService:GetMouseLocation() - GuiService:GetGuiInset() + Vector2.new(20,20)
+            position = UserInputService:GetMouseLocation() - GuiService:GetGuiInset() + Vector2.new(20,20),
+            scale = getAppliedScale(self.containerRef:getValue()),
+            size = self.containerRef:getValue().AbsoluteSize,
         })
+    end)
+
+    self:setState(function()
+        return {
+            position = UserInputService:GetMouseLocation() - GuiService:GetGuiInset() + Vector2.new(20,20),
+            scale = getAppliedScale(self.containerRef:getValue()),
+            size = self.containerRef:getValue().AbsoluteSize,
+        }
     end)
 end
 
 function Tooltip:willUnmount()
-    if self.steppedConnection then self.steppedConnection:disconnect() end
+    if self.steppedConnection then self.steppedConnection:Disconnect() end
 end
 
 function Tooltip:render()
     local screenSize = self.props.screenSize
     local strings = self.props.strings
     local visible = self.props.visible
+    local scale = self.state.scale or 1
+    local size = self.state.size or Vector2.new(0, 0)
     local position = Vector2.new(
-        math.max(math.min(self.state.position.X,screenSize.X - 192),0),
-        math.max(math.min(self.state.position.Y,screenSize.Y - #strings*(24+2)),0)
-    )
+        math.max(math.min(self.state.position.X,screenSize.X - (size.X+4+16)),16),
+        math.max(math.min(self.state.position.Y,screenSize.Y - (size.Y+4+16)),16)
+    ) / scale
 
     local children = {}
 
-    children.listLayout = Roact.createElement("UIListLayout", {
-        SortOrder = Enum.SortOrder.LayoutOrder,
-        VerticalAlignment = Enum.VerticalAlignment.Top,
-        HorizontalAlignment = Enum.HorizontalAlignment.Left,
-        Padding = UDim.new(0,2),
-        FillDirection = Enum.FillDirection.Vertical,
-    })
-
-    for index,string in pairs(strings) do
-        children[string.."_label"] = Roact.createElement("TextLabel",{
-            Text = " "..string,
+    for index,string in ipairs(strings) do
+        children[index.."_label"] = Roact.createElement(FitText, {
+            Text = string,
             BackgroundTransparency = 1,
-            Size = UDim2.new(1,0,0,24),
-            TextSize = 18,
+            TextSize = index == 1 and 24 or 18,
             Font = index == 1 and Enum.Font.GothamBlack or Enum.Font.Gotham,
             TextXAlignment = Enum.TextXAlignment.Left,
             LayoutOrder = index,
+            TextColor3 = Color3.fromRGB(0,0,0),
+
+            fitAxis = "Y",
+            Size = UDim2.new(0,235,0,18),
         })
     end
 
-    return Roact.createElement("Frame", {
-        Size = UDim2.new(0,192,0,#strings*(24+2)),
-        Position = UDim2.new(0,position.X,0,position.Y),
+    local listFrame = Roact.createElement(FitList, {
+        containerProps = {
+            Position = UDim2.new(0,position.X,0,position.Y),
 
-        BackgroundColor3 = Color3.new(1,1,1),
+            BackgroundColor3 = Color3.new(1,1,1),
+            BorderSizePixel = 0,
+
+            Visible = visible,
+
+            ZIndex = 5,
+            [Roact.Ref] = self.containerRef
+        },
+        layoutProps = {
+            SortOrder = Enum.SortOrder.LayoutOrder,
+            VerticalAlignment = Enum.VerticalAlignment.Top,
+            HorizontalAlignment = Enum.HorizontalAlignment.Left,
+            Padding = UDim.new(0,4),
+            FillDirection = Enum.FillDirection.Vertical,
+        },
+        paddingProps = {
+            PaddingTop = UDim.new(0,4),
+            PaddingBottom = UDim.new(0,4),
+            PaddingLeft = UDim.new(0,4),
+            PaddingRight = UDim.new(0,4),
+        }
+    }, children)
+
+    local shadowFrame = Roact.createElement("Frame", {
+        Size = UDim2.new(0, size.X, 0, size.Y),
+        Position = UDim2.new(0,position.X + 4,0,position.Y + 4),
+
+        BackgroundColor3 = Color3.fromRGB(0,0,0),
         BorderSizePixel = 0,
 
         Visible = visible,
+        ZIndex = 4,
+    })
 
-        ZIndex = 5,
-    },children)
+    return Roact.createFragment({
+        shadowFrame = shadowFrame,
+        listFrame = listFrame,
+    })
 end
 
 local function mapStateToProps(state,props)
