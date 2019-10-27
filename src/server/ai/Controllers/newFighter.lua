@@ -114,9 +114,12 @@ return function(entity, recs, pz)
                     end
                 end
 
+
                 wait(1/actorStats.attackRate)
-                if closeEnoughToAttack then
-                    print("attack again!")
+
+                isAlive = targetHumanoid.Health > 0
+
+                if closeEnoughToAttack and isAlive then
                     return "attack", target
                 else
                     return "chase", target
