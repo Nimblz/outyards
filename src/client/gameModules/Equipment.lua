@@ -134,6 +134,8 @@ function Equipment:playerEquipped(player,itemId)
     -- find behavior for this equipment and create new instance
     -- do same for renderer
 
+    if not player.Character then return end
+
     local item = Items.byId[itemId]
     assert(item, "Invalid item equipped: "..itemId)
 
