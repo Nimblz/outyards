@@ -27,8 +27,14 @@ function behavior:create()
     self.rootJoint = rootJoint
     self.originalRootC0 = rootJoint.C0
 
-    self.swingTrack = humanoid:LoadAnimation(slashAnimation)
-    self.backSwingTrack = humanoid:LoadAnimation(backSlashAnimation)
+    self.swingTracks = {
+        humanoid:LoadAnimation(slashAnimation),
+        humanoid:LoadAnimation(backSlashAnimation),
+    }
+
+    self.playingSwing = nil
+    self.swingCounter = 1
+
     self.holdTrack = humanoid:LoadAnimation(holdAnimation)
 end
 
@@ -41,6 +47,23 @@ function behavior:canAttack()
     if humanoid.Health <= 0 then return false end
 
     return true
+end
+
+function behavior:playSwing()
+    local metadata = self.item.metadata
+    local fireRate = metadata.fireRate
+    local waitTime = 1/fireRate
+
+    local track = self.swingTracks[self.swingCounter]
+    local animLength = track.Length
+
+    if self.playingSwing then self.playingSwing:Stop() end
+    track:Play(0.1,1,animLength/waitTime)
+
+    self.swingCounter = self.swingCounter + 1
+    if self.swingCounter > #self.swingTracks then
+        self.swingCounter = 1
+    end
 end
 
 function behavior:doAttack()
@@ -59,23 +82,8 @@ function behavior:doAttack()
     local metadata = self.item.metadata
     local range = metadata.attackRange
     local arc = metadata.attackArc or 90
-    local fireRate = metadata.fireRate
 
-    if not self.doBackSwing then
-        local animLength = self.swingTrack.Length
-        local waitTime = 1/fireRate
-
-        self.doBackSwing = true
-        self.backSwingTrack:Stop()
-        self.swingTrack:Play(0.1,1,animLength/waitTime)
-    else
-        local animLength = self.backSwingTrack.Length
-        local waitTime = 1/fireRate
-
-        self.doBackSwing = false
-        self.swingTrack:Stop()
-        self.backSwingTrack:Play(0.1,1,animLength/waitTime)
-    end
+    self:playSwing()
 
     -- play swing sound
     if metadata.swingSound then
