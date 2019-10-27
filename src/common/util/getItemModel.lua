@@ -58,6 +58,19 @@ local cataFuncs = {
 
         return newModel
     end,
+    pet = function(id, asset)
+        local itemModel = model:WaitForChild("pet"):FindFirstChild(id)
+        if not itemModel then
+            warn("itemModel model "..id.." does not exist")
+            return itemModel:WaitForChild("error"):Clone()
+        end
+        local newModel = itemModel:Clone()
+        newModel.Anchored = false
+        newModel.Massless = true
+        newModel.CanCollide = false
+
+        return newModel
+    end,
 }
 
 return function(id)
