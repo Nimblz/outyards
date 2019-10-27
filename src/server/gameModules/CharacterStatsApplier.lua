@@ -12,6 +12,9 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local CharacterStatsApplier = PizzaAlpaca.GameModule:extend("CharacterStatsApplier")
 
 function CharacterStatsApplier:applyStats(state,player)
+    local playerData = Selectors.getPlayerState(state, player)
+    if not playerData then return end
+
     local newMoveSpeed = Selectors.getMoveSpeed(state,player)
     local newDefense = Selectors.getDefense(state,player)
 
