@@ -59,6 +59,9 @@
         },
         "Promise": {
           "$path": "lib/roblox-lua-promise/lib"
+        },
+        "DataStore2": {
+          "$path": "lib/datastore2/lib"
         }
       }
     },
