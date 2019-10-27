@@ -9,6 +9,7 @@ local event = ReplicatedStorage:WaitForChild("event")
 
 local Actions = require(common:WaitForChild("Actions"))
 local Thunks = require(common:WaitForChild("Thunks"))
+local Selectors = require(common:WaitForChild("Selectors"))
 
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
@@ -25,15 +26,24 @@ function PlayerSaveHandler:init()
     storeContainer:getStore():andThen(function(store)
 
         local function playerAdded(player)
-            store:dispatch(Actions.PLAYER_ADD(player,{}))
+            store:dispatch(Thunks.PLAYER_JOINED(player))
+
+            if Selectors.getItem(store:getState(), player, "goldScoobisPet") == 0 then
+                store:dispatch(Actions.ITEM_ADD(player, "goldScoobisPet", 1))
+            end
+
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
+
             store:dispatch(Thunks.EQUIPMENT_APPLYSTATS(player))
-            store:dispatch(Actions.ITEM_ADD(player, "wood", 10))
-            store:dispatch(Actions.ITEM_ADD(player, "goldScoobisPet", 1))
+        end
+
+        local function playerLeaving(player)
+            store:dispatch(Thunks.PLAYER_LEAVING(player))
         end
 
         Players.PlayerAdded:connect(playerAdded)
+        Players.PlayerRemoving:connect(playerLeaving)
 
         for _, player in pairs(Players:GetPlayers()) do
             playerAdded(player)

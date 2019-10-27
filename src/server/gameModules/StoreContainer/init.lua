@@ -17,6 +17,7 @@ local Promise = require(lib:WaitForChild("Promise"))
 
 local reducer = require(src:WaitForChild("serverReducer"))
 local networkMiddleware = require(middleware:WaitForChild("networkMiddleware"))
+local dataSaveMiddleware = require(middleware:WaitForChild("dataSaveMiddleware"))
 
 local eReplicateAction = event:WaitForChild("eReplicateAction")
 
@@ -58,7 +59,8 @@ function StoreContainer:createStore(initialState)
     self.store = Rodux.Store.new(reducer,initialState, {
 		Rodux.thunkMiddleware,
 		--Rodux.loggerMiddleware,
-        networkMiddleware(replicate),
+		networkMiddleware(replicate),
+		dataSaveMiddleware,
     })
     self.storeCreated:fire()
     self.logger:log("Server store initialized.")
