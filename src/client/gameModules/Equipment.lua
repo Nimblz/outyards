@@ -102,7 +102,7 @@ function Equipment:playerAdded(player)
     self.behaviors[player] = {}
     self.renderers[player] = {}
 
-    player.CharacterAdded:connect(function(char)
+    local function onCharacter(char)
         local humanoid = char:WaitForChild("Humanoid")
         char:WaitForChild("HumanoidRootPart")
         char:WaitForChild("Head")
@@ -112,7 +112,10 @@ function Equipment:playerAdded(player)
         end)
 
         self:characterSpawned(player,char)
-    end)
+    end
+
+    player.CharacterAdded:connect(onCharacter)
+    if player.Character then onCharacter(player.Character) end
 
     player.CharacterRemoving:connect(function()
         self:clearBehaviors(player)
@@ -302,7 +305,7 @@ function Equipment:postInit()
         self.store = store
 
         store.changed:connect(function(newState, oldState)
-            coroutine.wrap(function()
+            -- coroutine.wrap(function()
                 for _, player in pairs(Players:GetPlayers()) do
                     local newEquipped = Selectors.getEquipped(newState,player) or {}
                     local oldEquipped = Selectors.getEquipped(oldState,player) or {}
@@ -316,7 +319,7 @@ function Equipment:postInit()
                         self:playerEquipped(player,itemId)
                     end
                 end
-            end)()
+            -- end)()
         end)
 
         Players.playerAdded:connect(function(player)
