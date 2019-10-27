@@ -28,6 +28,10 @@ local errors = {
     invalidSpriteSheet = "Invalid sprite sheet [%s]!",
 }
 
+local function capitalize(string)
+    return string:sub(1,1):upper()..string:sub(2)
+end
+
 function ItemLabel:init()
 end
 
@@ -89,12 +93,24 @@ function ItemLabel:render()
         })
     end
 
-    local statStrings = {}
+    local thumbStrings = {}
+    local spacer = ("- "):rep(20):sub(1,39)
+
+    table.insert(thumbStrings,item.name)
+    table.insert(thumbStrings,item.desc)
+    table.insert(thumbStrings,item.equipmentType and "Type: "..item.equipmentType)
+
+    if item.stats then
+        table.insert(thumbStrings, spacer)
+    end
 
     for stat,value in pairs(item.stats or {}) do
-        local newString = ("%s: %s"):format(stat,tostring(value))
-        table.insert(statStrings,newString)
+        local newString = ("%s: %s"):format(capitalize(stat),tostring(value))
+        table.insert(thumbStrings,newString)
     end
+
+    table.insert(thumbStrings, spacer)
+    table.insert(thumbStrings, "[Item id: "..item.id.."]")
 
     local itemButton = Roact.createElement(activatable and "ImageButton" or "ImageLabel", {
         Size = UDim2.new(0,spriteSheet.spriteSize.X * 3,0,spriteSheet.spriteSize.Y * 3),
@@ -110,9 +126,9 @@ function ItemLabel:render()
         Selectable = activatable,
 
         ImageColor3 = isGray and Color3.new(0.3,0.3,0.3) or Color3.new(1,1,1),
-        [Roact.Event.MouseEnter] = showTooltip and function() self.props.displayTooltip(itemName,unpack(statStrings)) end or nil,
+        [Roact.Event.MouseEnter] = showTooltip and function() self.props.displayTooltip(thumbStrings) end or nil,
         [Roact.Event.MouseLeave] = showTooltip and function() self.props.hideTooltip() end or nil,
-        [Roact.Event.SelectionGained] = showTooltip and function() self.props.displayTooltip(itemName,unpack(statStrings)) end or nil,
+        [Roact.Event.SelectionGained] = showTooltip and function() self.props.displayTooltip(thumbStrings) end or nil,
         [Roact.Event.SelectionLost] = showTooltip and function() self.props.hideTooltip() end or nil,
         [Roact.Event.Activated] = activatable and function()
             if not equipped then
@@ -145,8 +161,8 @@ ItemLabel = RoactRodux.connect(function(state,props)
     }
 end, function(dispatch)
     return {
-        displayTooltip = function(...)
-            local strings = {...}
+        displayTooltip = function(strings)
+            strings = strings or {}
             dispatch(Actions.TOOLTIP_STRINGS_SET(strings))
             dispatch(Actions.TOOLTIP_VISIBLE_SET(true))
         end,
