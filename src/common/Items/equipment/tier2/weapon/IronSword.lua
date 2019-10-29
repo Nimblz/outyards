@@ -16,11 +16,11 @@ return {
     },
 
     stats = {
-        baseDamage = 8,
+        baseDamage = 10,
     },
 
     metadata = {
-        fireRate = 3,
+        fireRate = 2.5,
         attackRange = 9,
         attackArc = 120, -- in degrees
     }
