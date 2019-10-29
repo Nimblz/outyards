@@ -17,6 +17,7 @@ local SpawnZoneSystem = RECS.System:extend("SpawnZoneSystem")
 
 function SpawnZoneSystem:spawnGroup(zoneInstance)
     local spawnZone = self.spawnZones[zoneInstance]
+    if not spawnZone then return end
 
     spawnZone:spawnGroup()
 end
@@ -38,6 +39,7 @@ function SpawnZoneSystem:onComponentAdded(instance, component)
         instance.Name.."_spawnContainer"
     )
     wait(1)
+
     while #newSpawnZone:getNPCs() < component.spawnCap do
         newSpawnZone:spawnGroup()
         wait()
@@ -60,7 +62,9 @@ function SpawnZoneSystem:init()
     self.spawnZones = {}
 
     for instance,component in self.core:components(RecsComponents.SpawnZone) do
-        self:onComponentAdded(instance, component)
+        coroutine.wrap(function()
+            self:onComponentAdded(instance, component)
+        end)()
     end
 
     self.core:getComponentAddedSignal(RecsComponents.SpawnZone):connect(function(instance,component)

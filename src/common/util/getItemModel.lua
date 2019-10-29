@@ -5,9 +5,24 @@ local model = ReplicatedStorage:WaitForChild("model")
 
 local Items = require(common:WaitForChild("Items"))
 
+local function nameMap(root,condition)
+    local result = {}
+    for _,v in pairs(root:GetDescendants()) do
+        if condition(v) then
+            result[v.Name] = v
+        end
+    end
+
+    return result
+end
+
+local weapons = nameMap(model:WaitForChild("weapon"), function(child)
+    if child:FindFirstChild("grip") then return true end
+end)
+
 local cataFuncs = {
     weapon = function(id, asset)
-        local weaponModel = model:WaitForChild("weapon"):FindFirstChild(id)
+        local weaponModel = weapons[id]
         if not weaponModel then
             warn("weapon model "..id.." does not exist")
             return model:WaitForChild("error"):Clone()
