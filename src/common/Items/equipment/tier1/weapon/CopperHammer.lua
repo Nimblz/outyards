@@ -1,6 +1,7 @@
 return {
-    id = "swordCopper",
-    name = "Copper Sword",
+    id = "hammerCopper",
+    name = "Copper Hammer",
+    desc = "Slow and powerful",
     tier = 1,
 
     equipmentType = "weapon",
@@ -8,7 +9,7 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(2,1),
+    spriteCoords = Vector2.new(2,2),
 
     onlyOne = true,
     recipe = {
@@ -16,12 +17,12 @@ return {
     },
 
     stats = {
-        baseDamage = 6,
+        baseDamage = 22,
     },
 
     metadata = {
-        fireRate = 3,
-        attackRange = 9,
-        attackArc = 120, -- in degrees
+        fireRate = 1,
+        attackRange = 12,
+        attackArc = 90, -- in degrees
     }
 }
