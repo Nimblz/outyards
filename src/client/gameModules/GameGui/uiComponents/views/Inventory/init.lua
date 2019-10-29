@@ -58,6 +58,7 @@ function Inventory:render()
     inventoryItems.layout = Roact.createElement("UIGridLayout", {
         CellPadding = UDim2.new(0,0,0,0),
         CellSize = UDim2.new(0,64,0,64),
+        SortOrder = Enum.SortOrder.LayoutOrder,
     })
 
     return Roact.createElement(FitList, {
@@ -170,7 +171,7 @@ function Inventory:render()
                     PaddingLeft = UDim.new(0,16),
                     PaddingRight = UDim.new(0,16),
                 }),
-                scrollFrame = Roact.createElement("Frame", {
+                gridFrame = Roact.createElement("Frame", {
                     Size = UDim2.new(1,0,1,0),
                     BackgroundTransparency = 1,
                     BorderSizePixel = 0,
