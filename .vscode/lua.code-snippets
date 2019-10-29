@@ -39,6 +39,16 @@
 		]
 	},
 
+	"Lib path global only": {
+		"prefix": "gl",
+		"body": [
+			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
+			"",
+			"local lib = ReplicatedStorage:WaitForChild(\"lib\")",
+			"",
+		]
+	},
+
 	"Require PizzaAlpaca": {
 		"prefix": "pz",
 		"body": [
