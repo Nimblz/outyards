@@ -1,7 +1,7 @@
 return {
     id = "ingotIron",
     name = "Iron Ingot",
-    tier = 2,
+    tier = 3,
     spriteSheet = "materials",
     spriteCoords = Vector2.new(3,2),
 
