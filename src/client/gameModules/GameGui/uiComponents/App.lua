@@ -21,6 +21,7 @@ local MenuBar = require(uiComponents:WaitForChild("MenuBar"))
 local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 local NotificationContainer = require(uiComponents:WaitForChild("NotificationContainer"))
 local withScale = require(uiComponents:WaitForChild("withScale"))
+local AlphaWarning = require(uiComponents:WaitForChild("AlphaWarning"))
 --local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
 
 local ProtoCrafting = require(legacy:WaitForChild("PrototypeCrafting"))
@@ -41,7 +42,8 @@ function App:render()
         tooltip = Roact.createElement(Tooltip),
         menubar = Roact.createElement(MenuBar),
         healthbar = Roact.createElement(HealthBar),
-        notificationContainer = Roact.createElement(NotificationContainer)
+        notificationContainer = Roact.createElement(NotificationContainer),
+        alphaWarning = Roact.createElement(AlphaWarning)
         -- toolbar = Roact.createElement(Toolbar)
     }
 
