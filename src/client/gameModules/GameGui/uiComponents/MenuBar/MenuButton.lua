@@ -5,7 +5,7 @@ local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 
-local RoundButton = require(component:WaitForChild("RoundButton"))
+local FancyButton = require(component:WaitForChild("FancyButton"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local MenuButton = Roact.Component:extend("MenuButton")
 
@@ -30,7 +30,7 @@ function MenuButton:render()
 
     local hovered = self.state.hovered or false
 
-    return Roact.createElement(RoundButton, {
+    return Roact.createElement(FancyButton, {
         [Roact.Ref] = self.props.buttonRef,
 
         NextSelectionDown = self.props.downRef,
