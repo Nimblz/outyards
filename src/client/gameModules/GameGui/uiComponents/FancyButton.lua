@@ -3,16 +3,22 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local util = common:WaitForChild("util")
-local component = script:FindFirstAncestor("uiComponent")
+local component = script:FindFirstAncestor("uiComponents")
 
 local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
+local Otter = require(lib:WaitForChild("Otter"))
 
 local RoundButton = require(component:WaitForChild("RoundButton"))
 local FancyButton = Roact.Component:extend("FancyButton")
 
 function FancyButton:init()
+    self.motor = Otter.createSingleMotor(1)
     self:setScale(1)
+
+    self.motor:onStep(function(scale)
+        self:setScale(scale)
+    end)
 end
 
 function FancyButton:setScale(scale)
@@ -23,28 +29,38 @@ function FancyButton:setScale(scale)
     end)
 end
 
+function FancyButton:setGoal(goalScale)
+    self.motor:setGoal(Otter.spring(goalScale,{
+        frequency = 5
+    }))
+end
+
 function FancyButton:didMount()
 end
 
 function FancyButton:render()
 
     local function hovered()
-        self:setScale(1.1)
+        self:setGoal(1.1)
     end
 
     local function unhovered()
-        self:setScale(1)
+        self:setGoal(1)
     end
 
     local function mouseDown()
-        self:setScale(0.9)
+        self:setGoal(0.9)
     end
 
     local function mouseUp()
-        self:setScale(1)
+        self:setGoal(1)
     end
 
     local mergedProps = Dictionary.join(self.props, {
+        Size = UDim2.new(1,0,1,0),
+        Position = UDim2.new(0.5,0,0.5,0),
+        AnchorPoint = Vector2.new(0.5,0.5),
+        [Roact.Children] = Dictionary.None,
         [Roact.Event.MouseEnter] = function(...)
             hovered()
             if self.props[Roact.Event.MouseEnter] then
@@ -71,8 +87,22 @@ function FancyButton:render()
         end
     })
 
+    local frameProps = {
+        Size = self.props.Size,
+        Position = self.props.Position,
+        AnchorPoint = self.props.AnchorPoint,
+        BackgroundTransparency = 1,
+        LayoutOrder = self.props.LayoutOrder
+    }
+
+    local children = Dictionary.join({
+        scale = Roact.createElement("UIScale", {
+            Scale = self.state.scale,
+        })
+    }, self.props[Roact.Children])
+
     return Roact.createElement("Frame", frameProps, {
-        button = Roact.createElement(RoundButton, mergedProps, self.props[Roact.Children])
+        button = Roact.createElement(RoundButton, mergedProps, children),
     })
 end
 

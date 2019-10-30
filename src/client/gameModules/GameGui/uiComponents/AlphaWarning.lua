@@ -11,7 +11,7 @@ local FullScreenModal = require(component:WaitForChild("FullScreenModal"))
 local FitList = require(component:WaitForChild("FitList"))
 local FitText = require(component:WaitForChild("FitText"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local RoundButton = require(component:WaitForChild("RoundButton"))
+local FancyButton = require(component:WaitForChild("FancyButton"))
 
 local AlphaWarning = Roact.Component:extend("AlphaWarning")
 
@@ -69,7 +69,7 @@ function AlphaWarning:render()
                 Size = UDim2.new(0,600,0,0),
             }),
             button = Roact.createElement(FitList, {
-                containerKind = RoundButton,
+                containerKind = FancyButton,
                 containerProps = {
                     color = Color3.fromRGB(255, 162, 40),
                     Size = UDim2.new(0,200,0,50),
