@@ -32,7 +32,7 @@ end
 function FancyButton:setGoal(goalScale)
     self.motor:setGoal(Otter.spring(goalScale,{
         frequency = self.props.frequency or 5,
-        dampingRatio = self.props.dampingRatio
+        dampingRatio = self.props.dampingRatio or 0.4
     }))
 end
 
