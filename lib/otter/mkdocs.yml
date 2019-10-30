@@ -1,0 +1,26 @@
+site_name: Otter Documentation
+site_url: https://roblox.github.io/otter/
+repo_name: Roblox/otter
+repo_url: https://github.com/Roblox/otter
+
+theme:
+  name: material
+  palette:
+    primary: 'Light Blue'
+    accent: 'Light Blue'
+
+nav:
+  - Home: index.md
+  - Usage:
+    - Motors: usage/motors.md
+    - Goals: usage/goals.md
+    - Roact: usage/roact.md
+  - API Reference: api-reference.md
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.superfences
