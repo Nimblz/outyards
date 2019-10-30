@@ -32,6 +32,7 @@ end
 
 function GuiContainer:init()
     Roact.setGlobalConfig({elementTracing = true})
+    PlayerGui:SetTopbarTransparency(0)
 
     self.logger = self.core:getModule("Logger"):createLogger(self)
 
