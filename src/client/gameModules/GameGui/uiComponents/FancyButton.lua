@@ -31,7 +31,8 @@ end
 
 function FancyButton:setGoal(goalScale)
     self.motor:setGoal(Otter.spring(goalScale,{
-        frequency = 5
+        frequency = self.props.frequency or 5,
+        dampingRatio = self.props.dampingRatio
     }))
 end
 
@@ -41,7 +42,7 @@ end
 function FancyButton:render()
 
     local function hovered()
-        self:setGoal(1.1)
+        self:setGoal(1.05)
     end
 
     local function unhovered()
@@ -49,7 +50,7 @@ function FancyButton:render()
     end
 
     local function mouseDown()
-        self:setGoal(0.9)
+        self:setGoal(0.95)
     end
 
     local function mouseUp()
