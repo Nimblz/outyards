@@ -19,9 +19,15 @@ function FitText:init()
 end
 
 function FitText:render()
-    local kind = self.props.kind or "TextLabel"
+	local kind = self.props.kind or "TextLabel"
 
-	local containerProps = Dictionary.merge(self.props, {
+	local props = Dictionary.merge({
+		Font = Enum.Font.Gotham,
+		TextSize = 18,
+		BackgroundTransparency = 1,
+	}, self.props)
+
+	local containerProps = Dictionary.merge(props, {
 		fitAxis = Dictionary.None,
 		kind = Dictionary.None,
 		padding = Dictionary.None,
@@ -52,8 +58,8 @@ function FitText:updateTextMeasurements()
 	local baseSize = self.props.Size
 
 	local text = self.props.Text or ""
-	local font = self.props.Font or Enum.Font.Legacy
-	local textSize = self.props.TextSize or 12
+	local font = self.props.Font or Enum.Font.Gotham
+	local textSize = self.props.TextSize or 18
 
 	local containerSize = self.ref.current.AbsoluteSize
 
