@@ -57,7 +57,7 @@ function Inventory:render()
 
     inventoryItems.layout = Roact.createElement("UIGridLayout", {
         CellPadding = UDim2.new(0,0,0,0),
-        CellSize = UDim2.new(0,64,0,64),
+        CellSize = UDim2.new(0,48,0,48),
         SortOrder = Enum.SortOrder.LayoutOrder,
     })
 
