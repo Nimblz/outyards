@@ -62,6 +62,9 @@
         },
         "DataStore2": {
           "$path": "lib/datastore2/lib"
+        },
+        "Otter": {
+          "$path": "lib/otter/lib"
         }
       }
     },
