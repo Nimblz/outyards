@@ -4,9 +4,11 @@ local PlayerGui = game:GetService("Players").LocalPlayer.PlayerGui
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 
+local withScale = require(component:WaitForChild("withScale"))
 local FullScreenModal = Roact.Component:extend("FullScreenModal")
 
 function FullScreenModal:init()
@@ -28,7 +30,7 @@ function FullScreenModal:render()
     return Roact.createElement(Roact.Portal, {
         target = PlayerGui
     }, {
-        modal = Roact.createElement("ScreenGui", {
+        modal = Roact.createElement(withScale("ScreenGui"), {
             ResetOnSpawn = false,
             ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
             DisplayOrder = 10,
