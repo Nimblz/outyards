@@ -2,9 +2,11 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
--- local util = common:WaitForChild("util")
+local util = common:WaitForChild("util")
 local model = ReplicatedStorage:WaitForChild("model")
 local npcModel = model:WaitForChild("npc")
+
+local flashModel = require(util:WaitForChild("flashModel"))
 
 local npcModels = {}
 
@@ -23,6 +25,7 @@ local ActorRigSystem = RECS.System:extend("ActorRigSystem")
 
 function ActorRigSystem:onComponentAdded(instance, component)
     local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
+    local actorStats = self.core:getComponent(instance, RecsComponents.ActorStats)
     local aiComponent = self.core:getComponent(instance, RecsComponents.AI)
     if not npcComponent then return end
 
@@ -67,6 +70,14 @@ function ActorRigSystem:onComponentAdded(instance, component)
         end)
 
         animations.idle:Play(0.2)
+    end
+
+    if actorStats then
+        actorStats.changed:connect(function(key, new, old)
+            if key == "health" and new < old then
+                flashModel(rig,Color3.new(1,0,0),0.2,0.1)
+            end
+        end)
     end
 
     self.rigs[instance] = rig
