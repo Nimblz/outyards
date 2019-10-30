@@ -51,14 +51,9 @@ function Scale:willUnmount()
 end
 
 function Scale:render()
-	local scaleElement = Roact.createElement("UIScale", {
+	return Roact.createElement("UIScale", {
 		Scale = self.state.scale * self.props.scale
     })
-    local children = self.props[Roact.Children]
-
-    local joinedChildren = Dictionary.join(children,{["$Scale"] = scaleElement})
-
-    return Roact.createFragment(joinedChildren)
 end
 
 Scale.defaultProps = {
@@ -66,25 +61,23 @@ Scale.defaultProps = {
     scale = 1,
     minScale = 0.5,
     maxScale = 1,
-    scaleIncrement = 0.5,
+    scaleIncrement = 0.1,
 }
 
 local function withScale(component)
-    local newScaled = Roact.Component:extend("ScaledComponent")
+    return function(props)
+        local children = props[Roact.Children]
 
-    function newScaled:render()
-        local children = self.props[Roact.Children]
-
-        local prunedProps = Dictionary.join(self.props, {
+        local prunedProps = Dictionary.join(props, {
             [Roact.Children] = Dictionary.None,
         })
 
-        return Roact.createElement(component, prunedProps, {
-            Roact.createElement(Scale, Scale.defaultProps, children)
+        local joinedChildren = Dictionary.join(children, {
+            ["$Scale"] = Roact.createElement(Scale, Scale.defaultProps)
         })
-    end
 
-    return newScaled
+        return Roact.createElement(component, prunedProps, joinedChildren)
+    end
 end
 
 return withScale
