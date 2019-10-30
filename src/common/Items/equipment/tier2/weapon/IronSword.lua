@@ -1,7 +1,7 @@
 return {
     id = "swordIron",
     name = "Iron Sword",
-    tier = 1,
+    tier = 2,
 
     equipmentType = "weapon",
     behaviorType = "melee",
