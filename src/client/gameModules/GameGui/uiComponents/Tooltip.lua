@@ -71,6 +71,7 @@ function Tooltip:render()
             TextXAlignment = Enum.TextXAlignment.Left,
             LayoutOrder = index,
             TextColor3 = Color3.fromRGB(0,0,0),
+            TextWrapped = true,
 
             fitAxis = "Y",
             Size = UDim2.new(0,235,0,18),
