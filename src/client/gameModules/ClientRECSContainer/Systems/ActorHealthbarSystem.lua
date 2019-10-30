@@ -64,6 +64,7 @@ function ActorHealthbarSystem:onComponentAdded(instance, component)
     end)
 
     healthbar.Parent = instance
+    healthbar.StudsOffsetWorldSpace = Vector3.new(0,instance.Size.Y/2 + 1, 0)
 
     self:onComponentChange(instance,component)
 end
