@@ -5,35 +5,40 @@ local util = common:WaitForChild("util")
 
 local by = require(util:WaitForChild("by"))
 
-local catagories = {
+local tags = {
     {
-        id = "weapon",
-        name = "Weapon",
+        id = "material",
+        name = "Material",
+        icont = "",
+    },
+    {
+        id = "melee",
+        name = "Melee",
         icon = "",
     },
     {
-        id = "armor",
-        name = "Armor",
+        id = "ranged",
+        name = "Ranged",
         icon = "",
     },
     {
-        id = "hat",
-        name = "Hat",
+        id = "magic",
+        name = "Magic",
         icon = "",
     },
     {
-        id = "feet",
-        name = "Feet",
+        id = "reborn",
+        name = "Reborn",
         icon = "",
     },
     {
-        id = "trinket",
-        name = "Trinket",
+        id = "event",
+        name = "Event",
         icon = "",
     },
 }
 
 return {
-    all = catagories,
-    byId = by("id", catagories),
+    all = tags,
+    byId = by("id", tags),
 }
