@@ -78,7 +78,7 @@ function PrototypeCrafting:render()
     })
 
     return Roact.createElement("Frame", {
-        Size = UDim2.new(0,400,0,400),
+        Size = UDim2.new(0,600,0,600),
         AnchorPoint = Vector2.new(0.5,0.5),
         Position = UDim2.new(0.5,0,0.5,0),
 

@@ -113,7 +113,7 @@ function ItemLabel:render()
     table.insert(thumbStrings, "[Item id: "..item.id.."]")
 
     local itemButton = Roact.createElement(activatable and "ImageButton" or "ImageLabel", {
-        Size = UDim2.new(0,spriteSheet.spriteSize.X * 2,0,spriteSheet.spriteSize.Y * 2),
+        Size = UDim2.new(0,spriteSheet.spriteSize.X * 4,0,spriteSheet.spriteSize.Y * 4),
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
         AnchorPoint = Vector2.new(0.5,0.5),
@@ -145,7 +145,7 @@ function ItemLabel:render()
     return Roact.createElement(RoundFrame, {
         BackgroundTransparency = 0,
         BorderSizePixel = 0,
-        Size = UDim2.new(0,40,0,40),
+        Size = UDim2.new(0,72,0,72),
         LayoutOrder = layoutOrder,
         AnchorPoint = Vector2.new(0.5, 0.5),
         Position = UDim2.new(0.5,0,0.5,0),

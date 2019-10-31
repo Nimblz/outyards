@@ -40,7 +40,7 @@ function PrototypeInventory:render()
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Top,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            CellSize = UDim2.new(0,48,0,48),
+            CellSize = UDim2.new(0,64,0,64),
             CellPadding = UDim2.new(0,8,0,8),
         }),
         margin = Roact.createElement("UIPadding", {

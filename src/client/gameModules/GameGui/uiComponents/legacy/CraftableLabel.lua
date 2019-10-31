@@ -42,16 +42,16 @@ function CraftableLabel:render()
     local ingredientElements = {
         listLayout = Roact.createElement("UIListLayout", {
             SortOrder = Enum.SortOrder.LayoutOrder,
-            VerticalAlignment = Enum.VerticalAlignment.Top,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
             Padding = UDim.new(0,8),
             FillDirection = Enum.FillDirection.Horizontal,
         }),
         margin = Roact.createElement("UIPadding", {
-            PaddingBottom = UDim.new(0,4),
-            PaddingTop = UDim.new(0,4),
-            PaddingLeft = UDim.new(0,4),
-            PaddingRight = UDim.new(0,4),
+            PaddingBottom = UDim.new(0,8),
+            PaddingTop = UDim.new(0,8),
+            PaddingLeft = UDim.new(0,8),
+            PaddingRight = UDim.new(0,8),
         })
     }
 
@@ -70,14 +70,14 @@ function CraftableLabel:render()
             SortOrder = Enum.SortOrder.LayoutOrder,
             VerticalAlignment = Enum.VerticalAlignment.Center,
             HorizontalAlignment = Enum.HorizontalAlignment.Left,
-            Padding = UDim.new(0,4),
+            Padding = UDim.new(0,8),
             FillDirection = Enum.FillDirection.Horizontal,
         }),
         margin = Roact.createElement("UIPadding", {
-            PaddingBottom = UDim.new(0,4),
-            PaddingTop = UDim.new(0,4),
-            PaddingLeft = UDim.new(0,4),
-            PaddingRight = UDim.new(0,4),
+            PaddingBottom = UDim.new(0,8),
+            PaddingTop = UDim.new(0,8),
+            PaddingLeft = UDim.new(0,8),
+            PaddingRight = UDim.new(0,8),
         }),
         craftableItem = Roact.createElement(ItemLabel, {
             itemId = itemId,
@@ -91,7 +91,7 @@ function CraftableLabel:render()
             showTooltip = false,
         }),
         ingredientList = Roact.createElement("Frame", {
-            Size = UDim2.new(1,-128,1,0),
+            Size = UDim2.new(1,-100,1,0),
             LayoutOrder = 3,
             BorderSizePixel = 0,
             BackgroundColor3 = Color3.new(0.8,0.8,0.8),
@@ -99,7 +99,7 @@ function CraftableLabel:render()
     }
 
     return Roact.createElement("ImageButton", {
-        Size = UDim2.new(1,0,0,74),
+        Size = UDim2.new(1,0,0,80),
         SizeConstraint = Enum.SizeConstraint.RelativeXX,
         BorderSizePixel = 0,
         BackgroundColor3 = isCraftable and Color3.new(0.9,0.9,0.9) or Color3.new(0.7,0.7,0.7),
