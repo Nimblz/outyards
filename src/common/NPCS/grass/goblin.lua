@@ -12,7 +12,6 @@ return {
             ItemDrops = {
                 items = {
                     {itemId = "leather", dropRange = {min = 1, max = 3}, dropRate = 0.75},
-                    {itemId = "stone", dropRange = {min = 3, max = 3}, dropRate = 0.75},
                     {itemId = "wood", dropRange = {min = 1, max = 3}, dropRate = 0.75},
                 },
                 cash = 1,
