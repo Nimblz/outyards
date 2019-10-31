@@ -16,7 +16,8 @@ local FancyButton = require(component:WaitForChild("FancyButton"))
 
 local AlphaWarning = Roact.PureComponent:extend("AlphaWarning")
 
-local FADE_TIME = 0.2
+local FADE_TIME = 1/5
+local DISABLED_TIME = 3
 
 function AlphaWarning:init()
     self.transparencyMotor = Otter.createSingleMotor(1)
@@ -25,6 +26,7 @@ function AlphaWarning:init()
         return {
             transparency = 1,
             visible = true,
+            confirmDisabled = true,
         }
     end)
 end
@@ -56,9 +58,18 @@ function AlphaWarning:didMount()
             }
         end)
     end)
+
+    delay(DISABLED_TIME, function ()
+        self:setState(function()
+            return {
+                confirmDisabled = false,
+            }
+        end)
+    end)
 end
 
 function AlphaWarning:render()
+    local confirmDisabled = self.state.confirmDisabled
     local transparency = self.state.transparency
     local warning = Roact.createElement(FullScreenModal, {transparency = transparency}, {
         centerFrame = Roact.createElement(FitList, {
@@ -103,6 +114,7 @@ function AlphaWarning:render()
                     Size = UDim2.new(0,200,0,50),
                     LayoutOrder = 3,
                     ImageTransparency = transparency,
+                    disabled = confirmDisabled,
                     [Roact.Event.Activated] = function() self:hide() end
                 },
                 layoutProps = {

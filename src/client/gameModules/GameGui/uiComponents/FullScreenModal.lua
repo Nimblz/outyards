@@ -11,7 +11,10 @@ local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
 
 local withScale = require(component:WaitForChild("withScale"))
+local ScreenScaler = require(component:WaitForChild("ScreenScaler"))
 local FullScreenModal = Roact.PureComponent:extend("FullScreenModal")
+
+local screenGuiWithScale = withScale("ScreenGui")
 
 function FullScreenModal:render()
     local transparency = self.props.transparency or 0
@@ -25,12 +28,13 @@ function FullScreenModal:render()
         Active = true,
     }, self.props[Roact.Children])
 
-    local modal = Roact.createElement(withScale("ScreenGui"), {
+    local modal = Roact.createElement(screenGuiWithScale, {
         ResetOnSpawn = false,
         ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
         DisplayOrder = 10,
     }, {
-        shadow = shadow
+        shadow = shadow,
+        scale = Roact.createElement(ScreenScaler, ScreenScaler.defaultProps)
     })
 
     local portal = Roact.createElement(Roact.Portal, {
@@ -38,10 +42,6 @@ function FullScreenModal:render()
     }, {
         modal = modal
     })
-
-    local asFragment = Roact.createFragment(Dictionary.join(self.props[Roact.Children], {
-        shadow = shadow
-    }))
 
     return portal
 end

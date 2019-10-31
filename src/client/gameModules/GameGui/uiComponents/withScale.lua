@@ -1,9 +1,3 @@
-local Workspace = game:GetService("Workspace")
-local GuiService = game:GetService("GuiService")
-
-local Camera = Workspace.CurrentCamera
-local TopInset, BottomInset = GuiService:GetGuiInset()
-
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
@@ -25,7 +19,7 @@ local function withScale(kind)
         })
 
         local joinedChildren = Dictionary.join(children, {
-            ["$Scale"] = Roact.createElement(ScreenScaler, ScreenScaler.defaultProps)
+            ["scaler"] = Roact.createElement(ScreenScaler, ScreenScaler.defaultProps)
         })
 
         return Roact.createElement(kind, prunedProps, joinedChildren)

@@ -58,7 +58,7 @@ ScreenScaler.defaultProps = {
     scale = 1,
     minScale = 0.5,
     maxScale = 1,
-    scaleIncrement = 0.1,
+    scaleIncrement = 0.5,
 }
 
 return ScreenScaler
