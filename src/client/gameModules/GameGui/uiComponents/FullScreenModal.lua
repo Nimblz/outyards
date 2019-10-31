@@ -3,41 +3,47 @@ local PlayerGui = game:GetService("Players").LocalPlayer.PlayerGui
 
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
+local util = common:WaitForChild("util")
 local event = ReplicatedStorage:WaitForChild("event")
 local component = script:FindFirstAncestor("uiComponents")
 
+local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
 
 local withScale = require(component:WaitForChild("withScale"))
-local FullScreenModal = Roact.Component:extend("FullScreenModal")
-
-function FullScreenModal:init()
-end
-
-function FullScreenModal:didMount()
-end
+local FullScreenModal = Roact.PureComponent:extend("FullScreenModal")
 
 function FullScreenModal:render()
+    local transparency = self.props.transparency or 0
     local shadow = Roact.createElement("Frame", {
         BackgroundColor3 = Color3.new(0,0,0),
-        BackgroundTransparency = 0.5,
+        BackgroundTransparency = (0.5) + (0.5 * transparency),
         BorderSizePixel = 0,
 
         Size = UDim2.new(1,0,1,0),
 
         Active = true,
     }, self.props[Roact.Children])
-    return Roact.createElement(Roact.Portal, {
+
+    local modal = Roact.createElement(withScale("ScreenGui"), {
+        ResetOnSpawn = false,
+        ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+        DisplayOrder = 10,
+    }, {
+        shadow = shadow
+    })
+
+    local portal = Roact.createElement(Roact.Portal, {
         target = PlayerGui
     }, {
-        modal = Roact.createElement(withScale("ScreenGui"), {
-            ResetOnSpawn = false,
-            ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
-            DisplayOrder = 10,
-        }, {
-            shadow = shadow
-        })
+        modal = modal
     })
+
+    local asFragment = Roact.createFragment(Dictionary.join(self.props[Roact.Children], {
+        shadow = shadow
+    }))
+
+    return portal
 end
 
 return FullScreenModal
