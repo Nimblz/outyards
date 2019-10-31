@@ -11,7 +11,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
 local e = Roact.createElement
 
-local FitList = Roact.Component:extend("FitList")
+local FitList = Roact.PureComponent:extend("FitList")
 
 function FitList:init()
 	self.sizeBinding, self.setSize = Roact.createBinding(UDim2.new())

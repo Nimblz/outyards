@@ -11,7 +11,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local e = Roact.createElement
 
-local FitText = Roact.Component:extend("FitText")
+local FitText = Roact.PureComponent:extend("FitText")
 
 function FitText:init()
 	self.ref = Roact.createRef()
