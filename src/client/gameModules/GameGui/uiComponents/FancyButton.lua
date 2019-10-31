@@ -40,6 +40,7 @@ function FancyButton:didMount()
 end
 
 function FancyButton:render()
+    local disabled = self.props.disabled
 
     local function hovered()
         self:setGoal(1.05)
@@ -61,29 +62,43 @@ function FancyButton:render()
         Size = UDim2.new(1,0,1,0),
         Position = UDim2.new(0.5,0,0.5,0),
         AnchorPoint = Vector2.new(0.5,0.5),
+
+        color = disabled and Color3.fromRGB(180, 180, 180) or self.props.color,
+
         [Roact.Children] = Dictionary.None,
         [Roact.Event.MouseEnter] = function(...)
+            if disabled then return end
             hovered()
             if self.props[Roact.Event.MouseEnter] then
                 self.props[Roact.Event.MouseEnter](...)
             end
         end,
         [Roact.Event.MouseLeave] = function(...)
+            if disabled then return end
             unhovered()
             if self.props[Roact.Event.MouseLeave] then
                 self.props[Roact.Event.MouseLeave](...)
             end
         end,
         [Roact.Event.MouseButton1Down] = function(...)
+            if disabled then return end
             mouseDown()
             if self.props[Roact.Event.MouseButton1Down] then
                 self.props[Roact.Event.MouseButton1Down](...)
             end
         end,
         [Roact.Event.MouseButton1Up] = function(...)
+            if disabled then return end
             mouseUp()
             if self.props[Roact.Event.MouseButton1Up] then
                 self.props[Roact.Event.MouseButton1Up](...)
+            end
+        end,
+        [Roact.Event.Activated] = function(...)
+            if not disabled then
+                if self.props[Roact.Event.Activated] then
+                    self.props[Roact.Event.Activated](...)
+                end
             end
         end
     })

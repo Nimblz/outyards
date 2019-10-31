@@ -37,6 +37,7 @@ end
 
 function RoundButton:render()
     local props = self.props
+    local disabled = self.props.disabled or false
     local hovered = self.state.hovered or false
     local pressed = self.state.pressed or false
 
@@ -53,7 +54,7 @@ function RoundButton:render()
     }
 
     local function callInputFunc(name)
-        if inputFuncs[name] then
+        if inputFuncs[name] and not disabled then
             inputFuncs[name]()
         end
     end
@@ -62,23 +63,28 @@ function RoundButton:render()
         color = Dictionary.None,
         hoveredColor = Dictionary.None,
         pressedColor = Dictionary.None,
+        disabled = Dictionary.None,
 
         ImageColor3 = finalColor,
 
         [Roact.Event.MouseEnter] = function()
+            if disabled then return end
             self:setHovered(true)
             callInputFunc("mouseEnter")
         end,
         [Roact.Event.MouseLeave] = function()
+            if disabled then return end
             self:setHovered(false)
             self:setPressed(false)
             callInputFunc("mouseLeave")
         end,
         [Roact.Event.MouseButton1Down] = function()
+            if disabled then return end
             self:setPressed(true)
             callInputFunc("mouseDown")
         end,
         [Roact.Event.MouseButton1Up] = function()
+            if disabled then return end
             self:setPressed(false)
             self:setHovered(false)
             callInputFunc("mouseUp")
