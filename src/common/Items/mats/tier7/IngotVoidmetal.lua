@@ -14,4 +14,8 @@ return {
         ingotAdurite = 15,
     },
     craftQuantity = 5,
+
+    tags = {
+        "material",
+    }
 }

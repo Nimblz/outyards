@@ -10,4 +10,8 @@ return {
         oreBluesteel = 15,
     },
     craftQuantity = 5,
+
+    tags = {
+        "material",
+    }
 }
