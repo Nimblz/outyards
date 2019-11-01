@@ -61,6 +61,8 @@ function SpawnZoneSystem:init()
 
     self.spawnZones = {}
 
+    wait(3)
+
     for instance,component in self.core:components(RecsComponents.SpawnZone) do
         coroutine.wrap(function()
             self:onComponentAdded(instance, component)
