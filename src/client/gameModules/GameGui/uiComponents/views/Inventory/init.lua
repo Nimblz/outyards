@@ -14,6 +14,7 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
+local DropdownMenu = require(component:WaitForChild("DropdownMenu"))
 local RoundTextElement = require(component:WaitForChild("RoundTextElement"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
@@ -36,22 +37,24 @@ function Inventory:render()
     for id, quantity in pairs(inventory) do
         if quantity > 0 then
             local item = Items.byId[id]
-            local itemSortOrder = item.sortOrder
-            local newItemLabel = Roact.createElement(ItemLabel, {
-                itemId = id,
-                quantity = quantity,
-                activatable = true,
-                AnchorPoint = Vector2.new(0.5, 0.5),
-                Position = UDim2.new(0.5,0,0.5,0),
-            })
+            if item then
+                local itemSortOrder = item.sortOrder
+                local newItemLabel = Roact.createElement(ItemLabel, {
+                    itemId = id,
+                    quantity = quantity,
+                    activatable = true,
+                    AnchorPoint = Vector2.new(0.5, 0.5),
+                    Position = UDim2.new(0.5,0,0.5,0),
+                })
 
-            local itemFrame = Roact.createElement("Frame", {
-                BackgroundTransparency = 1,
-                Size = UDim2.new(0,64,0,64),
-                LayoutOrder = itemSortOrder,
-            }, {item = newItemLabel})
+                local itemFrame = Roact.createElement("Frame", {
+                    BackgroundTransparency = 1,
+                    Size = UDim2.new(0,64,0,64),
+                    LayoutOrder = itemSortOrder,
+                }, {item = newItemLabel})
 
-            inventoryItems[id] = itemFrame
+                inventoryItems[id] = itemFrame
+            end
         end
     end
 
@@ -94,6 +97,7 @@ function Inventory:render()
             containerProps = {
                 BackgroundTransparency = 1,
                 LayoutOrder = 2,
+                ZIndex = 2,
             },
             paddingProps = {
                 PaddingLeft = UDim.new(0,8),
@@ -105,17 +109,17 @@ function Inventory:render()
         }, {
             searchLabel = Roact.createElement(FitText, {
                 scale = 1,
-                Text = "🔎",
+                Text = "Search:",
                 Font = Enum.Font.GothamBlack,
                 minSize = Vector2.new(0,32),
-                TextSize = 24,
+                TextSize = 18,
                 BackgroundTransparency = 1,
                 TextXAlignment = Enum.TextXAlignment.Left,
                 LayoutOrder = 1,
             }),
             searchContainer = Roact.createElement(RoundFrame, {
                 color = Color3.fromRGB(216, 216, 216),
-                Size = UDim2.new(0,256,1,0),
+                Size = UDim2.new(0,200,1,0),
                 LayoutOrder = 2,
             }, {
                 padding = Roact.createElement("UIPadding", {
@@ -131,24 +135,43 @@ function Inventory:render()
                     PlaceholderText = "Search",
                 })
             }),
-            nextButton = Roact.createElement(RoundTextElement, {
-                kind = "TextButton",
-                Size = UDim2.new(0,72,0,32),
-                Text = "Next",
-                Font = Enum.Font.GothamSemibold,
-                TextSize = 18,
+            spacer = Roact.createElement("Frame", {
+                Size = UDim2.new(0,16,1,0),
+                BackgroundTransparency = 1,
                 LayoutOrder = 3,
-                color = Color3.fromRGB(216, 216, 216)
             }),
-            prevButton = Roact.createElement(RoundTextElement, {
-                kind = "TextButton",
-                Size = UDim2.new(0,72,0,32),
-                Text = "Prev",
-                Font = Enum.Font.GothamSemibold,
+            catagoryLabel = Roact.createElement(FitText, {
+                scale = 1,
+                Text = "Catagory:",
+                Font = Enum.Font.GothamBlack,
+                minSize = Vector2.new(0,32),
                 TextSize = 18,
+                BackgroundTransparency = 1,
+                TextXAlignment = Enum.TextXAlignment.Left,
                 LayoutOrder = 4,
-                color = Color3.fromRGB(216, 216, 216)
             }),
+            catagoryDropdown = Roact.createElement(DropdownMenu, {
+                options = {
+                    "⁉ All",
+                    "🌳 Material",
+                    "🧤 Equipped",
+                    "💀 Weapon",
+                    "⚔ Melee",
+                    "🔫 Ranged",
+                    "✨ Magic",
+                    "👚 Armor",
+                    "🎩 Hat",
+                    "👞 Feet",
+                    "⚓ Trinket",
+                },
+
+                onSelect = function(newIndex)
+                    print(newIndex)
+                end,
+
+                Size = UDim2.new(0,150,1,0),
+                LayoutOrder = 5,
+            })
         }),
         body = Roact.createElement(FitList, {
             scale = 1,
