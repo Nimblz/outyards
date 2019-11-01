@@ -33,6 +33,7 @@ end
 
 local function getSpriteProps(id)
     local item = Items.byId[id]
+    if not item then return end
     local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(item, errors.invalidItemId:format(tostring(id)))
     assert(spriteSheet, errors.invalidSpriteSheet:format(tostring(spriteSheet)))
