@@ -6,7 +6,10 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
+local event = ReplicatedStorage:WaitForChild("event")
 local client = script.Parent
+
+local eClientReady = event:WaitForChild("eClientReady")
 
 local sidedModules = client:WaitForChild("gameModules")
 local commonModules = common:WaitForChild("gameModules")
@@ -23,5 +26,7 @@ core:registerChildrenAsModules(sidedModules)
 
 -- start the core
 core:load()
+
+eClientReady:FireServer()
 
 print("Loading complete! Thanks for playing outyards!~")

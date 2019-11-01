@@ -11,21 +11,27 @@ local Actions = require(common:WaitForChild("Actions"))
 local Thunks = require(common:WaitForChild("Thunks"))
 local Selectors = require(common:WaitForChild("Selectors"))
 
+local Signal = require(lib:WaitForChild("Signal"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 local PlayerSaveHandler = PizzaAlpaca.GameModule:extend("PlayerSaveHandler")
 
 local eInitialState = event:WaitForChild("eInitialState")
+local eClientReady = event:WaitForChild("eClientReady")
 
-function PlayerSaveHandler:preInit()
+function PlayerSaveHandler:create()
+    self.playerLoaded = Signal.new()
 end
 
 function PlayerSaveHandler:init()
     local storeContainer = self.core:getModule("StoreContainer")
 
+    local loaded = {}
+
     storeContainer:getStore():andThen(function(store)
 
         local function playerAdded(player)
+            if loaded[player] == true then return end
             store:dispatch(Thunks.PLAYER_JOINED(player))
 
             if Selectors.getItem(store:getState(), player, "goldScoobisPet") == 0 then
@@ -34,20 +40,19 @@ function PlayerSaveHandler:init()
 
             local newState = store:getState()
             eInitialState:FireClient(player,newState)
+            loaded[player] = true
 
             store:dispatch(Thunks.EQUIPMENT_APPLYSTATS(player))
+            self.playerLoaded:fire(player)
         end
 
         local function playerLeaving(player)
+            loaded[player] = nil
             store:dispatch(Thunks.PLAYER_LEAVING(player))
         end
 
-        Players.PlayerAdded:connect(playerAdded)
+        eClientReady.OnServerEvent:connect(playerAdded)
         Players.PlayerRemoving:connect(playerLeaving)
-
-        for _, player in pairs(Players:GetPlayers()) do
-            playerAdded(player)
-        end
     end)
 end
 
