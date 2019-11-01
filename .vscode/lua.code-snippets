@@ -13,6 +13,22 @@
 	// 	"description": "Log output to console"
 	// }
 
+	"Create a new function": {
+		"prefix": "function",
+		"body": [
+			"function ${1:name}(${2:arg})${0}",
+			"end"
+		]
+	},
+
+	"Create a new anonymous function": {
+		"prefix": "afunction",
+		"body": [
+			"function(${2:arg})${0}",
+			"end"
+		]
+	},
+
 	"Create a new path variable": {
 		"prefix": "p",
 		"body": [
