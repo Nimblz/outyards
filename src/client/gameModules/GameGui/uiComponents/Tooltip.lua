@@ -63,19 +63,35 @@ function Tooltip:render()
     local children = {}
 
     for index,string in ipairs(strings) do
-        children[index.."_label"] = Roact.createElement(FitText, {
-            Text = string,
-            BackgroundTransparency = 1,
-            TextSize = index == 1 and 24 or 18,
-            Font = index == 1 and Enum.Font.GothamBlack or Enum.Font.Gotham,
-            TextXAlignment = Enum.TextXAlignment.Left,
-            LayoutOrder = index,
-            TextColor3 = Color3.fromRGB(0,0,0),
-            TextWrapped = true,
+        if string == "$SEPARATOR" then
+            children[index.."_label"] = Roact.createElement(FitText, {
+                Text = ("- "):rep(20):sub(1,39),
+                BackgroundTransparency = 1,
+                TextSize = 18,
+                Font = index == 1 and Enum.Font.GothamBlack or Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                LayoutOrder = index,
+                TextColor3 = Color3.fromRGB(0,0,0),
+                TextWrapped = true,
 
-            fitAxis = "Y",
-            Size = UDim2.new(0,235,0,18),
-        })
+                fitAxis = "X",
+                Size = UDim2.new(0,235,0,18),
+            })
+        else
+            children[index.."_label"] = Roact.createElement(FitText, {
+                Text = string,
+                BackgroundTransparency = 1,
+                TextSize = index == 1 and 24 or 18,
+                Font = index == 1 and Enum.Font.GothamBlack or Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                LayoutOrder = index,
+                TextColor3 = Color3.fromRGB(0,0,0),
+                TextWrapped = true,
+
+                fitAxis = "Y",
+                Size = UDim2.new(0,235,0,18),
+            })
+        end
     end
 
     local listFrame = Roact.createElement(FitList, {
