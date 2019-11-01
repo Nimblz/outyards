@@ -3,7 +3,7 @@ return {
     name = "Pumpkin",
     tier = 1,
     spriteSheet = "materials",
-    spriteCoords = Vector2.new(2,4),
+    spriteCoords = Vector2.new(1,5),
 
     tags = {
         "material",

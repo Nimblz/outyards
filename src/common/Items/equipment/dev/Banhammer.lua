@@ -23,5 +23,11 @@ return {
         attackArc = 180, -- in degrees
         hitSound = "banned",
         swingSound = "hammer",
+    },
+
+    tags = {
+        "reborn",
+        "weapon",
+        "melee",
     }
 }

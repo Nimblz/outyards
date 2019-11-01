@@ -19,5 +19,11 @@ return {
         projectileType = "superbullet",
         projectileCount = 2,
         projectileDeviation = 5,
-    }
+    },
+
+    tags = {
+        "weapon",
+        "ranged",
+        "reborn",
+    },
 }

@@ -3,8 +3,8 @@
 return {
     id = "goldScoobisPet",
     name = "Golden Scoobis",
-    desc = "Scoob!",
-    tier = 1,
+    desc = "Scoob! Thanks for testing!",
+    tier = 99,
 
     equipmentType = "pet",
     behaviorType = "none",
@@ -13,8 +13,13 @@ return {
     spriteSheet = "armor",
     spriteCoords = Vector2.new(2,3),
 
-    metadata = {
-        projectileType = "scoobis",
-        fireRate = 10,
-    }
+    stats = {
+        moveSpeed = 5,
+    },
+
+    tags = {
+        "pet",
+        "cosmetic",
+        "event",
+    },
 }

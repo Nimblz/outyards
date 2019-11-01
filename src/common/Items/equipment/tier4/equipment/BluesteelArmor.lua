@@ -1,22 +1,22 @@
 return {
-    id = "goldArmor",
-    name = "Gold Armor",
-    tier = 3,
+    id = "bluesteelArmor",
+    name = "Bluesteel Armor",
+    tier = 4,
 
     equipmentType = "armor",
     behaviorType = "none",
     rendererType = "armor",
 
     spriteSheet = "armor",
-    spriteCoords = Vector2.new(4,1),
+    spriteCoords = Vector2.new(5,1),
 
     onlyOne = true,
     recipe = {
-        ingotGold = 25,
+        ingotBluesteel = 25,
     },
 
     stats = {
-        defense = 150,
+        defense = 350,
     },
 
     tags = {

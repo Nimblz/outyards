@@ -10,5 +10,9 @@ return {
 
     stats = {
         moveSpeed = 10,
-    }
+    },
+
+    tags = {
+        "armor",
+    },
 }

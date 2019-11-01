@@ -1,21 +1,21 @@
-local targetDPS = 60
+local targetDPS = 100
 local fireRate = 2.5
 
 return {
-    id = "swordGold",
-    name = "Gold Sword",
-    tier = 3,
+    id = "swordBluesteel",
+    name = "Bluesteel Sword",
+    tier = 4,
 
     equipmentType = "weapon",
     behaviorType = "melee",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(4,1),
+    spriteCoords = Vector2.new(5,1),
 
     onlyOne = true,
     recipe = {
-        ingotGold = 10,
+        ingotBluesteel = 10,
     },
 
     stats = {

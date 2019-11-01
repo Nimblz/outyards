@@ -23,5 +23,11 @@ return {
     metadata = {
         projectileType = "scoobis",
         fireRate = 10,
-    }
+    },
+
+    tags = {
+        "weapon",
+        "ranged",
+        "reborn",
+    },
 }

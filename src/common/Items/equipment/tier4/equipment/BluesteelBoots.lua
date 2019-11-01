@@ -1,20 +1,20 @@
 return {
-    id = "goldBoots",
-    name = "Gold Boots",
-    tier = 3,
+    id = "bluesteelBoots",
+    name = "Bluesteel Boots",
+    tier = 4,
 
     equipmentType = "feet",
 
     spriteSheet = "armor",
-    spriteCoords = Vector2.new(4,2),
+    spriteCoords = Vector2.new(5,2),
 
     onlyOne = true,
     recipe = {
-        ingotGold = 10,
+        ingotBluesteel = 10,
     },
 
     stats = {
-        defense = 50,
+        defense = 100,
         moveSpeed = 10,
     },
 

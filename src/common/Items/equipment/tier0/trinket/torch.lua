@@ -20,5 +20,9 @@ return {
     },
 
     metadata = {
-    }
+    },
+
+    tags = {
+        "trinket",
+    },
 }

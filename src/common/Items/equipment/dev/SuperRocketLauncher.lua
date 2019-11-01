@@ -19,5 +19,10 @@ return {
         projectileType = "rocket",
         projectileCount = 3,
         projectileDeviation = 6,
-    }
+    },
+
+    tags = {
+        "weapon",
+        "ranged",
+    },
 }

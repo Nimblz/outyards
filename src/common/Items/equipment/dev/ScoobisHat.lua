@@ -18,5 +18,10 @@ return {
         baseDamage = 99999,
         attackRate = 10,
         defense = 9999999999,
-    }
+    },
+
+    tags = {
+        "armor",
+        "reborn",
+    },
 }

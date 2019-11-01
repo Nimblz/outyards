@@ -1,24 +1,25 @@
-local targetDPS = 15
-local fireRate = 1.5
+local targetDPS = 70
+local fireRate = 2
 
 return {
-    id = "bowCopper",
-    name = "Copper Bow",
+    id = "bowBluesteel",
+    name = "Bluesteel Bow",
+    tier = 4,
 
     equipmentType = "weapon",
     behaviorType = "gun",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(2,4),
-    tier = 1,
+    spriteCoords = Vector2.new(5,4),
+
     onlyOne = true,
     recipe = {
-        ingotCopper = 8,
+        ingotBluesteel = 8,
     },
 
     stats = {
-        baseDamage = targetDPS/fireRate,
+        baseDamage = math.floor(targetDPS/fireRate),
     },
 
     metadata = {

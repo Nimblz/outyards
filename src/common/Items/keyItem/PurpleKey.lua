@@ -4,4 +4,8 @@ return {
     tier = 1,
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(3,1),
+
+    tags = {
+        "keyItem",
+    },
 }

@@ -15,5 +15,9 @@ return {
     stats = {
         defense = 20,
         moveSpeed = 5,
-    }
+    },
+
+    tags = {
+        "armor",
+    },
 }

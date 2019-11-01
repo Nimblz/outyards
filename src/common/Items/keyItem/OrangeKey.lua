@@ -5,4 +5,8 @@ return {
 
     spriteSheet = "keyItems",
     spriteCoords = Vector2.new(1,1),
+
+    tags = {
+        "keyItem",
+    },
 }

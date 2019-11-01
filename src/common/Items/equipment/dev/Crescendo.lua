@@ -21,5 +21,10 @@ return {
         fireRate = 5,
         attackRange = 12,
         attackArc = 180, -- in degrees
+    },
+
+    tags = {
+        "weapon",
+        "melee",
     }
 }

@@ -1,21 +1,21 @@
-local targetDPS = 60
-local fireRate = 2.5
+local targetDPS = 120
+local fireRate = 1.3
 
 return {
-    id = "swordGold",
-    name = "Gold Sword",
-    tier = 3,
+    id = "hammerBluesteel",
+    name = "Bluesteel Hammer",
+    tier = 4,
 
     equipmentType = "weapon",
     behaviorType = "melee",
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(4,1),
+    spriteCoords = Vector2.new(5,2),
 
     onlyOne = true,
     recipe = {
-        ingotGold = 10,
+        ingotBluesteel = 10,
     },
 
     stats = {
@@ -24,8 +24,8 @@ return {
 
     metadata = {
         fireRate = fireRate,
-        attackRange = 12,
-        attackArc = 120, -- in degrees
+        attackRange = 14,
+        attackArc = 90, -- in degrees
     },
 
     tags = {
