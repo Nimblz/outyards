@@ -23,3 +23,9 @@ core:registerChildrenAsModules(sidedModules)
 core:load()
 
 print("Outyards server started!")
+
+_G.core = core
+
+core:getModule("StoreContainer"):getStore():andThen(function(store)
+    _G.store = store
+end)
