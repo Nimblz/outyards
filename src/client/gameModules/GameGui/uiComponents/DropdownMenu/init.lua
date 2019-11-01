@@ -11,6 +11,9 @@ local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
 local DropdownMenu = Roact.Component:extend("DropdownMenu")
 
+local function noop()
+end
+
 function DropdownMenu:init()
     self:setState({
         selectedIndex = 1,
@@ -32,6 +35,7 @@ function DropdownMenu:render()
     local defaultText = self.props.defaultText
     local expanded = self.state.expanded
     local selectedIndex = self.state.selectedIndex
+    local onSelect = self.props.onSelect or noop
 
     local menuOptions = {}
 
@@ -51,6 +55,7 @@ function DropdownMenu:render()
                     selectedIndex = index
                 })
                 self:toggle()
+                onSelect(index)
             end
         })
     end

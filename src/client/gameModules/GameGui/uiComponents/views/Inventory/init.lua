@@ -5,6 +5,7 @@ local LocalPlayer = Players.LocalPlayer
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
+local util = common:WaitForChild("util")
 local component = script:FindFirstAncestor("uiComponents")
 
 local eRequestEquip = event:WaitForChild("eRequestEquip")
@@ -14,20 +15,69 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 
-local DropdownMenu = require(component:WaitForChild("DropdownMenu"))
-local RoundTextElement = require(component:WaitForChild("RoundTextElement"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
 local FitText = require(component:WaitForChild("FitText"))
 local ItemLabel = require(component:WaitForChild("ItemLabel"))
-local Inventory = Roact.Component:extend("Inventory")
+local ItemTagDropdown = require(script:WaitForChild("ItemTagDropdown"))
 
 local makeView = require(script.Parent:WaitForChild("makeView"))
+local contains = require(util:WaitForChild("contains"))
 
-function Inventory:init()
+local Inventory = Roact.PureComponent:extend("Inventory")
+
+function Inventory:fitsFilter(item)
+    if not item then return false end
+
+    local tagFilter = self.state.tagFilter
+
+    local itemTags = item.tags or {}
+
+    if contains(itemTags, tagFilter) then
+        return true
+    end
+
+    if tagFilter == "equipped" then
+        return self.props.isEquipped(item.id)
+    end
+
+    if tagFilter == "all" then
+        return true
+    end
+
+    return false
 end
 
-function Inventory:didMount()
+function Inventory:fitsSearch(item)
+    if not item then return false end
+
+    local searchFilter = self.state.searchFilter:lower()
+    local lowercaseName = item.name:lower()
+
+    if searchFilter == "" then return true end
+
+    if lowercaseName:match(searchFilter) then return true end
+
+    return false
+end
+
+function Inventory:init()
+    self:setState({
+        tagFilter = "all",
+        searchFilter = "",
+    })
+end
+
+function Inventory:setTagFilter(newTag)
+    self:setState({
+        tagFilter = newTag,
+    })
+end
+
+function Inventory:setSearchFilter(newSearch)
+    self:setState({
+        searchFilter = newSearch,
+    })
 end
 
 function Inventory:render()
@@ -37,7 +87,7 @@ function Inventory:render()
     for id, quantity in pairs(inventory) do
         if quantity > 0 then
             local item = Items.byId[id]
-            if item then
+            if item and self:fitsFilter(item) and self:fitsSearch(item) then
                 local itemSortOrder = item.sortOrder
                 local newItemLabel = Roact.createElement(ItemLabel, {
                     itemId = id,
@@ -64,6 +114,10 @@ function Inventory:render()
         SortOrder = Enum.SortOrder.LayoutOrder,
     })
 
+    inventoryItems.padding = Roact.createElement("UIPadding", {
+        PaddingTop = UDim.new(0,16),
+    })
+
     return Roact.createElement(FitList, {
         containerKind = RoundFrame,
         scale = 1,
@@ -80,6 +134,7 @@ function Inventory:render()
             Position = UDim2.new(0.5,0,0.5,0),
             AnchorPoint = Vector2.new(0.5,0.5),
             ZIndex = 2,
+            Active = true,
         }
     }, {
         title = Roact.createElement("TextLabel", {
@@ -124,6 +179,7 @@ function Inventory:render()
             }, {
                 padding = Roact.createElement("UIPadding", {
                     PaddingLeft = UDim.new(0,16),
+                    PaddingRight = UDim.new(0,16),
                 }),
                 textInput = Roact.createElement("TextBox", {
                     BackgroundTransparency = 1,
@@ -131,8 +187,16 @@ function Inventory:render()
                     Font = Enum.Font.Gotham,
                     TextXAlignment = Enum.TextXAlignment.Left,
                     TextSize = 18,
+                    TextTruncate = Enum.TextTruncate.AtEnd,
                     Text = "",
                     PlaceholderText = "Search",
+                    ClearTextOnFocus = false,
+                    [Roact.Event.Changed] = function(rbx,prop)
+                        if prop == "Text" then
+                            print("spoo")
+                            self:setSearchFilter(rbx.Text)
+                        end
+                    end
                 })
             }),
             spacer = Roact.createElement("Frame", {
@@ -150,23 +214,9 @@ function Inventory:render()
                 TextXAlignment = Enum.TextXAlignment.Left,
                 LayoutOrder = 4,
             }),
-            catagoryDropdown = Roact.createElement(DropdownMenu, {
-                options = {
-                    "⁉ All",
-                    "🌳 Material",
-                    "🧤 Equipped",
-                    "💀 Weapon",
-                    "⚔ Melee",
-                    "🔫 Ranged",
-                    "✨ Magic",
-                    "👚 Armor",
-                    "🎩 Hat",
-                    "👞 Feet",
-                    "⚓ Trinket",
-                },
-
-                onSelect = function(newIndex)
-                    print(newIndex)
+            catagoryDropdown = Roact.createElement(ItemTagDropdown, {
+                onSelect = function(tag)
+                    self:setTagFilter(tag.id)
                 end,
 
                 Size = UDim2.new(0,150,1,0),
@@ -189,16 +239,21 @@ function Inventory:render()
                 Size = UDim2.new(0,450,0,450)
             }, {
                 padding = Roact.createElement("UIPadding", {
-                    PaddingTop = UDim.new(0,16),
-                    PaddingBottom = UDim.new(0,16),
+                    PaddingTop = UDim.new(0,0),
+                    PaddingBottom = UDim.new(0,0),
                     PaddingLeft = UDim.new(0,16),
-                    PaddingRight = UDim.new(0,16),
+                    PaddingRight = UDim.new(0,12),
                 }),
-                gridFrame = Roact.createElement("Frame", {
+                gridFrame = Roact.createElement("ScrollingFrame", {
                     Size = UDim2.new(1,0,1,0),
+                    CanvasSize = UDim2.new(0,0,5,0),
                     BackgroundTransparency = 1,
                     BorderSizePixel = 0,
                     Selectable = false,
+                    ScrollingDirection = Enum.ScrollingDirection.Y,
+                    TopImage = "rbxassetid://4271581206",
+                    MidImage = "rbxassetid://4271580709",
+                    BottomImage = "rbxassetid://4271581830",
                 }, inventoryItems)
             }),
             itemFocus = Roact.createElement(RoundFrame, {
@@ -211,7 +266,8 @@ end
 
 local function mapStateToProps(state,props)
     return {
-        inventory = Selectors.getInventory(state,LocalPlayer)
+        inventory = Selectors.getInventory(state,LocalPlayer),
+        isEquipped = function(itemId) return Selectors.getIsEquipped(state,LocalPlayer,itemId) end,
     }
 end
 

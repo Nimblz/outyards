@@ -7,34 +7,69 @@ local by = require(util:WaitForChild("by"))
 
 local tags = {
     {
+        id = "all",
+        name = "All",
+        prefix = "⁉",
+    },
+    {
         id = "material",
         name = "Material",
-        icont = "",
+        prefix = "🌳",
+    },
+    {
+        id = "weapon",
+        name = "Weapon",
+        prefix = "💀",
+    },
+    {
+        id = "armor",
+        name = "Armor",
+        prefix = "👚",
+    },
+    {
+        id = "trinket",
+        name = "Trinket",
+        prefix = "⚓"
+    },
+    {
+        id = "equipped",
+        name = "Equipped",
+        prefix = "🧤",
     },
     {
         id = "melee",
         name = "Melee",
-        icon = "",
+        prefix = "⚔",
     },
     {
         id = "ranged",
         name = "Ranged",
-        icon = "",
+        prefix = "🔫",
     },
     {
         id = "magic",
         name = "Magic",
-        icon = "",
+        prefix = "✨",
+    },
+    {
+        id = "pet",
+        name = "Pet",
+        prefix = "🐶"
+    },
+    {
+        id = "cosmetic",
+        name = "Cosmetic",
+        prefix = "👑"
     },
     {
         id = "reborn",
         name = "Reborn",
-        icon = "",
+        prefix = "🌟"
     },
     {
         id = "event",
         name = "Event",
-        icon = "",
+        prefix = "🎊"
     },
 }
 
