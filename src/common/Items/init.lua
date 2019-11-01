@@ -10,6 +10,8 @@ for _, item in pairs(assets) do
     item.spriteCoords = item.spriteCoords or Vector2.new(16,16)
     item.sortOrder = item.tier
     if item.equipmentType then item.sortOrder = item.sortOrder + 100 end
+
+    if not item.tags then warn(("%s has no tags!"):format(item.id)) end
 end
 
 local function isTierLower(asset1,asset2)
