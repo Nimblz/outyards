@@ -62,8 +62,6 @@ function ItemLabel:render()
         (item.spriteCoords.Y-1) * spriteSheet.spriteSize.Y
     )   * spriteSheet.scaleFactor
 
-    local itemName = item.name or itemId
-
     local quantityLabel
     if quantity then
         quantityLabel = Roact.createElement("TextLabel", {
@@ -94,7 +92,7 @@ function ItemLabel:render()
     end
 
     local thumbStrings = {}
-    local spacer = ("- "):rep(20):sub(1,39)
+    local spacer = "$SEPARATOR"
 
     table.insert(thumbStrings,item.name)
     table.insert(thumbStrings,item.desc)
