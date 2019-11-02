@@ -20,13 +20,8 @@ local function toNetworkable(component)
     return className, networkedComponent
 end
 
-local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent)
+local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent, playerAddedSignal)
     local broadcastPlugin = {}
-
-    local function fireAdded(player, instance, component)
-        local className, networkedComponent = toNetworkable(component)
-        addedEvent:FireClient(player, instance, className, networkedComponent)
-    end
 
     function broadcastPlugin:componentAdded(core, instance, component)
         if not component.replicates then return end
@@ -66,7 +61,7 @@ local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent
             initialEvent:FireClient(newPlayer, allComponents)
         end
 
-        Players.PlayerAdded:connect(playerAdded)
+        playerAddedSignal:connect(playerAdded)
 
         for _, player in pairs(Players:GetPlayers()) do
             playerAdded(player)

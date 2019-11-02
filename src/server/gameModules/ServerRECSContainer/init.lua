@@ -33,6 +33,10 @@ function ServerRECSContainer:create()
 end
 
 function ServerRECSContainer:onStoreCreated(store)
+
+    local PlayerSaveHandler = self.core:getModule("PlayerSaveHandler")
+    local playerAddedSignal = PlayerSaveHandler.playerLoaded
+
     self.recsCore = RECS.Core.new({
         RECS.BuiltInPlugins.CollectionService(),
         RECS.BuiltInPlugins.ComponentChangedEvent,
@@ -46,7 +50,8 @@ function ServerRECSContainer:onStoreCreated(store)
             eComponentAdded,
             eComponentChanged,
             eComponentRemoved,
-            eInitialComponents
+            eInitialComponents,
+            playerAddedSignal
         )
     })
 
