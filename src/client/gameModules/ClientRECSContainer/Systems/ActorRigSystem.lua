@@ -24,10 +24,14 @@ local RecsComponents = require(common:WaitForChild("RecsComponents"))
 local ActorRigSystem = RECS.System:extend("ActorRigSystem")
 
 function ActorRigSystem:onComponentAdded(instance, component)
+    local alreadyrig = self.rigs[instance]
+    if alreadyrig then return end
     local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
     local actorStats = self.core:getComponent(instance, RecsComponents.ActorStats)
     local aiComponent = self.core:getComponent(instance, RecsComponents.AI)
     if not npcComponent then return end
+    if not actorStats then return end
+    if not aiComponent then return end
 
     local npcType = npcComponent.npcType
 
@@ -100,10 +104,23 @@ function ActorRigSystem:init()
     for instance,component in self.core:components(RecsComponents.AI) do
         self:onComponentAdded(instance, component)
     end
+    for instance,component in self.core:components(RecsComponents.NPC) do
+        self:onComponentAdded(instance, component)
+    end
+    for instance,component in self.core:components(RecsComponents.ActorStats) do
+        self:onComponentAdded(instance, component)
+    end
 
     self.core:getComponentAddedSignal(RecsComponents.AI):connect(function(instance,component)
         self:onComponentAdded(instance, component)
     end)
+    self.core:getComponentAddedSignal(RecsComponents.NPC):connect(function(instance,component)
+        self:onComponentAdded(instance, component)
+    end)
+    self.core:getComponentAddedSignal(RecsComponents.ActorStats):connect(function(instance,component)
+        self:onComponentAdded(instance, component)
+    end)
+
     self.core:getComponentRemovingSignal(RecsComponents.AI):connect(function(instance,component)
         self:onComponentRemoving(instance, component)
     end)
