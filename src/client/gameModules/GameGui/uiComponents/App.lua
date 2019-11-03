@@ -1,8 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
 
 local uiComponents = script.Parent
 local legacy = uiComponents:WaitForChild("legacy")
@@ -12,7 +10,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
 local Inventory = require(views:WaitForChild("Inventory"))
-local Crafting = require(views:WaitForChild("Crafting"))
+-- local Crafting = require(views:WaitForChild("Crafting"))
 local Boosts = require(views:WaitForChild("Boosts"))
 local Codes = require(views:WaitForChild("Codes"))
 local Options = require(views:WaitForChild("Options"))
@@ -22,11 +20,13 @@ local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 local NotificationContainer = require(uiComponents:WaitForChild("NotificationContainer"))
 local withScale = require(uiComponents:WaitForChild("withScale"))
 local AlphaWarning = require(uiComponents:WaitForChild("AlphaWarning"))
+local AttackButton = require(uiComponents:WaitForChild("AttackButton"))
 --local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
 
 local ProtoCrafting = require(legacy:WaitForChild("PrototypeCrafting"))
 
 function App:init()
+    self._context.pzCore = self.props.pzCore
 end
 
 function App:didMount()
@@ -43,8 +43,9 @@ function App:render()
         menubar = Roact.createElement(MenuBar),
         healthbar = Roact.createElement(HealthBar),
         notificationContainer = Roact.createElement(NotificationContainer),
-        alphaWarning = Roact.createElement(AlphaWarning)
-        -- toolbar = Roact.createElement(Toolbar)
+        alphaWarning = Roact.createElement(AlphaWarning),
+        attackButton = Roact.createElement(AttackButton),
+        -- toolbar = Roact.createElement(Toolbar),
     }
 
     return Roact.createElement(withScale("ScreenGui"),{

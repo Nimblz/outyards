@@ -74,7 +74,9 @@ function GuiContainer:init()
             store:dispatch(Actions.SCREENSIZE_SET(screenSizer.AbsoluteSize))
         end)
 
-        self.appHandle = Roact.mount(makeApp(store), PlayerGui)
+        self.appHandle = Roact.mount(makeApp(store, {
+            pzCore = self.core,
+        }), PlayerGui)
         self.logger:log("UI Mounted")
     end)
 end
