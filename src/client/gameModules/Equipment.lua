@@ -24,13 +24,6 @@ local eEquipmentUpdated = event:WaitForChild("eEquipmentUpdated")
 local eEquipmentActivated = event:WaitForChild("eEquipmentActivated")
 local eEquipmentDeactivated = event:WaitForChild("eEquipmentDeactivated")
 
-local function camRayFromMousePos(mousePos)
-    local cam = Workspace.CurrentCamera
-    if not cam then return end
-
-    return cam:ScreenPointToRay(mousePos.X,mousePos.Y,1)
-end
-
 local function newObject(prototype, player, itemId, pzCore)
     return setmetatable({
         itemId = itemId,
@@ -211,23 +204,9 @@ function Equipment:canAttack()
 end
 
 function Equipment:onAttackBegan()
-    local inputHandler = self.core:getModule("InputHandler")
-    local screenPos = inputHandler:getMousePos()
-    local camRay = camRayFromMousePos(screenPos)
-    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithWhitelist(
-        Ray.new(camRay.Origin,camRay.Direction*2048),
-        {self.world,self.enemies}
-    )
+    local targeting = self.core:getModule("Targeting")
 
-    local inputProps = {
-        mouse = {
-            screenPos = inputHandler:getMousePos(),
-            worldPos = worldPos,
-            worldNormal = worldNormal,
-            hit = CFrame.new(worldPos,worldNormal),
-            target = target,
-        }
-    }
+    local inputProps = targeting:getTargetInfo()
 
     local state = self.store:getState()
     local currentWeapon = Selectors.getEquipped(state,LocalPlayer).weapon
@@ -249,29 +228,9 @@ function Equipment:onAttackEnded()
 end
 
 function Equipment:update()
-    local inputHandler = self.core:getModule("InputHandler")
-    local screenPos = inputHandler:getMousePos()
-    local character = LocalPlayer.character
-    local camRay = camRayFromMousePos(screenPos)
-    local target, worldPos, worldNormal = Workspace:FindPartOnRayWithWhitelist(
-        Ray.new(camRay.Origin,camRay.Direction*2048),
-        {self.world,self.enemies}
-    )
+    local targeting = self.core:getModule("Targeting")
 
-    local inputProps = {
-        mouse = {
-            screenPos = inputHandler:getMousePos(),
-            worldPos = worldPos,
-            worldNormal = worldNormal,
-            hit = CFrame.new(worldPos,worldNormal),
-            target = target,
-        }
-    }
-
-    -- for _, behavior in pairs(self:getBehaviors(LocalPlayer)) do
-    --     behavior:recieveProps(inputProps)
-    --     behavior:update()
-    -- end
+    local inputProps = targeting:getTargetInfo()
 
     for _, player in pairs(Players:GetPlayers()) do
         local behaviors = self:getBehaviors(player)
@@ -297,9 +256,7 @@ end
 function Equipment:postInit()
     local storeContainer = self.core:getModule("StoreContainer")
 
-    self.bulletBin = workspace:WaitForChild("bullets")
-    self.world = workspace:WaitForChild("world")
-    self.enemies = workspace:WaitForChild("enemies")
+    self.bulletBin = Workspace:WaitForChild("bullets")
 
     storeContainer:getStore():andThen(function(store)
         -- on store change, for each player, collect differences in equipped items
