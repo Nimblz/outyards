@@ -34,7 +34,6 @@ function FullScreenModal:render()
         DisplayOrder = 10,
     }, {
         shadow = shadow,
-        scale = Roact.createElement(ScreenScaler, ScreenScaler.defaultProps)
     })
 
     local portal = Roact.createElement(Roact.Portal, {
