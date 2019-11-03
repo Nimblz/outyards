@@ -1,8 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
 local component = script:FindFirstAncestor("uiComponents")
 
 local Otter = require(lib:WaitForChild("Otter"))
@@ -99,7 +97,8 @@ function AlphaWarning:render()
                 TextTransparency = transparency,
             }),
             body = Roact.createElement(FitText, {
-                Text = "Outyards is in early alpha. Things will change a lot. Data may be wiped. Dont say I didn't warn you!",
+                Text =  "Outyards is in early alpha. Things will change a lot. "..
+                        "Data may be wiped. Dont say I didn't warn you!",
                 TextSize = 24,
                 LayoutOrder = 2,
                 TextWrapped = true,
