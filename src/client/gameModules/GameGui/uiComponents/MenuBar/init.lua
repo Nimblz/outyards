@@ -91,7 +91,7 @@ function MenuBar:render()
         AnchorPoint = Vector2.new(0,1),
         BackgroundTransparency = 1,
         Visible = visible,
-        ZIndex = 4,
+        ZIndex = 1,
     }, buttons)
 end
 
