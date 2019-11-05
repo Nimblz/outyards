@@ -3,6 +3,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local util = common:WaitForChild("util")
+local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
@@ -14,8 +15,17 @@ local Thunks = require(common:WaitForChild("Thunks"))
 local MenuBar = Roact.PureComponent:extend("MenuBar")
 local MenuButton = require(script:WaitForChild("MenuButton"))
 local CashLabel = require(script:WaitForChild("CashLabel"))
+local withScale = require(component:WaitForChild("withScale"))
 
 local PADDING = 16
+
+local FrameWithScale = withScale("Frame", {
+    defaultSize = Vector2.new(1280,800),
+    scale = 1,
+    minScale = 0.5,
+    maxScale = 1,
+    scaleIncrement = 0.5,
+})
 
 function MenuBar:init()
     self.buttons = {
@@ -84,7 +94,7 @@ function MenuBar:render()
         buttons["button_"..idx] = newButton
     end
 
-    return Roact.createElement("Frame", {
+    return Roact.createElement(FrameWithScale, {
         Size = UDim2.new(0,100,0,0),
         Position = UDim2.new(0,PADDING,1,-PADDING),
         AnchorPoint = Vector2.new(0,1),
