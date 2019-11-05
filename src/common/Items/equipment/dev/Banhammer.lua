@@ -1,7 +1,7 @@
 return {
     id = "banhammer",
     name = "Banhammer",
-    desc = "Exploiters hate him!",
+    desc = "Exploiters hate them!",
     tier = 99,
 
     equipmentType = "weapon",
