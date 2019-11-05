@@ -18,7 +18,6 @@ local Tooltip = require(uiComponents:WaitForChild("Tooltip"))
 local MenuBar = require(uiComponents:WaitForChild("MenuBar"))
 local HealthBar = require(uiComponents:WaitForChild("HealthBar"))
 local NotificationContainer = require(uiComponents:WaitForChild("NotificationContainer"))
-local withScale = require(uiComponents:WaitForChild("withScale"))
 local AlphaWarning = require(uiComponents:WaitForChild("AlphaWarning"))
 local AttackButton = require(uiComponents:WaitForChild("AttackButton"))
 --local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
@@ -48,7 +47,7 @@ function App:render()
         -- toolbar = Roact.createElement(Toolbar),
     }
 
-    return Roact.createElement(withScale("ScreenGui"),{
+    return Roact.createElement("ScreenGui",{
         ResetOnSpawn = false,
         ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
     }, elements)
