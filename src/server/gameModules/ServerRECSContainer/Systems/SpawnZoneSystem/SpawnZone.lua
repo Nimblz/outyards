@@ -155,7 +155,7 @@ function SpawnZone:spawnGroup()
             math.random()*2 - 1
         ).Unit * self.groupRadius * math.random()
 
-        local newCF = CFrame.new(groupPos) + offset
+        local newCF = CFrame.new(groupPos) * CFrame.new(offset)
 
         self:spawnNPC(newCF)
     end
