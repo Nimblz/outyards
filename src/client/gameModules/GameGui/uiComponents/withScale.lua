@@ -10,7 +10,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local ScreenScaler = require(component:WaitForChild("ScreenScaler"))
 
-local function withScale(kind)
+local function withScale(kind, scaleProps)
     return function(props)
         local children = props[Roact.Children]
 
@@ -19,7 +19,7 @@ local function withScale(kind)
         })
 
         local joinedChildren = Dictionary.join(children, {
-            ["scaler"] = Roact.createElement(ScreenScaler, ScreenScaler.defaultProps)
+            ["scaler"] = Roact.createElement(ScreenScaler, scaleProps or ScreenScaler.defaultProps)
         })
 
         return Roact.createElement(kind, prunedProps, joinedChildren)
