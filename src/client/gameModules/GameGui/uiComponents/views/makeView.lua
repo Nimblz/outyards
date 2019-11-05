@@ -19,15 +19,14 @@ local function makeView(component, viewId)
             visible = Dictionary.None,
         })
 
-        return Roact.createElement("Frame", {
+        return self.props.visible and Roact.createElement("Frame", {
             Selectable = false,
             Active = false,
             BackgroundTransparency = 1,
 
             Size = UDim2.new(1,0,1,0),
             ZIndex = 2,
-
-            Visible = self.props.visible or false,
+            Visible = self.props.visible,
         }, {
             view = Roact.createElement(component, prunedProps)
         })
