@@ -67,6 +67,7 @@ return function(viewId)
             end
         end
 
+        store:dispatch(Actions.TOOLTIP_VISIBLE_SET(false))
         store:dispatch(Actions.VIEW_SET(viewId))
     end
 end
