@@ -2,6 +2,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local GuiService = game:GetService("GuiService")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
@@ -31,6 +32,8 @@ function GuiContainer:preInit()
 end
 
 function GuiContainer:init()
+    GuiService.AutoSelectGuiEnabled = false
+
     Roact.setGlobalConfig({elementTracing = true})
     PlayerGui:SetTopbarTransparency(0)
 
