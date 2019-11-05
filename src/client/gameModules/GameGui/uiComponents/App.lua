@@ -3,14 +3,13 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local lib = ReplicatedStorage:WaitForChild("lib")
 
 local uiComponents = script.Parent
-local legacy = uiComponents:WaitForChild("legacy")
 local views = uiComponents:WaitForChild("views")
 
 local Roact = require(lib:WaitForChild("Roact"))
 
 local App = Roact.Component:extend("App")
 local Inventory = require(views:WaitForChild("Inventory"))
--- local Crafting = require(views:WaitForChild("Crafting"))
+local Crafting = require(views:WaitForChild("Crafting"))
 local Boosts = require(views:WaitForChild("Boosts"))
 local Codes = require(views:WaitForChild("Codes"))
 local Options = require(views:WaitForChild("Options"))
@@ -22,8 +21,6 @@ local AlphaWarning = require(uiComponents:WaitForChild("AlphaWarning"))
 local AttackButton = require(uiComponents:WaitForChild("AttackButton"))
 --local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
 
-local ProtoCrafting = require(legacy:WaitForChild("PrototypeCrafting"))
-
 function App:init()
     self._context.pzCore = self.props.pzCore
 end
@@ -34,7 +31,7 @@ end
 function App:render()
     local elements = {
         inventory = Roact.createElement(Inventory),
-        crafting = Roact.createElement(ProtoCrafting),
+        crafting = Roact.createElement(Crafting),
         boosts = Roact.createElement(Boosts),
         codes = Roact.createElement(Codes),
         options = Roact.createElement(Options),
