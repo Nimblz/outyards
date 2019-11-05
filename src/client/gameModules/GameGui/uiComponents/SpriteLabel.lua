@@ -10,7 +10,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 local Items = require(common:WaitForChild("Items"))
 local Sprites = require(common:WaitForChild("Sprites"))
 
-local SpriteLabel = Roact.Component:extend("SpriteLabel")
+local SpriteLabel = Roact.PureComponent:extend("SpriteLabel")
 
 local errors = {
     invalidItemId = "Invalid itemId [%s]!",
@@ -24,10 +24,10 @@ function SpriteLabel:didMount()
 end
 
 function SpriteLabel:render()
-
     local itemId = self.props.itemId
     local color = self.props.color
     local layoutOrder = self.props.layoutOrder
+    local scale = self.props.scale or 4
 
     local item = Items.byId[itemId]
     local spriteSheet = Sprites[item.spriteSheet or "materials"]
@@ -41,11 +41,11 @@ function SpriteLabel:render()
     )   * spriteSheet.scaleFactor
 
     local elementProps = {
-        Size = UDim2.new(0,spriteSheet.spriteSize.X * 3,0,spriteSheet.spriteSize.Y * 3),
+        Size = UDim2.new(0,spriteSheet.spriteSize.X * scale,0,spriteSheet.spriteSize.Y * scale),
         BorderSizePixel = 0,
         BackgroundTransparency = 1,
-        AnchorPoint = Vector2.new(0.5,0.5),
-        Position = UDim2.new(0.5,0,0.5,0),
+        AnchorPoint = self.props.AnchorPoint or Vector2.new(0.5,0.5),
+        Position = self.props.Position or UDim2.new(0.5,0,0.5,0),
 
         Image = spriteSheet.assetId,
         ImageRectSize = spriteRectSize,

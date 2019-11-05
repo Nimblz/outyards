@@ -9,7 +9,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 
 local Dictionary = require(util:WaitForChild("Dictionary"))
 
-local RoundButton = Roact.Component:extend("RoundButton")
+local RoundButton = Roact.PureComponent:extend("RoundButton")
 
 function RoundButton:init()
     self:setState(function(state)

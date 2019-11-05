@@ -17,7 +17,7 @@ local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
 
 local FitList = require(component:WaitForChild("FitList"))
 local FitText = require(component:WaitForChild("FitText"))
-local Tooltip = Roact.Component:extend("Tooltip")
+local Tooltip = Roact.PureComponent:extend("Tooltip")
 
 function Tooltip:init()
     self.containerRef = Roact.createRef()
