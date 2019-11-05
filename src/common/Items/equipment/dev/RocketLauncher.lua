@@ -7,7 +7,7 @@ return {
     rendererType = "oneHandedWeapon",
 
     spriteSheet = "weapon",
-    spriteCoords = Vector2.new(2,13),
+    spriteCoords = Vector2.new(2,12),
     tier = 99,
 
     stats = {
