@@ -4,30 +4,33 @@ local TweenService = game:GetService("TweenService")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
 local template = ReplicatedStorage:WaitForChild("template")
--- local util = common:WaitForChild("util")
-
-local healthbarTemplate = template:WaitForChild("Healthbar")
-local healthTween = TweenInfo.new(
-    0.2,
-    Enum.EasingStyle.Quad,
-    Enum.EasingDirection.Out
-)
+local util = common:WaitForChild("util")
 
 local NPCS = require(common:WaitForChild("NPCS"))
 local RECS = require(lib:WaitForChild("RECS"))
 local RecsComponents = require(common:WaitForChild("RecsComponents"))
 
+local getViewportSize = require(util:WaitForChild("getViewportSize"))
+
 local ActorHealthbarSystem = RECS.System:extend("ActorHealthbarSystem")
 
+local healthbarTemplate = template:WaitForChild("Healthbar")
+local tinyhealthbarTemplate = template:WaitForChild("TinyHealthbar")
 
+local healthTween = TweenInfo.new(
+    0.15,
+    Enum.EasingStyle.Quad,
+    Enum.EasingDirection.Out
+)
 
 function ActorHealthbarSystem:onComponentChange(instance, component)
     local healthbar = instance:FindFirstChild("Healthbar")
     if not healthbar then return end
     local redFrame = healthbar:WaitForChild("redFrame")
     local greenFrame = redFrame:WaitForChild("greenFrame")
-    local nameLabel = healthbar:WaitForChild("nameLabel")
-    local healthLabel = healthbar:WaitForChild("healthLabel")
+
+    local nameLabel = healthbar:FindFirstChild("nameLabel")
+    local healthLabel = healthbar:FindFirstChild("healthLabel")
 
     local health = math.max(component.health,0)
     local maxHealth = component.maxHealth
@@ -39,13 +42,15 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
     else
         healthbar.Enabled = true
         local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
-        if npcComponent then
+        if npcComponent and nameLabel then
             local npcDesc = NPCS.byType[npcComponent.npcType]
             nameLabel.Text = npcDesc.name or "???"
-        else
+        elseif nameLabel then
             nameLabel.Text = "???"
         end
-        healthLabel.Text = "  "..tostring(math.ceil(health)).." / "..tostring(math.floor(maxHealth))
+        if healthLabel then
+            healthLabel.Text = "  "..tostring(math.ceil(health)).." / "..tostring(math.floor(maxHealth))
+        end
         local targetProps = {
             Size = UDim2.new(healthRatio,0,1,0)
         }
@@ -57,7 +62,14 @@ end
 
 function ActorHealthbarSystem:onComponentAdded(instance, component)
     -- on component add create a bodyvelocity bodyforce and bodygyro
-    local healthbar = healthbarTemplate:clone()
+    local healthbar
+
+    if self.useTinyHealthbar then
+        healthbar = tinyhealthbarTemplate:clone()
+        healthbar.Name = "Healthbar"
+    else
+        healthbar = healthbarTemplate:clone()
+    end
 
     component.changed:connect(function(prop, new, old)
         if not prop == "health" and not prop == "maxHealth" then return end
@@ -77,6 +89,9 @@ function ActorHealthbarSystem:onComponentRemoving(instance,component)
 end
 
 function ActorHealthbarSystem:init()
+
+    self.useTinyHealthbar = getViewportSize().Y < 600
+
     for instance,component in self.core:components(RecsComponents.ActorStats) do
         self:onComponentAdded(instance, component)
     end
