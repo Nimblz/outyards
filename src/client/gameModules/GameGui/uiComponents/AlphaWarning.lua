@@ -15,7 +15,7 @@ local FancyButton = require(component:WaitForChild("FancyButton"))
 local AlphaWarning = Roact.PureComponent:extend("AlphaWarning")
 
 local FADE_TIME = 1/5
-local DISABLED_TIME = 3
+local DISABLED_TIME = 1
 
 function AlphaWarning:init()
     self.transparencyMotor = Otter.createSingleMotor(1)
