@@ -6,14 +6,15 @@ local types = script:WaitForChild("types")
 
 local Cmdr = require(lib:WaitForChild("Cmdr"))
 local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-
+local Promise = require(lib:WaitForChild("Promise"))
 
 local CmdrContainer = PizzaAlpaca.GameModule:extend("CmdrContainer")
 
-function CmdrContainer:onStore(store)
+function CmdrContainer:onResolve(store, recsCore)
     Cmdr.Registry:RegisterHook("BeforeRun", function(context)
         context.State.pzCore = self.core
         context.State.store = store
+        context.State.recsCore = recsCore
     end)
 
     Cmdr:RegisterDefaultCommands()
@@ -23,9 +24,13 @@ end
 
 function CmdrContainer:init()
     local storeContainer = self.core:getModule("StoreContainer")
+    local recsContainer = self.core:getModule("ServerRECSContainer")
 
-    storeContainer:getStore():andThen(function(store)
-        self:onStore(store)
+    Promise.all({
+        storeContainer:getStore(),
+        recsContainer:getCore()
+    }):andThen(function(results)
+        self:onResolve(unpack(results))
     end)
 end
 
