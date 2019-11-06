@@ -27,7 +27,7 @@ return function(recsCore, npcType, cframe)
     local physProps = PhysicalProperties.new(1,0,0.5,100,100)
     newNPCPart.CustomPhysicalProperties = physProps
 
-    newNPCPart.Parent = workspace
+    newNPCPart.Parent = workspace:WaitForChild("enemies")
     newNPCPart:SetNetworkOwner()
 
     recsCore:addComponent(newNPCPart,RecsComponents.NPC, {npcType = npcType})

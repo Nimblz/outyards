@@ -1,6 +1,7 @@
--- TODO: clean up icky code duplication
+local server = script:FindFirstAncestor("server")
+local npc = server:WaitForChild("npc")
 
-local createNPC = require(script.Parent:WaitForChild("createNPC"))
+local createNPC = require(npc:WaitForChild("createNPC"))
 
 local errors = {
     invalidMob = "Invalid NPC type [%s]!"
