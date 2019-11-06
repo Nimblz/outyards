@@ -19,3 +19,6 @@
 [submodule "lib/recs"]
 	path = lib/recs
 	url = https://github.com/AmaranthineCodices/recs.git
+[submodule "lib/cmdr"]
+	path = lib/cmdr
+	url = https://github.com/evaera/Cmdr

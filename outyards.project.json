@@ -65,6 +65,9 @@
         },
         "Otter": {
           "$path": "lib/otter/lib"
+        },
+        "Cmdr": {
+          "$path": "lib/cmdr/Cmdr"
         }
       }
     },
