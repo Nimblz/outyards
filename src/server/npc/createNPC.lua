@@ -1,4 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
 
 local common = ReplicatedStorage:WaitForChild("common")
 
@@ -27,7 +28,7 @@ return function(recsCore, npcType, cframe)
     local physProps = PhysicalProperties.new(1,0,0.5,100,100)
     newNPCPart.CustomPhysicalProperties = physProps
 
-    newNPCPart.Parent = workspace:WaitForChild("enemies")
+    newNPCPart.Parent = Workspace:WaitForChild("enemies")
     newNPCPart:SetNetworkOwner()
 
     recsCore:addComponent(newNPCPart,RecsComponents.NPC, {npcType = npcType})
