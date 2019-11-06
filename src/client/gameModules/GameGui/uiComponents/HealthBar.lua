@@ -15,10 +15,19 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
 
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local withScale = require(component:WaitForChild("withScale"))
 local HealthBar = Roact.Component:extend("HealthBar")
 
 local HEIGHT = 32
 local WIDTH = 300
+
+local RoundFrameWithScale = withScale(RoundFrame, {
+    defaultSize = Vector2.new(1280,800),
+    scale = 1,
+    minScale = 0.5,
+    maxScale = 1,
+    scaleIncrement = 0.25,
+})
 
 function HealthBar:init()
     self:setState({
@@ -96,9 +105,10 @@ function HealthBar:render()
         Font = Enum.Font.GothamBlack,
         TextSize = 24,
         TextXAlignment = Enum.TextXAlignment.Left,
+        ZIndex = 2,
     })
 
-    return Roact.createElement(RoundFrame, {
+    return Roact.createElement(RoundFrameWithScale, {
         AnchorPoint = Vector2.new(0.5,0),
         Position = UDim2.new(0.5,0,0,HEIGHT*2),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
