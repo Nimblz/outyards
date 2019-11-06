@@ -8,7 +8,7 @@ local template = ReplicatedStorage:WaitForChild("template")
 
 local healthbarTemplate = template:WaitForChild("Healthbar")
 local healthTween = TweenInfo.new(
-    0.1,
+    0.2,
     Enum.EasingStyle.Quad,
     Enum.EasingDirection.Out
 )
@@ -31,8 +31,9 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
 
     local health = math.max(component.health,0)
     local maxHealth = component.maxHealth
+    local healthRatio = health/maxHealth
 
-    if health/maxHealth >= 1 then
+    if healthRatio >= 1 then
         healthbar.Enabled = false
         return
     else
@@ -46,7 +47,7 @@ function ActorHealthbarSystem:onComponentChange(instance, component)
         end
         healthLabel.Text = "  "..tostring(math.ceil(health)).." / "..tostring(math.floor(maxHealth))
         local targetProps = {
-            Size = UDim2.new(health/component.maxHealth,0,1,0)
+            Size = UDim2.new(healthRatio,0,1,0)
         }
 
         local newTween = TweenService:Create(greenFrame,healthTween,targetProps, true)
