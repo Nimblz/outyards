@@ -3,6 +3,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 local GuiService = game:GetService("GuiService")
+local StarterGui = game:GetService("StarterGui")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
@@ -29,13 +30,15 @@ local function makeApp(store, props)
 end
 
 function GuiContainer:preInit()
+    PlayerGui:SetTopbarTransparency(0)
+    GuiService.AutoSelectGuiEnabled = true
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+    StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)
 end
 
 function GuiContainer:init()
-    GuiService.AutoSelectGuiEnabled = false
 
     Roact.setGlobalConfig({elementTracing = true})
-    PlayerGui:SetTopbarTransparency(0)
 
     self.logger = self.core:getModule("Logger"):createLogger(self)
 
