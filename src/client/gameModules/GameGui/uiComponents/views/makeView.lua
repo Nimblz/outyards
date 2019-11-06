@@ -20,7 +20,7 @@ local function makeView(component, viewId)
         scale = 1,
         minScale = 0.5,
         maxScale = 1,
-        scaleIncrement = 0.5,
+        scaleIncrement = 0.25,
     })
 
     function newView:render()
