@@ -1,5 +1,5 @@
 local targetDPS = 100
-local fireRate = 2.5
+local fireRate = 3
 
 return {
     id = "swordBluesteel",
