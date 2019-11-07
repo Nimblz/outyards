@@ -32,11 +32,6 @@ local tags = {
         prefix = "⚓"
     },
     {
-        id = "equipped",
-        name = "Equipped",
-        prefix = "🧤",
-    },
-    {
         id = "melee",
         name = "Melee",
         prefix = "⚔",
