@@ -5,7 +5,7 @@ return {
         return {
             ActorStats = {
                 maxHealth = 500,
-                health = 500,
+                health = 2500,
                 moveSpeed = 28,
                 aggroRadius = 64+32,
                 baseDamage = 20,
