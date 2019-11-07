@@ -3,7 +3,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
-local invComponent = script.Parent
 local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
@@ -12,7 +11,7 @@ local Roact = require(lib:WaitForChild("Roact"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
 local FitText = require(component:WaitForChild("FitText"))
-local ItemTagDropdown = require(invComponent:WaitForChild("ItemTagDropdown"))
+local ItemTagDropdown = require(component:WaitForChild("ItemTagDropdown"))
 
 local InventoryNavbar = Roact.PureComponent:extend("InventoryNavbar")
 
