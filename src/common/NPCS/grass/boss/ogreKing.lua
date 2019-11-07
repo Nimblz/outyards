@@ -7,6 +7,9 @@ return {
                 maxHealth = 500,
                 health = 500,
                 moveSpeed = 28,
+                aggroRadius = 64+32,
+                baseDamage = 20,
+                attackRate = 1/2,
             },
             ItemDrops = {
                 items = {
@@ -14,6 +17,9 @@ return {
                     {itemId = "oreGold", dropRange = {min = 100, max = 200}, dropRate = 1},
                 },
                 cash = 2000,
+            },
+            AI = {
+                aiType = "OgreKing",
             }
         }
     end,
