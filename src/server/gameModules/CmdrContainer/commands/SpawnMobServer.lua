@@ -3,7 +3,7 @@ local npc = server:WaitForChild("npc")
 
 local createNPC = require(npc:WaitForChild("createNPC"))
 
-return function(context, npcType)
+return function(context, npcType, quantity)
     local executor = context.Executor
     local character = executor.Character
     if character then
@@ -13,7 +13,9 @@ return function(context, npcType)
 
             local recsCore = context.State.recsCore
 
-            createNPC(recsCore, npcType, npcSpawnCF)
+            for _ = 1, quantity do
+                createNPC(recsCore, npcType, npcSpawnCF)
+            end
         end
     end
 end
