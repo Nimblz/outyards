@@ -58,7 +58,7 @@ function FSM:_transition(newState, ...)
         end)
     end
 
-    self.enteringState:fire(self.currentState.name)
+    self.enteringState:fire(self.currentState.name, self.currentState)
     return self:transition(targetState.enter(...))
 end
 

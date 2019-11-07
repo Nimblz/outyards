@@ -35,8 +35,9 @@ function AISystem:onComponentAdded(instance,aiComponent)
     local actorStats = self.core:getComponent(instance,RecsComponents.ActorStats)
     local changedConnection
 
-    newAI.enteringState:connect(function(newState)
+    newAI.enteringState:connect(function(newState, stateDesc)
         aiComponent:updateProperty("aiState", {state = newState})
+        aiComponent:updateProperty("animationState", {state = stateDesc.animationOverride or newState})
     end)
 
     changedConnection = actorStats.changed:connect(function(key,new,old)

@@ -1,4 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Workspace = game:GetService("Workspace")
 
 local lib = ReplicatedStorage:WaitForChild("lib")
 local common = ReplicatedStorage:WaitForChild("common")
@@ -6,32 +7,31 @@ local util = common:WaitForChild("util")
 local model = ReplicatedStorage:WaitForChild("model")
 local npcModel = model:WaitForChild("npc")
 
+local RECS = require(lib:WaitForChild("RECS"))
+local RecsComponents = require(common:WaitForChild("RecsComponents"))
+
 local flashModel = require(util:WaitForChild("flashModel"))
 
-local npcModels = {}
+local ActorRigSystem = RECS.System:extend("ActorRigSystem")
 
+local npcModels = {}
 for _,child in pairs(npcModel:GetDescendants()) do
     if child:IsA("Model") and child:FindFirstChild("AnimationController") then
         npcModels[child.Name] = child
     end
 end
 
-local Animations = require(common:WaitForChild("Animations"))
-local NPCS = require(common:WaitForChild("NPCS"))
-local RECS = require(lib:WaitForChild("RECS"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
-
-local ActorRigSystem = RECS.System:extend("ActorRigSystem")
-
-function ActorRigSystem:onComponentAdded(instance, component)
+function ActorRigSystem:onComponentAdded(instance)
     local alreadyrig = self.rigs[instance]
     if alreadyrig then return end
+
     local npcComponent = self.core:getComponent(instance, RecsComponents.NPC)
     local actorStats = self.core:getComponent(instance, RecsComponents.ActorStats)
-    local aiComponent = self.core:getComponent(instance, RecsComponents.AI)
+    local ai = self.core:getComponent(instance, RecsComponents.AI)
+
     if not npcComponent then return end
     if not actorStats then return end
-    if not aiComponent then return end
+    if not ai then return end
 
     local npcType = npcComponent.npcType
 
@@ -49,32 +49,9 @@ function ActorRigSystem:onComponentAdded(instance, component)
 
     rig.Parent = self.rigBin
 
-    if aiComponent then
-        local animationController = rig:FindFirstChildOfClass("AnimationController")
-
-        local animations = {
-            chase = animationController:LoadAnimation(Animations.r6run),
-            attack = animationController:LoadAnimation(Animations.r6attack),
-            idle = animationController:LoadAnimation(Animations.r6idle),
-        }
-
-        local npcDescription = NPCS.byType[npcType]
-
-        local playingAnimation
-
-        aiComponent.changed:connect(function(key, newValue, oldValue)
-            if key == "aiState" then
-                local newState = newValue.state
-                if playingAnimation then playingAnimation:Stop() end
-                if animations[newState] then
-                    playingAnimation = animations[newState]
-                    animations[newState]:Play()
-                end
-            end
-        end)
-
-        animations.idle:Play(0.2)
-    end
+    self.core:addComponent(instance, RecsComponents.Rig, {
+        rigModel = rig
+    })
 
     if actorStats then
         actorStats.changed:connect(function(key, new, old)
@@ -97,32 +74,26 @@ end
 function ActorRigSystem:init()
     self.rigBin = Instance.new("Folder")
     self.rigBin.Name = "rigbin"
-    self.rigBin.Parent = workspace
+    self.rigBin.Parent = Workspace
 
     self.rigs = {}
 
-    for instance,component in self.core:components(RecsComponents.AI) do
-        self:onComponentAdded(instance, component)
-    end
-    for instance,component in self.core:components(RecsComponents.NPC) do
-        self:onComponentAdded(instance, component)
-    end
-    for instance,component in self.core:components(RecsComponents.ActorStats) do
-        self:onComponentAdded(instance, component)
+    for instance in self.core:components(RecsComponents.NPC, RecsComponents.ActorStats, RecsComponents.AI) do
+        self:onComponentAdded(instance)
     end
 
-    self.core:getComponentAddedSignal(RecsComponents.AI):connect(function(instance,component)
-        self:onComponentAdded(instance, component)
-    end)
     self.core:getComponentAddedSignal(RecsComponents.NPC):connect(function(instance,component)
-        self:onComponentAdded(instance, component)
+        self:onComponentAdded(instance)
     end)
     self.core:getComponentAddedSignal(RecsComponents.ActorStats):connect(function(instance,component)
-        self:onComponentAdded(instance, component)
+        self:onComponentAdded(instance)
+    end)
+    self.core:getComponentAddedSignal(RecsComponents.AI):connect(function(instance,component)
+        self:onComponentAdded(instance)
     end)
 
     self.core:getComponentRemovingSignal(RecsComponents.AI):connect(function(instance,component)
-        self:onComponentRemoving(instance, component)
+        self:onComponentRemoving(instance)
     end)
 end
 
