@@ -3,6 +3,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
+local component = script:FindFirstAncestor("uiComponents")
 
 local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
@@ -10,7 +11,11 @@ local Selectors = require(common:WaitForChild("Selectors"))
 local Dictionary = require(util:WaitForChild("Dictionary"))
 
 local NotificationLabel = require(script:WaitForChild("NotificationLabel"))
+local withScale = require(component:WaitForChild("withScale"))
+
 local NotificationContainer = Roact.Component:extend("NotificationContainer")
+
+local FrameWithScale = withScale("Frame")
 
 function NotificationContainer:init(initialProps)
 end
@@ -46,7 +51,9 @@ function NotificationContainer:render()
 
     local combined = Dictionary.join(children,notifs)
 
-    return Roact.createElement("Frame", {
+    return Roact.createElement(FrameWithScale, {
+        AnchorPoint = Vector2.new(1,1),
+        Position = UDim2.new(1,0,1,0),
         Size = UDim2.new(1,0,1,0),
         BackgroundTransparency = 1,
     }, combined)
