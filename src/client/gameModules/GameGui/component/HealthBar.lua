@@ -4,7 +4,6 @@ local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
 local util = common.util
 
@@ -46,7 +45,7 @@ function HealthBar:setHumanoidFromCharacter(char)
     self:setState({
         humanoid = humanoid,
         humanoidChangedConnection = humanoid.Changed:connect(function()
-            self:healthChanged(humanoid.Health, humanoid.MaxHealth)
+            self:healthChanged()
         end),
 
         health = humanoid.Health,
@@ -54,7 +53,7 @@ function HealthBar:setHumanoidFromCharacter(char)
     })
 end
 
-function HealthBar:healthChanged(newHealth,newMaxhealth)
+function HealthBar:healthChanged()
     local humanoid = self.state.humanoid
     self:setState({
         humanoid = humanoid,
@@ -117,7 +116,7 @@ function HealthBar:render()
     }, children)
 end
 
-local function mapStateToProps(state,props)
+local function mapStateToProps(state, props)
     return {
         visible = Selectors.getHealthbarVisible(state),
     }
