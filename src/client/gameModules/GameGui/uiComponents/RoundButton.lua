@@ -40,11 +40,16 @@ function RoundButton:render()
     local disabled = self.props.disabled or false
     local hovered = self.state.hovered or false
     local pressed = self.state.pressed or false
+    local autoColor = self.state.autoColor == true
 
     local normalColor = props.color or props.ImageColor3 or props.BackgroundColor3 or Color3.new(1,1,1)
     local hoveredColor = props.hoveredColor or normalColor:lerp(Color3.fromRGB(0, 0, 0),0.1)
     local pressedColor = props.pressedColor or normalColor:lerp(Color3.fromRGB(0, 0, 0),0.25)
-    local finalColor = (pressed and pressedColor) or (hovered and hoveredColor) or normalColor
+    local finalColor = normalColor
+
+    if autoColor then
+        finalColor = (pressed and pressedColor) or (hovered and hoveredColor) or normalColor
+    end
 
     local inputFuncs = {
         mouseEnter = props[Roact.Event.MouseEnter],
