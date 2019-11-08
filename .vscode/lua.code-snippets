@@ -24,8 +24,7 @@
 	"Create a new anonymous function": {
 		"prefix": "afunction",
 		"body": [
-			"function(${2:arg})${0}",
-			"end"
+			"function(${2:arg}) ${0} end",
 		]
 	},
 
@@ -33,7 +32,6 @@
 		"prefix": "p",
 		"body": [
 			"local ${1:pathname} = ${2:basepath}.${1}",
-			""
 		]
 	},
 
@@ -41,7 +39,6 @@
 		"prefix": "r",
 		"body": [
 			"local ${1:ModuleName} = require(${2:path}.${1})",
-			""
 		]
 	},
 
