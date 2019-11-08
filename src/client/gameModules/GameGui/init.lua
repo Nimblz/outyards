@@ -14,8 +14,8 @@ local Roact = require(lib:WaitForChild("Roact"))
 local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local Actions = require(common:WaitForChild("Actions"))
 local Thunks = require(common:WaitForChild("Thunks"))
-local uiComponents = script:WaitForChild("uiComponents")
-local App = require(uiComponents.App)
+local component = script:WaitForChild("component")
+local App = require(component.App)
 
 local GuiContainer = PizzaAlpaca.GameModule:extend("GuiContainer")
 
