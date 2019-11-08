@@ -9,6 +9,7 @@ local util = common:WaitForChild("util")
 local invComponent = script.Parent
 local component = script:FindFirstAncestor("uiComponents")
 
+local Thunks = require(common:WaitForChild("Thunks"))
 local Selectors = require(common:WaitForChild("Selectors"))
 local Items = require(common:WaitForChild("Items"))
 local Roact = require(lib:WaitForChild("Roact"))
@@ -17,7 +18,7 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
 local FitGrid = require(component:WaitForChild("FitGrid"))
-local ItemLabel = require(component:WaitForChild("ItemLabel"))
+local ItemLabel = require(component:WaitForChild("OldItemLabel"))
 
 local contains = require(util:WaitForChild("contains"))
 
@@ -123,6 +124,7 @@ function InventoryBody:render()
             color = Color3.fromRGB(216, 216, 216),
             Size = UDim2.new(0,450,0,450),
             ClipsDescendants = true,
+            LayoutOrder = 1,
         }, {
             padding = Roact.createElement("UIPadding", {
                 PaddingTop = UDim.new(0,16),
@@ -145,7 +147,8 @@ function InventoryBody:render()
         }),
         itemFocus = Roact.createElement(RoundFrame, {
             color = Color3.fromRGB(216, 216, 216),
-            Size = UDim2.new(0,250,0,450)
+            Size = UDim2.new(0,250,0,450),
+            LayoutOrder = 2,
         }),
     })
 end
@@ -156,6 +159,14 @@ local function mapStateToProps(state,props)
         isEquipped = function(itemId)
             return Selectors.getIsEquipped(state, LocalPlayer, itemId)
         end,
+    }
+end
+
+local function mapDispatchToProps(dispatch)
+    return {
+        close = function()
+            dispatch(Thunks.VIEW_SET("default"))
+        end
     }
 end
 

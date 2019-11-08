@@ -17,7 +17,6 @@ local RoactRodux = require(lib:WaitForChild("RoactRodux"))
 local RoundFrame = require(component:WaitForChild("RoundFrame"))
 local FitList = require(component:WaitForChild("FitList"))
 local FitGrid = require(component:WaitForChild("FitGrid"))
-local ItemLabel = require(component:WaitForChild("ItemLabel"))
 
 local contains = require(util:WaitForChild("contains"))
 
@@ -70,6 +69,13 @@ function CraftingBody:render()
             color = Color3.fromRGB(216, 216, 216),
             Size = UDim2.new(0,450,0,450),
             ClipsDescendants = true,
+            LayoutOrder = 1,
+        }),
+        recipeFocus = Roact.createElement(RoundFrame, {
+            color = Color3.fromRGB(216, 216, 216),
+            Size = UDim2.new(0,250,0,450),
+            ClipsDescendants = true,
+            LayoutOrder = 2,
         })
     })
 end

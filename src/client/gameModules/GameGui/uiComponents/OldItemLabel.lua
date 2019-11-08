@@ -52,8 +52,8 @@ function ItemLabel:render()
     end
 
     local item = Items.byId[itemId]
-    local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(item, errors.invalidItemId:format(tostring(itemId)))
+    local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(spriteSheet, errors.invalidSpriteSheet:format(tostring(spriteSheet)))
 
     local spriteRectSize = spriteSheet.spriteSize * spriteSheet.scaleFactor
