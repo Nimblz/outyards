@@ -3,7 +3,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage:WaitForChild("common")
 local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
-local component = script:FindFirstAncestor("uiComponents")
+local component = script:FindFirstAncestor("component")
 
 local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
