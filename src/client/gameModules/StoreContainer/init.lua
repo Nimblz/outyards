@@ -3,18 +3,18 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local src = script.Parent.Parent
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local Rodux = require(lib:WaitForChild("Rodux"))
-local Signal = require(lib:WaitForChild("Signal"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Promise = require(lib:WaitForChild("Promise"))
+local Rodux = require(lib.Rodux)
+local Signal = require(lib.Signal)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Promise = require(lib.Promise)
 
-local reducer = require(src:WaitForChild("clientReducer"))
+local reducer = require(src.clientReducer)
 
-local eReplicateAction = event:WaitForChild("eReplicateAction")
-local eInitialState = event:WaitForChild("eInitialState")
+local eReplicateAction = event.eReplicateAction
+local eInitialState = event.eInitialState
 
 local StoreContainer = PizzaAlpaca.GameModule:extend("StoreContainer")
 

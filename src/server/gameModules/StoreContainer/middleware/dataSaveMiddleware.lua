@@ -1,12 +1,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
 
-local Selectors = require(common:WaitForChild("Selectors"))
+local Selectors = require(common.Selectors)
 
 local DataStore2
 if game.PlaceId ~= 0 then
-    DataStore2 = require(lib:WaitForChild("DataStore2"))
+    DataStore2 = require(lib.DataStore2)
 end
 
 return function(nextDispatch,store)

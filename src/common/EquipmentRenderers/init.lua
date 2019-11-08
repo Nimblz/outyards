@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local by = require(common.util:WaitForChild("by"))
-local compileSubmodulesToArray = require(common.util:WaitForChild("compileSubmodulesToArray"))
+local by = require(common.util.by)
+local compileSubmodulesToArray = require(common.util.compileSubmodulesToArray)
 local behaviors = compileSubmodulesToArray(script, true)
 
 return {

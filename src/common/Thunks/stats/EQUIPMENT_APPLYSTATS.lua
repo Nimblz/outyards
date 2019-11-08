@@ -1,10 +1,10 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Items = require(common:WaitForChild("Items"))
-local Selectors = require(common:WaitForChild("Selectors"))
-local Actions = require(common:WaitForChild("Actions"))
+local Items = require(common.Items)
+local Selectors = require(common.Selectors)
+local Actions = require(common.Actions)
 
 local statActions = {
     baseDamage = "BASEDAMAGE_SET",

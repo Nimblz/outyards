@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 
 local util = script.Parent
 
-local pointsCloserThan = require(util:WaitForChild("pointsCloserThan"))
+local pointsCloserThan = require(util.pointsCloserThan)
 
 local function findCharacterNear(instance, radius)
     local closestDist = radius

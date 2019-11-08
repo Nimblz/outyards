@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local Rodux = require(lib:WaitForChild("Rodux"))
+local Rodux = require(lib.Rodux)
 
 return Rodux.createReducer(1, {
     TUTORIAL_NEXT = function(state, action)

@@ -1,11 +1,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
 
-local Promise = require(lib:WaitForChild("Promise"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Actions = require(common:WaitForChild("Actions"))
+local Promise = require(lib.Promise)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Actions = require(common.Actions)
 
 local Notifications = PizzaAlpaca.GameModule:extend("Notifications")
 

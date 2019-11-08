@@ -3,14 +3,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local eRequestCraft = event:WaitForChild("eRequestCraft")
+local eRequestCraft = event.eRequestCraft
 
-local Thunks = require(common:WaitForChild("Thunks"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Thunks = require(common.Thunks)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local Crafting = PizzaAlpaca.GameModule:extend("Crafting")
 

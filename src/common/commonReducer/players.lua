@@ -1,5 +1,5 @@
 local Players = game:GetService("Players")
-local playerState = require(script.Parent:WaitForChild("playerState"))
+local playerState = require(script.Parent.playerState)
 
 return (function(state,action)
     state = state or {}

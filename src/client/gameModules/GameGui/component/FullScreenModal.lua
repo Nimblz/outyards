@@ -1,12 +1,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local PlayerGui = game:GetService("Players").LocalPlayer.PlayerGui
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 local component = script:FindFirstAncestor("component")
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
-local withScale = require(component:WaitForChild("withScale"))
+local withScale = require(component.withScale)
 local FullScreenModal = Roact.PureComponent:extend("FullScreenModal")
 
 local screenGuiWithScale = withScale("ScreenGui")

@@ -3,21 +3,21 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local Actions = require(common:WaitForChild("Actions"))
-local Thunks = require(common:WaitForChild("Thunks"))
-local Selectors = require(common:WaitForChild("Selectors"))
+local Actions = require(common.Actions)
+local Thunks = require(common.Thunks)
+local Selectors = require(common.Selectors)
 
-local Signal = require(lib:WaitForChild("Signal"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Signal = require(lib.Signal)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local PlayerSaveHandler = PizzaAlpaca.GameModule:extend("PlayerSaveHandler")
 
-local eInitialState = event:WaitForChild("eInitialState")
-local eClientReady = event:WaitForChild("eClientReady")
+local eInitialState = event.eInitialState
+local eClientReady = event.eClientReady
 
 function PlayerSaveHandler:create()
     self.playerLoaded = Signal.new()

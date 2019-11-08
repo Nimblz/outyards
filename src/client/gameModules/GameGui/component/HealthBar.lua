@@ -2,20 +2,20 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
-local util = common:WaitForChild("util")
+local util = common.util
 
-local Selectors = require(common:WaitForChild("Selectors"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
+local Selectors = require(common.Selectors)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
 
-local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
+local beautifyNumber = require(util.beautifyNumber)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local withScale = require(component:WaitForChild("withScale"))
+local RoundFrame = require(component.RoundFrame)
+local withScale = require(component.withScale)
 local HealthBar = Roact.Component:extend("HealthBar")
 
 local HEIGHT = 32

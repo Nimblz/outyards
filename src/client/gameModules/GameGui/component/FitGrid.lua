@@ -1,14 +1,14 @@
 -- grabbed from the rojo plugin: https://github.com/rojo-rbx/rojo/blob/master/plugin/src/Components/FitGrid.lua
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local util = common.util
 
-local Roact = require(lib:WaitForChild("Roact"))
-local Dictionary = require(util:WaitForChild("Dictionary"))
+local Roact = require(lib.Roact)
+local Dictionary = require(util.Dictionary)
 
-local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
+local getAppliedScale = require(util.getAppliedScale)
 local e = Roact.createElement
 
 local FitGrid = Roact.PureComponent:extend("FitGrid")

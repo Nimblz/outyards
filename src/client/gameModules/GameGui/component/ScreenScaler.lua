@@ -6,9 +6,9 @@ local TopInset, BottomInset = GuiService:GetGuiInset()
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
 local ScreenScaler = Roact.PureComponent:extend("ScreenScaler")
 

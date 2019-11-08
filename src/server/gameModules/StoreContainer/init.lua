@@ -3,23 +3,23 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local src = script.Parent.Parent
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
-local middleware = script:WaitForChild("middleware")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
+local middleware = script.middleware
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Rodux = require(lib:WaitForChild("Rodux"))
-local Signal = require(lib:WaitForChild("Signal"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Promise = require(lib:WaitForChild("Promise"))
+local Dictionary = require(util.Dictionary)
+local Rodux = require(lib.Rodux)
+local Signal = require(lib.Signal)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Promise = require(lib.Promise)
 
-local reducer = require(src:WaitForChild("serverReducer"))
-local networkMiddleware = require(middleware:WaitForChild("networkMiddleware"))
-local dataSaveMiddleware = require(middleware:WaitForChild("dataSaveMiddleware"))
+local reducer = require(src.serverReducer)
+local networkMiddleware = require(middleware.networkMiddleware)
+local dataSaveMiddleware = require(middleware.dataSaveMiddleware)
 
-local eReplicateAction = event:WaitForChild("eReplicateAction")
+local eReplicateAction = event.eReplicateAction
 
 local StoreContainer = PizzaAlpaca.GameModule:extend("StoreContainer")
 

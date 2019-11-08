@@ -1,12 +1,12 @@
 local ui = script.Parent
 
-local getInventoryVisible = require(ui:WaitForChild("getInventoryVisible"))
-local getCraftingVisible = require(ui:WaitForChild("getCraftingVisible"))
-local getBoostsVisible = require(ui:WaitForChild("getBoostsVisible"))
-local getCodesVisible = require(ui:WaitForChild("getCodesVisible"))
-local getHealthbarVisible = require(ui:WaitForChild("getHealthbarVisible"))
-local getToolbarVisible = require(ui:WaitForChild("getToolbarVisible"))
-local getOptionsVisible = require(ui:WaitForChild("getOptionsVisible"))
+local getInventoryVisible = require(ui.getInventoryVisible)
+local getCraftingVisible = require(ui.getCraftingVisible)
+local getBoostsVisible = require(ui.getBoostsVisible)
+local getCodesVisible = require(ui.getCodesVisible)
+local getHealthbarVisible = require(ui.getHealthbarVisible)
+local getToolbarVisible = require(ui.getToolbarVisible)
+local getOptionsVisible = require(ui.getOptionsVisible)
 
 local viewSelectors = {
     inventory = getInventoryVisible,

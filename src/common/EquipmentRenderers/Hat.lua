@@ -1,9 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local util = common.util
 
-local getItemModel = require(util:WaitForChild("getItemModel"))
+local getItemModel = require(util.getItemModel)
 
 local renderer = {
     id = "hat"

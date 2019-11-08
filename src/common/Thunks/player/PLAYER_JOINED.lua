@@ -1,10 +1,10 @@
 -- PLAYER_JOINED thunk
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
 
-local Actions = require(common:WaitForChild("Actions"))
+local Actions = require(common.Actions)
 
 local PLAYER_ADD = Actions.PLAYER_ADD
 
@@ -17,7 +17,7 @@ return function(player)
         }
         local playerSaveTable = defaultSave
         if game.PlaceId ~= 0 then
-            local DataStore2 = require(lib:WaitForChild("DataStore2"))
+            local DataStore2 = require(lib.DataStore2)
 
             -- load from datastore2
             local saveDataStore = DataStore2("saveData",player)

@@ -1,20 +1,20 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
-local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+local PlayerGui = LocalPlayer.PlayerGui
 local GuiService = game:GetService("GuiService")
 local StarterGui = game:GetService("StarterGui")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
 
-local Selectors = require(common:WaitForChild("Selectors"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
-local Actions = require(common:WaitForChild("Actions"))
-local Thunks = require(common:WaitForChild("Thunks"))
-local component = script:WaitForChild("component")
+local Selectors = require(common.Selectors)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Actions = require(common.Actions)
+local Thunks = require(common.Thunks)
+local component = script.component
 local App = require(component.App)
 
 local GuiContainer = PizzaAlpaca.GameModule:extend("GuiContainer")

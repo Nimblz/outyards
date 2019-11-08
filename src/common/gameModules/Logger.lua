@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local Logger = PizzaAlpaca.GameModule:extend("Logger")
 

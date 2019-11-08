@@ -1,10 +1,10 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local Actions = require(common:WaitForChild("Actions"))
+local Actions = require(common.Actions)
 
 local emptyView = {
     VIEW_NAVBAR_SETVISIBLE = false,

@@ -4,25 +4,25 @@ local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Selectors = require(common:WaitForChild("Selectors"))
-local Items = require(common:WaitForChild("Items"))
-local EquipmentBehaviors = require(common:WaitForChild("EquipmentBehaviors"))
-local EquipmentRenderers = require(common:WaitForChild("EquipmentRenderers"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Selectors = require(common.Selectors)
+local Items = require(common.Items)
+local EquipmentBehaviors = require(common.EquipmentBehaviors)
+local EquipmentRenderers = require(common.EquipmentRenderers)
 
-local getDiffs = require(util:WaitForChild("getDiffs"))
+local getDiffs = require(util.getDiffs)
 
 local Equipment = PizzaAlpaca.GameModule:extend("Equipment")
 
-local eUpdateEquipmentProps = event:WaitForChild("eUpdateEquipmentProps")
-local eEquipmentUpdated = event:WaitForChild("eEquipmentUpdated")
-local eEquipmentActivated = event:WaitForChild("eEquipmentActivated")
-local eEquipmentDeactivated = event:WaitForChild("eEquipmentDeactivated")
+local eUpdateEquipmentProps = event.eUpdateEquipmentProps
+local eEquipmentUpdated = event.eEquipmentUpdated
+local eEquipmentActivated = event.eEquipmentActivated
+local eEquipmentDeactivated = event.eEquipmentDeactivated
 
 local function newObject(prototype, player, itemId, pzCore)
     return setmetatable({

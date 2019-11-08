@@ -1,9 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Items = require(common:WaitForChild("Items"))
-local Actions = require(common:WaitForChild("Actions"))
+local Items = require(common.Items)
+local Actions = require(common.Actions)
 
 return function(context, targetPlayer, quantity)
     targetPlayer = targetPlayer or context.Executor

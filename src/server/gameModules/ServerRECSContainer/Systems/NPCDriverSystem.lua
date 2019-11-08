@@ -1,15 +1,15 @@
 -- local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
--- local Workspace = game:GetService("Workspace")
+local Workspace = game:GetService("Workspace")
 -- local LocalPlayer = Players.LocalPlayer
 local PhysicsService = game:GetService("PhysicsService")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
--- local util = common:WaitForChild("util")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
+-- local util = common.util
 
-local RECS = require(lib:WaitForChild("RECS"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local RECS = require(lib.RECS)
+local RecsComponents = require(common.RecsComponents)
 
 local NPCDriverSystem = RECS.System:extend("NPCDriverSystem")
 
@@ -26,7 +26,7 @@ function NPCDriverSystem:onComponentChange(instance, component)
 
     bodyVelocity.MaxForce = component.maxMoveForce * mass
     bodyVelocity.Velocity = component.targetVelocity
-    bodyForce.Force = Vector3.new(0, mass * workspace.Gravity * (1-component.gravityWeight), 0)
+    bodyForce.Force = Vector3.new(0, mass * Workspace.Gravity * (1-component.gravityWeight), 0)
     bodyGyro.MaxTorque = Vector3.new(20000,20000,20000)
     bodyGyro.P = 5000
     bodyGyro.D = 500

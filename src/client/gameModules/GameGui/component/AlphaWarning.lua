@@ -1,16 +1,16 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 local component = script:FindFirstAncestor("component")
 
-local Otter = require(lib:WaitForChild("Otter"))
-local Roact = require(lib:WaitForChild("Roact"))
+local Otter = require(lib.Otter)
+local Roact = require(lib.Roact)
 
-local FullScreenModal = require(component:WaitForChild("FullScreenModal"))
-local FitList = require(component:WaitForChild("FitList"))
-local FitText = require(component:WaitForChild("FitText"))
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local FancyButton = require(component:WaitForChild("FancyButton"))
+local FullScreenModal = require(component.FullScreenModal)
+local FitList = require(component.FitList)
+local FitText = require(component.FitText)
+local RoundFrame = require(component.RoundFrame)
+local FancyButton = require(component.FancyButton)
 
 local AlphaWarning = Roact.PureComponent:extend("AlphaWarning")
 

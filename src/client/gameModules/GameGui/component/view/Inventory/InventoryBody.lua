@@ -2,25 +2,25 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 local invComponent = script.Parent
 local component = script:FindFirstAncestor("component")
 
-local Thunks = require(common:WaitForChild("Thunks"))
-local Selectors = require(common:WaitForChild("Selectors"))
-local Items = require(common:WaitForChild("Items"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
+local Thunks = require(common.Thunks)
+local Selectors = require(common.Selectors)
+local Items = require(common.Items)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local FitList = require(component:WaitForChild("FitList"))
-local FitGrid = require(component:WaitForChild("FitGrid"))
-local ItemLabel = require(component:WaitForChild("OldItemLabel"))
+local RoundFrame = require(component.RoundFrame)
+local FitList = require(component.FitList)
+local FitGrid = require(component.FitGrid)
+local ItemLabel = require(component.OldItemLabel)
 
-local contains = require(util:WaitForChild("contains"))
+local contains = require(util.contains)
 
 local InventoryBody = Roact.PureComponent:extend("InventoryBody")
 

@@ -1,14 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local util = common.util
+local lib = ReplicatedStorage.lib
 local component = script:FindFirstAncestor("component")
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
 
-local ScreenScaler = require(component:WaitForChild("ScreenScaler"))
+local ScreenScaler = require(component.ScreenScaler)
 
 local function withScale(kind, scaleProps)
     return function(props)

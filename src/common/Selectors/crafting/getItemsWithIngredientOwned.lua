@@ -1,14 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Items = require(common:WaitForChild("Items"))
+local Items = require(common.Items)
 
 local selectors = script:FindFirstAncestor("Selectors")
-local inventory = selectors:WaitForChild("inventory")
+local inventory = selectors.inventory
 
-local getItem = require(inventory:WaitForChild("getItem"))
-local hasAnIngredient = require(script.Parent:WaitForChild("hasAnIngredient"))
+local getItem = require(inventory.getItem)
+local hasAnIngredient = require(script.Parent.hasAnIngredient)
 
 local function getItemsWithIngredientOwned(state,player)
     local hasAnIngredientItems = {}

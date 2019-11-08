@@ -1,7 +1,7 @@
-local inventory = require(script:WaitForChild("inventory"))
-local equipped = require(script:WaitForChild("equipped"))
-local stats = require(script:WaitForChild("stats"))
-local toolbar = require(script:WaitForChild("toolbar"))
+local inventory = require(script.inventory)
+local equipped = require(script.equipped)
+local stats = require(script.stats)
+local toolbar = require(script.toolbar)
 
 return function(state,action)
     state = state or {}

@@ -1,4 +1,4 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-return require(common.util:WaitForChild("compileSubmodules"))(script,true)
+return require(common.util.compileSubmodules)(script,true)

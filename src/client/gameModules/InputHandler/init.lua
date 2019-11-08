@@ -2,14 +2,14 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
 local GuiService = game:GetService("GuiService")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Signal = require(lib:WaitForChild("Signal"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Signal = require(lib.Signal)
 
 local InputHandler = PizzaAlpaca.GameModule:extend("InputHandler")
 
-local createInputSpec = require(script:WaitForChild("createInputSpec"))
+local createInputSpec = require(script.createInputSpec)
 
 local errors = {
     invalidActionError = "Action [%s] does not exist.",

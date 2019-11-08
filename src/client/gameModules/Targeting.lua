@@ -7,10 +7,10 @@ local CollectionService = game:GetService("CollectionService")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local Targeting = PizzaAlpaca.GameModule:extend("Targeting")
 
@@ -49,7 +49,7 @@ function Targeting:create()
 end
 
 function Targeting:getClosestEnemy()
-    local enemies = workspace:FindFirstChild("enemies")
+    local enemies = Workspace:FindFirstChild("enemies")
 
     local char = LocalPlayer.Character
     if not char then return end

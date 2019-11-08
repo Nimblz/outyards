@@ -3,20 +3,20 @@ local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
 local GuiService = game:GetService("GuiService")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local util = common.util
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
 
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
-local Selectors = require(common:WaitForChild("Selectors"))
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Selectors = require(common.Selectors)
 
-local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
+local getAppliedScale = require(util.getAppliedScale)
 
-local FitList = require(component:WaitForChild("FitList"))
-local FitText = require(component:WaitForChild("FitText"))
+local FitList = require(component.FitList)
+local FitText = require(component.FitText)
 local Tooltip = Roact.PureComponent:extend("Tooltip")
 
 function Tooltip:init()

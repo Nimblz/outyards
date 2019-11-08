@@ -2,16 +2,16 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 -- local Workspace = game:GetService("Workspace")
 -- local LocalPlayer = Players.LocalPlayer
-local PhysicsService = game:GetService("PhysicsService")
+local Workspace = game:GetService("Workspace")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
--- local util = common:WaitForChild("util")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
+-- local util = common.util
 
-local RECS = require(lib:WaitForChild("RECS"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local RECS = require(lib.RECS)
+local RecsComponents = require(common.RecsComponents)
 
-local SpawnZone = require(script:WaitForChild("SpawnZone"))
+local SpawnZone = require(script.SpawnZone)
 
 local SpawnZoneSystem = RECS.System:extend("SpawnZoneSystem")
 
@@ -52,11 +52,11 @@ function SpawnZoneSystem:onComponentRemoving(instance,component)
 end
 
 function SpawnZoneSystem:init()
-    local enemiesBin = workspace:FindFirstChild("enemies")
+    local enemiesBin = Workspace:FindFirstChild("enemies")
     if not enemiesBin then
         enemiesBin = Instance.new("Folder")
         enemiesBin.Name = "enemies"
-        enemiesBin.Parent = workspace
+        enemiesBin.Parent = Workspace
     end
 
     self.spawnZones = {}

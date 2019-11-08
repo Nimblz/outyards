@@ -2,18 +2,18 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local EquipmentReplicator = PizzaAlpaca.GameModule:extend("EquipmentReplicator")
 
-local eEquipmentUpdated = event:WaitForChild("eEquipmentUpdated")
-local eUpdateEquipmentProps = event:WaitForChild("eUpdateEquipmentProps")
-local eEquipmentActivated = event:WaitForChild("eEquipmentActivated")
-local eEquipmentDeactivated = event:WaitForChild("eEquipmentDeactivated")
+local eEquipmentUpdated = event.eEquipmentUpdated
+local eUpdateEquipmentProps = event.eUpdateEquipmentProps
+local eEquipmentActivated = event.eEquipmentActivated
+local eEquipmentDeactivated = event.eEquipmentDeactivated
 
 local function playerKey(player)
     return player

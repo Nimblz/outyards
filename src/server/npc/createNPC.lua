@@ -1,11 +1,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
-local NPCS = require(common:WaitForChild("NPCS"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local ParticleCreator = require(common.ParticleCreator)
+local NPCS = require(common.NPCS)
+local RecsComponents = require(common.RecsComponents)
 
 local errors = {
     invalidMob = "Invalid NPC type [%s]!"

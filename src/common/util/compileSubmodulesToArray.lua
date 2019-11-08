@@ -1,5 +1,5 @@
 local util = script.Parent
-local compileSubmodules = require(util:WaitForChild("compileSubmodules"))
+local compileSubmodules = require(util.compileSubmodules)
 
 return function(parent, recursive)
     local unordered = compileSubmodules(parent,recursive)

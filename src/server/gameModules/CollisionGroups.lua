@@ -3,11 +3,11 @@ local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
 
---local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
---local event = ReplicatedStorage:WaitForChild("event")
+--local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+--local event = ReplicatedStorage.event
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local CollisionGroups = PizzaAlpaca.GameModule:extend("CollisionGroups")
 

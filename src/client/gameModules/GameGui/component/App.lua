@@ -1,25 +1,25 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
 local component = script.Parent
-local view = component:WaitForChild("view")
+local view = component.view
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
 local App = Roact.Component:extend("App")
-local Inventory = require(view:WaitForChild("Inventory"))
-local Crafting = require(view:WaitForChild("Crafting"))
-local Boosts = require(view:WaitForChild("Boosts"))
-local Codes = require(view:WaitForChild("Codes"))
-local Options = require(view:WaitForChild("Options"))
-local Tooltip = require(component:WaitForChild("Tooltip"))
-local MenuBar = require(component:WaitForChild("MenuBar"))
-local HealthBar = require(component:WaitForChild("HealthBar"))
-local NotificationContainer = require(component:WaitForChild("NotificationContainer"))
-local AlphaWarning = require(component:WaitForChild("AlphaWarning"))
-local AttackButton = require(component:WaitForChild("AttackButton"))
---local Toolbar = require(uiComponents:WaitForChild("Toolbar"))
+local Inventory = require(view.Inventory)
+local Crafting = require(view.Crafting)
+local Boosts = require(view.Boosts)
+local Codes = require(view.Codes)
+local Options = require(view.Options)
+local Tooltip = require(component.Tooltip)
+local MenuBar = require(component.MenuBar)
+local HealthBar = require(component.HealthBar)
+local NotificationContainer = require(component.NotificationContainer)
+local AlphaWarning = require(component.AlphaWarning)
+local AttackButton = require(component.AttackButton)
+--local Toolbar = require(uiComponents.Toolbar)
 
 function App:init()
     self._context.pzCore = self.props.pzCore

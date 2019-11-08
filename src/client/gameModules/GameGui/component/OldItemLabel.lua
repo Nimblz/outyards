@@ -2,25 +2,25 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
-local util = common:WaitForChild("util")
+local util = common.util
 
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
-local Items = require(common:WaitForChild("Items"))
-local Sprites = require(common:WaitForChild("Sprites"))
-local Actions = require(common:WaitForChild("Actions"))
-local Selectors = require(common:WaitForChild("Selectors"))
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Items = require(common.Items)
+local Sprites = require(common.Sprites)
+local Actions = require(common.Actions)
+local Selectors = require(common.Selectors)
 
-local beautifyNumber = require(util:WaitForChild("beautifyNumber"))
+local beautifyNumber = require(util.beautifyNumber)
 
-local eRequestEquip = event:WaitForChild("eRequestEquip")
-local eRequestUnequip = event:WaitForChild("eRequestUnequip")
+local eRequestEquip = event.eRequestEquip
+local eRequestUnequip = event.eRequestUnequip
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local RoundFrame = require(component.RoundFrame)
 local ItemLabel = Roact.Component:extend("ItemLabel")
 
 local errors = {

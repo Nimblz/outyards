@@ -4,17 +4,17 @@ if not game:IsLoaded() then game.Loaded:Wait() end
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
-local event = ReplicatedStorage:WaitForChild("event")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
+local event = ReplicatedStorage.event
 local client = script.Parent
 
-local eClientReady = event:WaitForChild("eClientReady")
+local eClientReady = event.eClientReady
 
-local sidedModules = client:WaitForChild("gameModules")
-local commonModules = common:WaitForChild("gameModules")
+local sidedModules = client.gameModules
+local commonModules = common.gameModules
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 -- create PizzaAlpaca core instance
 local core = PizzaAlpaca.GameCore.new()

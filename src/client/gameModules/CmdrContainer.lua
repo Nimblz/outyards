@@ -1,9 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 local Cmdr = require(ReplicatedStorage:WaitForChild("CmdrClient"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
 
 
 local CmdrContainer = PizzaAlpaca.GameModule:extend("CmdrContainer")

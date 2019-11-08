@@ -1,22 +1,24 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 local component = script:FindFirstAncestor("component")
+local view = script.Parent
 
-local eRequestEquip = event:WaitForChild("eRequestEquip")
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
+local RoundFrame = require(component.RoundFrame)
+local FitList = require(component.FitList)
+local InventoryNavbar = require(script.InventoryNavbar)
+local InventoryBody = require(script.InventoryBody)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local FitList = require(component:WaitForChild("FitList"))
-local InventoryNavbar = require(script:WaitForChild("InventoryNavbar"))
-local InventoryBody = require(script:WaitForChild("InventoryBody"))
+local makeView = require(view.makeView)
 
-local makeView = require(script.Parent:WaitForChild("makeView"))
+local eRequestEquip = event.eRequestEquip
+local eRequestUnequip = event.eRequestUnequip
 
 local Inventory = Roact.PureComponent:extend("Inventory")
 

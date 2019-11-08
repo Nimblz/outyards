@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Items = require(common:WaitForChild("Items"))
+local Items = require(common.Items)
 
 return function (registry)
     local allItems = {}

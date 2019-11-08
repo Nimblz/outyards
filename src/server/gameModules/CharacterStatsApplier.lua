@@ -2,12 +2,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Selectors = require(common:WaitForChild("Selectors"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Selectors = require(common.Selectors)
 
 local CharacterStatsApplier = PizzaAlpaca.GameModule:extend("CharacterStatsApplier")
 

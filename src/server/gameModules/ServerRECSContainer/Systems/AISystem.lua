@@ -5,17 +5,17 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
 
 local src = script:FindFirstAncestor("server")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
--- local util = common:WaitForChild("util")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
+-- local util = common.util
 
-local Items = require(common:WaitForChild("Items"))
-local Actions = require(common:WaitForChild("Actions"))
+local Items = require(common.Items)
+local Actions = require(common.Actions)
 
-local AI = require(src.ai:WaitForChild("AI"))
-local RECS = require(lib:WaitForChild("RECS"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
-local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
+local AI = require(src.ai.AI)
+local RECS = require(lib.RECS)
+local RecsComponents = require(common.RecsComponents)
+local ParticleCreator = require(common.ParticleCreator)
 
 local errors = {
     invalidItemId = "Invalid drop item id [%s]!"

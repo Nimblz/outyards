@@ -1,7 +1,9 @@
-local server = script:FindFirstAncestor("server")
-local npc = server:WaitForChild("npc")
+local Workspace = game:GetService("Workspace")
 
-local createNPC = require(npc:WaitForChild("createNPC"))
+local server = script:FindFirstAncestor("server")
+local npc = server.npc
+
+local createNPC = require(npc.createNPC)
 
 local errors = {
     invalidMob = "Invalid NPC type [%s]!"
@@ -119,7 +121,7 @@ function SpawnZone.new(recsCore, parts, component, name)
     self.recsCore = recsCore
 
     self.container = Instance.new("Folder")
-    self.container.Parent = workspace:WaitForChild("enemies")
+    self.container.Parent = Workspace:WaitForChild("enemies")
     self.container.Name = name
 
     return self

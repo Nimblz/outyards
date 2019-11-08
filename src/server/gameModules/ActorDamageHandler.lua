@@ -1,18 +1,18 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
-local Selectors = require(common:WaitForChild("Selectors"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Dictionary = require(util.Dictionary)
+local RecsComponents = require(common.RecsComponents)
+local Selectors = require(common.Selectors)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local ActorDamageHandler = PizzaAlpaca.GameModule:extend("ActorDamageHandler")
 
-local eAttackActor = event:WaitForChild("eAttackActor")
+local eAttackActor = event.eAttackActor
 
 function ActorDamageHandler:onRecsAndStore(recsCore, store)
     eAttackActor.OnServerEvent:connect(function(player, instance)

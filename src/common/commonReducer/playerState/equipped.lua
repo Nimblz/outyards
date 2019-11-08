@@ -1,10 +1,10 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local util = common.util
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Items = require(common:WaitForChild("Items"))
+local Dictionary = require(util.Dictionary)
+local Items = require(common.Items)
 
 return function(state,action)
     state = state or {

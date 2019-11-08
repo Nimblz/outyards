@@ -3,14 +3,14 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local util = common.util
+local lib = ReplicatedStorage.lib
 local ai = script.Parent
---local event = ReplicatedStorage:WaitForChild("event")
+--local event = ReplicatedStorage.event
 
-local FSM = require(util:WaitForChild("FSM"))
-local Controllers = require(ai:WaitForChild("Controllers"))
+local FSM = require(util.FSM)
+local Controllers = require(ai.Controllers)
 
 local AI = {}
 

@@ -1,19 +1,19 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
-local Thunks = require(common:WaitForChild("Thunks"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local Dictionary = require(util.Dictionary)
+local RecsComponents = require(common.RecsComponents)
+local Thunks = require(common.Thunks)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 local ItemEquipper = PizzaAlpaca.GameModule:extend("ItemEquipper")
 
-local eRequestEquip = event:WaitForChild("eRequestEquip")
-local eRequestUnequip = event:WaitForChild("eRequestUnequip")
+local eRequestEquip = event.eRequestEquip
+local eRequestUnequip = event.eRequestUnequip
 
 function ItemEquipper:onStore(store)
     eRequestEquip.OnServerEvent:connect(function(player, itemId)

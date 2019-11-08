@@ -1,18 +1,18 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
 
-local Selectors = require(common:WaitForChild("Selectors"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
+local Selectors = require(common.Selectors)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
+local RoundFrame = require(component.RoundFrame)
 local Boosts = Roact.Component:extend("Boosts")
 
-local makeView = require(script.Parent:WaitForChild("makeView"))
+local makeView = require(script.Parent.makeView)
 
 function Boosts:init()
 end

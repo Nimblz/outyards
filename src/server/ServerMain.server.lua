@@ -2,14 +2,14 @@ print("Starting outyards server.")
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
-local common = ReplicatedStorage:WaitForChild("common")
+local lib = ReplicatedStorage.lib
+local common = ReplicatedStorage.common
 local server = script.Parent
 
-local sidedModules = server:WaitForChild("gameModules")
-local commonModules = common:WaitForChild("gameModules")
+local sidedModules = server.gameModules
+local commonModules = common.gameModules
 
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
+local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 -- create PizzaAlpaca core instance
 local core = PizzaAlpaca.GameCore.new()

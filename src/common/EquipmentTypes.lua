@@ -1,9 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local util = common.util
 
-local by = require(util:WaitForChild("by"))
+local by = require(util.by)
 
 local equippables = {
     {

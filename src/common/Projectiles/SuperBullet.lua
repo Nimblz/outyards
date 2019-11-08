@@ -1,12 +1,13 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
+local Workspace = game:GetService("Workspace")
 
-local event = ReplicatedStorage:WaitForChild("event")
-local common = ReplicatedStorage:WaitForChild("common")
+local event = ReplicatedStorage.event
+local common = ReplicatedStorage.common
 
-local ParticleCreator = require(common:WaitForChild("ParticleCreator"))
+local ParticleCreator = require(common.ParticleCreator)
 
-local eAttackActor = event:WaitForChild("eAttackActor")
+local eAttackActor = event.eAttackActor
 
 return {
     id = "superbullet",
@@ -47,7 +48,7 @@ return {
         local bottomCorner = entity.CFrame.p - cornerOffset
         local testRegion = Region3.new(bottomCorner,topCorner)
 
-        local parts = workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
+        local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
 
         if component.owned then
             if CollectionService:HasTag(hit, "ActorStats") then

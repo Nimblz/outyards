@@ -2,9 +2,9 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local PlayerGui = game:GetService("Players").LocalPlayer.PlayerGui
 local UserInputService = game:GetService("UserInputService")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
 local AttackButton = Roact.Component:extend("AttackButton")
 

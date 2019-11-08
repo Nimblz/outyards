@@ -1,12 +1,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 local component = script:FindFirstAncestor("component")
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
-local SpriteLabel = require(component:WaitForChild("SpriteLabel"))
-local RoundButton = require(component:WaitForChild("RoundButton"))
+local SpriteLabel = require(component.SpriteLabel)
+local RoundButton = require(component.RoundButton)
 
 local ItemButton = Roact.Component:extend("ItemButton")
 

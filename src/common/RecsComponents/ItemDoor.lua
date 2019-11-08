@@ -1,8 +1,8 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local lib = ReplicatedStorage:WaitForChild("lib")
+local lib = ReplicatedStorage.lib
 
-local RECS = require(lib:WaitForChild("RECS"))
+local RECS = require(lib.RECS)
 
 return RECS.defineComponent({
     name = "ItemDoor",

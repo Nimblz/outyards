@@ -1,13 +1,13 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Items = require(common:WaitForChild("Items"))
+local Items = require(common.Items)
 
 local selectors = script:FindFirstAncestor("Selectors")
-local inventory = selectors:WaitForChild("inventory")
+local inventory = selectors.inventory
 
-local getItem = require(inventory:WaitForChild("getItem"))
+local getItem = require(inventory.getItem)
 
 local function canCraft(state,player,itemId)
     local item = Items.byId[itemId]

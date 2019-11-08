@@ -1,9 +1,11 @@
+local Workspace = game:GetService("Workspace")
+
 local function calcTrajectoryTheta(start,goal,speed,gravity,pickHighAngle)
     local xzStart = start * Vector3.new(1,0,1)
     local xzGoal = goal * Vector3.new(1,0,1)
     local range = (xzGoal-xzStart).Magnitude
     local yDiff = goal.Y - start.Y
-    local g = gravity or workspace.Gravity
+    local g = gravity or Workspace.Gravity
     if range == 0 then return math.pi/2 end
     if g == 0 then
         return math.atan(yDiff/range) -- simply return angle to the goal

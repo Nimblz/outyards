@@ -1,9 +1,9 @@
 -- PLAYER_LEAVING thunk
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
+local common = ReplicatedStorage.common
 
-local Actions = require(common:WaitForChild("Actions"))
+local Actions = require(common.Actions)
 
 local PLAYER_REMOVE = Actions.PLAYER_REMOVE
 

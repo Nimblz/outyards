@@ -1,9 +1,9 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local model = ReplicatedStorage:WaitForChild("model")
+local common = ReplicatedStorage.common
+local model = ReplicatedStorage.model
 
-local Items = require(common:WaitForChild("Items"))
+local Items = require(common.Items)
 
 local function nameMap(root,condition)
     local result = {}

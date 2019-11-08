@@ -1,15 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local util = common.util
 local component = script:FindFirstAncestor("component")
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
-local Otter = require(lib:WaitForChild("Otter"))
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
+local Otter = require(lib.Otter)
 
-local RoundButton = require(component:WaitForChild("RoundButton"))
+local RoundButton = require(component.RoundButton)
 local FancyButton = Roact.Component:extend("FancyButton")
 
 function FancyButton:init()

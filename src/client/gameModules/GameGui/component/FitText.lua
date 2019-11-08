@@ -2,12 +2,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TextService = game:GetService("TextService")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
-local lib = ReplicatedStorage:WaitForChild("lib")
+local common = ReplicatedStorage.common
+local util = common.util
+local lib = ReplicatedStorage.lib
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
 
 local e = Roact.createElement
 

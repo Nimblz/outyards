@@ -1,15 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local util = common.util
 local component = script:FindFirstAncestor("component")
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Selectors = require(common:WaitForChild("Selectors"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
-local withScale = require(component:WaitForChild("withScale"))
+local Dictionary = require(util.Dictionary)
+local Selectors = require(common.Selectors)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local withScale = require(component.withScale)
 
 local function makeView(component, viewId)
     -- wraps component in a new component that is only visible when its viewid is visible

@@ -1,7 +1,7 @@
 local server = script:FindFirstAncestor("server")
-local npc = server:WaitForChild("npc")
+local npc = server.npc
 
-local createNPC = require(npc:WaitForChild("createNPC"))
+local createNPC = require(npc.createNPC)
 
 return function(context, npcType, quantity)
     local executor = context.Executor

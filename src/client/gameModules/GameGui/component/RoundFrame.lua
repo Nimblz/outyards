@@ -1,13 +1,13 @@
 -- frame with rounded corners
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local util = common.util
 
-local Roact = require(lib:WaitForChild("Roact"))
+local Roact = require(lib.Roact)
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
+local Dictionary = require(util.Dictionary)
 
 return function(props)
     local elementProps = Dictionary.join(props, {

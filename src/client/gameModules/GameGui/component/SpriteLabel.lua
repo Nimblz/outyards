@@ -1,14 +1,14 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
-local Items = require(common:WaitForChild("Items"))
-local Sprites = require(common:WaitForChild("Sprites"))
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
+local Items = require(common.Items)
+local Sprites = require(common.Sprites)
 
 local SpriteLabel = Roact.PureComponent:extend("SpriteLabel")
 
