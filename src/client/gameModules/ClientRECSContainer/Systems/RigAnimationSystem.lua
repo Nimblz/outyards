@@ -36,7 +36,6 @@ function RigAnimationSystem:onComponentAdded(instance, component)
                 local newState = newValue.state
                 if playingAnimation then playingAnimation:Stop() end
                 if animations[newState] then
-                    print(animations[newState])
                     playingAnimation = animations[newState]
                     animations[newState]:Play()
                 end
