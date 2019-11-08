@@ -1,4 +1,5 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
 
 local lib = ReplicatedStorage.lib
 
@@ -21,6 +22,8 @@ local AlphaWarning = require(component.AlphaWarning)
 local AttackButton = require(component.AttackButton)
 --local Toolbar = require(uiComponents.Toolbar)
 
+local IN_LIVE_GAME = not RunService:IsStudio()
+
 function App:init()
     self._context.pzCore = self.props.pzCore
 end
@@ -39,7 +42,7 @@ function App:render()
         menubar = Roact.createElement(MenuBar),
         healthbar = Roact.createElement(HealthBar),
         notificationContainer = Roact.createElement(NotificationContainer),
-        alphaWarning = Roact.createElement(AlphaWarning),
+        alphaWarning = IN_LIVE_GAME and Roact.createElement(AlphaWarning),
         attackButton = Roact.createElement(AttackButton),
         -- toolbar = Roact.createElement(Toolbar),
     }
