@@ -2,11 +2,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
 local lib = ReplicatedStorage:WaitForChild("lib")
+local util = common:WaitForChild("util")
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
 local Roact = require(lib:WaitForChild("Roact"))
+local Dictionary = require(util:WaitForChild("Dictionary"))
 
 local getAppliedScale = require(util:WaitForChild("getAppliedScale"))
 local e = Roact.createElement
@@ -23,6 +23,7 @@ function FitGrid:refit(instance)
 	local minSize = self.props.minSize
 	local containerProps = self.props.containerProps
 	local paddingProps = self.props.paddingProps
+	local sizeUpdated = self.props.sizeUpdated
 
 	if paddingProps ~= nil then
 		paddingProps = Dictionary.merge({
@@ -63,6 +64,10 @@ function FitGrid:refit(instance)
 	end
 
 	self.setSize(combinedSize)
+
+	if typeof(sizeUpdated) == "function" then
+		sizeUpdated(combinedSize)
+	end
 end
 
 function FitGrid:didMount()

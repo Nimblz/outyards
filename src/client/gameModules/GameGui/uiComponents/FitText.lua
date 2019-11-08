@@ -56,6 +56,7 @@ function FitText:updateTextMeasurements()
 	local padding = self.props.padding or Vector2.new(0, 0)
 	local fitAxis = self.props.fitAxis or "XY"
 	local baseSize = self.props.Size
+	local sizeUpdated = self.props.sizeUpdated
 
 	local text = self.props.Text or ""
 	local font = self.props.Font or Enum.Font.Gotham
@@ -95,6 +96,10 @@ function FitText:updateTextMeasurements()
 	end
 
 	self.setSize(totalSize)
+
+	if typeof(sizeUpdated) == "function" then
+		sizeUpdated(combinedSize)
+	end
 end
 
 return FitText

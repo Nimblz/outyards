@@ -23,6 +23,7 @@ function FitList:refit(instance)
 	local containerProps = self.props.containerProps
 	local paddingProps = self.props.paddingProps
 	local minSize = self.props.minSize
+	local sizeUpdated = self.props.sizeUpdated
 
 	if paddingProps ~= nil then
 		paddingProps = Dictionary.merge({
@@ -63,6 +64,10 @@ function FitList:refit(instance)
 	end
 
 	self.setSize(combinedSize)
+
+	if typeof(sizeUpdated) == "function" then
+		sizeUpdated(combinedSize)
+	end
 end
 
 function FitList:didMount()
