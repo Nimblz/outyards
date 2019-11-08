@@ -32,14 +32,16 @@
 	"Create a new path variable": {
 		"prefix": "p",
 		"body": [
-			"local ${1:pathname} = ${2:basepath}:WaitForChild(\"${1}\")"
+			"local ${1:pathname} = ${2:basepath}.${1}",
+			""
 		]
 	},
 
 	"Require a library from a path": {
 		"prefix": "r",
 		"body": [
-			"local ${1:ModuleName} = require(${2:path}:WaitForChild(\"${1}\"))"
+			"local ${1:ModuleName} = require(${2:path}.${1})",
+			""
 		]
 	},
 
@@ -48,9 +50,9 @@
 		"body": [
 			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
 			"",
-			"local common = ReplicatedStorage:WaitForChild(\"common\")",
-			"local lib = ReplicatedStorage:WaitForChild(\"lib\")",
-			"local event = ReplicatedStorage:WaitForChild(\"event\")",
+			"local common = ReplicatedStorage.common",
+			"local lib = ReplicatedStorage.lib",
+			"local event = ReplicatedStorage.event",
 			"",
 		]
 	},
@@ -60,7 +62,7 @@
 		"body": [
 			"local ReplicatedStorage = game:GetService(\"ReplicatedStorage\")",
 			"",
-			"local lib = ReplicatedStorage:WaitForChild(\"lib\")",
+			"local lib = ReplicatedStorage.lib",
 			"",
 		]
 	},
@@ -68,7 +70,7 @@
 	"Require PizzaAlpaca": {
 		"prefix": "pz",
 		"body": [
-			"local PizzaAlpaca = require(lib:WaitForChild(\"PizzaAlpaca\"))",
+			"local PizzaAlpaca = require(lib.PizzaAlpaca)",
 			"",
 		]
 	},
@@ -94,7 +96,7 @@
 	"Require Roact": {
 		"prefix": "rct",
 		"body": [
-			"local Roact = require(lib:WaitForChild(\"Roact\"))",
+			"local Roact = require(lib.Roact)",
 			"",
 		]
 	},
@@ -102,7 +104,7 @@
 	"Require Rodux": {
 		"prefix": "rdx",
 		"body": [
-			"local Rodux = require(lib:WaitForChild(\"Rodux\"))",
+			"local Rodux = require(lib.Rodux)",
 			"",
 		]
 	},
@@ -110,7 +112,7 @@
 	"Require RoactRodux": {
 		"prefix": "rctrdx",
 		"body": [
-			"local RoactRodux = require(lib:WaitForChild(\"RoactRodux\"))",
+			"local RoactRodux = require(lib.RoactRodux)",
 			"",
 		]
 	},
@@ -118,7 +120,7 @@
 	"Create stateful component": {
 		"prefix": "rcc",
 		"body": [
-			"local ${1:MyComponent} = Roact.Component:extend(\"${1}\")",
+			"local ${1:MyComponent} = Roact.PureComponent:extend(\"${1}\")",
 			"",
 			"function ${1}:init()",
 			"end",
@@ -133,4 +135,13 @@
 			"return ${1}"
 		]
 	},
+
+	"Create functional component": {
+		"prefix": "rfc",
+		"body": [
+			"return function(props)",
+			"\treturn Roact.createElement($0)",
+			"end",
+		]
+	}
 }
