@@ -2,9 +2,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Debris = game:GetService("Debris")
 local Workspace = game:GetService("Workspace")
 
-local common = ReplicatedStorage.common
-local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
 local particle = ReplicatedStorage.particle
 
 local particleBin = Instance.new("Folder")
