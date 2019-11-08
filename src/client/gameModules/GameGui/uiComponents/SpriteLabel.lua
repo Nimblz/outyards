@@ -17,12 +17,6 @@ local errors = {
     invalidSpriteSheet = "Invalid sprite sheet [%s]!",
 }
 
-function SpriteLabel:init()
-end
-
-function SpriteLabel:didMount()
-end
-
 function SpriteLabel:render()
     local itemId = self.props.itemId
     local color = self.props.color
@@ -30,8 +24,8 @@ function SpriteLabel:render()
     local scale = self.props.scale or 4
 
     local item = Items.byId[itemId]
-    local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(item, errors.invalidItemId:format(tostring(itemId)))
+    local spriteSheet = Sprites[item.spriteSheet or "materials"]
     assert(spriteSheet, errors.invalidSpriteSheet:format(tostring(spriteSheet)))
 
     local spriteRectSize = spriteSheet.spriteSize * spriteSheet.scaleFactor
