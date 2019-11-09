@@ -1,4 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
@@ -9,6 +11,8 @@ local view = script.Parent
 
 local Dictionary = require(util.Dictionary)
 local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Selectors = require(common.Selectors)
 
 local RoundFrame = require(component.RoundFrame)
 local FitList = require(component.FitList)
@@ -26,6 +30,7 @@ function Inventory:init()
     self:setState({
         tagFilter = "all",
         searchFilter = "",
+        selectedItem = nil,
     })
 end
 
@@ -38,6 +43,13 @@ end
 function Inventory:setSearchFilter(newSearch)
     self:setState({
         searchFilter = newSearch,
+    })
+end
+
+function Inventory:setSelected(itemId)
+    local owned = self.props.isOwned(itemId)
+    self:setState({
+        selectedItem = owned and itemId or Roact.None
     })
 end
 
@@ -61,6 +73,7 @@ function Inventory:render()
         body = Roact.createElement(InventoryBody, {
             searchFilter = self.state.searchFilter,
             tagFilter = self.state.tagFilter,
+            selectedItem = self.state.selectedItem,
         })
     }
 
@@ -86,6 +99,16 @@ function Inventory:render()
         }
     }, children)
 end
+
+local function mapStateToProps(state, props)
+    return {
+        isOwned = function(itemId)
+            return Selectors.getItem(state, LocalPlayer, itemId)
+        end
+    }
+end
+
+Inventory = RoactRodux.connect(mapStateToProps)(Inventory)
 
 Inventory = makeView(Inventory, "inventory")
 
