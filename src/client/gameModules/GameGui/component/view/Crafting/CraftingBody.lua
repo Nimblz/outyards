@@ -6,8 +6,8 @@ local common = ReplicatedStorage:WaitForChild("common")
 local lib = ReplicatedStorage:WaitForChild("lib")
 local event = ReplicatedStorage:WaitForChild("event")
 local util = common:WaitForChild("util")
-local invComponent = script.Parent
 local component = script:FindFirstAncestor("component")
+local craftingComponent = script.Parent
 
 local Selectors = require(common:WaitForChild("Selectors"))
 local Items = require(common:WaitForChild("Items"))
@@ -80,7 +80,7 @@ function CraftingBody:render()
     })
 end
 
-local function mapStateToProps(state,props)
+local function mapStateToProps(state, props)
     return {
         inventory = Selectors.getInventory(state, LocalPlayer),
         isEquipped = function(itemId)
