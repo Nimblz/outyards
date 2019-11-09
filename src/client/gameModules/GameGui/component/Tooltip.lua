@@ -6,7 +6,6 @@ local GuiService = game:GetService("GuiService")
 local common = ReplicatedStorage.common
 local util = common.util
 local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
 local component = script:FindFirstAncestor("component")
 
 local Roact = require(lib.Roact)
@@ -138,7 +137,7 @@ function Tooltip:render()
     })
 end
 
-local function mapStateToProps(state,props)
+local function mapStateToProps(state, props)
     return {
         visible = Selectors.getTooltipVisible(state) or false,
         strings = Selectors.getTooltipStrings(state) or {},
