@@ -18,13 +18,13 @@ local RoactRodux = require(lib.RoactRodux)
 local RoundFrame = require(component.RoundFrame)
 local FitList = require(component.FitList)
 local FitGrid = require(component.FitGrid)
-local ItemLabel = require(component.OldItemLabel)
+local ItemButton = require(invComponent.InventoryItemButton)
 
 local contains = require(util.contains)
 
 local InventoryBody = Roact.PureComponent:extend("InventoryBody")
 
-local function fitsTag(item, tagId, isEquipped)
+local function fitsTag(item, tagId)
     if not item then return false end
 
     local tagFilter = tagId
@@ -33,10 +33,6 @@ local function fitsTag(item, tagId, isEquipped)
 
     if contains(itemTags, tagFilter) then
         return true
-    end
-
-    if tagFilter == "equipped" then
-        return isEquipped
     end
 
     if tagFilter == "all" then
@@ -62,52 +58,9 @@ end
 function InventoryBody:render()
     local inventory = self.props.inventory
 
-    local itemCount = 0
-    local inventoryItems = {}
-    for id, quantity in pairs(inventory) do
-        if quantity > 0 then
-            local item = Items.byId[id]
-            local isEquipped = self.props.isEquipped(id)
-            local searchFilter = self.props.searchFilter
-            local tagFilter = self.props.tagFilter
-            local itemFitsSearch = fitsSearch(item, searchFilter)
-            local itemFitsTag = fitsTag(item, tagFilter, isEquipped)
-            if item and itemFitsTag and itemFitsSearch then
-                local itemSortOrder = item.sortOrder
-                local newItemLabel = Roact.createElement(ItemLabel, {
-                    itemId = id,
-                    quantity = quantity,
-                    activatable = true,
-                    AnchorPoint = Vector2.new(0.5, 0.5),
-                    Position = UDim2.new(0.5,0,0.5,0),
-                })
-
-                local itemFrame = Roact.createElement("Frame", {
-                    BackgroundTransparency = 1,
-                    Size = UDim2.new(0,64,0,64),
-                    LayoutOrder = itemSortOrder,
-                }, {item = newItemLabel})
-
-                inventoryItems[id] = itemFrame
-                itemCount = itemCount + 1
-            end
-        end
-    end
-
-    local itemGrid = Roact.createElement(FitGrid, {
-        layoutProps = {
-            CellPadding = UDim2.new(0,0,0,0),
-            CellSize = UDim2.new(0,80,0,80),
-            FillDirectionMaxCells = 5,
-            SortOrder = Enum.SortOrder.LayoutOrder,
-        },
-        paddingProps = {
-        },
-        containerProps = {
-            Size = UDim2.new(0,80*5,0,0),
-            BackgroundTransparency = 1,
-        }
-    }, inventoryItems)
+    local searchFilter = self.props.searchFilter
+    local tagFilter = self.props.tagFilter
+    local selectedItem = self.props.selectedItem
 
     return Roact.createElement(FitList, {
         scale = 1,
@@ -132,18 +85,7 @@ function InventoryBody:render()
                 PaddingLeft = UDim.new(0,16),
                 PaddingRight = UDim.new(0,12),
             }),
-            gridFrame = Roact.createElement("ScrollingFrame", {
-                Size = UDim2.new(1,0,1,0),
-                CanvasSize = UDim2.new(0,0,0,math.ceil(itemCount/5) * 80),
-                BackgroundTransparency = 1,
-                BorderSizePixel = 0,
-                Selectable = false,
-                ScrollingDirection = Enum.ScrollingDirection.Y,
-                TopImage = "rbxassetid://4271581206",
-                MidImage = "rbxassetid://4271580709",
-                BottomImage = "rbxassetid://4271581830",
-                ClipsDescendants = false,
-            }, itemGrid)
+            gridFrame = gridFrame
         }),
         itemFocus = Roact.createElement(RoundFrame, {
             color = Color3.fromRGB(216, 216, 216),
@@ -153,20 +95,12 @@ function InventoryBody:render()
     })
 end
 
-local function mapStateToProps(state,props)
+local function mapStateToProps(state, props)
     return {
         inventory = Selectors.getInventory(state, LocalPlayer),
         isEquipped = function(itemId)
             return Selectors.getIsEquipped(state, LocalPlayer, itemId)
         end,
-    }
-end
-
-local function mapDispatchToProps(dispatch)
-    return {
-        close = function()
-            dispatch(Thunks.VIEW_SET("default"))
-        end
     }
 end
 
