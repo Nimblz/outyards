@@ -21,7 +21,7 @@ local HEIGHT = 32
 local WIDTH = 300
 
 local RoundFrameWithScale = withScale(RoundFrame, {
-    defaultSize = Vector2.new(1280,800),
+    defaultSize = Vector2.new(1280,600),
     scale = 1,
     minScale = 0.5,
     maxScale = 1,
@@ -109,7 +109,7 @@ function HealthBar:render()
 
     return Roact.createElement(RoundFrameWithScale, {
         AnchorPoint = Vector2.new(0.5,0),
-        Position = UDim2.new(0.5,0,0,HEIGHT*2),
+        Position = UDim2.new(0.5,0,0,32),
         Size = UDim2.new(0,WIDTH,0,HEIGHT),
         color = Color3.fromRGB(197, 0, 0),
         Visible = self.props.visible
