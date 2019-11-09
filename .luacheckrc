@@ -157,84 +157,6 @@ stds.roblox = {
                 DescendantRemoving = read_write_class;
             }
         },
-        workspace = {
-            other_fields = true,
-            fields = {
-                AllowThirdPartySales = read_write;
-                CurrentCamera = read_write_class;
-                DistributedGameTime = read_write;
-                FallenPartsDestroyHeight = read_write;
-                FilteringEnabled = read_write;
-                Gravity = read_write;
-                StreamingEnabled = read_write;
-                StreamingMinRadius = read_write;
-                StreamingPauseMode = read_write;
-                StreamingTargetRadius = read_write;
-                TemporaryLegacyPhysicsSolverOverride = read_write;
-                Terrain = read_only;
-                CalculateJumpPower = read_write;
-                ExperimentalSolverIsEnabled = read_write;
-                FindPartOnRay = read_write;
-                FindPartOnRayWithIgnoreList = read_write;
-                FindPartOnRayWithWhitelist = read_write;
-                FindPartsInRegion3 = read_write;
-                FindPartsInRegion3WithIgnoreList = read_write;
-                FindPartsInRegion3WithWhiteList = read_write;
-                GetNumAwakeParts = read_write;
-                GetPhysicsThrottling = read_write;
-                GetRealPhysicsFPS = read_write;
-                IsRegion3Empty = read_write;
-                IsRegion3EmptyWithIgnoreList = read_write;
-                JoinToOutsiders = read_write;
-                PGSIsEnabled = read_write;
-                SetPhysicsThrottleEnabled = read_write;
-                UnjoinFromOutsiders = read_write;
-                ZoomToExtents = read_write;
-                PrimaryPart = read_write_class;
-                BreakJoints = read_write;
-                GetBoundingBox = read_write;
-                GetExtentsSize = read_write;
-                GetPrimaryPartCFrame = read_write;
-                MakeJoints = read_write;
-                MoveTo = read_write;
-                SetPrimaryPartCFrame = read_write;
-                TranslateBy = read_write;
-                Archivable = read_write;
-                ClassName = read_only;
-                Name = read_write;
-                Parent = read_write_class;
-                RobloxLocked = read_write;
-                ClearAllChildren = read_write;
-                Clone = read_write;
-                Destroy = read_write;
-                FindFirstAncestor = read_write;
-                FindFirstAncestorOfClass = read_write;
-                FindFirstAncestorWhichIsA = read_write;
-                FindFirstChild = read_write;
-                FindFirstChildOfClass = read_write;
-                FindFirstChildWhichIsA = read_write;
-                GetAttribute = read_write;
-                GetAttributeChangedSignal = read_write;
-                GetAttributes = read_write;
-                GetChildren = read_write;
-                GetDebugId = read_write;
-                GetDescendants = read_write;
-                GetFullName = read_write;
-                GetPropertyChangedSignal = read_write;
-                IsA = read_write;
-                IsAncestorOf = read_write;
-                IsDescendantOf = read_write;
-                SetAttribute = read_write;
-                WaitForChild = read_write;
-                AncestryChanged = read_write_class;
-                AttributeChanged = read_write_class;
-                Changed = read_write_class;
-                ChildAdded = read_write_class;
-                ChildRemoved = read_write_class;
-                DescendantAdded = read_write_class;
-                DescendantRemoving = read_write_class;
-            }
-        },
     },
     read_globals = {
         -- Methods
@@ -302,9 +224,9 @@ stds.roblox = {
 
         TweenInfo = def_fields({"new"}),
 
-        UDim = def_fields({"new"}),
+        UDim = def_fields({"new", "fromScale", "fromOffset"}),
 
-        UDim2 = def_fields({"new"}),
+        UDim2 = def_fields({"new", "fromScale", "fromOffset"}),
 
         Vector2 = def_fields({"new"}),
 
@@ -715,9 +637,7 @@ stds.plugin = {
         }
 }
 
-ignore = {
-    "212"
-}
+ignore = {"212"}
 
 std = "lua51+roblox"
 
