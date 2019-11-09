@@ -2,10 +2,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
-local util = common.util
 
-local Dictionary = require(util.Dictionary)
 local Roact = require(lib.Roact)
 local Items = require(common.Items)
 local Sprites = require(common.Sprites)
