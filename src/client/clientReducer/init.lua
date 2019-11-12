@@ -1,30 +1,31 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local util = common.util
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
+local Dictionary = require(util.Dictionary)
 
-local commonReducer = require(common:WaitForChild("commonReducer"))
+local commonReducer = require(common.commonReducer)
 
-local screenSize = require(script:WaitForChild("screenSize"))
+local screenSize = require(script.screenSize)
 
-local tooltipStrings = require(script:WaitForChild("tooltipStrings"))
-local tooltipVisible = require(script:WaitForChild("tooltipVisible"))
+local tooltipStrings = require(script.tooltipStrings)
+local tooltipVisible = require(script.tooltipVisible)
 
-local view = require(script:WaitForChild("view"))
+local view = require(script.view)
 
-local toolbarVisible = require(script:WaitForChild("toolbarVisible"))
-local healthbarVisible = require(script:WaitForChild("healthbarVisible"))
-local navbarVisible = require(script:WaitForChild("navbarVisible"))
-local inventoryVisible = require(script:WaitForChild("inventoryVisible"))
-local craftingVisible = require(script:WaitForChild("craftingVisible"))
-local boostsVisible = require(script:WaitForChild("boostsVisible"))
-local codesVisible = require(script:WaitForChild("codesVisible"))
-local optionsVisible = require(script:WaitForChild("optionsVisible"))
-local notifications = require(script:WaitForChild("notifications"))
-local inventoryPage = require(script:WaitForChild("inventoryPage"))
-local inventoryCatagory = require(script:WaitForChild("inventoryCatagory"))
+local toolbarVisible = require(script.toolbarVisible)
+local healthbarVisible = require(script.healthbarVisible)
+local navbarVisible = require(script.navbarVisible)
+local inventoryVisible = require(script.inventoryVisible)
+local craftingVisible = require(script.craftingVisible)
+local boostsVisible = require(script.boostsVisible)
+local codesVisible = require(script.codesVisible)
+local optionsVisible = require(script.optionsVisible)
+local notifications = require(script.notifications)
+local inventoryPage = require(script.inventoryPage)
+local inventoryCatagory = require(script.inventoryCatagory)
+local targetInteractable = require(script.targetInteractable)
 
 return function(state, action)
     state = state or {}
@@ -50,5 +51,7 @@ return function(state, action)
         inventoryCatagory = inventoryCatagory(state.inventoryCatagory, action),
 
         notifications = notifications(state.notifications, action),
+
+        targetInteractable = targetInteractable(state.targetInteractable, action),
     })
 end
