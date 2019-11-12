@@ -20,6 +20,8 @@ local HealthBar = require(component.HealthBar)
 local NotificationContainer = require(component.NotificationContainer)
 local AlphaWarning = require(component.AlphaWarning)
 local AttackButton = require(component.AttackButton)
+local InteractableTarget = require(component.InteractableTarget)
+local Dialogue = require(component.Dialogue)
 --local Toolbar = require(uiComponents.Toolbar)
 
 local IN_LIVE_GAME = not RunService:IsStudio()
@@ -44,6 +46,8 @@ function App:render()
         notificationContainer = Roact.createElement(NotificationContainer),
         alphaWarning = IN_LIVE_GAME and Roact.createElement(AlphaWarning),
         attackButton = Roact.createElement(AttackButton),
+        interactableTarget = Roact.createElement(InteractableTarget),
+        dialogue = Roact.createElement(Dialogue)
         -- toolbar = Roact.createElement(Toolbar),
     }
 
