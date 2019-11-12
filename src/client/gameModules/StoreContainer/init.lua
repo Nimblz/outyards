@@ -25,7 +25,6 @@ end
 function StoreContainer:getStore()
     return Promise.async(function(resolve, reject)
         if not self.store then
-            self.logger:log("getStore() called.. Waiting for store to be created..")
             self.storeCreated:wait()
         end
         resolve(self.store)
@@ -44,7 +43,7 @@ function StoreContainer:createStore(initialState)
 
     self.store = store
 
-    self.storeCreated:fire()
+    self.storeCreated:fire(store)
     self.logger:log("Client store initialized.")
 end
 
