@@ -21,12 +21,13 @@ local eClientReady = event.eClientReady
 
 function PlayerSaveHandler:create()
     self.playerLoaded = Signal.new()
+    self.loadedPlayers = {}
 end
 
 function PlayerSaveHandler:init()
     local storeContainer = self.core:getModule("StoreContainer")
 
-    local loaded = {}
+    local loaded = self.loadedPlayers
 
     storeContainer:getStore():andThen(function(store)
 
@@ -56,7 +57,8 @@ function PlayerSaveHandler:init()
     end)
 end
 
-function PlayerSaveHandler:postInit()
+function PlayerSaveHandler:isDataLoaded(player)
+    return self.loadedPlayers[player] == true
 end
 
 return PlayerSaveHandler
