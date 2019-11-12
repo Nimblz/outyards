@@ -120,10 +120,10 @@ function ItemLabel:render()
         Image = spriteSheet.assetId,
         ImageRectSize = spriteRectSize,
         ImageRectOffset = spriteRectOffset,
+        ImageColor3 = isGray and Color3.new(0.3,0.3,0.3) or Color3.new(1,1,1),
 
         Selectable = activatable,
 
-        ImageColor3 = isGray and Color3.new(0.3,0.3,0.3) or Color3.new(1,1,1),
         [Roact.Event.MouseEnter] = showTooltip and function() self.props.displayTooltip(thumbStrings) end or nil,
         [Roact.Event.MouseLeave] = showTooltip and function() self.props.hideTooltip() end or nil,
         [Roact.Event.SelectionGained] = showTooltip and function() self.props.displayTooltip(thumbStrings) end or nil,
