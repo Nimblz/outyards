@@ -17,8 +17,9 @@ local RoactRodux = require(lib.RoactRodux)
 
 local RoundFrame = require(component.RoundFrame)
 local FitList = require(component.FitList)
-local FitGrid = require(component.FitGrid)
-local ItemButton = require(invComponent.InventoryItemButton)
+local ItemGrid = require(component.ItemGrid)
+local InventoryItemButton = require(invComponent.InventoryItemButton)
+local ItemFocus = require(invComponent.ItemFocus)
 
 local contains = require(util.contains)
 
@@ -27,15 +28,13 @@ local InventoryBody = Roact.PureComponent:extend("InventoryBody")
 local function fitsTag(item, tagId)
     if not item then return false end
 
-    local tagFilter = tagId
-
     local itemTags = item.tags or {}
 
-    if contains(itemTags, tagFilter) then
+    if contains(itemTags, tagId) then
         return true
     end
 
-    if tagFilter == "all" then
+    if tagId == "all" then
         return true
     end
 
@@ -62,6 +61,21 @@ function InventoryBody:render()
     local tagFilter = self.props.tagFilter
     local selectedItem = self.props.selectedItem
 
+    local setSelectedItem = self.props.setSelectedItem
+
+    local gridFrame = Roact.createElement(ItemGrid, {
+        buttonKind = InventoryItemButton,
+        items = inventory,
+        filters = {
+            function(item) return fitsSearch(item, searchFilter) end,
+            function(item) return fitsTag(item, tagFilter) end,
+        },
+        wrapAt = 5, -- in cells
+
+        selectedId = selectedItem,
+        onSelect = setSelectedItem,
+    })
+
     return Roact.createElement(FitList, {
         scale = 1,
         containerProps = {
@@ -87,10 +101,9 @@ function InventoryBody:render()
             }),
             gridFrame = gridFrame
         }),
-        itemFocus = Roact.createElement(RoundFrame, {
-            color = Color3.fromRGB(216, 216, 216),
-            Size = UDim2.new(0,250,0,450),
-            LayoutOrder = 2,
+        itemFocus = Roact.createElement(ItemFocus, {
+            itemId = selectedItem,
+            isEquipped = self.props.isEquipped(selectedItem),
         }),
     })
 end

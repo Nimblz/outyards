@@ -4,7 +4,6 @@ local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
 local util = common.util
 local component = script:FindFirstAncestor("component")
 local view = script.Parent
@@ -21,9 +20,6 @@ local InventoryBody = require(script.InventoryBody)
 
 local makeView = require(view.makeView)
 
-local eRequestEquip = event.eRequestEquip
-local eRequestUnequip = event.eRequestUnequip
-
 local Inventory = Roact.PureComponent:extend("Inventory")
 
 function Inventory:init()
@@ -31,6 +27,10 @@ function Inventory:init()
         tagFilter = "all",
         searchFilter = "",
         selectedItem = nil,
+
+        setSelected = function(itemId)
+            self:setSelected(itemId)
+        end
     })
 end
 
@@ -74,6 +74,7 @@ function Inventory:render()
             searchFilter = self.state.searchFilter,
             tagFilter = self.state.tagFilter,
             selectedItem = self.state.selectedItem,
+            setSelectedItem = self.state.setSelected,
         })
     }
 

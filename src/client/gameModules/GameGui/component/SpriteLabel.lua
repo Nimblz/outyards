@@ -19,6 +19,7 @@ function SpriteLabel:render()
     local color = self.props.color
     local layoutOrder = self.props.layoutOrder
     local scale = self.props.scale or 4
+    local zIndex = self.props.ZIndex
 
     local item = Items.byId[itemId]
     assert(item, errors.invalidItemId:format(tostring(itemId)))
@@ -43,6 +44,7 @@ function SpriteLabel:render()
         ImageRectOffset = spriteRectOffset,
 
         LayoutOrder = layoutOrder,
+        ZIndex = zIndex,
 
         ImageColor3 = color or Color3.new(1,1,1),
     }

@@ -12,50 +12,100 @@ local FitGrid = require(component.FitGrid)
 
 local ITEM_SIZE = 64
 local PADDING = 16
-local CELL_SIZE = ITEM_SIZE + (PADDING/2)
+local CELL_SIZE = ITEM_SIZE + (PADDING)
 
-return function(props)
+local ItemGrid = Roact.PureComponent:extend("ItemGrid")
+
+local function filterItems(items,filters)
+    local filteredItems = {}
+
+    for id, quantity in pairs(items) do
+        local item = Items.byId[id]
+
+        if item then
+            local failedFilter = false
+            for _, filter in pairs(filters) do
+                failedFilter = not filter(item)
+                if failedFilter then break end
+            end
+
+            if not failedFilter then
+                filteredItems[id] = quantity
+            end
+        end
+    end
+
+    return filteredItems
+end
+
+function ItemGrid:shouldUpdate(newProps, newState)
+    -- should update if new items put thru the new filter do not match old items put thru old filter
+    -- todo: should update if any prop other than filters changes
+    local props = self.props
+    local oldItems = props.items
+    local newItems = newProps.items
+    local oldFilters = props.filters
+    local newFilters = newProps.filters
+    local oldSelected = props.selectedId
+    local newSelected = newProps.selectedId
+
+    -- guarenteed that we need to update
+    if oldSelected ~= newSelected then return true end
+    if oldItems ~= newItems then return true end
+
+    local oldFilteredItems = filterItems(oldItems, oldFilters)
+    local newFilteredItems = filterItems(newItems, newFilters)
+
+    -- check if filter results change
+    for k,v in pairs(newFilteredItems) do
+        if oldFilteredItems[k] ~= v then return true end
+    end
+
+    for k,v in pairs(oldFilteredItems) do
+        if newFilteredItems[k] ~= v then return true end
+    end
+end
+
+function ItemGrid:render()
+    local props = self.props
+    local buttonKind = self.props.buttonKind or ItemButton
     local wrapAt = props.wrapAt or 5
     local items = props.items
     local filters = props.filters or {}
+    local selectedId = props.selectedId
 
+    local onSelect = props.onSelect
 
+    -- create item buttons
+    local filteredItems = filterItems(items, filters)
     local itemCount = 0
     local inventoryItems = {}
-    for id, quantity in pairs(items) do
+    for id, quantity in pairs(filteredItems) do
         if quantity > 0 then
             local item = Items.byId[id]
 
-            local failedFilter = false
-            for _,filter in pairs(filters) do
-                if not filter(item) then
-                    failedFilter = true
-                    break
-                end
-            end
-
-            if item and not failedFilter then
+            if item then
                 local itemSortOrder = item.sortOrder
-                local newItemButton = Roact.createElement(ItemButton, {
+                local newItemButton = Roact.createElement(buttonKind, {
+                    AnchorPoint = Vector2.new(0.5, 0.5),
+                    Position = UDim2.new(0.5,0,0.5,0),
+                    LayoutOrder = itemSortOrder,
+
                     itemId = id,
                     quantity = quantity,
                     activatable = true,
-                    AnchorPoint = Vector2.new(0.5, 0.5),
-                    Position = UDim2.new(0.5,0,0.5,0),
+                    selected = selectedId == id,
+
+                    onActivated = function(rbx, itemId) onSelect(itemId) end
                 })
 
-                local itemFrame = Roact.createElement("Frame", {
-                    BackgroundTransparency = 1,
-                    Size = UDim2.new(0,ITEM_SIZE,0,ITEM_SIZE),
-                    LayoutOrder = itemSortOrder,
-                }, {item = newItemButton})
-
-                inventoryItems[id] = itemFrame
+                inventoryItems[id] = newItemButton
                 itemCount = itemCount + 1
             end
         end
     end
 
+    -- create grid
     local itemGrid = Roact.createElement(FitGrid, {
         layoutProps = {
             CellPadding = UDim2.new(0,0,0,0),
@@ -71,6 +121,7 @@ return function(props)
         }
     }, inventoryItems)
 
+    -- create scrolling frame
     local gridFrame = Roact.createElement("ScrollingFrame", {
         Size = UDim2.new(1,0,1,0),
         CanvasSize = UDim2.new(0,0,0,math.ceil(itemCount/wrapAt) * CELL_SIZE),
@@ -78,9 +129,9 @@ return function(props)
         BorderSizePixel = 0,
         Selectable = false,
         ScrollingDirection = Enum.ScrollingDirection.Y,
-        TopImage = "rbxassetid://4271581206",
+        TopImage = "rbxassetid://4360218963",
         MidImage = "rbxassetid://4271580709",
-        BottomImage = "rbxassetid://4271581830",
+        BottomImage = "rbxassetid://4360219589",
         ClipsDescendants = false,
     }, {
         itemGrid = itemGrid
@@ -88,3 +139,5 @@ return function(props)
 
     return gridFrame
 end
+
+return ItemGrid
