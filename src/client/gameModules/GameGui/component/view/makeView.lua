@@ -11,11 +11,11 @@ local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 local withScale = require(component.withScale)
 
-local function makeView(component, viewId)
+local function makeView(kind, viewId)
     -- wraps component in a new component that is only visible when its viewid is visible
     local newView = Roact.Component:extend("view_"..viewId)
 
-    local componentWithScale = withScale(component, {
+    local componentWithScale = withScale(kind, {
         defaultSize = Vector2.new(1280,800),
         scale = 1,
         minScale = 0.5,
