@@ -47,6 +47,9 @@ local views = {
         VIEW_NAVBAR_SETVISIBLE = true,
         VIEW_OPTIONS_SETVISIBLE = true,
     },
+    dialogue = {
+        VIEW_DIALOGUE_SETVISIBLE = true,
+    },
 }
 
 return function(viewId)
