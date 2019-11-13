@@ -22,9 +22,8 @@ local craftingVisible = require(script.craftingVisible)
 local boostsVisible = require(script.boostsVisible)
 local codesVisible = require(script.codesVisible)
 local optionsVisible = require(script.optionsVisible)
+local dialogueVisible = require(script.dialogVisible)
 local notifications = require(script.notifications)
-local inventoryPage = require(script.inventoryPage)
-local inventoryCatagory = require(script.inventoryCatagory)
 local targetInteractable = require(script.targetInteractable)
 
 return function(state, action)
@@ -47,8 +46,7 @@ return function(state, action)
         toolbarVisible = toolbarVisible(state.toolbarVisible, action),
         healthbarVisible = healthbarVisible(state.healthbarVisible, action),
 
-        inventoryPage = inventoryPage(state.inventoryPage, action),
-        inventoryCatagory = inventoryCatagory(state.inventoryCatagory, action),
+        dialogueVisible = dialogueVisible(state.dialogueVisible, action),
 
         notifications = notifications(state.notifications, action),
 
