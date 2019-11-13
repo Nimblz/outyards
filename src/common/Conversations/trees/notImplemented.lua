@@ -8,6 +8,7 @@ local newConversation = require(conversations.newConversation)
 
 return {
     id = script.Name,
+    closeOnWalkAway = true,
     create = function()
         return newConversation({
             speaker = "Not implemented conversation!",

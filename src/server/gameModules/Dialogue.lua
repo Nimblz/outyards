@@ -128,33 +128,35 @@ function Dialogue:startConversation(player, id)
         -- everything inside of this coroutine is pure evil
         -- reader beware ur in for a scare!
         -- this handles force closing the conversation if the player walks away
-        coroutine.wrap(function()
-            local startPos = player.Character.PrimaryPart.Position
-            local convoMaxDist = 24
-            local convoClosed = false
+        if conversationDescription.closeOnWalkAway then
+            coroutine.wrap(function()
+                local startPos = player.Character.PrimaryPart.Position
+                local convoMaxDist = 20
+                local convoClosed = false
 
-            local connection
-            connection = self.conversationClosed:connect(function(closedPlayer)
-                if closedPlayer == player then
-                    connection:disconnect()
-                    convoClosed = true
+                local connection
+                connection = self.conversationClosed:connect(function(closedPlayer)
+                    if closedPlayer == player then
+                        connection:disconnect()
+                        convoClosed = true
+                    end
+                end)
+
+                local function closeEnough()
+                    if not canPlayerTalk(player) then return false end
+                    local currentPos = player.Character.PrimaryPart.Position
+                    return (currentPos - startPos).magnitude < convoMaxDist
                 end
-            end)
 
-            local function closeEnough()
-                if not canPlayerTalk(player) then return false end
-                local currentPos = player.Character.PrimaryPart.Position
-                return (currentPos - startPos).magnitude < convoMaxDist
-            end
+                while closeEnough() do
+                    wait(1/5)
+                end
 
-            while closeEnough() do
-                wait(1/5)
-            end
-
-            if not convoClosed then
-                self:closeConversation(player)
-            end
-        end)()
+                if not convoClosed then
+                    self:closeConversation(player)
+                end
+            end)()
+        end
     end
 end
 
