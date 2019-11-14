@@ -56,7 +56,7 @@ function Dialogue:transitionConversation(player,newNode)
     -- convert options objects to strings
     -- client doesnt need to know about structure, only text and options.
     local optionsStrings = {}
-    for _, option in ipairs(newNode.options) do
+    for _, option in ipairs(newNode.options or {}) do
         table.insert(optionsStrings, option.text)
     end
 
@@ -70,7 +70,7 @@ function Dialogue:transitionConversation(player,newNode)
     }
 
     eDialogueChanged:FireClient(player, props)
-    self.conversationTransitioned:fire(player, newText, optionsStrings)
+    self.conversationTransitioned:fire(player, props)
     newNode.onEnter(player, self.core)
 end
 
@@ -103,6 +103,7 @@ end
 function Dialogue:closeConversation(player)
     if self.conversations[player] ~= nil then
         self.conversationClosed:fire(player)
+        eDialogueClosed:FireClient(player)
         self.conversations[player] = nil
     end
 end
@@ -119,7 +120,7 @@ function Dialogue:startConversation(player, id)
     local conversationDescription = Conversations.byId[id]
 
     if self:canPlayerStartConversation(player) and conversationDescription then
-        local newConvo = conversationDescription.create()
+        local newConvo = conversationDescription.create(self.core, player)
 
         self.conversations[player] = newConvo
         self.conversationStarted:fire(player, id)
@@ -183,18 +184,6 @@ function Dialogue:postInit()
         optionIndex = optionIndex or 1
         assert(typeof(optionIndex) == "number")
         self:optionSelected(player, optionIndex)
-    end)
-
-    self.conversationStarted:connect(function(player, id)
-        print(player, "started a conversation! id:", id)
-    end)
-    self.conversationTransitioned:connect(function(player, text, options)
-        print(player, "transitioned their conversation!")
-        print(text)
-        print(" * "..table.concat(options, "\n * "))
-    end)
-    self.conversationClosed:connect(function(player)
-        print(player, "ended their conversation!")
     end)
 end
 
