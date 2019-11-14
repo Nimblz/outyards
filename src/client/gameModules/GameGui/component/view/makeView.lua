@@ -29,7 +29,7 @@ local function makeView(kind, viewId)
             visible = Dictionary.None,
         })
 
-        return self.props.visible and Roact.createElement("Frame", {
+        return Roact.createElement("Frame", {
             Selectable = false,
             Active = false,
             BackgroundTransparency = 1,
