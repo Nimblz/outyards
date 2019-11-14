@@ -35,7 +35,7 @@ function FitText:render()
         scale = Dictionary.None,
 		Size = self.sizeBinding,
 		[Roact.Ref] = self.ref,
-		[Roact.Change.AbsoluteSize] = function()
+		[Roact.Change.TextBounds] = function()
 			self:updateTextMeasurements()
 		end
 	})
@@ -55,7 +55,7 @@ function FitText:updateTextMeasurements()
 	local minSize = self.props.minSize or Vector2.new(0, 0)
 	local padding = self.props.padding or Vector2.new(0, 0)
 	local fitAxis = self.props.fitAxis or "XY"
-	local baseSize = self.props.Size
+	local baseSize = self.props.Size or UDim2.new(0,0,0,0)
 	local sizeUpdated = self.props.sizeUpdated
 
 	local text = self.props.Text or ""
@@ -98,7 +98,7 @@ function FitText:updateTextMeasurements()
 	self.setSize(totalSize)
 
 	if typeof(sizeUpdated) == "function" then
-		sizeUpdated(combinedSize)
+		sizeUpdated(totalSize)
 	end
 end
 
