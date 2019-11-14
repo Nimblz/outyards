@@ -4,10 +4,12 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
 local util = common.util
+local component = script:FindFirstAncestor("component")
 
 local Roact = require(lib.Roact)
-
 local Dictionary = require(util.Dictionary)
+
+local RoundFrame = require(component.RoundFrame)
 
 local RoundButton = Roact.PureComponent:extend("RoundButton")
 
@@ -37,7 +39,9 @@ end
 
 function RoundButton:render()
     local props = self.props
-    local disabled = self.props.disabled or false
+    local backgroundKind = props.backgroundKind or RoundFrame
+    local disabled = props.disabled or false
+
     local hovered = self.state.hovered or false
     local pressed = self.state.pressed or false
     local autoColor = self.state.autoColor == true
@@ -56,6 +60,7 @@ function RoundButton:render()
         mouseLeave = props[Roact.Event.MouseLeave],
         mouseDown = props[Roact.Event.MouseButton1Down],
         mouseUp = props[Roact.Event.MouseButton1Up],
+        activated = props[Roact.Event.Activated],
     }
 
     local function callInputFunc(name)
@@ -64,13 +69,11 @@ function RoundButton:render()
         end
     end
 
-    local elementProps = Dictionary.join(props, {
-        color = Dictionary.None,
-        hoveredColor = Dictionary.None,
-        pressedColor = Dictionary.None,
-        disabled = Dictionary.None,
-
-        ImageColor3 = finalColor,
+    local elementProps = {
+        Size = self.props.Size,
+        Position = self.props.Position,
+        AnchorPoint = self.props.AnchorPoint,
+        BackgroundTransparency = 1,
 
         [Roact.Event.MouseEnter] = function()
             if disabled then return end
@@ -94,15 +97,30 @@ function RoundButton:render()
             self:setHovered(false)
             callInputFunc("mouseUp")
         end,
-    })
+        [Roact.Event.Activated] = function()
+            callInputFunc("activated")
+        end,
+    }
+
+    local joinedChildren = Dictionary.join({
+        ["$BACKGROUND"] = Roact.createElement(backgroundKind, {
+            color = finalColor,
+            Size = UDim2.fromScale(1,1),
+            ZIndex = 1,
+        }),
+        ["$CHILDREN"] = Roact.createElement("Frame", {
+            BackgroundTransparency = 1,
+            Size = UDim2.fromScale(1,1),
+            ZIndex = 2
+        }, self.props[Roact.Children]),
+    }, self.props.decorators)
 
     return Roact.createElement("ImageButton", Dictionary.join({
         BackgroundTransparency = 1,
         BorderSizePixel = 0,
-        Image = "rbxassetid://4103149690",
-        ScaleType = Enum.ScaleType.Slice,
-        SliceCenter = Rect.new(16,16,16,16),
-    }, elementProps))
+        Image = "",
+        ImageTransparency = 1,
+    }, elementProps), joinedChildren)
 end
 
 return RoundButton
