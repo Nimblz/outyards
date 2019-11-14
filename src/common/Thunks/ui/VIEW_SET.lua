@@ -1,8 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage.common
-local lib = ReplicatedStorage.lib
-local event = ReplicatedStorage.event
 
 local Actions = require(common.Actions)
 
@@ -15,6 +13,7 @@ local emptyView = {
     VIEW_INVENTORY_SETVISIBLE = false,
     VIEW_CODES_SETVISIBLE = false,
     VIEW_OPTIONS_SETVISIBLE = false,
+    VIEW_DIALOGUE_SETVISIBLE = false,
 }
 
 local views = {
