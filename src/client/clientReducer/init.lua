@@ -22,7 +22,7 @@ local craftingVisible = require(script.craftingVisible)
 local boostsVisible = require(script.boostsVisible)
 local codesVisible = require(script.codesVisible)
 local optionsVisible = require(script.optionsVisible)
-local dialogueVisible = require(script.dialogVisible)
+local dialogueVisible = require(script.dialogueVisible)
 local notifications = require(script.notifications)
 local targetInteractable = require(script.targetInteractable)
 
