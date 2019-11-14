@@ -7,6 +7,7 @@ local getCodesVisible = require(ui.getCodesVisible)
 local getHealthbarVisible = require(ui.getHealthbarVisible)
 local getToolbarVisible = require(ui.getToolbarVisible)
 local getOptionsVisible = require(ui.getOptionsVisible)
+local getDialogueVisible = require(ui.getDialogueVisible)
 
 local viewSelectors = {
     inventory = getInventoryVisible,
@@ -16,6 +17,7 @@ local viewSelectors = {
     healthbar = getHealthbarVisible,
     toolbar = getToolbarVisible,
     options = getOptionsVisible,
+    dialogue = getDialogueVisible,
 }
 
 return function(state,viewId)
