@@ -9,38 +9,16 @@ local newConversation = require(conversations.newConversation)
 return {
     id = script.Name,
     closeOnWalkAway = true,
-    create = function()
+    create = function(server, player)
         return newConversation({
-            speaker = "Not implemented conversation!",
+            speaker = "Someone",
 
             rootNode = newNode({
-                text = "I'm not implemented! Tell nimbles!",
+                text = "I'm not implemented yet!",
                 options = {
                     newOption({
                         text = "Oh noes!"
-                    }),
-                    newOption({
-                        text = "Uh oh!"
-                    }),
-                    newOption({
-                        text = "Lol no thanks"
-                    }),
-                    math.random() < 0.5 and newOption({
-                        text = "PEPPERONI SECRET!",
-                        onSelect = function(player, server)
-                            local storeContainer = server:getModule("StoreContainer")
-
-                            storeContainer:getStore():andThen(function(store)
-                                store:dispatch({
-                                    type = "ITEM_ADD",
-                                    player = player,
-                                    itemId = "pepperoni",
-                                    quantity = 1,
-                                    replicateTo = player
-                                })
-                            end)
-                        end
-                    }) or nil,
+                    })
                 }
             })
         })
