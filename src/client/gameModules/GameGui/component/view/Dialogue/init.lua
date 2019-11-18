@@ -12,6 +12,7 @@ local eDialogueClosed = event.dialogue.eDialogueClosed
 local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 local Thunks = require(common.Thunks)
+local Actions = require(common.Actions)
 
 local makeView = require(view.makeView)
 
@@ -83,9 +84,11 @@ local function mapDispatchToProps(dispatch)
     return {
         startDialogue = function()
             dispatch(Thunks.VIEW_SET("dialogue"))
+            dispatch(Actions.CANINTERACT_SET(false))
         end,
         closeDialogue = function()
             dispatch(Thunks.VIEW_SET("default"))
+            dispatch(Actions.CANINTERACT_SET(true))
         end
     }
 end

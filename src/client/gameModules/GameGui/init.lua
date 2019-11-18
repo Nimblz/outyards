@@ -62,6 +62,7 @@ function GuiContainer:init()
         openInventory.began:connect(function()
             local currentView = Selectors.getView(store:getState())
             local targetView = "inventory"
+            if currentView == "dialogue" then return end
             targetView = ((currentView ~= targetView) and targetView) or "default"
             store:dispatch(Thunks.VIEW_SET(targetView))
         end)
@@ -69,6 +70,7 @@ function GuiContainer:init()
         openCrafting.began:connect(function()
             local currentView = Selectors.getView(store:getState())
             local targetView = "crafting"
+            if currentView == "dialogue" then return end
             targetView = ((currentView ~= targetView) and targetView) or "default"
             store:dispatch(Thunks.VIEW_SET(targetView))
         end)

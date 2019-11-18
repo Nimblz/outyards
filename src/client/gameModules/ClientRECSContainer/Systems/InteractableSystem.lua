@@ -59,11 +59,19 @@ function InteractableSystem:step()
     -- check if closest valid interactable is diff to current target
     -- if it is dispatch an action to change target
     local state = self.store:getState()
+    local canInteract = Selectors.getCanInteract(state)
     local targetInteractable = Selectors.getTargetInteractable(state)
 
-    if targetInstance ~= targetInteractable then
-        self.store:dispatch(Actions.TARGETINTERACTABLE_SET(targetInstance))
+    if canInteract then
+        if targetInstance ~= targetInteractable then
+            self.store:dispatch(Actions.TARGETINTERACTABLE_SET(targetInstance))
+        end
+    else
+        if targetInteractable then
+            self.store:dispatch(Actions.TARGETINTERACTABLE_SET(nil))
+        end
     end
+
 end
 
 return InteractableSystem
