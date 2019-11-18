@@ -5,16 +5,20 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
 
 local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 local Selectors = require(common.Selectors)
 
+local eRequestInteract = event.interaction.eRequestInteract
+
 local InteractableTarget = Roact.PureComponent:extend("InteractableTarget")
 
 function InteractableTarget:render()
     if self.props.targetInteractable then
-        local instanceRoot = self.props.targetInteractable
+        local targetInteractable = self.props.targetInteractable
+        local instanceRoot = targetInteractable
         if instanceRoot:IsA("Model") then
             instanceRoot = instanceRoot.PrimaryPart or instanceRoot:FindFirstChildOfClass("BasePart")
             warn("Invalid interactable:", instanceRoot)
@@ -28,8 +32,9 @@ function InteractableTarget:render()
             Size = UDim2.new(3,0,3,0),
             MaxDistance = 64,
             ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+            Active = true,
         }, {
-            image = Roact.createElement("ImageLabel", {
+            image = Roact.createElement("ImageButton", {
                 Image = "rbxassetid://3202644510",
                 BackgroundTransparency = 1,
                 Size = UDim2.new(.75,0,.75,0),
@@ -37,6 +42,10 @@ function InteractableTarget:render()
                 BorderSizePixel = 0,
                 ImageRectOffset = Vector2.new(10,10),
                 ImageRectSize = Vector2.new(80,80),
+
+                [Roact.Event.Activated] = function()
+                    eRequestInteract:FireServer(targetInteractable)
+                end
             }),
             text = Roact.createElement("TextLabel", {
                 Text = "Interact",
