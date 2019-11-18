@@ -5,16 +5,16 @@ return {
         return {
             ActorStats = {
                 maxHealth = 500,
-                health = 2500,
+                health = 500,
                 moveSpeed = 28,
-                aggroRadius = 64+32,
+                aggroRadius = 96,
                 baseDamage = 20,
                 attackRate = 1/2,
+                knockbackMultiplier = 5,
             },
             ItemDrops = {
                 items = {
-                    {itemId = "oreBluesteel", dropRange = {min = 75, max = 150}, dropRate = 1},
-                    {itemId = "oreGold", dropRange = {min = 100, max = 200}, dropRate = 1},
+                    {itemId = "kingCrown", dropRange = {min = 1, max = 1}, dropRate = 1},
                 },
                 cash = 2000,
             },
@@ -24,7 +24,7 @@ return {
         }
     end,
     boundingBoxProps = {
-        Size = Vector3.new(8,24,4),
+        Size = Vector3.new(16,24,4),
         Color = Color3.fromRGB(51, 43, 53),
     },
 

@@ -36,6 +36,9 @@ function NPCDriverSystem:onComponentChange(instance, component)
         bodyGyro.MaxTorque = Vector3.new()
         bodyVelocity.MaxForce = Vector3.new()
         bodyForce.Force = Vector3.new(0,0,0)
+    elseif component.knockbacking then
+        bodyVelocity.MaxForce = Vector3.new()
+        bodyForce.Force = Vector3.new(0,0,0)
     end
 end
 

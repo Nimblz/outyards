@@ -22,6 +22,9 @@ return RECS.defineComponent({
             attackRate = 1, -- per sec
             aggroRadius = 32,
             attackRange = 8,
+            canKnockback = true,
+            knockbackMultiplier = 1,
+            friendly = false,
             replicates = true,
         }, props)
     end,

@@ -8,6 +8,7 @@ return {
                 health = 1,
                 moveSpeed = 32,
                 baseDamage = 1/5,
+                knockbackMultiplier = 5,
             },
             ItemDrops = {
                 items = {
