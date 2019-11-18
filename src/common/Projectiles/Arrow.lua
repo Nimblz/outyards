@@ -11,8 +11,8 @@ local eAttackActor = event.eAttackActor
 
 return {
     id = "arrow",
-    speed = 300,
-    gravityScale = 0.5,
+    speed = 150,
+    gravityScale = 0.1,
 
     onFire = function(entity, component, pzCore)
     end,
@@ -20,13 +20,13 @@ return {
     onHit = function(entity, component, pzCore, hit, hitPos, normal)
         -- if its an enemy do damage
 
-        ParticleCreator.spawnParticle("ring", {
+        ParticleCreator.spawnParticle("circle", {
             cFrame = entity.CFrame,
             scale = 0.5,
             amount = 1
         })
             -- find npcs
-        local cornerOffset = Vector3.new(1,1,1)*4
+        local cornerOffset = Vector3.new(1,1,1)*2
         local topCorner = entity.CFrame.p + cornerOffset
         local bottomCorner = entity.CFrame.p - cornerOffset
         local testRegion = Region3.new(bottomCorner,topCorner)

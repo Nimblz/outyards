@@ -11,8 +11,8 @@ local eAttackActor = event.eAttackActor
 
 return {
     id = "slowarrow",
-    speed = 125,
-    gravityScale = 0.5,
+    speed = 100,
+    gravityScale = 0.25,
 
     onFire = function(entity, component, pzCore)
     end,
