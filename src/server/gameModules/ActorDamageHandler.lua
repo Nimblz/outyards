@@ -44,6 +44,8 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         if not actorStats then return end
         if not damagedBy then return end
 
+        if actorStats.friendly then return end
+
         local previousDamage = damagedBy.players[player.Name] or 0
 
         damagedBy:updateProperty("players",
@@ -52,13 +54,20 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
                 {[player.Name] = previousDamage + playerDamage}
             )
         )
+
         actorStats:updateProperty("health", actorStats.health - playerDamage)
 
-        if not self.knockingBack[instance] then
+        if not self.knockingBack[instance] and actorStats.canKnockback then
             self.knockingBack[instance] = true
+
+            local driver = recsCore:getComponent(instance, RecsComponents.NPCDriver)
+
+            if driver then driver:updateProperty("knockbacking", true) end
+
             instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
-            instance.Velocity = instance.Velocity + knockbackDirection * 50
+            instance.Velocity = instance.Velocity + knockbackDirection * 30 * actorStats.knockbackMultiplier
             delay(1/4, function()
+                if driver then driver:updateProperty("knockbacking", false) end
                 self.knockingBack[instance] = false
             end)
         end
