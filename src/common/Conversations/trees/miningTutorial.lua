@@ -7,7 +7,7 @@ local newOption = require(conversations.newDialogueOption)
 local newConversation = require(conversations.newConversation)
 
 local pickaxeResponse = newNode({
-    text = "I would give you one of my old ones, but it doesnt exist yet!"
+    text = "I would give you one of my old ones, but it doesnt exist yet! Guess you'll have to use a sword lol."
 })
 
 return {
