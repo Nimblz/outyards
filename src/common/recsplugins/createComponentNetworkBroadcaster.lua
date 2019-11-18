@@ -20,7 +20,7 @@ local function toNetworkable(component)
     return className, networkedComponent
 end
 
-local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent, playerAddedSignal)
+local function createPlugin(addedEvent, changedEvent, removedEvent, getEntities, playerAddedSignal)
     local broadcastPlugin = {}
 
     function broadcastPlugin:componentAdded(core, instance, component)
@@ -39,9 +39,7 @@ local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent
     end
 
     function broadcastPlugin:coreInit(core)
-        local Players = game:GetService("Players")
-
-        local function playerAdded(newPlayer)
+        getEntities.OnServerInvoke = function(newPlayer)
             -- for each entity, replicate its components x-x (is this too much?)
             local allComponents = {}
             for _, entityPairs in pairs(core._components) do
@@ -58,13 +56,7 @@ local function createPlugin(addedEvent, changedEvent, removedEvent, initialEvent
                 end
             end
 
-            initialEvent:FireClient(newPlayer, allComponents)
-        end
-
-        playerAddedSignal:connect(playerAdded)
-
-        for _, player in pairs(Players:GetPlayers()) do
-            playerAdded(player)
+            return allComponents
         end
     end
 

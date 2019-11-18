@@ -2,29 +2,30 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local recsEvent = event:WaitForChild("recs")
-local recsPlugins = common:WaitForChild("recsplugins")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local func = ReplicatedStorage.func
+local recsEvent = event.recs
+local recsPlugins = common.recsplugins
 
-local RECS = require(lib:WaitForChild("RECS"))
-local PizzaAlpaca = require(lib:WaitForChild("PizzaAlpaca"))
-local Signal = require(lib:WaitForChild("Signal"))
-local Promise = require(lib:WaitForChild("Promise"))
+local RECS = require(lib.RECS)
+local PizzaAlpaca = require(lib.PizzaAlpaca)
+local Signal = require(lib.Signal)
+local Promise = require(lib.Promise)
 
-local RecsComponents = require(common:WaitForChild("RecsComponents"))
+local RecsComponents = require(common.RecsComponents)
 local Systems = require(script.Systems)
 local Steppers = require(script.Steppers)
 
-local createInjectorPlugin = require(recsPlugins:WaitForChild("createInjectorPlugin"))
-local createComponentPropsOverridePlugin = require(recsPlugins:WaitForChild("createComponentPropsOverridePlugin"))
-local createSubscriberPlugin = require(recsPlugins:WaitForChild("createComponentNetworkSubscriber"))
+local createInjectorPlugin = require(recsPlugins.createInjectorPlugin)
+local createComponentPropsOverridePlugin = require(recsPlugins.createComponentPropsOverridePlugin)
+local createSubscriberPlugin = require(recsPlugins.createComponentNetworkSubscriber)
 
-local eComponentAdded = recsEvent:WaitForChild("eComponentAdded")
-local eComponentRemoved = recsEvent:WaitForChild("eComponentRemoved")
-local eComponentChanged = recsEvent:WaitForChild("eComponentChanged")
-local eInitialComponents = recsEvent:WaitForChild("eInitialComponents")
+local eComponentAdded = recsEvent.eComponentAdded
+local eComponentRemoved = recsEvent.eComponentRemoved
+local eComponentChanged = recsEvent.eComponentChanged
+local fGetEntities = func.fGetEntities
 
 local ClientRECSContainer = PizzaAlpaca.GameModule:extend("ClientRECSContainer")
 
@@ -46,7 +47,7 @@ function ClientRECSContainer:onStoreCreated(store)
             eComponentAdded,
             eComponentChanged,
             eComponentRemoved,
-            eInitialComponents
+            fGetEntities
         )
     })
 
@@ -71,10 +72,13 @@ end
 function ClientRECSContainer:init()
     local storeContainer = self.core:getModule("StoreContainer")
     storeContainer:getStore():andThen(function(store)
-        self:onStoreCreated(store)
+        return Promise.async(function(resolve)
+                self:onStoreCreated(store)
 
-        self.recsCore:start()
-        self.recsCoreCreated:fire(self.recsCore)
+                self.recsCore:start()
+                self.recsCoreCreated:fire(self.recsCore)
+            resolve()
+        end)
     end)
 end
 

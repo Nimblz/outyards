@@ -5,6 +5,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
 local event = ReplicatedStorage.event
+local func = ReplicatedStorage.func
 local recsEvent = event.recs
 local recsPlugins = common.recsplugins
 
@@ -24,7 +25,7 @@ local createBroadcasterPlugin = require(recsPlugins.createComponentNetworkBroadc
 local eComponentAdded = recsEvent.eComponentAdded
 local eComponentRemoved = recsEvent.eComponentRemoved
 local eComponentChanged = recsEvent.eComponentChanged
-local eInitialComponents = recsEvent.eInitialComponents
+local fGetEntities = func.fGetEntities
 
 local ServerRECSContainer = PizzaAlpaca.GameModule:extend("ServerRECSContainer")
 
@@ -50,7 +51,7 @@ function ServerRECSContainer:onStoreCreated(store)
             eComponentAdded,
             eComponentChanged,
             eComponentRemoved,
-            eInitialComponents,
+            fGetEntities,
             playerAddedSignal
         )
     })

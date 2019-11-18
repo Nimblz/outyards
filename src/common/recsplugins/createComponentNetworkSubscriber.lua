@@ -1,22 +1,22 @@
 -- recieves component changed events for replication
-local function createPlugin(addedEvent,changedEvent,removedEvent, initialEvent)
+local function createPlugin(addedEvent,changedEvent,removedEvent, getEntities)
     local subscriberPlugin = {}
 
     function subscriberPlugin:afterStepperStart(core)
 
-        initialEvent.OnClientEvent:connect(function(allComponents)
-            for _, componentEntity in ipairs(allComponents) do
-                local entity = componentEntity.entity
-                local components = componentEntity.components
-                for className, componentProps in pairs(components) do
-                    if not entity then return end
-                    local componentIdentifier = core:getComponentClass(className)
-                    if componentIdentifier then
-                        core:addComponent(entity, componentIdentifier, componentProps)
-                    end
+        local allComponents = getEntities:InvokeServer()
+
+        for _, componentEntity in ipairs(allComponents) do
+            local entity = componentEntity.entity
+            local components = componentEntity.components
+            for className, componentProps in pairs(components) do
+                if not entity then return end
+                local componentIdentifier = core:getComponentClass(className)
+                if componentIdentifier then
+                    core:addComponent(entity, componentIdentifier, componentProps)
                 end
             end
-        end)
+        end
 
         addedEvent.OnClientEvent:connect(function(instance, className, props)
             if not instance then return end
