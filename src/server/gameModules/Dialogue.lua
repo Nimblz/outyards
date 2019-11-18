@@ -71,7 +71,7 @@ function Dialogue:transitionConversation(player,newNode)
 
     eDialogueChanged:FireClient(player, props)
     self.conversationTransitioned:fire(player, props)
-    newNode.onEnter(player, self.core)
+    newNode:onEnter(player, self.core)
 end
 
 function Dialogue:optionSelected(player, optionIndex)
@@ -87,9 +87,12 @@ function Dialogue:optionSelected(player, optionIndex)
             local option = currentNode.options[optionIndex]
             if option then
                 -- move convo to that node
-                option.onSelect(player, self.core)
-                if option.nextNode then
-                    self:transitionConversation(player, option.nextNode)
+                option:onSelect(player, self.core)
+
+                local nextNode = option:getNextNode(player, self.core)
+
+                if nextNode then
+                    self:transitionConversation(player, nextNode)
                 else
                     self:closeConversation(player)
                 end
@@ -111,16 +114,10 @@ end
 function Dialogue:startConversation(player, id)
     -- create a new conversation session for player
 
-    -- things that should destroy the conversation
-        -- player walking away (done)
-        -- player dying (done)
-        -- player leaving (done)
-        -- player closing the conversation (done)
-
     local conversationDescription = Conversations.byId[id]
 
     if self:canPlayerStartConversation(player) and conversationDescription then
-        local newConvo = conversationDescription.create(self.core, player)
+        local newConvo = conversationDescription.create(player, self.core)
 
         self.conversations[player] = newConvo
         self.conversationStarted:fire(player, id)

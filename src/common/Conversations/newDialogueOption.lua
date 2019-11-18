@@ -1,7 +1,8 @@
 local dialogueOption_prototype = {
-    text = "RESPONSE UNIMPLEMENTED, NOTIFY NIMBLZ",
-    onSelect = function(player, server) end,
+    text = "???",
     nextNode = nil, -- if nil this is the end of conversation.
+    onSelect = function(self, player, server) end,
+    getNextNode = function(self, player, server) return self.nextNode end,
 }
 
 local function newDialogueOption(props)

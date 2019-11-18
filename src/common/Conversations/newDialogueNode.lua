@@ -1,7 +1,7 @@
 local dialogueNode_prototype = {
-    text = "NODE TEXT UNIMPLEMENTED, NOTIFY NIMBLZ PLEASE",
-    onEnter = function(player, server) end,
+    text = "* This person is speaking a language you do not understand\n* You decide it's best to leave",
     responseOptions = {},
+    onEnter = function(self, player, server) end,
 }
 
 local function newDialogueNode(props)
