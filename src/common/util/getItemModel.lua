@@ -6,6 +6,9 @@ local model = ReplicatedStorage.model
 local Items = require(common.Items)
 
 local function nameMap(root,condition)
+    assert(root and typeof(root) == "Instance", "Root must be an Instance! Got: "..typeof(root))
+    condition = condition or function() return true end
+
     local result = {}
     for _,v in pairs(root:GetDescendants()) do
         if condition(v) then
@@ -17,7 +20,7 @@ local function nameMap(root,condition)
 end
 
 local weapons = nameMap(model:WaitForChild("weapon"), function(child)
-    if child:FindFirstChild("grip") then return true end
+    if child:FindFirstChild("grip") or child:FindFirstChild("Handle") then return true end
 end)
 
 local cataFuncs = {
@@ -28,9 +31,20 @@ local cataFuncs = {
             return model:WaitForChild("error"):Clone()
         end
         local newWeaponModel = weaponModel:Clone()
-        newWeaponModel.Anchored = false
-        newWeaponModel.Massless = true
-        newWeaponModel.CanCollide = false
+
+        if newWeaponModel:IsA("BasePart") then
+            newWeaponModel.Anchored = false
+            newWeaponModel.Massless = true
+            newWeaponModel.CanCollide = false
+        else
+            for _, child in pairs(newWeaponModel:GetDescendants()) do
+                if child:IsA("BasePart") then
+                    child.Anchored = false
+                    child.Massless = true
+                    child.CanCollide = false
+                end
+            end
+        end
 
         return newWeaponModel
     end,
