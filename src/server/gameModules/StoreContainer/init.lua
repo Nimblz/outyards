@@ -62,7 +62,7 @@ function StoreContainer:createStore(initialState)
 		networkMiddleware(replicate),
 		dataSaveMiddleware,
     })
-    self.storeCreated:fire()
+    self.storeCreated:fire(self.store)
     self.logger:log("Server store initialized.")
 end
 
