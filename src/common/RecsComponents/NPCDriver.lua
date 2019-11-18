@@ -15,6 +15,7 @@ return RECS.defineComponent({
     generator = function(props)
         return Dictionary.join({
             disabled = false,
+            knockbacking = false,
             gravityWeight = 1,
             targetVelocity = Vector3.new(0,0,0),
             targetDirection = Vector3.new(0,0,-1),
