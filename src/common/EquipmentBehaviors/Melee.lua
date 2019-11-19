@@ -58,7 +58,7 @@ function behavior:playSwing()
     local animLength = track.Length
 
     if self.playingSwing then self.playingSwing:Stop() end
-    track:Play(0,1,animLength/waitTime)
+    track:Play(0.15,1,animLength/waitTime)
     self.playingSwing = track
 
     self.swingCounter = self.swingCounter + 1
