@@ -54,10 +54,10 @@ function ScreenScaler:render()
 end
 
 ScreenScaler.defaultProps = {
-    defaultSize = Vector2.new(1280,800),
+    defaultSize = Vector2.new(1600,900),
     scale = 1,
     minScale = 0.5,
-    maxScale = 1,
+    maxScale = 2,
     scaleIncrement = 0.25,
 }
 
