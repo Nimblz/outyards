@@ -22,7 +22,7 @@ local NotificationContainer = require(component.NotificationContainer)
 local AlphaWarning = require(component.AlphaWarning)
 local AttackButton = require(component.AttackButton)
 local InteractableTarget = require(component.InteractableTarget)
---local Toolbar = require(uiComponents.Toolbar)
+local Toolbar = require(component.Toolbar)
 
 local IN_LIVE_GAME = not RunService:IsStudio()
 
@@ -47,8 +47,8 @@ function App:render()
         alphaWarning = IN_LIVE_GAME and Roact.createElement(AlphaWarning),
         attackButton = Roact.createElement(AttackButton),
         interactableTarget = Roact.createElement(InteractableTarget),
-        dialogue = Roact.createElement(Dialogue)
-        -- toolbar = Roact.createElement(Toolbar),
+        dialogue = Roact.createElement(Dialogue),
+        toolbar = Roact.createElement(Toolbar),
     }
 
     return Roact.createElement("ScreenGui",{
