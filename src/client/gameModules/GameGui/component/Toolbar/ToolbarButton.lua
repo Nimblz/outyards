@@ -16,7 +16,7 @@ end
 
 function ToolbarButton:render()
     return Roact.createElement("Frame", {
-        Size = UDim2.fromOffset(64+PADDING*2,64+PADDING*2),
+        Size = UDim2.fromOffset(48+PADDING*2,48+PADDING*2),
         BackgroundColor3 = Color3.new(1,1,1),
     })
 end
