@@ -62,7 +62,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
 
             if driver then driver:updateProperty("knockbacking", true) end
 
-            instance.Velocity = instance.Velocity + Vector3.new(0,30,0)
+            instance.Velocity = Vector3.new(0,30,0)
             instance.Velocity = instance.Velocity + knockbackDirection * 30 * actorStats.knockbackMultiplier
             delay(1/4, function()
                 if driver then driver:updateProperty("knockbacking", false) end
