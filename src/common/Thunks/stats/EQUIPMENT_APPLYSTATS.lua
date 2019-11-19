@@ -10,6 +10,7 @@ local statActions = {
     baseDamage = "BASEDAMAGE_SET",
     attackRate = "ATTACKRATE_SET",
     defense = "DEFENSE_SET",
+    armor = "ARMOR_SET",
     moveSpeed = "MOVESPEED_SET",
     meleeModifier = "MELEEMODIFIER_SET",
     rangedModifier = "RANGEDMODIFIER_SET",
@@ -41,6 +42,7 @@ end
 return function(player)
     return function (store)
         store:dispatch(Actions.STATS_RESET(player))
+
         local state = store:getState()
         local equipment = Selectors.getEquipped(state,player)
 
