@@ -22,30 +22,40 @@ local stats = {
     },
     {
         id = "defense",
-        name = "Defense"
+        name = "Defense",
+        isNormal = true,
+        suffix = "%",
     },
     {
         id = "attackRate",
-        name = "Attack Speed"
+        name = "Attack Speed",
+        isNormal = true,
+        suffix = "%",
     },
     {
         id = "meleeModifier",
         name = "Melee Damage",
         desc = "Melee damage multiplier",
+        isNormal = true,
+        suffix = "%",
     },
     {
         id = "rangedModifier",
         name = "Ranged Damage",
         desc = "Ranged damage multiplier",
+        isNormal = true,
+        suffix = "%",
     },
     {
         id = "magicModifier",
         name = "Magic Damage",
         desc = "Magic damage multiplier",
+        isNormal = true,
+        suffix = "%",
     },
     {
         id = "moveSpeed",
-        name = "Move Speed"
+        name = "Move Speed",
     }
 }
 

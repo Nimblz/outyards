@@ -6,6 +6,7 @@ local component = script:FindFirstAncestor("component")
 
 local Roact = require(lib.Roact)
 local Items = require(common.Items)
+local Stats = require(common.Stats)
 
 local FitList = require(component.FitList)
 local FitText = require(component.FitText)
@@ -20,6 +21,14 @@ local function newLine(props)
         LayoutOrder = props.index or 99,
         TextXAlignment = props.centered and Enum.TextXAlignment.Center or Enum.TextXAlignment.Left,
         TextYAlignment = props.centered and Enum.TextYAlignment.Center or Enum.TextYAlignment.Top,
+    })
+end
+
+local function newSeparator(index)
+    return newLine({
+        text = "- - - - - - - - - - - - - -",
+        centered = true,
+        index = index
     })
 end
 
@@ -45,6 +54,35 @@ return function(props)
             text = item.desc,
             index = 2,
         })
+    end
+
+    lines.separator = newSeparator(3)
+    local startingIndex = 3
+    for idx, statType in pairs(Stats.all) do
+        local index = startingIndex + idx
+        local statId = statType.id
+        local statValue = item.stats[statId]
+        if statValue then
+            local isPositive = statValue >= 0
+
+            if statType.isNormal then statValue = statValue * 100 end
+            statValue = tostring(statValue)
+
+            if statType.suffix then
+                statValue = statValue..statType.suffix
+            end
+
+            if isPositive then
+                statValue = "+"..statValue
+            else
+                statValue = "-"..statValue
+            end
+
+            lines[statType.id] = newLine({
+                text = ("%s: %s"):format(statType.name, statValue),
+                index = index,
+            })
+        end
     end
 
     return Roact.createElement(FitList, {
