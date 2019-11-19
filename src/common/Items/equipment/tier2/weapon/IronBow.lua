@@ -2,7 +2,7 @@ local targetDPS = 24
 local fireRate = 1.5
 
 return {
-    id = "bowIron",
+    id = "ironBow",
     name = "Iron Bow",
     tier = 2,
 
@@ -15,7 +15,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotIron = 8,
+        ironIngot = 8,
     },
 
     stats = {

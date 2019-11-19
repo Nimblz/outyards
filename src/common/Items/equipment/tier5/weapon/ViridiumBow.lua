@@ -2,7 +2,7 @@ local targetDPS = 120
 local fireRate = 2
 
 return {
-    id = "bowViridium",
+    id = "viridiumBow",
     name = "Viridium Bow",
     tier = 5,
 
@@ -15,7 +15,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotViridium = 8,
+        viridiumIngot = 8,
     },
 
     stats = {

@@ -1,5 +1,5 @@
 return {
-    id = "swordCopper",
+    id = "copperSword",
     name = "Copper Sword",
     tier = 1,
 
@@ -12,7 +12,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotCopper = 10,
+        copperIngot = 10,
     },
 
     stats = {

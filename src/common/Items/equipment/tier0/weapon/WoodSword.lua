@@ -1,7 +1,7 @@
 return {
-    id = "swordWood",
+    id = "woodSword",
     name = "Wooden Shortsword",
-    desc = "More of stick than a sword",
+    desc = "More of a stick than a sword",
     tier = 1,
 
     equipmentType = "weapon",

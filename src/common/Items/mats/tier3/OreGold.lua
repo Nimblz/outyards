@@ -1,5 +1,5 @@
 return {
-    id = "oreGold",
+    id = "goldOre",
     name = "Gold Ore",
     tier = 4,
     spriteSheet = "materials",

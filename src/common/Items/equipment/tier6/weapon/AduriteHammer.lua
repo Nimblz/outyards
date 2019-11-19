@@ -2,7 +2,7 @@ local targetDPS = 200
 local fireRate = 1.3
 
 return {
-    id = "hammerAdurite",
+    id = "aduriteHammer",
     name = "Adurite Hammer",
     tier = 6,
 
@@ -15,7 +15,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotAdurite = 10,
+        aduriteIngot = 10,
     },
 
     stats = {

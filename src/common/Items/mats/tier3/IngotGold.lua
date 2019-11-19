@@ -1,12 +1,12 @@
 return {
-    id = "ingotGold",
+    id = "goldIngot",
     name = "Gold Ingot",
     tier = 4,
     spriteSheet = "materials",
     spriteCoords = Vector2.new(5,2),
 
     recipe = {
-        oreGold = 15,
+        goldOre = 15,
     },
     craftQuantity = 5,
 

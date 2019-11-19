@@ -1,5 +1,5 @@
 return {
-    id = "ingotViridium",
+    id = "viridiumIngot",
     name = "Viridium Ingot",
     desc = "Lightweight and sturdy metal. Makes great ranged equipment.",
     tier = 6,
@@ -7,7 +7,7 @@ return {
     spriteCoords = Vector2.new(7,2),
 
     recipe = {
-        oreViridium = 15,
+        viridiumOre = 15,
     },
     craftQuantity = 5,
 

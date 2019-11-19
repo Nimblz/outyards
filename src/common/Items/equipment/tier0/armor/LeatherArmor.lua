@@ -14,8 +14,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        wood = 10,
-        leather = 30,
+        leather = 20,
     },
 
     stats = {

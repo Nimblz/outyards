@@ -8,10 +8,10 @@ return {
     spriteCoords = Vector2.new(9,2),
 
     recipe = {
-        ingotGold = 15,
-        ingotBluesteel = 15,
-        ingotViridium = 15,
-        ingotAdurite = 15,
+        goldIngot = 15,
+        bluesteelIngot = 15,
+        viridiumIngot = 15,
+        aduriteIngot = 15,
     },
     craftQuantity = 5,
 

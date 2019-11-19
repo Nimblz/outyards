@@ -1,5 +1,5 @@
 return {
-    id = "swordSlime",
+    id = "slimeSword",
     name = "Slimy Katana",
     desc = "Ew! Sticky!",
     tier = 1,

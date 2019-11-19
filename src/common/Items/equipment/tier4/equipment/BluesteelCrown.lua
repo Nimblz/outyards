@@ -10,7 +10,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotBluesteel = 10,
+        bluesteelIngot = 10,
     },
 
     stats = {

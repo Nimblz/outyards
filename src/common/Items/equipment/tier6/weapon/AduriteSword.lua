@@ -2,7 +2,7 @@ local targetDPS = 150
 local fireRate = 3
 
 return {
-    id = "swordAdurite",
+    id = "aduriteSword",
     name = "Adurite Sword",
     tier = 6,
 
@@ -15,7 +15,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotAdurite = 10,
+        aduriteIngot = 10,
     },
 
     stats = {

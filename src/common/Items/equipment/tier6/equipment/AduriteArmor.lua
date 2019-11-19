@@ -12,7 +12,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotAdurite = 25,
+        aduriteIngot = 25,
     },
 
     stats = {

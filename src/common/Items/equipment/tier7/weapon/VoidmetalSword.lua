@@ -2,7 +2,7 @@ local targetDPS = 200
 local fireRate = 3
 
 return {
-    id = "swordVoidmetal",
+    id = "voidmetalSword",
     name = "Voidmetal Sword",
     tier = 7,
 
@@ -15,7 +15,7 @@ return {
 
     onlyOne = true,
     recipe = {
-        ingotVoidmetal = 10,
+        voidmetalIngot = 10,
     },
 
     stats = {

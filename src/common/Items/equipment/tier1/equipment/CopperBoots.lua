@@ -9,7 +9,7 @@ return {
     spriteCoords = Vector2.new(2,2),
     onlyOne = true,
     recipe = {
-        ingotCopper = 10,
+        copperIngot = 10,
     },
 
     stats = {
