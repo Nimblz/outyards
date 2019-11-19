@@ -15,27 +15,24 @@ local contains = require(util.contains)
 local CmdrContainer = PizzaAlpaca.GameModule:extend("CmdrContainer")
 
 function CmdrContainer:onResolve(store, recsCore)
-
+    self.logger:log("Starting Cmdr!")
     local admins = {
         "Nimblz",
         "Nacker",
         "MITB",
         "Kinnis97",
         "Chronomad",
-        "Player1",
-        "Player2",
-        "Player3",
-        "Player4",
-        "Player5",
-        "Player6",
-        "Player7",
-        "Player8",
     }
+
+    for i = 1,8 do -- add Player1 thru Player8
+        table.insert(admins, "Player"..i)
+    end
 
     for k,v in pairs(admins) do
         admins[k] = v:lower()
     end
 
+    self.logger:log("Registering hooks...")
     Cmdr.Registry:RegisterHook("BeforeRun", function(context)
         context.State.pzCore = self.core
         context.State.store = store
@@ -48,14 +45,21 @@ function CmdrContainer:onResolve(store, recsCore)
 		end
     end)
 
+    self.logger:log("Registering types...")
+    Cmdr:RegisterTypesIn(types)
+
+    self.logger:log("Registering commands...")
     Cmdr:RegisterDefaultCommands()
     Cmdr:RegisterCommandsIn(commands)
-    Cmdr:RegisterTypesIn(types)
+
+    self.logger:log("Cmdr started!")
 end
 
 function CmdrContainer:init()
     local storeContainer = self.core:getModule("StoreContainer")
     local recsContainer = self.core:getModule("ServerRECSContainer")
+
+    self.logger = self.core:getModule("Logger"):createLogger(self)
 
     Promise.all({
         storeContainer:getStore(),
