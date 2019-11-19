@@ -6,7 +6,6 @@ local commands = script.commands
 local types = script.types
 local util = common.util
 
-local Cmdr = require(lib.Cmdr)
 local PizzaAlpaca = require(lib.PizzaAlpaca)
 local Promise = require(lib.Promise)
 
@@ -15,6 +14,8 @@ local contains = require(util.contains)
 local CmdrContainer = PizzaAlpaca.GameModule:extend("CmdrContainer")
 
 function CmdrContainer:onResolve(store, recsCore)
+    local Cmdr = require(lib.Cmdr)
+
     self.logger:log("Starting Cmdr!")
     local admins = {
         "Nimblz",
