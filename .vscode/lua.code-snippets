@@ -140,5 +140,12 @@
 			"\treturn Roact.createElement($0)",
 			"end",
 		]
+	},
+
+	"Create element": {
+		"prefix": "ce",
+		"body": [
+			"Roact.createElement($0)"
+		]
 	}
 }
