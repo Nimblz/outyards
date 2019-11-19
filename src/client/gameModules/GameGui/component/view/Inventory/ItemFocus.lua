@@ -8,6 +8,7 @@ local component = script:FindFirstAncestor("component")
 local Items = require(common.Items)
 local Roact = require(lib.Roact)
 
+local ItemInfo = require(component.ItemInfo)
 local RoundFrame = require(component.RoundFrame)
 local FancyButton = require(component.FancyButton)
 local FitList = require(component.FitList)
@@ -92,6 +93,9 @@ function ItemFocus:render()
                 spriteProps = {
                     itemId = itemId,
                 }
+            }),
+            itemInfo = Roact.createElement(ItemInfo, {
+                itemId = itemId,
             })
         })
 
