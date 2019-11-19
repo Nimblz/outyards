@@ -18,6 +18,7 @@ return {
     },
 
     stats = {
+        damageType = "ranged",
         baseDamage = targetDPS/fireRate,
     },
 

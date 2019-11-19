@@ -16,6 +16,7 @@ return {
     },
 
     stats = {
+        damageType = "melee",
         baseDamage = 10,
     },
 

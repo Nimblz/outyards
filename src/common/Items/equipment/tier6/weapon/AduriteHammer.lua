@@ -19,6 +19,7 @@ return {
     },
 
     stats = {
+        damageType = "melee",
         baseDamage = math.floor(targetDPS/fireRate),
     },
 

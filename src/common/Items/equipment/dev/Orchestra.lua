@@ -19,6 +19,7 @@ return {
     },
 
     stats = {
+        damageType = "melee",
         baseDamage = 300,
         defense = 300,
         moveSpeed = 20,

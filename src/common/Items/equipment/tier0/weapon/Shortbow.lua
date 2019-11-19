@@ -15,6 +15,7 @@ return {
     },
 
     stats = {
+        damageType = "ranged",
         baseDamage = 3,
     },
 

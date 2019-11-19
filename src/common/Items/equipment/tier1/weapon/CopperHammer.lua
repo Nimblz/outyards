@@ -21,6 +21,7 @@ return {
     },
 
     metadata = {
+        damageType = "melee",
         fireRate = 1,
         attackRange = 12,
         attackArc = 90, -- in degrees

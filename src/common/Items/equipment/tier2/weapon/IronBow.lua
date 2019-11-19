@@ -19,6 +19,7 @@ return {
     },
 
     stats = {
+        damageType = "ranged",
         baseDamage = math.floor(targetDPS/fireRate),
     },
 

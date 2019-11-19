@@ -11,6 +11,7 @@ return {
     tier = 99,
 
     stats = {
+        damageType = "ranged",
         baseDamage = 99,
     },
 

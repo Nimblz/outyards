@@ -14,6 +14,7 @@ return {
     spriteCoords = Vector2.new(1,3),
 
     stats = {
+        damageType = "ranged",
         moveSpeed = 64,
         baseDamage = 99999,
         attackRate = 10,

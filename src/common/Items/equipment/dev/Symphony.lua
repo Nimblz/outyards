@@ -12,6 +12,7 @@ return {
     spriteCoords = Vector2.new(3,10),
 
     stats = {
+        damageType = "melee",
         baseDamage = 75,
         defense = 200,
     },
