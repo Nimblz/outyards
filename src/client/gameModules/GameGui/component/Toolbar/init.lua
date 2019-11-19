@@ -18,13 +18,7 @@ local ToolbarButton = require(script.ToolbarButton)
 
 local Toolbar = Roact.Component:extend("Toolbar")
 
-local FrameWithScale = withScale("Frame", {
-    defaultSize = Vector2.new(1280,600),
-    scale = 1,
-    minScale = 0.5,
-    maxScale = 1,
-    scaleIncrement = 0.25,
-})
+local FrameWithScale = withScale("Frame")
 
 function Toolbar:init()
 end
@@ -70,7 +64,7 @@ function Toolbar:render()
         }, children)
     end
 
-    return Roact.createElement(FrameWithScale,{
+    return self.props.visible and Roact.createElement(FrameWithScale,{
         Size = UDim2.fromScale(1,1),
         Position = UDim2.fromScale(0.5,1),
         AnchorPoint = Vector2.new(0.5,1),

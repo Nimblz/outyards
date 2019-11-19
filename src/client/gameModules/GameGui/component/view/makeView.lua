@@ -15,13 +15,7 @@ local function makeView(kind, viewId)
     -- wraps component in a new component that is only visible when its viewid is visible
     local newView = Roact.Component:extend("view_"..viewId)
 
-    local componentWithScale = withScale(kind, {
-        defaultSize = Vector2.new(1280,800),
-        scale = 1,
-        minScale = 0.5,
-        maxScale = 1,
-        scaleIncrement = 0.25,
-    })
+    local componentWithScale = withScale(kind)
 
     function newView:render()
 

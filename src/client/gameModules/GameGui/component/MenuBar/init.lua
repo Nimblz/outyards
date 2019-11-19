@@ -19,13 +19,7 @@ local withScale = require(component:WaitForChild("withScale"))
 
 local PADDING = 16
 
-local FrameWithScale = withScale("Frame", {
-    defaultSize = Vector2.new(1280,800),
-    scale = 1,
-    minScale = 0.5,
-    maxScale = 1,
-    scaleIncrement = 0.5,
-})
+local FrameWithScale = withScale("Frame")
 
 function MenuBar:init()
     self.buttons = {
