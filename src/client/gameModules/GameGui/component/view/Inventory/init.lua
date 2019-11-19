@@ -48,8 +48,9 @@ end
 
 function Inventory:setSelected(itemId)
     local owned = self.props.isOwned(itemId)
+    local alreadySelected = self.state.selectedItem == itemId
     self:setState({
-        selectedItem = owned and itemId or Roact.None
+        selectedItem = (owned and not alreadySelected and itemId) or Roact.None
     })
 end
 
