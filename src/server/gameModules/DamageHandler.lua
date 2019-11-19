@@ -10,11 +10,11 @@ local RecsComponents = require(common.RecsComponents)
 local Selectors = require(common.Selectors)
 local PizzaAlpaca = require(lib.PizzaAlpaca)
 
-local ActorDamageHandler = PizzaAlpaca.GameModule:extend("ActorDamageHandler")
+local DamageHandler = PizzaAlpaca.GameModule:extend("DamageHandler")
 
 local eAttackActor = event.eAttackActor
 
-function ActorDamageHandler:onRecsAndStore(recsCore, store)
+function DamageHandler:onRecsAndStore(recsCore, store)
     eAttackActor.OnServerEvent:connect(function(player, instance)
         assert(typeof(instance) == "Instance", "Invalid parameter")
 
@@ -72,17 +72,17 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
     end)
 end
 
-function ActorDamageHandler:onStore(store)
+function DamageHandler:onStore(store)
     local recsContainer = self.core:getModule("ServerRECSContainer")
     recsContainer:getCore():andThen(function(recsCore)
         self:onRecsAndStore(recsCore, store)
     end)
 end
 
-function ActorDamageHandler:init()
+function DamageHandler:init()
     self.knockingBack = {}
     local storeContainer = self.core:getModule("StoreContainer")
     storeContainer:getStore():andThen(function(store) self:onStore(store) end)
 end
 
-return ActorDamageHandler
+return DamageHandler
