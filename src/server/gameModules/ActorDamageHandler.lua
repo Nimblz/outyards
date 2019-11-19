@@ -35,9 +35,7 @@ function ActorDamageHandler:onRecsAndStore(recsCore, store)
         if humanoid.Health <= 0 then return end
         local root = char.PrimaryPart
         if not root then return end
-        local rootPos = root.Position
-        local mobPos = instance.Position
-        local knockbackDirection = (mobPos-rootPos) * Vector3.new(1,0,1)
+        local knockbackDirection = root.CFrame.LookVector * Vector3.new(1,0,1)
         knockbackDirection = knockbackDirection.Unit
 
 
