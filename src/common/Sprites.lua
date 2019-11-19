@@ -17,8 +17,8 @@ return {
         spriteSize = Vector2.new(16,16), -- in pixels
         sheetSize = Vector2.new(16,16), -- in tiles
     },
-    keyItems = {
-        assetId = "rbxassetid://3985755359",
+    keyItem = {
+        assetId = "rbxassetid://4418571392",
         scaleFactor = 4, -- ratio bywhich this was upscaled when exporting (standard is 4)
         spriteSize = Vector2.new(16,16), -- in pixels
         sheetSize = Vector2.new(4,4), -- in tiles
