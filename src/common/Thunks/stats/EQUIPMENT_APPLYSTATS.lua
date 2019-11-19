@@ -11,8 +11,9 @@ local statActions = {
     attackRate = "ATTACKRATE_SET",
     defense = "DEFENSE_SET",
     moveSpeed = "MOVESPEED_SET",
-    autoAttack = "AUTOATTACK_SET",
-    autoAttack = "AUTOATTACK_SET",
+    meleeModifier = "MELEEMODIFIER_SET",
+    rangedModifier = "RANGEDMODIFIER_SET",
+    magicModifier = "MAGICMODIFIER_SET",
 }
 
 local function applyStats(stats,item)
