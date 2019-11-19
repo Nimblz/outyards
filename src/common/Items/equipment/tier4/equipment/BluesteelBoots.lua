@@ -14,7 +14,7 @@ return {
     },
 
     stats = {
-        defense = 100,
+        defense = 75,
         moveSpeed = 10,
     },
 

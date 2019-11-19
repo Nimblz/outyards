@@ -16,7 +16,7 @@ return {
     },
 
     stats = {
-        defense = 350,
+        defense = 250,
     },
 
     tags = {
