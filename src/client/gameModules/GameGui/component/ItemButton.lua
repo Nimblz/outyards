@@ -13,6 +13,7 @@ local Items = require(common.Items)
 local Sprites = require(common.Sprites)
 local Actions = require(common.Actions)
 local Selectors = require(common.Selectors)
+local Stats = require(common.Stats)
 
 local beautifyNumber = require(util.beautifyNumber)
 
@@ -25,10 +26,6 @@ local errors = {
     invalidItemId = "Invalid itemId [%s]!",
     invalidSpriteSheet = "Invalid sprite sheet [%s]!",
 }
-
-local function capitalize(string)
-    return string:sub(1,1):upper()..string:sub(2)
-end
 
 function ItemButton:activated(rbx)
     if self.props.onActivated then self.props.onActivated(rbx, self.props.itemId) end
@@ -49,6 +46,12 @@ function ItemButton:getTooltipStrings()
     local itemId = self.props.itemId
     local item = Items.byId[itemId]
 
+    local damageTypePrefixes = {
+        melee = "Melee ",
+        ranged = "Ranged ",
+        magic = "Magic ",
+    }
+
     if not item then
         return {
             "Invalid item :(",
@@ -62,11 +65,35 @@ function ItemButton:getTooltipStrings()
 
     if item.stats then
         table.insert(tipStrings, spacer)
-    end
 
-    for stat,value in pairs(item.stats or {}) do
-        local newString = ("%s: %s"):format(capitalize(stat),tostring(value))
-        table.insert(tipStrings,newString)
+        for _, statType in pairs(Stats.all) do
+            local statId = statType.id
+            local statValue = item.stats[statId]
+            if statValue and Stats.byId[statId] then
+                local isPositive = statValue >= 0
+                local namePrefix = ""
+
+                if statType.isNormal then statValue = statValue * 100 end
+                statValue = tostring(statValue)
+
+                if statType.suffix then
+                    statValue = statValue..statType.suffix
+                end
+
+                if isPositive then
+                    statValue = "+"..statValue
+                else
+                    statValue = "-"..statValue
+                end
+
+                if statId == "baseDamage" then
+                    namePrefix = damageTypePrefixes[item.stats.damageType] or ""
+                end
+
+                local newString = ("%s: %s"):format(namePrefix..statType.name, statValue)
+                table.insert(tipStrings,newString)
+            end
+        end
     end
 
     table.insert(tipStrings, spacer)
@@ -130,8 +157,8 @@ function ItemButton:render()
     local equippedIndicator = isEquipped and showEquipped and Roact.createElement("ImageLabel", {
         Image = "rbxassetid://4360912343",
 
-        AnchorPoint = Vector2.new(0,1),
-        Position = UDim2.new(0,8,1,-8),
+        AnchorPoint = Vector2.new(0,0),
+        Position = UDim2.new(0,8,0,8),
         Size = UDim2.fromOffset(24,24),
 
         BackgroundTransparency = 1,
