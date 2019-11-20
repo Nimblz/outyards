@@ -9,6 +9,7 @@ local lib = ReplicatedStorage.lib
 local Dictionary = require(util.Dictionary)
 local Roact = require(lib.Roact)
 
+local getAppliedScale = require(util.getAppliedScale)
 local e = Roact.createElement
 
 local FitText = Roact.PureComponent:extend("FitText")
@@ -36,9 +37,12 @@ function FitText:render()
 		Size = self.sizeBinding,
 		TextWrapped = true,
 		[Roact.Ref] = self.ref,
-		[Roact.Change.AbsoluteSize] = function()
+		[Roact.Change.AbsoluteSize] = function(rbx)
 			self:updateTextMeasurements()
-		end
+		end,
+		[Roact.Change.TextBounds] = function(rbx)
+			self:updateTextMeasurements()
+		end,
 	})
 
 	return e(kind, containerProps)
@@ -52,7 +56,7 @@ function FitText:didUpdate()
 	self:updateTextMeasurements()
 end
 
-function FitText:updateTextMeasurements()
+function FitText:updateTextMeasurements(rbx)
 	local minSize = self.props.minSize or Vector2.new(0, 0)
 	local padding = self.props.padding or Vector2.new(0, 0)
 	local fitAxis = self.props.fitAxis or "XY"
@@ -63,7 +67,8 @@ function FitText:updateTextMeasurements()
 	local font = self.props.Font or Enum.Font.Gotham
 	local textSize = self.props.TextSize or 18
 
-	local containerSize = self.ref.current.AbsoluteSize
+	local currentScale = getAppliedScale(self.ref:getValue())
+	local containerSize = self.ref:getValue().AbsoluteSize / currentScale
 
 	local textBounds
 
