@@ -17,11 +17,11 @@ return {
     },
 
     stats = {
+        damageType = "melee",
         baseDamage = 2,
     },
 
     metadata = {
-        damageType = "melee",
         fireRate = 2,
         attackRange = 9,
         attackArc = 120, -- in degrees
