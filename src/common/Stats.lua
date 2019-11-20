@@ -7,11 +7,6 @@ local by = require(util.by)
 
 local stats = {
     {
-        id = "damageType",
-        name = "Damage Type",
-        desc = "Type of damage this weapon deals."
-    },
-    {
         id = "baseDamage",
         name = "Damage",
         desc = "Base amount of damage dealt to monsters."
