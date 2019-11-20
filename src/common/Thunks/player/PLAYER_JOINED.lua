@@ -12,7 +12,7 @@ return function(player)
     return function(store)
         local defaultSave = {
             inventory = {
-                swordWood = 1,
+                woodSword = 1,
             },
         }
         local playerSaveTable = defaultSave
