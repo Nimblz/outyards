@@ -2,6 +2,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
+local util = common.util
 local component = script:FindFirstAncestor("component")
 
 local Roact = require(lib.Roact)
@@ -10,6 +11,8 @@ local Stats = require(common.Stats)
 
 local FitList = require(component.FitList)
 local FitText = require(component.FitText)
+
+local capitalize = require(util.capitalize)
 
 local function newLine(props)
     return Roact.createElement(FitText, {
@@ -23,6 +26,12 @@ local function newLine(props)
         TextYAlignment = props.centered and Enum.TextYAlignment.Center or Enum.TextYAlignment.Top,
     })
 end
+
+local damageTypePrefixes = {
+    melee = "Melee ",
+    ranged = "Ranged ",
+    magic = "Magic ",
+}
 
 local function newSeparator(index)
     return newLine({
@@ -56,32 +65,48 @@ return function(props)
         })
     end
 
-    lines.separator = newSeparator(3)
-    local startingIndex = 3
-    for idx, statType in pairs(Stats.all) do
-        local index = startingIndex + idx
-        local statId = statType.id
-        local statValue = item.stats[statId]
-        if statValue then
-            local isPositive = statValue >= 0
+    if item.equipmentType then
+        lines.itemType = newLine({
+            text = "Type: "..capitalize(item.equipmentType),
+            index = 3,
+        })
+    end
 
-            if statType.isNormal then statValue = statValue * 100 end
-            statValue = tostring(statValue)
+    lines.separator = newSeparator(4)
+    local startingIndex = 4
+    if item.stats then
+        for idx, statType in pairs(Stats.all) do
+            local index = startingIndex + idx
+            local statId = statType.id
+            local statValue = item.stats[statId]
+            if statValue then
+                local isPositive = statValue >= 0
+                local namePrefix = ""
 
-            if statType.suffix then
-                statValue = statValue..statType.suffix
+                if statType.isNormal then statValue = statValue * 100 end
+                statValue = tostring(statValue)
+
+                if statType.suffix then
+                    statValue = statValue..statType.suffix
+                end
+
+                if isPositive then
+                    statValue = "+"..statValue
+                else
+                    statValue = "-"..statValue
+                end
+
+                if statId == "baseDamage" then
+                    namePrefix = damageTypePrefixes[item.stats.damageType] or ""
+                end
+
+                local newString = ("%s: %s"):format(namePrefix..statType.name, statValue)
+
+                lines[statType.id] = newLine({
+                    text = newString,
+                    index = index,
+                })
             end
-
-            if isPositive then
-                statValue = "+"..statValue
-            else
-                statValue = "-"..statValue
-            end
-
-            lines[statType.id] = newLine({
-                text = ("%s: %s"):format(statType.name, statValue),
-                index = index,
-            })
         end
     end
 
