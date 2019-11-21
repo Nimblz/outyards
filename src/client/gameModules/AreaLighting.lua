@@ -16,123 +16,96 @@ local AreaLighting = PizzaAlpaca.GameModule:extend("AreaLighting")
 local currentArea = nil
 local transitioningFrom = nil
 
-local INSTANT = 1
-local SMOOTH = 2
+local INSTANT = newproxy()
+local SMOOTH = newproxy()
 
 local areas = {
-    cave = {
+    default = {
         lightingProps = {
-            Ambient = Color3.fromRGB(44, 48, 59),
-            Brightness = 0.1,
+            Ambient = Color3.fromRGB(61, 63, 76),
+            Brightness = 2,
             GlobalShadows = true,
             ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(0,0,0),
+            OutdoorAmbient = Color3.fromRGB(127, 127, 127),
+            ClockTime = 13,
             ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(0,0,0),
-            FogEnd = 512,
+            FogColor = Color3.fromRGB(151, 198, 213),
+            FogEnd = 10000,
+            FogStart = 3000,
+        },
+        transitionToTypes = {
+            desert = SMOOTH,
+            crimsonpath = SMOOTH,
+            tundra = SMOOTH,
+            underwater = INSTANT,
+        }
+    },
+
+    tundra = {
+        lightingProps = {
+            Ambient = Color3.fromRGB(61, 63, 76),
+            Brightness = 2,
+            GlobalShadows = true,
+            ShadowSoftness = 1,
+            OutdoorAmbient = Color3.fromRGB(127, 127, 127),
+            ClockTime = 13,
+            ExposureCompensation = 0,
+            FogColor = Color3.fromRGB(151, 198, 213),
+            FogEnd = 10000,
+            FogStart = 3000,
+        },
+        transitionToTypes = {
+            default = SMOOTH,
+            desert = SMOOTH,
+            crimsonpath = SMOOTH,
+            tundra = SMOOTH,
+            underwater = INSTANT,
+        }
+    },
+
+    desert = {
+        lightingProps = {
+            Ambient = Color3.fromRGB(61, 63, 76),
+            Brightness = 2,
+            GlobalShadows = true,
+            ShadowSoftness = 1,
+            OutdoorAmbient = Color3.fromRGB(127, 127, 127),
+            ClockTime = 13,
+            ExposureCompensation = 0,
+            FogColor = Color3.fromRGB(151, 198, 213),
+            FogEnd = 10000,
+            FogStart = 3000,
+        },
+        transitionToTypes = {
+            default = SMOOTH,
+            desert = SMOOTH,
+            crimsonpath = SMOOTH,
+            tundra = SMOOTH,
+            underwater = INSTANT,
+        }
+    },
+
+    crimsonpath = {
+        lightingProps = {
+            Ambient = Color3.fromRGB(53, 0, 0),
+            Brightness = 1,
+            GlobalShadows = true,
+            ShadowSoftness = 1,
+            OutdoorAmbient = Color3.fromRGB(157, 121, 122),
+            ClockTime = 2.4,
+            ExposureCompensation = 0,
+            FogColor = Color3.fromRGB(61, 0, 26),
+            FogEnd = 2000,
             FogStart = 0,
         },
         transitionToTypes = {
             default = SMOOTH,
+            desert = SMOOTH,
+            crimsonpath = SMOOTH,
+            tundra = SMOOTH,
+            underwater = INSTANT,
         }
     },
-    ocean = {
-        lightingProps = {
-            Ambient = Color3.fromRGB(89, 87, 143),
-            Brightness = 1,
-            GlobalShadows = true,
-            ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(0,0,0),
-            ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(1, 32, 91),
-            FogEnd = 1000,
-            FogStart = 0,
-        },
-        transitionToTypes = {
-            default = INSTANT,
-            abyss = SMOOTH,
-            deepabyss = SMOOTH,
-        }
-    },
-    abyss = {
-        lightingProps = {
-            Ambient = Color3.fromRGB(101, 77, 143),
-            Brightness = 0.5,
-            GlobalShadows = true,
-            ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(0,0,0),
-            ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(58, 37, 88),
-            FogEnd = 1000,
-            FogStart = 0,
-        },
-        transitionToTypes = {
-            default = INSTANT,
-            ocean = SMOOTH,
-            deepabyss = SMOOTH,
-        }
-    },
-    deepabyss = {
-        lightingProps = {
-            Ambient = Color3.fromRGB(128, 103, 112),
-            Brightness = 0.07,
-            GlobalShadows = true,
-            ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(0,0,0),
-            ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(39, 26, 36),
-            FogEnd = 600,
-            FogStart = 0,
-        },
-        transitionToTypes = {
-            default = INSTANT,
-            ocean = SMOOTH,
-            abyss = SMOOTH,
-        }
-    },
-    pyramid = {
-
-    },
-
-    default = {
-        lightingProps = {
-            Ambient = Color3.fromRGB(126, 126, 143),
-            Brightness = 2,
-            GlobalShadows = true,
-            ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(0,0,0),
-            ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(127, 127, 127),
-            FogEnd = 1000000,
-            FogStart = 0,
-        },
-        transitionToTypes = {
-            cave = SMOOTH,
-            ocean = INSTANT,
-            abyss = INSTANT,
-            deepabyss = INSTANT,
-        }
-    },
-
-    halloween = {
-        lightingProps = {
-            Ambient = Color3.fromRGB(118, 72, 72),
-            Brightness =0.4,
-            GlobalShadows = true,
-            ShadowSoftness = 1,
-            OutdoorAmbient = Color3.fromRGB(138, 102, 99),
-            ExposureCompensation = 0,
-            FogColor = Color3.fromRGB(85, 0, 0),
-            FogEnd = 1500,
-            FogStart = 0,
-        },
-        transitionToTypes = {
-            cave = SMOOTH,
-            ocean = INSTANT,
-            abyss = INSTANT,
-            deepabyss = INSTANT,
-        }
-    }
 }
 
 local targetLightingProps = {
@@ -169,10 +142,10 @@ local function updateLighting()
     local camPos = camera.CFrame.p
 
     -- check against lighting areas
-    local newArea = "halloween"
+    local newArea = "default"
 
     for _,areaBounds in pairs(lightingAreas:GetDescendants()) do
-        if areaBounds:IsA("BasePart") then
+        if areaBounds:IsA("BasePart") and areas[areaBounds.Name] then
             if pointIsInPart(camPos,areaBounds) then
                 newArea = areaBounds.Name
             end
@@ -187,9 +160,9 @@ local function updateLighting()
         if transitioningFrom and transitioningFrom.transitionToTypes then
             if transitioningFrom.transitionToTypes[currentArea] == SMOOTH then
                 if typeof(val) == "Color3" then
-                    Lighting[prop] = color3lerp(Lighting[prop],val,0.05)
+                    Lighting[prop] = color3lerp(Lighting[prop],val,0.005)
                 elseif typeof(val) == "number" then
-                    Lighting[prop] = lerp(Lighting[prop],val,0.05)
+                    Lighting[prop] = lerp(Lighting[prop],val,0.005)
                 else
                     Lighting[prop] = val
                 end
