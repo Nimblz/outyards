@@ -26,6 +26,8 @@ local dialogueVisible = require(script.dialogueVisible)
 local notifications = require(script.notifications)
 local targetInteractable = require(script.targetInteractable)
 local canInteract = require(script.canInteract)
+local selectedItem = require(script.selectedItem)
+local isEquipping = require(script.isEquipping)
 
 return function(state, action)
     state = state or {}
@@ -52,6 +54,9 @@ return function(state, action)
         notifications = notifications(state.notifications, action),
 
         targetInteractable = targetInteractable(state.targetInteractable, action),
+
+        selectedItem = selectedItem(state.selectedItem, action),
+        isEquipping = isEquipping(state.isEquipping, action),
 
         canInteract = canInteract(state.canInteract, action),
     })
