@@ -13,7 +13,7 @@ return {
                 items = {
                     {itemId = "pumpkin", dropRange = {min = 1, max = 1}, dropRate = 1},
                 },
-                cash = 200,
+                cash = 20,
             }
         }
     end,

@@ -11,14 +11,15 @@ return {
             },
             ItemDrops = {
                 items = {
-                    {itemId = "slime", dropRange = {min = 4, max = 8}, dropRate = 0.75},
+                    {itemId = "slime", dropRange = {min = 50, max = 150}, dropRate = 1},
+                    {itemId = "slimeSword", dropRange = {min = 50, max = 150}, dropRate = 1},
                 },
-                cash = 1,
+                cash = 200,
             }
         }
     end,
     boundingBoxProps = {
-        Size = Vector3.new(3,3,3),
+        Size = Vector3.new(16,16,16),
         Color = Color3.fromRGB(140, 186, 212),
     },
 }

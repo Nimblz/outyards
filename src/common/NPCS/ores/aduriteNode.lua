@@ -4,14 +4,14 @@ return {
     propsGenerator = function()
         return {
             ActorStats = {
-                maxHealth = 40,
-                health = 40,
+                maxHealth = 500,
+                health = 500,
                 moveSpeed = 0,
                 baseDamage = 0
             },
             ItemDrops = {
                 items = {
-                    {itemId = "oreAdurite", dropRange = {min = 5, max = 15}, dropRate = 1},
+                    {itemId = "aduriteOre", dropRange = {min = 5, max = 15}, dropRate = 1},
                 },
                 cash = 0,
             },

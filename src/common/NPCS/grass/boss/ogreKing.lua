@@ -16,7 +16,7 @@ return {
                 items = {
                     {itemId = "kingCrown", dropRange = {min = 1, max = 1}, dropRate = 1},
                 },
-                cash = 2000,
+                cash = 200,
             },
             AI = {
                 aiType = "OgreKing",
