@@ -30,6 +30,7 @@ function InteractableTarget:render()
             AlwaysOnTop = true,
             ResetOnSpawn = false,
             Size = UDim2.new(3,0,3,0),
+            StudsOffsetWorldSpace = Vector3.new(0, instanceRoot.Size.Y/2 + 1, 0),
             MaxDistance = 64,
             ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
             Active = true,
