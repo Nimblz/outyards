@@ -18,6 +18,9 @@ return function(player,itemToEquip)
         if doesHave then
             store:dispatch(Actions.EQUIPMENT_EQUIP(player, itemToEquip))
             store:dispatch(EQUIPMENT_APPLYSTATS(player))
+            print(("Successfully equipped [%s] to [%s]"):format(itemToEquip, player.Name))
+        else
+            print(("[%s] tried to equip [%s] but does not own it."):format(player.Name, itemToEquip))
         end
     end
 end
