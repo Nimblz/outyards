@@ -19,6 +19,8 @@ local NPCCreationSystem = RECS.System:extend("NPCCreationSystem")
 function NPCCreationSystem:onComponentAdded(instance, component)
     local npcDesc = NPCS.byType[component.npcType]
 
+    assert(npcDesc, "Cannot find npc of type: "..component.npcType)
+
     local overrideProps = npcDesc.propsGenerator()
 
     local npcComponents = { -- order matters!
