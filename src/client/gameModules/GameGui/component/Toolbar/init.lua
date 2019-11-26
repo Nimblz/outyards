@@ -11,10 +11,8 @@ local Selectors = require(common.Selectors)
 local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 
-local RoundFrame = require(component.RoundFrame)
-local FitList = require(component.FitList)
 local withScale = require(component.withScale)
-local ToolbarButton = require(script.ToolbarButton)
+local Weaponbar = require(script.Weaponbar)
 
 local Toolbar = Roact.Component:extend("Toolbar")
 
@@ -24,46 +22,6 @@ function Toolbar:init()
 end
 
 function Toolbar:render()
-
-    local mainButtons = {}
-    local abilityButtons = {}
-
-    for index = 1, 4 do
-        mainButtons["weapon_"..index] = Roact.createElement(ToolbarButton, {
-            index = index,
-        })
-    end
-
-    abilityButtons.trinketAbility = Roact.createElement(ToolbarButton, {
-        index = 1,
-    })
-
-    abilityButtons.weaponAbility = Roact.createElement(ToolbarButton, {
-        index = 2,
-    })
-
-    local function makeToolbar(children)
-        return Roact.createElement(FitList, {
-            containerKind = RoundFrame,
-            paddingProps = {
-                PaddingTop = UDim.new(0,16),
-                PaddingBottom = UDim.new(0,16),
-                PaddingLeft = UDim.new(0,16),
-                PaddingRight = UDim.new(0,16),
-            },
-            layoutProps = {
-                FillDirection = Enum.FillDirection.Horizontal,
-                HorizontalAlignment = Enum.HorizontalAlignment.Center,
-                VerticalAlignment = Enum.VerticalAlignment.Center,
-                SortOrder = Enum.SortOrder.LayoutOrder,
-                Padding = UDim.new(0,16),
-            },
-            containerProps = {
-                LayoutOrder = 1,
-            },
-        }, children)
-    end
-
     return self.props.visible and Roact.createElement(FrameWithScale,{
         Size = UDim2.fromScale(1,1),
         Position = UDim2.fromScale(0.5,1),
@@ -83,8 +41,7 @@ function Toolbar:render()
             SortOrder = Enum.SortOrder.LayoutOrder,
             Padding = UDim.new(0,16),
         }),
-        mainbar = makeToolbar(mainButtons),
-        abilitybar = makeToolbar(abilityButtons),
+        weaponbar = Roact.createElement(Weaponbar),
     })
 end
 

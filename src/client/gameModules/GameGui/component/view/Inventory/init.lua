@@ -12,6 +12,7 @@ local Dictionary = require(util.Dictionary)
 local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 local Selectors = require(common.Selectors)
+local Actions = require(common.Actions)
 
 local RoundFrame = require(component.RoundFrame)
 local FitList = require(component.FitList)
@@ -26,11 +27,6 @@ function Inventory:init()
     self:setState({
         tagFilter = "all",
         searchFilter = "",
-        selectedItem = nil,
-
-        setSelected = function(itemId)
-            self:setSelected(itemId)
-        end
     })
 end
 
@@ -48,10 +44,10 @@ end
 
 function Inventory:setSelected(itemId)
     local owned = self.props.isOwned(itemId)
-    local alreadySelected = self.state.selectedItem == itemId
-    self:setState({
-        selectedItem = (owned and not alreadySelected and itemId) or Roact.None
-    })
+    local alreadySelected = self.props.selectedItem == itemId
+    local newSelectedItem = (owned and not alreadySelected and itemId) or Roact.None
+
+    self.props.setSelected(newSelectedItem)
 end
 
 function Inventory:render()
@@ -74,8 +70,10 @@ function Inventory:render()
         body = Roact.createElement(InventoryBody, {
             searchFilter = self.state.searchFilter,
             tagFilter = self.state.tagFilter,
-            selectedItem = self.state.selectedItem,
-            setSelectedItem = self.state.setSelected,
+            selectedItem = self.props.selectedItem,
+            setSelectedItem = function(itemId)
+                self:setSelected(itemId)
+            end,
         })
     }
 
@@ -106,11 +104,20 @@ local function mapStateToProps(state, props)
     return {
         isOwned = function(itemId)
             return Selectors.getItem(state, LocalPlayer, itemId)
+        end,
+        selectedItem = Selectors.getSelectedItem(state),
+    }
+end
+
+local function mapDispatchToProps(dispatch)
+    return {
+        setSelected = function(itemId)
+            dispatch(Actions.SELECTEDITEM_SET(itemId))
         end
     }
 end
 
-Inventory = RoactRodux.connect(mapStateToProps)(Inventory)
+Inventory = RoactRodux.connect(mapStateToProps, mapDispatchToProps)(Inventory)
 
 Inventory = makeView(Inventory, "inventory")
 

@@ -11,7 +11,6 @@ local ItemEquipper = PizzaAlpaca.GameModule:extend("ItemEquipper")
 
 local eRequestEquip = event.eRequestEquip
 local eRequestUnequip = event.eRequestUnequip
-local eRequestToolbarSet = event.eRequestToolbarSet
 
 function ItemEquipper:onStore(store)
     eRequestEquip.OnServerEvent:connect(function(player, itemId)
@@ -19,9 +18,6 @@ function ItemEquipper:onStore(store)
     end)
     eRequestUnequip.OnServerEvent:connect(function(player, itemId)
         store:dispatch(Thunks.ITEM_UNEQUIP(player,itemId))
-    end)
-    eRequestToolbarSet.OnServerEvent:connect(function(player, index, itemId)
-        store:dispatch(Thunks.TOOLBAR_SET(player, index, itemId))
     end)
 end
 

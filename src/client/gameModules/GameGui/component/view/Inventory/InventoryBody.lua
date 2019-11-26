@@ -61,7 +61,12 @@ function InventoryBody:render()
     local tagFilter = self.props.tagFilter
     local selectedItem = self.props.selectedItem
 
-    local setSelectedItem = self.props.setSelectedItem
+    local setSelectedItem = function(itemId)
+        local isEquipping = self.props.isEquipping
+        if not isEquipping then
+            self.props.setSelectedItem(itemId)
+        end
+    end
 
     local gridFrame = Roact.createElement(ItemGrid, {
         buttonKind = InventoryItemButton,
@@ -101,19 +106,14 @@ function InventoryBody:render()
             }),
             gridFrame = gridFrame
         }),
-        itemFocus = Roact.createElement(ItemFocus, {
-            itemId = selectedItem,
-            isEquipped = self.props.isEquipped(selectedItem),
-        }),
+        itemFocus = Roact.createElement(ItemFocus),
     })
 end
 
 local function mapStateToProps(state, props)
     return {
         inventory = Selectors.getInventory(state, LocalPlayer),
-        isEquipped = function(itemId)
-            return Selectors.getIsEquipped(state, LocalPlayer, itemId)
-        end,
+        isEquipping = Selectors.getIsEquipping(state),
     }
 end
 

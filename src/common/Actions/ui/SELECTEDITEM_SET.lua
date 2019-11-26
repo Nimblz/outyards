@@ -1,6 +1,6 @@
-return function(isEquipping)
+return function(itemId)
     return {
         type = script.Name,
-        isEquipping = isEquipping,
+        itemId = itemId,
     }
 end

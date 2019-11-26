@@ -1,4 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
 local common = ReplicatedStorage.common
 local event = ReplicatedStorage.event
@@ -7,6 +9,9 @@ local component = script:FindFirstAncestor("component")
 
 local Items = require(common.Items)
 local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Selectors = require(common.Selectors)
+local Actions = require(common.Actions)
 
 local ItemInfo = require(component.ItemInfo)
 local RoundFrame = require(component.RoundFrame)
@@ -35,6 +40,8 @@ end
 
 function ItemFocus:render()
     local itemId = self.props.itemId
+    local item = Items.byId[itemId]
+    local isEquipping = self.props.isEquipping
 
     local padding = Roact.createElement("UIPadding", {
         PaddingTop = UDim.new(0,16),
@@ -43,14 +50,20 @@ function ItemFocus:render()
         PaddingRight = UDim.new(0,16),
     })
 
-    local children = {}
+    local children
 
-    if itemId then
+    if itemId and item and not isEquipping then
         local isEquipped = self.props.isEquipped
         local isEquippable = isItemEquippable(itemId)
+        local isWeapon = item.equipmentType == "weapon"
 
         local function equip()
-            return requestEquip(itemId)
+            if isWeapon then
+                -- enable equipping mode
+                self.props.setEquipping(true)
+            else
+                return requestEquip(itemId)
+            end
         end
 
         local function unequip()
@@ -104,6 +117,22 @@ function ItemFocus:render()
             detailsContainer = detailsContainer,
             equipButton = equipButton
         }
+    elseif isEquipping then
+
+        local equippingMessage = Roact.createElement("TextLabel", {
+            BackgroundTransparency = 1,
+            Font = Enum.Font.GothamBlack,
+            TextSize = 32,
+            TextWrapped = true,
+            Text = "Click a toolbar slot to equip selected weapon!",
+            TextColor3 = Color3.fromRGB(128, 128, 128),
+            Size = UDim2.new(1,0,1,0),
+        })
+
+        children = {
+            padding = padding,
+            equippingMessage = equippingMessage
+        }
     else -- no selection
 
         local noSelection = Roact.createElement("TextLabel", {
@@ -128,5 +157,27 @@ function ItemFocus:render()
         LayoutOrder = 2,
     }, children)
 end
+
+local function mapStateToProps(state, props)
+    local itemId = Selectors.getSelectedItem(state)
+    local isEquipping = Selectors.getIsEquipping(state)
+    local isEquipped = Selectors.getIsEquipped(state, LocalPlayer, itemId)
+
+    return {
+        itemId = itemId,
+        isEquipping = isEquipping,
+        isEquipped = isEquipped,
+    }
+end
+
+local function mapDispatchToProps(dispatch)
+    return {
+        setEquipping = function(bool)
+            dispatch(Actions.ISEQUIPPING_SET(bool))
+        end
+    }
+end
+
+ItemFocus = RoactRodux.connect(mapStateToProps, mapDispatchToProps)(ItemFocus)
 
 return ItemFocus
