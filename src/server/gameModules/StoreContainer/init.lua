@@ -50,8 +50,11 @@ function StoreContainer:create()
 end
 
 function StoreContainer:getStore()
-    return Promise.async(function(resolve, reject)
-        resolve(self.store or self.storeCreated:wait())
+	return Promise.async(function(resolve, reject)
+		if not self.store then
+			self.storeCreated:wait()
+        end
+        resolve(self.store)
     end)
 end
 
@@ -67,9 +70,6 @@ function StoreContainer:createStore(initialState)
 end
 
 function StoreContainer:preInit()
-end
-
-function StoreContainer:init()
     self.logger = self.core:getModule("Logger"):createLogger(self)
     self:createStore()
 end
