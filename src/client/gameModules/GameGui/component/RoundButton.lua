@@ -41,6 +41,7 @@ function RoundButton:render()
     local props = self.props
     local backgroundKind = props.backgroundKind or RoundFrame
     local disabled = props.disabled or false
+    local layoutOrder = props.LayoutOrder or props.layoutOrder
 
     local hovered = self.state.hovered or false
     local pressed = self.state.pressed or false
@@ -74,6 +75,7 @@ function RoundButton:render()
         Position = self.props.Position,
         AnchorPoint = self.props.AnchorPoint,
         BackgroundTransparency = 1,
+        LayoutOrder = layoutOrder,
 
         [Roact.Event.MouseEnter] = function()
             if disabled then return end
