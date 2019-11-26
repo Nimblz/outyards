@@ -13,7 +13,7 @@ local PizzaAlpaca = require(lib.PizzaAlpaca)
 
 -- create PizzaAlpaca core instance
 local core = PizzaAlpaca.GameCore.new()
-core._debugPrints = true
+core._debugprints = true
 
 -- load sided and common modules
 core:registerChildrenAsModules(commonModules)
