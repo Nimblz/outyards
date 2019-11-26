@@ -1,13 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
+local TweenService = game:GetService("TweenService")
 
-local common = ReplicatedStorage:WaitForChild("common")
-local event = ReplicatedStorage:WaitForChild("event")
+local common = ReplicatedStorage.common
+local event = ReplicatedStorage.event
+local template = ReplicatedStorage.template
 
-local Sound = require(common:WaitForChild("Sound"))
-local Animations = require(common:WaitForChild("Animations"))
+local Sound = require(common.Sound)
+local Animations = require(common.Animations)
 
-local eAttackActor = event:WaitForChild("eAttackActor")
+local eAttackActor = event.eAttackActor
 
 local behavior = {
     id = "melee"
@@ -67,6 +69,39 @@ function behavior:playSwing()
     end
 end
 
+function behavior:createSlash()
+    -- create the part from template
+    local slashClone = template.Slash:Clone()
+    local rootPart = self.character.PrimaryPart
+
+    local lifetime = 1/3
+
+    local tInfo = TweenInfo.new(lifetime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+    local nearCFrame = rootPart.CFrame * CFrame.new(0,1,-3)
+    local farCFrame = nearCFrame * CFrame.new(0,0,-4)
+    local bigSize = slashClone.Size + Vector3.new(3,0,1)
+
+    slashClone.CFrame = nearCFrame
+
+    slashClone.Parent = self.character
+
+    local newTween = TweenService:Create(slashClone, tInfo, {
+        CFrame = farCFrame,
+        Transparency = 1,
+        Size = bigSize,
+    })
+
+    newTween.Completed:Connect(function()
+        slashClone:Destroy()
+        newTween:Destroy()
+    end)
+
+    newTween:Play()
+
+    delay(lifetime, function() slashClone:Destroy() end)
+end
+
 function behavior:doAttack()
     if not self:canAttack() then return end
 
@@ -85,6 +120,7 @@ function behavior:doAttack()
     local arc = metadata.attackArc or 90
 
     self:playSwing()
+    self:createSlash()
 
     -- play swing sound
     if metadata.swingSound then
