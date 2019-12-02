@@ -1,13 +1,12 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CollectionService = game:GetService("CollectionService")
-local Workspace = game:GetService("Workspace")
 
-local event = ReplicatedStorage.event
 local common = ReplicatedStorage.common
+local util = common.util
+local projectileUtil = util.projectile
+
+local requestHit = require(projectileUtil.requestHit)
 
 local ParticleCreator = require(common.ParticleCreator)
-
-local eAttackActor = event.eAttackActor
 
 return {
     id = "superbullet",
@@ -33,33 +32,19 @@ return {
 
         ParticleCreator.spawnParticle("circle", {
             cFrame = entity.CFrame,
-            scale = 1+scaleMod,
+            scale = 0.5+(scaleMod/2),
             amount = 1
         })
 
         ParticleCreator.spawnParticle("ring", {
             cFrame = entity.CFrame,
-            scale = 3+scaleMod,
+            scale = 1+scaleMod,
             amount = 1
         })
-            -- find npcs
-        local cornerOffset = Vector3.new(1,1,1)*16
-        local topCorner = entity.CFrame.p + cornerOffset
-        local bottomCorner = entity.CFrame.p - cornerOffset
-        local testRegion = Region3.new(bottomCorner,topCorner)
 
-        local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
-
+        -- request hit
         if component.owned then
-            if CollectionService:HasTag(hit, "ActorStats") then
-                eAttackActor:FireServer(hit)
-            end
-
-            for _,v in pairs(parts) do
-                if v ~= hit then
-                    eAttackActor:FireServer(v)
-                end
-            end
+            requestHit(hit, hitPos, 8, entity.CFrame.LookVector)
         end
     end,
 }

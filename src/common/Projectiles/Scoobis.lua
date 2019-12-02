@@ -1,13 +1,11 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local CollectionService = game:GetService("CollectionService")
-local Workspace = game:GetService("Workspace")
 
-local event = ReplicatedStorage.event
 local common = ReplicatedStorage.common
+local util = common.util
+local projectileUtil = util.projectile
+local requestHit = require(projectileUtil.requestHit)
 
 local ParticleCreator = require(common.ParticleCreator)
-
-local eAttackActor = event.eAttackActor
 
 return {
     id = "scoobis",
@@ -39,23 +37,9 @@ return {
             timeScale = 1/3
         })
 
-        -- find npcs
-        local cornerOffset = Vector3.new(1,1,1)*100
-        local topCorner = entity.CFrame.p + cornerOffset
-        local bottomCorner = entity.CFrame.p - cornerOffset
-        local testRegion = Region3.new(bottomCorner,topCorner)
-
-        local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
-
         if component.owned then
-            if CollectionService:HasTag(hit, "ActorStats") then
-                eAttackActor:FireServer(hit)
-            end
-
-            for _,v in pairs(parts) do
-                if v ~= hit then
-                    eAttackActor:FireServer(v)
-                end
+            if component.owned then
+                requestHit(hit, hitPos, 64, entity.CFrame.LookVector)
             end
         end
     end,

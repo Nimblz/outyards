@@ -1,6 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local CollectionService = game:GetService("CollectionService")
 local TweenService = game:GetService("TweenService")
+local Workspace = game:GetService("Workspace")
 
 local common = ReplicatedStorage.common
 local event = ReplicatedStorage.event
@@ -10,6 +11,7 @@ local Sound = require(common.Sound)
 local Animations = require(common.Animations)
 
 local eAttackActor = event.eAttackActor
+local makeHit = require(common.makeHit)
 
 local behavior = {
     id = "melee"
@@ -69,18 +71,29 @@ function behavior:playSwing()
     end
 end
 
-function behavior:createSlash()
+function behavior:createSlash(range, arc)
+    arc = math.min(arc,120)
     -- create the part from template
     local slashClone = template.Slash:Clone()
     local rootPart = self.character.PrimaryPart
 
-    local lifetime = 1/3
+    local lifetime = 1/4
+    local delay = 0.1
 
     local tInfo = TweenInfo.new(lifetime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local delayedInfo = TweenInfo.new(lifetime-delay, Enum.EasingStyle.Quad, Enum.EasingDirection.Out, 0, false, delay)
 
-    local nearCFrame = rootPart.CFrame * CFrame.new(0,1,-3)
-    local farCFrame = nearCFrame * CFrame.new(0,0,-4)
-    local bigSize = slashClone.Size + Vector3.new(3,0,1)
+    local widthDepthRatio = slashClone.Size.Z/slashClone.Size.X
+    local finalWidth = range*2*math.tan(math.rad(arc/2))
+
+    local leftCorner = Vector3.new(-finalWidth/2,0,-range).Unit * range
+    local rightCorner = Vector3.new(finalWidth/2,0,-range).Unit * range
+
+    finalWidth = (rightCorner-leftCorner).Magnitude
+
+    local nearCFrame = rootPart.CFrame * CFrame.new(0,0,-1) * CFrame.Angles(0,0,math.random() * 0.2 - 0.1)
+    local bigSize = Vector3.new(finalWidth, slashClone.Size.Y, finalWidth * widthDepthRatio)
+    local farCFrame = nearCFrame * CFrame.new(0,0,-(range-(bigSize.Z/2)))
 
     slashClone.CFrame = nearCFrame
 
@@ -88,18 +101,19 @@ function behavior:createSlash()
 
     local newTween = TweenService:Create(slashClone, tInfo, {
         CFrame = farCFrame,
-        Transparency = 1,
         Size = bigSize,
+    })
+
+    local transparencyTween = TweenService:Create(slashClone, delayedInfo, {
+        Transparency = 1,
     })
 
     newTween.Completed:Connect(function()
         slashClone:Destroy()
-        newTween:Destroy()
     end)
 
     newTween:Play()
-
-    delay(lifetime, function() slashClone:Destroy() end)
+    transparencyTween:Play()
 end
 
 function behavior:doAttack()
@@ -120,7 +134,7 @@ function behavior:doAttack()
     local arc = metadata.attackArc or 90
 
     self:playSwing()
-    self:createSlash()
+    self:createSlash(range, arc)
 
     -- play swing sound
     if metadata.swingSound then
@@ -135,7 +149,7 @@ function behavior:doAttack()
     local bottomCorner = rootCF.p - cornerOffset
     local testRegion = Region3.new(bottomCorner,topCorner)
 
-    local parts = workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
+    local parts = Workspace:FindPartsInRegion3WithWhiteList(testRegion, CollectionService:GetTagged("ActorStats"))
     local toHit = {}
 
     -- find monsters within our radius and arc
@@ -164,7 +178,11 @@ function behavior:doAttack()
 
     if self.owned then
         for _,monster in pairs(toHit) do
-            eAttackActor:FireServer(monster)
+            local hitInfo = makeHit({
+                target = monster,
+                direction = facing,
+            })
+            eAttackActor:FireServer(hitInfo)
         end
     end
 end
