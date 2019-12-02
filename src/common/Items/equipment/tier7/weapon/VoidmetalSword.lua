@@ -25,8 +25,8 @@ return {
 
     metadata = {
         fireRate = fireRate,
-        attackRange = 12,
-        attackArc = 120, -- in degrees
+        attackRange = 24,
+        attackArc = 90, -- in degrees
     },
 
     tags = {
