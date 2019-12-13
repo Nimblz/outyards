@@ -1,22 +1,27 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 local component = script:FindFirstAncestor("component")
 
-local eRequestEquip = event:WaitForChild("eRequestEquip")
+local eRequestEquip = event.eRequestEquip
 
-local Dictionary = require(util:WaitForChild("Dictionary"))
-local Roact = require(lib:WaitForChild("Roact"))
+local Dictionary = require(util.Dictionary)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
+local Selectors = require(common.Selectors)
+local Actions = require(common.Actions)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local FitList = require(component:WaitForChild("FitList"))
-local CraftingBody = require(script:WaitForChild("CraftingBody"))
-local CraftingNavbar = require(script:WaitForChild("CraftingNavbar"))
+local RoundFrame = require(component.RoundFrame)
+local FitList = require(component.FitList)
+local CraftingBody = require(script.CraftingBody)
+local CraftingNavbar = require(script.CraftingNavbar)
 
-local makeView = require(script.Parent:WaitForChild("makeView"))
+local makeView = require(script.Parent.makeView)
 
 local Crafting = Roact.PureComponent:extend("Crafting")
 
@@ -40,6 +45,15 @@ function Crafting:setSearchFilter(newSearch)
 end
 
 function Crafting:render()
+    local viewVisible = self.props.visible
+
+    local function setSelected(id)
+        if self.props.selectedItem == id then
+            self.props.setSelected(nil)
+        else
+            self.props.setSelected(id)
+        end
+    end
 
     local viewContent = {
         title = Roact.createElement("TextLabel", {
@@ -59,12 +73,13 @@ function Crafting:render()
         body = Roact.createElement(CraftingBody, {
             searchFilter = self.state.searchFilter,
             tagFilter = self.state.tagFilter,
+            setSelectedItem = setSelected,
         })
     }
 
     local children = Dictionary.join(viewContent, self.props[Roact.Children])
 
-    return Roact.createElement(FitList, {
+    return viewVisible and Roact.createElement(FitList, {
         containerKind = RoundFrame,
         scale = 1,
         layoutProps = {
@@ -84,6 +99,25 @@ function Crafting:render()
         }
     }, children)
 end
+
+local function mapStateToProps(state, props)
+    return {
+        isOwned = function(itemId)
+            return Selectors.getItem(state, LocalPlayer, itemId)
+        end,
+        selectedItem = Selectors.getSelectedItem(state),
+    }
+end
+
+local function mapDispatchToProps(dispatch)
+    return {
+        setSelected = function(itemId)
+            dispatch(Actions.SELECTEDITEM_SET(itemId))
+        end
+    }
+end
+
+Crafting = RoactRodux.connect(mapStateToProps, mapDispatchToProps)(Crafting)
 
 Crafting = makeView(Crafting, "crafting")
 

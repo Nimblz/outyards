@@ -2,23 +2,25 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
-local common = ReplicatedStorage:WaitForChild("common")
-local lib = ReplicatedStorage:WaitForChild("lib")
-local event = ReplicatedStorage:WaitForChild("event")
-local util = common:WaitForChild("util")
+local common = ReplicatedStorage.common
+local lib = ReplicatedStorage.lib
+local event = ReplicatedStorage.event
+local util = common.util
 local component = script:FindFirstAncestor("component")
 local craftingComponent = script.Parent
 
-local Selectors = require(common:WaitForChild("Selectors"))
-local Items = require(common:WaitForChild("Items"))
-local Roact = require(lib:WaitForChild("Roact"))
-local RoactRodux = require(lib:WaitForChild("RoactRodux"))
+local Selectors = require(common.Selectors)
+local Items = require(common.Items)
+local Roact = require(lib.Roact)
+local RoactRodux = require(lib.RoactRodux)
 
-local RoundFrame = require(component:WaitForChild("RoundFrame"))
-local FitList = require(component:WaitForChild("FitList"))
-local FitGrid = require(component:WaitForChild("FitGrid"))
+local RoundFrame = require(component.RoundFrame)
+local FitList = require(component.FitList)
+local CraftingFocus = require(craftingComponent.CraftingFocus)
+local SelectableItemButton = require(component.SelectableItemButton)
+local ItemGrid = require(component.ItemGrid)
 
-local contains = require(util:WaitForChild("contains"))
+local contains = require(util.contains)
 
 local CraftingBody = Roact.PureComponent:extend("CraftingBody")
 
@@ -54,6 +56,37 @@ local function fitsSearch(item, searchString)
 end
 
 function CraftingBody:render()
+    local searchFilter = self.props.searchFilter
+    local tagFilter = self.props.tagFilter
+    local rawCraftableItems = self.props.craftableItems
+    local craftableItems = {}
+
+    for id, _ in pairs(rawCraftableItems) do
+        craftableItems[id] = 1
+    end
+
+    local setSelectedItem = function(itemId)
+        local isEquipping = self.props.isEquipping
+        if not isEquipping then
+            self.props.setSelectedItem(itemId)
+        end
+    end
+
+    local itemGrid = Roact.createElement(ItemGrid, {
+        buttonKind = SelectableItemButton,
+        items = craftableItems,
+        hideQuantity = true,
+        ySize = 450,
+        filters = {
+            function(item) return fitsSearch(item, searchFilter) end,
+            function(item) return fitsTag(item, tagFilter) end,
+        },
+        wrapAt = 5, -- in cells
+
+        selectedId = self.props.selectedItemId,
+        onSelect = setSelectedItem,
+    })
+
     return Roact.createElement(FitList, {
         scale = 1,
         containerProps = {
@@ -65,27 +98,33 @@ function CraftingBody:render()
             FillDirection = Enum.FillDirection.Horizontal,
         }
     }, {
-        itemsView = Roact.createElement(RoundFrame, {
-            color = Color3.fromRGB(216, 216, 216),
-            Size = UDim2.new(0,450,0,450),
-            ClipsDescendants = true,
-            LayoutOrder = 1,
+        itemsView = Roact.createElement(FitList, {
+            containerKind = RoundFrame,
+            paddingProps = {
+                PaddingTop = UDim.new(0,8),
+                PaddingBottom = UDim.new(0,8),
+                PaddingLeft = UDim.new(0,8),
+                PaddingRight = UDim.new(0,12),
+            },
+            containerProps = {
+                color = Color3.fromRGB(216, 216, 216),
+                Size = UDim2.new(0,450,0,450),
+                ClipsDescendants = true,
+                LayoutOrder = 1,
+            }
+        }, {
+            itemGrid = itemGrid
         }),
-        recipeFocus = Roact.createElement(RoundFrame, {
-            color = Color3.fromRGB(216, 216, 216),
-            Size = UDim2.new(0,250,0,450),
-            ClipsDescendants = true,
-            LayoutOrder = 2,
-        })
+        recipeFocus = Roact.createElement(CraftingFocus, {
+        }) -- todo: recipe focus
     })
 end
 
 local function mapStateToProps(state, props)
+    local selectedItemId = Selectors.getSelectedItem(state)
     return {
-        inventory = Selectors.getInventory(state, LocalPlayer),
-        isEquipped = function(itemId)
-            return Selectors.getIsEquipped(state, LocalPlayer, itemId)
-        end,
+        selectedItemId = selectedItemId,
+        craftableItems = Selectors.getCraftable(state, LocalPlayer),
     }
 end
 
