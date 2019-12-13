@@ -2,10 +2,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local common = ReplicatedStorage.common
 local lib = ReplicatedStorage.lib
-local util = common.util
 local component = script:FindFirstAncestor("component")
 
-local Dictionary = require(util.Dictionary)
 local Selectors = require(common.Selectors)
 local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
@@ -19,10 +17,6 @@ local function makeView(kind, viewId)
 
     function newView:render()
 
-        local prunedProps = Dictionary.join(self.props, {
-            visible = Dictionary.None,
-        })
-
         return Roact.createElement("Frame", {
             Selectable = false,
             Active = false,
@@ -32,7 +26,7 @@ local function makeView(kind, viewId)
             ZIndex = 2,
             Visible = self.props.visible,
         }, {
-            view = Roact.createElement(componentWithScale, prunedProps)
+            view = Roact.createElement(componentWithScale, self.props)
         })
     end
 

@@ -51,6 +51,7 @@ function Inventory:setSelected(itemId)
 end
 
 function Inventory:render()
+    local viewVisible = self.props.visible
 
     local viewContent = {
         title = Roact.createElement("TextLabel", {
@@ -79,7 +80,7 @@ function Inventory:render()
 
     local children = Dictionary.join(viewContent, self.props[Roact.Children])
 
-    return Roact.createElement(FitList, {
+    return viewVisible and Roact.createElement(FitList, {
         containerKind = RoundFrame,
         scale = 1,
         layoutProps = {

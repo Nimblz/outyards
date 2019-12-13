@@ -27,11 +27,11 @@ function InvItemButton:render()
         AnchorPoint = Vector2.new(0.5,0.5),
         Position = UDim2.fromScale(0.5,0.5),
 
-        Image = "rbxassetid://4361041567",
-        ImageColor3 = Color3.fromRGB(49, 197, 255),
+        Image = "rbxassetid://4482432252",
+        ImageColor3 = Color3.fromRGB(0, 0, 0),
 
         ScaleType = Enum.ScaleType.Slice,
-        SliceCenter = Rect.new(16,16,48,48),
+        SliceCenter = Rect.new(32,32,32,32),
 
         ZIndex = 3,
     })

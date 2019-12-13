@@ -18,7 +18,7 @@ local RoactRodux = require(lib.RoactRodux)
 local RoundFrame = require(component.RoundFrame)
 local FitList = require(component.FitList)
 local ItemGrid = require(component.ItemGrid)
-local InventoryItemButton = require(invComponent.InventoryItemButton)
+local SelectableItemButton = require(component.SelectableItemButton)
 local ItemFocus = require(invComponent.ItemFocus)
 
 local contains = require(util.contains)
@@ -69,8 +69,9 @@ function InventoryBody:render()
     end
 
     local gridFrame = Roact.createElement(ItemGrid, {
-        buttonKind = InventoryItemButton,
+        buttonKind = SelectableItemButton,
         items = inventory,
+        ySize = 450,
         filters = {
             function(item) return fitsSearch(item, searchFilter) end,
             function(item) return fitsTag(item, tagFilter) end,
@@ -92,19 +93,22 @@ function InventoryBody:render()
             FillDirection = Enum.FillDirection.Horizontal,
         }
     }, {
-        itemsView = Roact.createElement(RoundFrame, {
-            color = Color3.fromRGB(216, 216, 216),
-            Size = UDim2.new(0,450,0,450),
-            ClipsDescendants = true,
-            LayoutOrder = 1,
-        }, {
-            padding = Roact.createElement("UIPadding", {
-                PaddingTop = UDim.new(0,16),
-                PaddingBottom = UDim.new(0,16),
-                PaddingLeft = UDim.new(0,16),
+        itemsView = Roact.createElement(FitList, {
+            containerKind = RoundFrame,
+            paddingProps = {
+                PaddingTop = UDim.new(0,8),
+                PaddingBottom = UDim.new(0,8),
+                PaddingLeft = UDim.new(0,8),
                 PaddingRight = UDim.new(0,12),
-            }),
-            gridFrame = gridFrame
+            },
+            containerProps = {
+                color = Color3.fromRGB(216, 216, 216),
+                Size = UDim2.new(0,450,0,450),
+                ClipsDescendants = true,
+                LayoutOrder = 1,
+            }
+        }, {
+            itemGrid = gridFrame
         }),
         itemFocus = Roact.createElement(ItemFocus),
     })

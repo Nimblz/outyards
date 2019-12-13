@@ -153,7 +153,7 @@ function ItemFocus:render()
 
     return Roact.createElement(RoundFrame, {
         ImageTransparency = 1,
-        Size = UDim2.new(0,250,0,450),
+        Size = UDim2.new(0,250,1,0),
         LayoutOrder = 2,
     }, children)
 end

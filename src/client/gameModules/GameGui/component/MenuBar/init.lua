@@ -33,16 +33,16 @@ function MenuBar:init()
             icon = "rbxassetid://666448950",
             name = "Crafting",
         },
-        {
-            id = "boosts",
-            icon = "rbxassetid://4102976956",
-            name = "Premium Shop",
-        },
-        {
-            id = "options",
-            icon = "rbxassetid://282366832",
-            name = "Options",
-        },
+        -- {
+        --     id = "boosts",
+        --     icon = "rbxassetid://4102976956",
+        --     name = "Premium Shop",
+        -- },
+        -- {
+        --     id = "options",
+        --     icon = "rbxassetid://282366832",
+        --     name = "Options",
+        -- },
     }
 
     self.buttonRefs = {}
@@ -59,7 +59,7 @@ function MenuBar:render()
 
     buttons.layout = Roact.createElement("UIListLayout", {
         SortOrder = Enum.SortOrder.LayoutOrder,
-        VerticalAlignment = Enum.VerticalAlignment.Bottom,
+        VerticalAlignment = Enum.VerticalAlignment.Center,
         HorizontalAlignment = Enum.HorizontalAlignment.Left,
         Padding = UDim.new(0,PADDING),
         FillDirection = Enum.FillDirection.Vertical,
@@ -90,8 +90,8 @@ function MenuBar:render()
 
     return Roact.createElement(FrameWithScale, {
         Size = UDim2.new(0,100,0,0),
-        Position = UDim2.new(0,PADDING,1,-PADDING),
-        AnchorPoint = Vector2.new(0,1),
+        Position = UDim2.new(0,PADDING,0.5,0),
+        AnchorPoint = Vector2.new(0,0.5),
         BackgroundTransparency = 1,
         Visible = visible,
         ZIndex = 1,

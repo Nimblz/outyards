@@ -29,6 +29,7 @@ function Dialogue:init(initialProps)
     })
 
     eDialogueChanged.OnClientEvent:connect(function(speechProps)
+        print("DialogueStarted!!!")
         self.props.startDialogue()
         self:setState(function()
             return {
@@ -48,6 +49,7 @@ function Dialogue:didMount()
 end
 
 function Dialogue:render()
+    local viewVisible = self.props.visible
     local speaker = self.state.speaker
     local text = self.state.text
     local options = self.state.options
@@ -58,7 +60,7 @@ function Dialogue:render()
         SortOrder = Enum.SortOrder.LayoutOrder,
     })
 
-    return Roact.createElement("Frame", {
+    return viewVisible and Roact.createElement("Frame", {
         BackgroundTransparency = 1,
         AnchorPoint = Vector2.new(0.5,1),
         Position = UDim2.new(0.5,0,1,-200),

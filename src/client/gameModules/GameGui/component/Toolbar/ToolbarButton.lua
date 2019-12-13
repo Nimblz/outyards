@@ -10,7 +10,7 @@ local Roact = require(lib.Roact)
 local RoactRodux = require(lib.RoactRodux)
 local Selectors = require(common.Selectors)
 
-local RoundButton = require(component.RoundButton)
+local RoundButton = require(component.FancyButton)
 local SpriteLabel = require(component.SpriteLabel)
 
 local ToolbarButton = Roact.PureComponent:extend("ToolbarButton")
