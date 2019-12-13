@@ -2,6 +2,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
 
 local common = ReplicatedStorage:WaitForChild("common")
 local util = common:WaitForChild("util")
@@ -10,6 +11,8 @@ local Trajectory = require(util:WaitForChild("Trajectory"))
 local Projectiles = require(common:WaitForChild("Projectiles"))
 local Sound = require(common:WaitForChild("Sound"))
 local Animations = require(common:WaitForChild("Animations"))
+
+local TOUCH_ENABLED = UserInputService.TouchEnabled
 
 local behavior = {
     id = "gun"
@@ -104,8 +107,11 @@ function behavior:doAttack()
 
     local bulletSpeed = projectile.speed
     local bulletGravity = Workspace.Gravity * projectile.gravityScale
-    local direction = Trajectory.directionToReachGoal(originCFrame.p, goalPos, bulletSpeed, bulletGravity)
-    if not direction then direction = Trajectory.towardsWithAngle(originCFrame.p, goalPos, math.rad(goalAngle)) end
+    local direction = (goalPos - originCFrame.p).Unit
+    if TOUCH_ENABLED then
+        direction = Trajectory.directionToReachGoal(originCFrame.p, goalPos, bulletSpeed, bulletGravity)
+        if not direction then direction = Trajectory.towardsWithAngle(originCFrame.p, goalPos, math.rad(goalAngle)) end
+    end
 
     Sound.playSoundAt(originCFrame, Sound.presets[metadata.shootSound or "gunshot"])
 
