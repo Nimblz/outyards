@@ -35,7 +35,7 @@ function FitText:render()
         minSize = Dictionary.None,
         scale = Dictionary.None,
 		Size = self.sizeBinding,
-		TextWrapped = true,
+		TextWrapped = self.props.fitAxis == "Y",
 		[Roact.Ref] = self.ref,
 		[Roact.Change.AbsoluteSize] = function(rbx)
 			self:updateTextMeasurements()
