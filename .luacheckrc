@@ -29,6 +29,9 @@ end
 
 stds.roblox = {
     globals = {
+        debug = {
+            other_fields = true,
+        },
         script = {
             other_fields = true,
             fields = {
