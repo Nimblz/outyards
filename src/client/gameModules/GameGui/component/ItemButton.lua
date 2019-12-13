@@ -119,7 +119,7 @@ function ItemButton:render()
     local scale = self.props.scale or 4
     local quantity = self.props.quantity
     local padding = self.props.padding or 4
-    local showQuantity = not self.props.hideQuantity
+    local hideQuantity = self.props.hideQuantity or false
     local showEquipped = not self.props.hideEquipped
     local isEquipped = self.props.isEquipped or false
     local color = self.props.color
@@ -139,7 +139,7 @@ function ItemButton:render()
         scale = scale,
     })
 
-    local quantityLabel = showQuantity and Roact.createElement("TextLabel", {
+    local quantityLabel = (not hideQuantity) and Roact.createElement("TextLabel", {
         Size = UDim2.new(0,24,0,24),
         AnchorPoint = Vector2.new(1,1),
         Position = UDim2.new(1,-4,1,-4),
