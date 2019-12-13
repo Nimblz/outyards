@@ -15,7 +15,7 @@ return {
     closeOnWalkAway = true,
     create = function(server, player)
         return newConversation({
-            speaker = "Miner",
+            speaker = "Guard",
 
             rootNode = newNode({
                 text = "There are lots of monsters outside town! Best bring a weapon if you're going adventuring.",
