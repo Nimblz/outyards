@@ -41,6 +41,8 @@ end
 function ItemGrid:shouldUpdate(newProps, newState)
     -- should update if new items put thru the new filter do not match old items put thru old filter
     -- todo: should update if any prop other than filters changes
+    debug.profilebegin("ItemGrid:shouldUpdate")
+
     local props = self.props
     local oldItems = props.items
     local newItems = newProps.items
@@ -64,6 +66,9 @@ function ItemGrid:shouldUpdate(newProps, newState)
     for k,v in pairs(oldFilteredItems) do
         if newFilteredItems[k] ~= v then return true end
     end
+
+    debug.profileend()
+    return false
 end
 
 function ItemGrid:render()
@@ -72,9 +77,14 @@ function ItemGrid:render()
     local wrapAt = props.wrapAt or 5
     local items = props.items
     local filters = props.filters or {}
+    local hideQuantity = props.hideQuantity or false
     local selectedId = props.selectedId
+    local scrollbarPadding = props.scrollbarPadding or 12+8
+    local ySize = props.ySize
 
     local onSelect = props.onSelect
+
+    debug.profilebegin("ItemGrid:render()")
 
     -- create item buttons
     local filteredItems = filterItems(items, filters)
@@ -95,6 +105,7 @@ function ItemGrid:render()
                     quantity = quantity,
                     activatable = true,
                     selected = selectedId == id,
+                    hideQuantity = hideQuantity,
 
                     onActivated = function(rbx, itemId) onSelect(itemId) end
                 })
@@ -123,7 +134,7 @@ function ItemGrid:render()
 
     -- create scrolling frame
     local gridFrame = Roact.createElement("ScrollingFrame", {
-        Size = UDim2.new(1,0,1,0),
+        Size = UDim2.new(0, (wrapAt * CELL_SIZE) + scrollbarPadding, 0, ySize),
         CanvasSize = UDim2.new(0,0,0,math.ceil(itemCount/wrapAt) * CELL_SIZE),
         BackgroundTransparency = 1,
         BorderSizePixel = 0,
@@ -136,6 +147,7 @@ function ItemGrid:render()
     }, {
         itemGrid = itemGrid
     })
+    debug.profileend()
 
     return gridFrame
 end
