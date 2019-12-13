@@ -29,7 +29,6 @@ function Dialogue:init(initialProps)
     })
 
     eDialogueChanged.OnClientEvent:connect(function(speechProps)
-        print("DialogueStarted!!!")
         self.props.startDialogue()
         self:setState(function()
             return {
